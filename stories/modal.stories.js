@@ -1,10 +1,19 @@
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import VsModal from '../packages/vs-modal/src/vs-modal.vue';
+import VsModalReadme from '../packages/vs-modal/README.md';
 
 export default {
   title: 'Modal',
   decorators: [withKnobs],
+  component: VsModal,
+  parameters: {
+    docs: {
+      description: {
+        component: VsModalReadme,
+      },
+    },
+  },
 };
 
 export const Modal = () => ({

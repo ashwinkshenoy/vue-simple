@@ -1,18 +1,25 @@
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import VsAlert from '../packages/vs-alert/src/vs-alert.vue';
+import VsAlertReadme from '../packages/vs-alert/README.md';
 
 export default {
   title: 'Alert',
   decorators: [withKnobs],
+  parameters: {
+    docs: {
+      description: {
+        component: VsAlertReadme,
+      },
+    },
+  },
 };
 
 export const Alert = () => ({
   props: {
     type: {
       type: String,
-      default: text('Type', 'success'),
-      required: true,
+      default: select('Type', ['success', 'info', 'warning', 'error'], 'success'),
     },
     showClose: {
       type: Boolean,

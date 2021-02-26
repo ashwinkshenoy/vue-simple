@@ -21,7 +21,7 @@ A light weight vue plugin built groundup.
 
 Code Sandbox: [Link](https://codesandbox.io/s/vs-alert-yhjce)
 
-<img src="./demo_image/image.png" width="600">
+<img src="https://raw.githubusercontent.com/ashwinkshenoy/vue-simple/master/packages/vs-alert/demo_image/image.png" width="600">
 
 <br />
 
