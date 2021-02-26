@@ -9,9 +9,6 @@
   🌈 A Simple collection of Tiny Vue Packages. 
   <br />
   ⚡️ Perfect for all your daily coding scenarios.
-  <br />
-  Built with ❤️ by
-  <a href="https://twitter.com/ashwinkshenoy">Ashwin Shenoy</a>
 </div>
 
 <br /><br />
@@ -58,3 +55,7 @@ Cheers!! ❤️
 
 Copyright 2020
 Licensed under the [`MIT License`](LICENSE).
+
+<br />
+Built with ❤️ by
+<a href="https://twitter.com/ashwinkshenoy">Ashwin Shenoy</a>
