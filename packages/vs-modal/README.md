@@ -78,7 +78,7 @@ yarn add vs-modal
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-modal@1.2.66/dist/vs-modal.min.js"></script>
+<script src="https://unpkg.com/vs-modal@1.2.68/dist/vs-modal.min.js"></script>
 ```
 
 ```html

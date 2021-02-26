@@ -62,7 +62,7 @@ yarn add vs-alert
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-alert@1.2.75/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/vs-alert@1.2.77/dist/vs-alert.min.js"></script>
 ```
 
 ```html
