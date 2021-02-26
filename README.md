@@ -1,8 +1,8 @@
-<br />
 <h1 align="center">
   Vue Simple
   <br />
   <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg">
+  <img src="https://img.shields.io/badge/Made%20With-Love-orange.svg">
 </h1>
 
 <div align="center">
@@ -17,6 +17,18 @@
 <br /><br />
 
 ## Introduction
+
+![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
+![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
+![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)
+![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)
+![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
+![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)
+![forthebadge](https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg)
+![forthebadge](https://forthebadge.com/images/badges/open-source.svg)
+![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)
+![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)
 
 Vue Simple provides consistent styling and behavior for your daily coding/prototyping scenarios. Vue components are maintained following a multi-package approach where components are packaged and published individually, but combined under this single repository.
 
