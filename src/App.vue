@@ -41,7 +41,9 @@
       </div>
     </div>
 
-    <br /><br /><br /><br />
+    <br /><br />
+    <hr />
+    <br /><br />
     <strong>Multi-Select</strong>
     <br /><br />
 
@@ -68,7 +70,9 @@
       </div>
     </div>
 
-    <br /><br /><br /><br />
+    <br /><br />
+    <hr />
+    <br /><br />
     <strong>Alerts</strong>
     <br /><br />
 
@@ -118,12 +122,21 @@
     <vs-alert type="info" no-bg>
       Information Message
     </vs-alert>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Modals</strong>
+    <br /><br />
+    <modal></modal>
   </div>
 </template>
 
 <script>
-  import { VsSelect, VsMultiselect } from 'vs-select';
-  import VsAlert from 'vs-alert';
+  import VsSelect from '../packages/vs-select/src/vs-select';
+  import VsMultiselect from '../packages/vs-select/src/vs-multiselect';
+  import VsAlert from '../packages/vs-alert/src/vs-alert';
+  import Modal from './modal';
 
   export default {
     name: 'App',
@@ -131,6 +144,7 @@
       VsSelect,
       VsMultiselect,
       VsAlert,
+      Modal,
     },
 
     data() {
@@ -161,6 +175,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+  }
+
+  strong {
+    font-size: 20px;
   }
 
   .menu-item {
