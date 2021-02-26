@@ -57,5 +57,4 @@ Cheers!! ❤️
 ## License
 
 Copyright 2020
-
-Licensed under the MIT License.
+Licensed under the [`MIT License`](LICENSE).
