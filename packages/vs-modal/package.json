@@ -1,0 +1,55 @@
+{
+  "name": "vs-modal",
+  "version": "1.2.67",
+  "description": "A simple vue modal. Perfect for all your modal/ dialogs scenarios.",
+  "main": "dist/vs-modal.umd.js",
+  "module": "dist/vs-modal.esm.js",
+  "unpkg": "dist/vs-modal.min.js",
+  "browser": {
+    "./sfc": "src/vs-modal.vue"
+  },
+  "scripts": {
+    "build": "rm -rfv dist && npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vs-modal.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vs-modal.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vs-modal.min.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-image": "2.0.5",
+    "minimist": "^1.2.0",
+    "rollup": "^1.32.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-vue": "^5.1.9",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vs-modal.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "modal",
+    "dialog",
+    "front-end",
+    "popup",
+    "web",
+    "vue-js",
+    "alert",
+    "vue-js-modal",
+    "vue-modal"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vs-modal/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vs-modal#readme",
+  "dependencies": {}
+}
