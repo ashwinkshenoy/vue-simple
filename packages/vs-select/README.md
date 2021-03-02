@@ -72,7 +72,7 @@ yarn add vs-select
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-select@0.9.0/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/vs-select@0.9.3/dist/vs-select.min.js"></script>
 ```
 
 ```html
@@ -153,8 +153,35 @@ After installation,
 | isSearch    | Boolean | false    | Searchable select                                                                      |
 | label       | String  | 'Select' | Placeholder text                                                                       |
 | preselected | Array   | -        | Preselected items. For array of objects, pass `value` as array items ex: `['D', 'BB']` |
-| isError     | Boolean | false    | To show error in select box                                                            |
 | disabled    | Boolean | false    | To disable select box                                                                  |
+| isError     | Boolean | false    | To show error in select box                                                            |
+| isMenu      | Boolean | false    | To display like menu dropdown. Available only on `vs-select`                           |
+
+**Note**
+You can also pass `disable: true` in array of objects to disable particular item.
+
+```html
+// Example
+<template>
+  <vs-select :options="options"></vs-select>
+</template>
+
+<script>
+  import { VsSelect } from 'vs-select';
+
+  export default {
+    data() {
+      return {
+        options: [
+          { label: 'Iron Man', value: 'Tony' },
+          { label: 'Thor', value: 'thor', disabled: true },
+          { label: 'Captain America', value: 'Steve Roger' },
+        ],
+      };
+    },
+  };
+</script>
+```
 
 <br />
 
@@ -174,3 +201,24 @@ You can define own item markup via slots:
 | Name    | Description                                                                                                                                   |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | options | Holds the select option content and can contain HTML. Slot data `options, selected (Array), selectedObject(Array of Objects), onSelectedItem` |
+
+<br />
+
+**Note**
+Colors/ radius can be modified for the select box using css variables.
+Default colors used:
+
+```css
+<style>
+  .vs-select,
+  .vs-multiselect {
+    --vs-select-bg: #ffffff;
+    --vs-select-border: #d8dcde;
+    --vs-select-border-hover: #5293c7;
+    --vs-select-hover: #edf7ff;
+    --vs-select-error: #cc3340;
+    --vs-select-icon: #68737d;
+    --vs-select-border-radius: 4px;
+  }
+</style>
+```

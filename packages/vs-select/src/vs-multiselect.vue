@@ -8,6 +8,9 @@
         { 'vs-multiselect--disabled': disabled },
       ]"
       @click="!disabled ? setSelectEnv() : null"
+      role="menu"
+      aria-haspopup="true"
+      :aria-expanded="!isMenuHidden"
     >
       <span>
         {{ selectedItems ? selectedItems : label }}
@@ -38,7 +41,7 @@
           <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
             -
           </li>
-          <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch">
+          <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch" role="menuitem">
             <input
               ref="vs-multiselect-box"
               class="vs-multiselect__input"
@@ -52,15 +55,22 @@
             :key="'vs-selected-' + index"
             class="vs-multiselect__menu-item"
             :class="[
-              { 'vs-multiselect__menu--is-checked': selected === option },
               { 'vs-multiselect__menu--is-checked': setSelected(option) },
+              { 'vs-multiselect__menu-item--is-disabled': option.disabled },
             ]"
-            @click="onSelectedItem(option, index)"
+            @click="!option.disabled ? onSelectedItem(option, index) : null"
+            :aria-selected="setSelected(option)"
+            role="menuitem"
+            tabIndex="0"
           >
             <span v-if="isObject">{{ option.label }}</span>
             <span v-else>{{ option }}</span>
           </li>
-          <li v-if="!selectOptions.length" class="vs-multiselect__menu-item vs-multiselect__menu--no-item">
+          <li
+            v-if="!selectOptions.length"
+            class="vs-multiselect__menu-item vs-multiselect__menu--no-item"
+            role="menuitem"
+          >
             No Data Available
           </li>
         </slot>
@@ -404,6 +414,10 @@
           text-decoration: none;
         }
 
+        &:focus {
+          outline: none;
+        }
+
         &:first-child {
           margin-top: 8px;
           padding: 0;
@@ -425,6 +439,14 @@
           width: 32px;
           height: 40px;
           content: '';
+        }
+
+        &--is-disabled {
+          color: #c2c8cc;
+          cursor: no-drop;
+          &:hover {
+            background-color: transparent;
+          }
         }
       }
 

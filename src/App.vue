@@ -176,6 +176,7 @@
           { label: 'shenoy', value: 'she' },
           { label: 'Chris', value: 'chris' },
           { label: 'Chris', value: 'captain A' },
+          { label: 'Thor', value: 'thor', disabled: true },
         ],
         preselected2: ['ash', 'captain A'],
         preselected: 'captain A',
