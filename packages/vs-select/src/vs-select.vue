@@ -182,7 +182,6 @@
           }
           if (this.value) {
             // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
-            console.log(this.value);
             const selectedFilter = this.options.filter((item) => item.value === this.value);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
