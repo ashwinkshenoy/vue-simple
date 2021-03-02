@@ -5,27 +5,32 @@
     <div class="grid">
       <div>
         <span>No Search</span>
-        <vs-select :options="options1"></vs-select>
+        <vs-select :options="options1" v-model="form.select1"></vs-select>
+        <small>{{ form.select1 }}</small>
       </div>
       <div>
         <span>Search</span>
-        <vs-select :options="options1" is-search></vs-select>
+        <vs-select :options="options1" is-search v-model="form.select2"></vs-select>
+        <small>{{ form.select2 }}</small>
       </div>
       <div>
         <span>No Search (Object)</span>
-        <vs-select :options="options2"></vs-select>
+        <vs-select :options="options2" v-model="form.select3"></vs-select>
+        <small>{{ form.select3 }}</small>
       </div>
       <div>
         <span>Search (Object)</span>
-        <vs-select :options="options2" is-search></vs-select>
+        <vs-select :options="options2" is-search v-model="form.select4"></vs-select>
+        <small>{{ form.select4 }}</small>
       </div>
       <div>
         <span>Disabled</span>
-        <vs-select :options="options2" is-search disabled></vs-select>
+        <vs-select :options="options2" is-search disabled v-model="form.select5"></vs-select>
+        <small>{{ form.select5 }}</small>
       </div>
       <div>
         <span>Search (Customizable)</span>
-        <vs-select :options="options1" is-search>
+        <vs-select :options="options1" is-search v-model="form.select6">
           <template v-slot:options="{ options, selected, onSelectedItem }">
             <li
               v-for="(option, index) in options"
@@ -38,6 +43,18 @@
             </li>
           </template>
         </vs-select>
+        <small>{{ form.select6 }}</small>
+      </div>
+      <div>
+        <span>Preselected & v-model</span>
+        <vs-select :options="options2" is-search :preselected="preselected" v-model="form.select7"></vs-select>
+        {{ form.select5 }}
+        <small>Preselected given priority</small>
+      </div>
+      <div></div>
+      <div>
+        <span>Menu (Object)</span>
+        <vs-select :options="menu" @on-select="log" is-menu></vs-select>
       </div>
     </div>
 
@@ -62,11 +79,15 @@
       </div>
       <div>
         <span>Search (Object)</span>
-        <vs-multiselect :options="options2" is-search :preselected="preselected"></vs-multiselect>
+        <vs-multiselect :options="options2" is-search :preselected="preselected2"></vs-multiselect>
       </div>
       <div>
         <span>Disabled</span>
         <vs-multiselect :options="options2" is-search disabled></vs-multiselect>
+      </div>
+      <div>
+        <span>Error</span>
+        <vs-multiselect :options="options2" is-search isError></vs-multiselect>
       </div>
     </div>
 
@@ -156,8 +177,30 @@
           { label: 'Chris', value: 'chris' },
           { label: 'Chris', value: 'captain A' },
         ],
-        preselected: ['ash', 'captain A'],
+        preselected2: ['ash', 'captain A'],
+        preselected: 'captain A',
+        menu: [
+          { label: 'Google', value: 'https://google.com' },
+          { label: 'Twitter', value: 'https://twitter.com' },
+          { label: 'Facebook', value: 'https://youtube.com', disabled: true },
+          { label: 'Youtube', value: 'https://youtube.com' },
+        ],
+        form: {
+          select1: '',
+          select2: '',
+          select3: '',
+          select4: '',
+          select5: '',
+          select6: '',
+          select7: 'ash',
+        },
       };
+    },
+
+    methods: {
+      log(a) {
+        console.log(a);
+      },
     },
   };
 </script>
@@ -182,7 +225,7 @@
   }
 
   .menu-item {
-    padding: 10px 32px;
+    padding: 10px 15px;
     position: relative;
     cursor: pointer;
     &:first-child {
@@ -193,8 +236,8 @@
     }
     &:after {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: -2px;
+      right: 2px;
       -webkit-transition: opacity 0.1s ease-in-out;
       transition: opacity 0.1s ease-in-out;
       opacity: 0;

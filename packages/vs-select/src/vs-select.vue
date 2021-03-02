@@ -7,6 +7,7 @@
         { 'vs-select--cursor-pointer': !isSearch },
         { 'vs-select--is-open': !isMenuHidden },
         { 'vs-select--disabled': disabled },
+        { 'vs-select--menu': isMenu },
       ]"
     >
       <input
@@ -14,14 +15,26 @@
         :class="['vs-select__input', { 'vs-select--cursor-pointer': isMenuHidden }]"
         :disabled="disabled"
         @click="!disabled ? setSelectEnv() : null"
+        @keyup.enter="!disabled ? setSelectEnv() : null"
         @blur="setSelectClose"
         v-model="inputValue"
         :readonly="isReadonly"
+        role="menu"
+        aria-haspopup="true"
+        :aria-expanded="!isMenuHidden"
       />
+      <span class="vs-select__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+          <path
+            fill="currentColor"
+            d="M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+          />
+        </svg>
+      </span>
     </div>
 
     <div class="vs-select__menu-wrapper" v-if="!disabled">
-      <ul :aria-hidden="!disabled ? isMenuHidden : true" class="vs-select__menu">
+      <ul class="vs-select__menu" :aria-hidden="!disabled ? isMenuHidden : true">
         <slot
           name="options"
           :options="selectOptions"
@@ -35,12 +48,16 @@
           <li
             v-for="(option, index) in selectOptions"
             :key="'vs-selected-' + index"
-            class="vs-select__menu-item"
             :class="[
-              { 'vs-select__menu--is-checked': selected === option },
-              { 'vs-select__menu--is-checked': isObject && selectedObject.value === option.value },
+              'vs-select__menu-item',
+              { 'vs-select__menu--is-checked': !isMenu && selected === option },
+              { 'vs-select__menu--is-checked': !isMenu && isObject && selectedObject.value === option.value },
+              { 'vs-select__menu-item--is-disabled': option.disabled },
             ]"
-            @click="onSelectedItem(option, index)"
+            :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
+            @click="!option.disabled ? onSelectedItem(option, index) : null"
+            role="menuitem"
+            tabIndex="0"
           >
             <span v-if="isObject">{{ option.label }}</span>
             <span v-else>{{ option }}</span>
@@ -64,6 +81,10 @@
       },
       // For array of object - pass value
       preselected: {
+        type: String,
+        required: false,
+      },
+      value: {
         type: String,
         required: false,
       },
@@ -94,6 +115,10 @@
         type: Boolean,
         default: false,
       },
+      isMenu: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data() {
@@ -115,6 +140,7 @@
           ) || ''
         );
       },
+
       isReadonly() {
         if (this.isSearch && !this.disabled) {
           return false;
@@ -148,10 +174,32 @@
           })
         ) {
           this.isObject = true;
-          this.selected = this.preselected ? this.options.filter((i) => i.value === this.preselected)[0].label : '';
+          if (this.preselected) {
+            this.selectedObject = this.options.filter((i) => i.value === this.preselected)[0];
+            this.selected = this.selectedObject.value;
+            this.inputValue = this.selectedObject.label;
+            return;
+          }
+          if (this.value) {
+            // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
+            console.log(this.value);
+            const selectedFilter = this.options.filter((item) => item.value === this.value);
+            if (selectedFilter.length > 0) {
+              this.selectedObject = selectedFilter[0];
+              this.selected = this.selectedObject.value;
+              this.inputValue = this.selectedObject.label;
+            }
+          }
         } else {
           this.isObject = false;
-          this.selected = this.preselected;
+          this.selected = '';
+          if (this.preselected) {
+            this.selected = this.inputValue = this.preselected;
+            return;
+          }
+          if (this.value) {
+            this.selected = this.inputValue = this.value;
+          }
         }
       },
 
@@ -165,11 +213,11 @@
           this.selectedObject = this.options.filter((i) => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
           this.$emit('input', this.selectedObject.value);
-          this.$emit('on-select', this.selectedObject);
+          this.$emit('on-select', this.selectedObject.value);
         } else {
           this.selected = this.options.filter((i) => i === option)[0];
           this.$emit('input', this.selected);
-          this.$emit('on-select', this.options.indexOf(this.selected));
+          this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
         }
         this.searchTerm = '';
         this.inputValue = this.selected;
@@ -177,10 +225,6 @@
 
       searchSelectList() {
         this.searchTerm = this.selected;
-      },
-
-      isMenu() {
-        this.isMenuHidden = !this.isMenuHidden;
       },
 
       setInnerText(value) {
@@ -203,8 +247,11 @@
       setSelectClose() {
         this.isMenuHidden = true;
         this.$refs['vs-select-box'].blur();
-        if (this.selected) {
+        if (this.selected && !this.isObject) {
           this.inputValue = this.selected;
+        }
+        if (this.selected && this.isObject) {
+          this.inputValue = this.selectedObject.label;
         }
         if (!this.selected) {
           this.inputValue = this.label;
@@ -218,15 +265,29 @@
   $el: '.vs-select';
 
   #{$el} {
+    --vs-select-color: #1f73b7;
+    --vs-select-bg: #ffffff;
+    --vs-select-border: #d8dcde;
+    --vs-select-border-hover: #5293c7;
+    --vs-select-hover: #edf7ff;
+    --vs-select-error: #cc3340;
+    --vs-select-icon: #68737d;
+    --vs-select-border-radius: 4px;
     width: 100%;
     position: relative;
+
+    &:hover {
+      #{$el}__input-wrapper {
+        border-color: var(--vs-select-border-hover);
+      }
+    }
 
     &--cursor-pointer {
       cursor: pointer;
     }
 
     &--error #{$el}__input-wrapper {
-      border-color: #cc3340;
+      border-color: var(--vs-select-error);
     }
 
     &__input-wrapper {
@@ -239,9 +300,9 @@
       transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
         color 0.25s ease-in-out;
       outline: 0;
-      border: 1px solid #d8dcde;
-      border-radius: 4px;
-      background-color: #fff;
+      border: 1px solid var(--vs-select-border);
+      border-radius: var(--vs-select-border-radius);
+      background-color: var(--vs-select-bg);
       width: 100%;
       min-height: 40px;
       box-sizing: border-box;
@@ -251,31 +312,30 @@
       font-family: inherit;
       font-size: 14px;
 
-      &:hover {
-        border-color: #5293c7;
-      }
-
-      &:not(select):before {
+      #{$el}__icon {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 58%;
+        right: 14px;
         cursor: pointer;
-        width: 40px;
-        height: 40px;
-        content: '';
+        transform: translateY(-50%);
+        color: var(--vs-select-icon);
+        svg {
+          transition: 0.17s all linear;
+          width: 12px;
+          height: 12px;
+        }
       }
 
-      &:not(select):before {
-        transition: background-image 0.25s ease-in-out, transform 0.25s ease-in-out, border-color 0.25s ease-in-out,
-          box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-          -webkit-transform 0.25s ease-in-out;
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%2368737d'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 0.85714em center;
+      &#{$el}--is-open #{$el}__icon svg {
+        transform: rotate(180deg);
       }
 
-      &#{$el}--is-open:before {
-        transform: rotate(180deg) translateY(-1px);
+      &#{$el}--menu {
+        border-color: var(--vs-select-color);
+        #{$el}__input,
+        #{$el}__icon {
+          color: var(--vs-select-color);
+        }
       }
 
       &#{$el}--disabled {
@@ -283,10 +343,11 @@
         cursor: no-drop;
         border-color: #e9ebed;
         user-select: none;
-        &:before {
-          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' focusable='false' color='%23c2c8cc'%3E %3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E");
+        &:hover {
+          border-color: #e9ebed;
         }
-        #{$el}__input {
+        #{$el}__input,
+        #{$el}__icon {
           cursor: no-drop;
           user-select: none;
           color: #c2c8cc;
@@ -296,9 +357,9 @@
 
     &__input {
       color: #2f3941;
-      width: 100%;
+      width: 77%;
       border: none !important;
-      padding: 10px 0 10px 15px;
+      padding: 10px 37px 10px 15px;
       box-shadow: none !important;
       outline: none !important;
       font-family: inherit;
@@ -319,7 +380,7 @@
       margin: 0;
       box-sizing: border-box;
       border: 1px solid #d8dcde;
-      border-radius: 4px;
+      border-radius: var(--vs-select-border-radius);
       box-shadow: 0 10px 20px 0 rgb(4 68 77 / 15%);
       background-color: #fff;
       cursor: default;
@@ -346,8 +407,12 @@
         -ms-user-select: none;
         user-select: none;
         &:hover {
-          background-color: #edf7ff;
+          background-color: var(--vs-select-hover);
           text-decoration: none;
+        }
+
+        &:focus {
+          outline: none;
         }
 
         &:first-child {
@@ -370,6 +435,14 @@
           width: 32px;
           height: 40px;
           content: '';
+        }
+
+        &--is-disabled {
+          color: #c2c8cc;
+          cursor: no-drop;
+          &:hover {
+            background-color: transparent;
+          }
         }
       }
 

@@ -60,6 +60,23 @@
   //
   //
   //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   var script = {
     props: {
@@ -70,6 +87,10 @@
       },
       // For array of object - pass value
       preselected: {
+        type: String,
+        required: false,
+      },
+      value: {
         type: String,
         required: false,
       },
@@ -100,6 +121,10 @@
         type: Boolean,
         default: false,
       },
+      isMenu: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data: function data() {
@@ -123,6 +148,7 @@
           ) || ''
         );
       },
+
       isReadonly: function isReadonly() {
         if (this.isSearch && !this.disabled) {
           return false;
@@ -158,10 +184,32 @@
           })
         ) {
           this.isObject = true;
-          this.selected = this.preselected ? this.options.filter(function (i) { return i.value === this$1.preselected; })[0].label : '';
+          if (this.preselected) {
+            this.selectedObject = this.options.filter(function (i) { return i.value === this$1.preselected; })[0];
+            this.selected = this.selectedObject.value;
+            this.inputValue = this.selectedObject.label;
+            return;
+          }
+          if (this.value) {
+            // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
+            console.log(this.value);
+            var selectedFilter = this.options.filter(function (item) { return item.value === this$1.value; });
+            if (selectedFilter.length > 0) {
+              this.selectedObject = selectedFilter[0];
+              this.selected = this.selectedObject.value;
+              this.inputValue = this.selectedObject.label;
+            }
+          }
         } else {
           this.isObject = false;
-          this.selected = this.preselected;
+          this.selected = '';
+          if (this.preselected) {
+            this.selected = this.inputValue = this.preselected;
+            return;
+          }
+          if (this.value) {
+            this.selected = this.inputValue = this.value;
+          }
         }
       },
 
@@ -175,11 +223,11 @@
           this.selectedObject = this.options.filter(function (i) { return i.value === option.value; })[0];
           this.selected = this.selectedObject.label;
           this.$emit('input', this.selectedObject.value);
-          this.$emit('on-select', this.selectedObject);
+          this.$emit('on-select', this.selectedObject.value);
         } else {
           this.selected = this.options.filter(function (i) { return i === option; })[0];
           this.$emit('input', this.selected);
-          this.$emit('on-select', this.options.indexOf(this.selected));
+          this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
         }
         this.searchTerm = '';
         this.inputValue = this.selected;
@@ -187,10 +235,6 @@
 
       searchSelectList: function searchSelectList() {
         this.searchTerm = this.selected;
-      },
-
-      isMenu: function isMenu() {
-        this.isMenuHidden = !this.isMenuHidden;
       },
 
       setInnerText: function setInnerText(value) {
@@ -213,8 +257,11 @@
       setSelectClose: function setSelectClose() {
         this.isMenuHidden = true;
         this.$refs['vs-select-box'].blur();
-        if (this.selected) {
+        if (this.selected && !this.isObject) {
           this.inputValue = this.selected;
+        }
+        if (this.selected && this.isObject) {
+          this.inputValue = this.selectedObject.label;
         }
         if (!this.selected) {
           this.inputValue = this.label;
@@ -368,7 +415,8 @@
             { "vs-select--error": _vm.isError },
             { "vs-select--cursor-pointer": !_vm.isSearch },
             { "vs-select--is-open": !_vm.isMenuHidden },
-            { "vs-select--disabled": _vm.disabled }
+            { "vs-select--disabled": _vm.disabled },
+            { "vs-select--menu": _vm.isMenu }
           ]
         },
         [
@@ -386,10 +434,25 @@
               "vs-select__input",
               { "vs-select--cursor-pointer": _vm.isMenuHidden }
             ],
-            attrs: { disabled: _vm.disabled, readonly: _vm.isReadonly },
+            attrs: {
+              disabled: _vm.disabled,
+              readonly: _vm.isReadonly,
+              role: "menu",
+              "aria-haspopup": "true",
+              "aria-expanded": !_vm.isMenuHidden
+            },
             domProps: { value: _vm.inputValue },
             on: {
               click: function($event) {
+                !_vm.disabled ? _vm.setSelectEnv() : null;
+              },
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
                 !_vm.disabled ? _vm.setSelectEnv() : null;
               },
               blur: _vm.setSelectClose,
@@ -400,7 +463,30 @@
                 _vm.inputValue = $event.target.value;
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "vs-select__icon" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "currentColor",
+                    d:
+                      "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+                  }
+                })
+              ]
+            )
+          ])
         ]
       ),
       _vm._v(" "),
@@ -436,21 +522,35 @@
                         "li",
                         {
                           key: "vs-selected-" + index,
-                          staticClass: "vs-select__menu-item",
                           class: [
+                            "vs-select__menu-item",
                             {
                               "vs-select__menu--is-checked":
-                                _vm.selected === option
+                                !_vm.isMenu && _vm.selected === option
                             },
                             {
                               "vs-select__menu--is-checked":
+                                !_vm.isMenu &&
                                 _vm.isObject &&
                                 _vm.selectedObject.value === option.value
+                            },
+                            {
+                              "vs-select__menu-item--is-disabled": option.disabled
                             }
                           ],
+                          attrs: {
+                            "aria-selected":
+                              (_vm.isObject &&
+                                _vm.selectedObject.value === option.value) ||
+                              _vm.selected === option,
+                            role: "menuitem",
+                            tabIndex: "0"
+                          },
                           on: {
                             click: function($event) {
-                              return _vm.onSelectedItem(option, index)
+                              !option.disabled
+                                ? _vm.onSelectedItem(option, index)
+                                : null;
                             }
                           }
                         },
@@ -493,7 +593,7 @@
     /* style */
     var __vue_inject_styles__ = function (inject) {
       if (!inject) { return }
-      inject("data-v-0e70dffa_0", { source: ".vs-select {\n  width: 100%;\n  position: relative;\n}\n.vs-select--cursor-pointer {\n  cursor: pointer;\n}\n.vs-select--error .vs-select__input-wrapper {\n  border-color: #cc3340;\n}\n.vs-select__input-wrapper {\n  overflow: hidden;\n  position: relative;\n  text-align: left;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid #d8dcde;\n  border-radius: 4px;\n  background-color: #fff;\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-select__input-wrapper:hover {\n  border-color: #5293c7;\n}\n.vs-select__input-wrapper:not(select):before {\n  position: absolute;\n  top: 0;\n  right: 0;\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  content: \"\";\n}\n.vs-select__input-wrapper:not(select):before {\n  transition: background-image 0.25s ease-in-out, transform 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%2368737d'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 0.85714em center;\n}\n.vs-select__input-wrapper.vs-select--is-open:before {\n  transform: rotate(180deg) translateY(-1px);\n}\n.vs-select__input-wrapper.vs-select--disabled {\n  background: #f8f9f9;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-select__input-wrapper.vs-select--disabled:before {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' focusable='false' color='%23c2c8cc'%3E %3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E\");\n}\n.vs-select__input-wrapper.vs-select--disabled .vs-select__input {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-select__input {\n  color: #2f3941;\n  width: 100%;\n  border: none !important;\n  padding: 10px 0 10px 15px;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n  position: relative;\n  z-index: 50;\n}\n.vs-select__input[readonly] {\n  cursor: pointer;\n}\n.vs-select__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: 4px;\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-select__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-select__menu-item:hover {\n  background-color: #edf7ff;\n  text-decoration: none;\n}\n.vs-select__menu-item:first-child {\n  margin-top: 8px;\n}\n.vs-select__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-select__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-select__menu--no-item {\n  text-align: center;\n}\n.vs-select .vs-select__menu--is-checked:before,\n.vs-select .vs-select__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-select .vs-select__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
+      inject("data-v-5420ab8b_0", { source: ".vs-select {\n  --vs-select-color: #1f73b7;\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-select:hover .vs-select__input-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-select--cursor-pointer {\n  cursor: pointer;\n}\n.vs-select--error .vs-select__input-wrapper {\n  border-color: var(--vs-select-error);\n}\n.vs-select__input-wrapper {\n  overflow: hidden;\n  position: relative;\n  text-align: left;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-select__input-wrapper .vs-select__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-select__input-wrapper .vs-select__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-select__input-wrapper.vs-select--is-open .vs-select__icon svg {\n  transform: rotate(180deg);\n}\n.vs-select__input-wrapper.vs-select--menu {\n  border-color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--menu .vs-select__input,\n.vs-select__input-wrapper.vs-select--menu .vs-select__icon {\n  color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--disabled {\n  background: #f8f9f9;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-select__input-wrapper.vs-select--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-select__input-wrapper.vs-select--disabled .vs-select__input,\n.vs-select__input-wrapper.vs-select--disabled .vs-select__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-select__input {\n  color: #2f3941;\n  width: 77%;\n  border: none !important;\n  padding: 10px 37px 10px 15px;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n  position: relative;\n  z-index: 50;\n}\n.vs-select__input[readonly] {\n  cursor: pointer;\n}\n.vs-select__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-select__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-select__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-select__menu-item:focus {\n  outline: none;\n}\n.vs-select__menu-item:first-child {\n  margin-top: 8px;\n}\n.vs-select__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-select__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-select__menu-item--is-disabled {\n  color: #c2c8cc;\n  cursor: no-drop;\n}\n.vs-select__menu-item--is-disabled:hover {\n  background-color: transparent;\n}\n.vs-select__menu--no-item {\n  text-align: center;\n}\n.vs-select .vs-select__menu--is-checked:before,\n.vs-select .vs-select__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-select .vs-select__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
 
     };
     /* scoped */
@@ -521,6 +621,22 @@
       undefined
     );
 
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   //
   //
   //
@@ -803,6 +919,29 @@
                 _vm._s(_vm.selectedItems ? _vm.selectedItems : _vm.label) +
                 "\n    "
             )
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "vs-multiselect__icon" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "currentColor",
+                    d:
+                      "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+                  }
+                })
+              ]
+            )
           ])
         ]
       ),
@@ -817,102 +956,116 @@
                 attrs: { "aria-hidden": !_vm.disabled ? _vm.isMenuHidden : true }
               },
               [
-                _vm.hasEmptyOption
-                  ? _c(
-                      "li",
-                      {
-                        staticClass: "vs-multiselect__menu-item",
-                        on: {
-                          click: function($event) {
-                            return _vm.onSelectedItem(-1)
-                          }
-                        }
-                      },
-                      [_vm._v("\n        -\n      ")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isSearch,
-                        expression: "isSearch"
-                      }
-                    ],
-                    staticClass:
-                      "vs-multiselect__menu-item vs-multiselect__input-wrapper"
-                  },
+                _vm._t(
+                  "options",
                   [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.inputValue,
-                          expression: "inputValue"
-                        }
-                      ],
-                      ref: "vs-multiselect-box",
-                      staticClass: "vs-multiselect__input",
-                      attrs: { disabled: _vm.disabled, placeholder: "Search..." },
-                      domProps: { value: _vm.inputValue },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.inputValue = $event.target.value;
-                        }
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.selectOptions, function(option, index) {
-                  return _c(
-                    "li",
-                    {
-                      key: "vs-selected-" + index,
-                      staticClass: "vs-multiselect__menu-item",
-                      class: [
-                        {
-                          "vs-multiselect__menu--is-checked":
-                            _vm.selected === option
-                        },
-                        {
-                          "vs-multiselect__menu--is-checked": _vm.setSelected(
-                            option
-                          )
-                        }
-                      ],
-                      on: {
-                        click: function($event) {
-                          return _vm.onSelectedItem(option, index)
-                        }
-                      }
-                    },
-                    [
-                      _vm.isObject
-                        ? _c("span", [_vm._v(_vm._s(option.label))])
-                        : _c("span", [_vm._v(_vm._s(option))])
-                    ]
-                  )
-                }),
-                _vm._v(" "),
-                !_vm.selectOptions.length
-                  ? _c(
+                    _vm.hasEmptyOption
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "vs-multiselect__menu-item",
+                            on: {
+                              click: function($event) {
+                                return _vm.onSelectedItem(-1)
+                              }
+                            }
+                          },
+                          [_vm._v("\n          -\n        ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
                       "li",
                       {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.isSearch,
+                            expression: "isSearch"
+                          }
+                        ],
                         staticClass:
-                          "vs-multiselect__menu-item vs-multiselect__menu--no-item"
+                          "vs-multiselect__menu-item vs-multiselect__input-wrapper"
                       },
-                      [_vm._v("\n        No Data Available\n      ")]
-                    )
-                  : _vm._e()
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputValue,
+                              expression: "inputValue"
+                            }
+                          ],
+                          ref: "vs-multiselect-box",
+                          staticClass: "vs-multiselect__input",
+                          attrs: {
+                            disabled: _vm.disabled,
+                            placeholder: "Search..."
+                          },
+                          domProps: { value: _vm.inputValue },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.inputValue = $event.target.value;
+                            }
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.selectOptions, function(option, index) {
+                      return _c(
+                        "li",
+                        {
+                          key: "vs-selected-" + index,
+                          staticClass: "vs-multiselect__menu-item",
+                          class: [
+                            {
+                              "vs-multiselect__menu--is-checked":
+                                _vm.selected === option
+                            },
+                            {
+                              "vs-multiselect__menu--is-checked": _vm.setSelected(
+                                option
+                              )
+                            }
+                          ],
+                          on: {
+                            click: function($event) {
+                              return _vm.onSelectedItem(option, index)
+                            }
+                          }
+                        },
+                        [
+                          _vm.isObject
+                            ? _c("span", [_vm._v(_vm._s(option.label))])
+                            : _c("span", [_vm._v(_vm._s(option))])
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    !_vm.selectOptions.length
+                      ? _c(
+                          "li",
+                          {
+                            staticClass:
+                              "vs-multiselect__menu-item vs-multiselect__menu--no-item"
+                          },
+                          [_vm._v("\n          No Data Available\n        ")]
+                        )
+                      : _vm._e()
+                  ],
+                  {
+                    options: _vm.selectOptions,
+                    selected: _vm.selected,
+                    selectedObject: _vm.selectedArrayObject,
+                    onSelectedItem: _vm.onSelectedItem
+                  }
+                )
               ],
               2
             )
@@ -926,7 +1079,7 @@
     /* style */
     var __vue_inject_styles__$1 = function (inject) {
       if (!inject) { return }
-      inject("data-v-547cd85e_0", { source: ".vs-multiselect {\n  width: 100%;\n  position: relative;\n}\n.vs-multiselect__input {\n  width: 100%;\n  border: none !important;\n  padding: 0.71429em 1.14286em;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n}\n.vs-multiselect__select-wrapper {\n  display: grid;\n  align-items: center;\n  cursor: pointer;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  position: relative;\n  text-align: left;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid #d8dcde;\n  border-radius: 4px;\n  background-color: #fff;\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-multiselect__select-wrapper:hover {\n  border-color: #5293c7;\n}\n.vs-multiselect__select-wrapper span {\n  padding: 10px 0 10px 15px;\n}\n.vs-multiselect__select-wrapper:not(select):before {\n  position: absolute;\n  top: 0;\n  right: 0;\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  content: \"\";\n}\n.vs-multiselect__select-wrapper:not(select):before {\n  transition: background-image 0.25s ease-in-out, transform 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%2368737d'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 0.85714em center;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--is-open:before {\n  transform: rotate(180deg) translateY(-1px);\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled {\n  background: #f8f9f9;\n  color: #c2c8cc;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled:before {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' focusable='false' color='%23c2c8cc'%3E %3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E\");\n}\n.vs-multiselect__no-search li:nth-child(2) {\n  margin-top: 10px;\n}\n.vs-multiselect__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: 4px;\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-multiselect__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-multiselect__menu-item:hover {\n  background-color: #edf7ff;\n  text-decoration: none;\n}\n.vs-multiselect__menu-item:first-child {\n  margin-top: 8px;\n  padding: 0;\n}\n.vs-multiselect__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-multiselect__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-multiselect__menu--no-item {\n  margin-bottom: 8px;\n  padding: 10px;\n  text-align: center;\n}\n.vs-multiselect .vs-multiselect__menu--is-checked:before,\n.vs-multiselect .vs-multiselect__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-multiselect .vs-multiselect__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
+      inject("data-v-90c1788c_0", { source: ".vs-multiselect {\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-multiselect:hover .vs-multiselect__select-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-multiselect__input-wrapper:hover {\n  background-color: transparent !important;\n}\n.vs-multiselect__input {\n  width: 85%;\n  border: none !important;\n  padding: 0.71429em 1.14286em;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n}\n.vs-multiselect__select-wrapper {\n  display: grid;\n  align-items: center;\n  cursor: pointer;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  position: relative;\n  text-align: left;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--error {\n  border-color: var(--vs-select-error) !important;\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-multiselect__select-wrapper span {\n  padding: 10px 0 10px 15px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--is-open:before {\n  transform: rotate(180deg) translateY(-1px);\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled {\n  background: #f8f9f9;\n  color: #c2c8cc;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__input,\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-multiselect__no-search li:nth-child(2) {\n  margin-top: 10px;\n}\n.vs-multiselect__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-multiselect__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-multiselect__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-multiselect__menu-item:first-child {\n  margin-top: 8px;\n  padding: 0;\n}\n.vs-multiselect__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-multiselect__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-multiselect__menu--no-item {\n  margin-bottom: 8px;\n  padding: 10px;\n  text-align: center;\n}\n.vs-multiselect .vs-multiselect__menu--is-checked:before,\n.vs-multiselect .vs-multiselect__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-multiselect .vs-multiselect__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
 
     };
     /* scoped */

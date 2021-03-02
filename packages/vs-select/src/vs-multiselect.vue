@@ -12,6 +12,14 @@
       <span>
         {{ selectedItems ? selectedItems : label }}
       </span>
+      <span class="vs-multiselect__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+          <path
+            fill="currentColor"
+            d="M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+          />
+        </svg>
+      </span>
     </div>
 
     <div class="vs-multiselect__menu-wrapper" v-if="!disabled">
@@ -20,34 +28,42 @@
         class="vs-multiselect__menu"
         :class="[{ 'vs-multiselect__no-search': !isSearch }]"
       >
-        <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
-          -
-        </li>
-        <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch">
-          <input
-            ref="vs-multiselect-box"
-            class="vs-multiselect__input"
-            :disabled="disabled"
-            v-model="inputValue"
-            placeholder="Search..."
-          />
-        </li>
-        <li
-          v-for="(option, index) in selectOptions"
-          :key="'vs-selected-' + index"
-          class="vs-multiselect__menu-item"
-          :class="[
-            { 'vs-multiselect__menu--is-checked': selected === option },
-            { 'vs-multiselect__menu--is-checked': setSelected(option) },
-          ]"
-          @click="onSelectedItem(option, index)"
+        <slot
+          name="options"
+          :options="selectOptions"
+          :selected="selected"
+          :selectedObject="selectedArrayObject"
+          :onSelectedItem="onSelectedItem"
         >
-          <span v-if="isObject">{{ option.label }}</span>
-          <span v-else>{{ option }}</span>
-        </li>
-        <li v-if="!selectOptions.length" class="vs-multiselect__menu-item vs-multiselect__menu--no-item">
-          No Data Available
-        </li>
+          <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
+            -
+          </li>
+          <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch">
+            <input
+              ref="vs-multiselect-box"
+              class="vs-multiselect__input"
+              :disabled="disabled"
+              v-model="inputValue"
+              placeholder="Search..."
+            />
+          </li>
+          <li
+            v-for="(option, index) in selectOptions"
+            :key="'vs-selected-' + index"
+            class="vs-multiselect__menu-item"
+            :class="[
+              { 'vs-multiselect__menu--is-checked': selected === option },
+              { 'vs-multiselect__menu--is-checked': setSelected(option) },
+            ]"
+            @click="onSelectedItem(option, index)"
+          >
+            <span v-if="isObject">{{ option.label }}</span>
+            <span v-else>{{ option }}</span>
+          </li>
+          <li v-if="!selectOptions.length" class="vs-multiselect__menu-item vs-multiselect__menu--no-item">
+            No Data Available
+          </li>
+        </slot>
       </ul>
     </div>
   </div>
@@ -244,11 +260,28 @@
   $el: '.vs-multiselect';
 
   #{$el} {
+    --vs-select-bg: #ffffff;
+    --vs-select-border: #d8dcde;
+    --vs-select-border-hover: #5293c7;
+    --vs-select-hover: #edf7ff;
+    --vs-select-error: #cc3340;
+    --vs-select-icon: #68737d;
+    --vs-select-border-radius: 4px;
     width: 100%;
     position: relative;
 
+    &:hover {
+      #{$el}__select-wrapper {
+        border-color: var(--vs-select-border-hover);
+      }
+    }
+
+    &__input-wrapper:hover {
+      background-color: transparent !important;
+    }
+
     &__input {
-      width: 100%;
+      width: 85%;
       border: none !important;
       padding: 0.71429em 1.14286em;
       box-shadow: none !important;
@@ -269,9 +302,9 @@
       transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
         color 0.25s ease-in-out;
       outline: 0;
-      border: 1px solid #d8dcde;
-      border-radius: 4px;
-      background-color: #fff;
+      border: 1px solid var(--vs-select-border);
+      border-radius: var(--vs-select-border-radius);
+      background-color: var(--vs-select-bg);
       width: 100%;
       min-height: 40px;
       box-sizing: border-box;
@@ -281,31 +314,26 @@
       font-family: inherit;
       font-size: 14px;
 
-      &:hover {
-        border-color: #5293c7;
+      &#{$el}--error {
+        border-color: var(--vs-select-error) !important;
+      }
+
+      #{$el}__icon {
+        position: absolute;
+        top: 58%;
+        right: 14px;
+        cursor: pointer;
+        transform: translateY(-50%);
+        color: var(--vs-select-icon);
+        svg {
+          transition: 0.17s all linear;
+          width: 12px;
+          height: 12px;
+        }
       }
 
       span {
         padding: 10px 0 10px 15px;
-      }
-
-      &:not(select):before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        content: '';
-      }
-
-      &:not(select):before {
-        transition: background-image 0.25s ease-in-out, transform 0.25s ease-in-out, border-color 0.25s ease-in-out,
-          box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-          -webkit-transform 0.25s ease-in-out;
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%2368737d'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 0.85714em center;
       }
 
       &#{$el}--is-open:before {
@@ -318,8 +346,14 @@
         cursor: no-drop;
         border-color: #e9ebed;
         user-select: none;
-        &:before {
-          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' focusable='false' color='%23c2c8cc'%3E %3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M4 6.5l3.6 3.6c.2.2.5.2.7 0L12 6.5'/%3E%3C/svg%3E");
+        &:hover {
+          border-color: #e9ebed;
+        }
+        #{$el}__input,
+        #{$el}__icon {
+          cursor: no-drop;
+          user-select: none;
+          color: #c2c8cc;
         }
       }
     }
@@ -331,13 +365,14 @@
     &__menu {
       z-index: 150;
       max-height: 250px;
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: inline-block;
       position: absolute;
       margin: 0;
       box-sizing: border-box;
       border: 1px solid #d8dcde;
-      border-radius: 4px;
+      border-radius: var(--vs-select-border-radius);
       box-shadow: 0 10px 20px 0 rgb(4 68 77 / 15%);
       background-color: #fff;
       cursor: default;
@@ -365,7 +400,7 @@
         user-select: none;
 
         &:hover {
-          background-color: #edf7ff;
+          background-color: var(--vs-select-hover);
           text-decoration: none;
         }
 
