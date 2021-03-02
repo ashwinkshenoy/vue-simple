@@ -72,7 +72,7 @@ yarn add vs-select
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-select@0.9.3/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/vs-select@0.9.4/dist/vs-select.min.js"></script>
 ```
 
 ```html
@@ -147,15 +147,16 @@ After installation,
 
 ### ⚙ Props
 
-| Name        | Type    | Default  | Description                                                                            |
-| ----------- | ------- | -------- | -------------------------------------------------------------------------------------- |
-| options     | Array   | -        | This can be array or array of objects                                                  |
-| isSearch    | Boolean | false    | Searchable select                                                                      |
-| label       | String  | 'Select' | Placeholder text                                                                       |
-| preselected | Array   | -        | Preselected items. For array of objects, pass `value` as array items ex: `['D', 'BB']` |
-| disabled    | Boolean | false    | To disable select box                                                                  |
-| isError     | Boolean | false    | To show error in select box                                                            |
-| isMenu      | Boolean | false    | To display like menu dropdown. Available only on `vs-select`                           |
+| Name           | Type    | Default             | Description                                                                            |
+| -------------- | ------- | ------------------- | -------------------------------------------------------------------------------------- |
+| options        | Array   | -                   | This can be array or array of objects                                                  |
+| isSearch       | Boolean | false               | Searchable select                                                                      |
+| label          | String  | 'Select'            | Placeholder text                                                                       |
+| preselected    | Array   | -                   | Preselected items. For array of objects, pass `value` as array items ex: `['D', 'BB']` |
+| disabled       | Boolean | false               | To disable select box                                                                  |
+| isError        | Boolean | false               | To show error in select box                                                            |
+| isMenu         | Boolean | false               | To display like menu dropdown. Available only on `vs-select`                           |
+| emptyItemsText | String  | `No Data Available` | Empty text                                                                             |
 
 **Note**
 You can also pass `disable: true` in array of objects to disable particular item.

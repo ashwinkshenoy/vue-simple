@@ -20,7 +20,7 @@
       </div>
       <div>
         <span>Search (Object)</span>
-        <vs-select :options="options2" is-search v-model="form.select4"></vs-select>
+        <vs-select :options="options2" is-search v-model="form.select4" emptyItemsText="Not Found"></vs-select>
         <small>{{ form.select4 }}</small>
       </div>
       <div>
@@ -48,13 +48,14 @@
       <div>
         <span>Preselected & v-model</span>
         <vs-select :options="options2" is-search :preselected="preselected" v-model="form.select7"></vs-select>
-        {{ form.select5 }}
+        <small>{{ form.select7 }}</small>
+        <br />
         <small>Preselected given priority</small>
       </div>
       <div></div>
       <div>
         <span>Menu (Object)</span>
-        <vs-select :options="menu" @on-select="log" is-menu></vs-select>
+        <vs-select :options="menu" @on-select="log" is-menu is-search></vs-select>
       </div>
     </div>
 
@@ -67,19 +68,28 @@
     <div class="grid">
       <div>
         <span>No Search (Array)</span>
-        <vs-multiselect :options="options1"></vs-multiselect>
+        <vs-multiselect :options="options1" v-model="form.select8"></vs-multiselect>
+        <small>{{ form.select8 }}</small>
       </div>
       <div>
         <span>Search (Array)</span>
-        <vs-multiselect :options="options1" is-search></vs-multiselect>
+        <vs-multiselect :options="options1" is-search v-model="form.select9"></vs-multiselect>
+        <small>{{ form.select9 }}</small>
       </div>
       <div>
         <span>No Search (Object)</span>
-        <vs-multiselect :options="options2"></vs-multiselect>
+        <vs-multiselect :options="options2" v-model="form.select10"></vs-multiselect>
+        <small>{{ form.select10 }}</small>
       </div>
       <div>
         <span>Search (Object)</span>
-        <vs-multiselect :options="options2" is-search :preselected="preselected2"></vs-multiselect>
+        <vs-multiselect
+          :options="options2"
+          is-search
+          :preselected="preselected2"
+          v-model="form.select11"
+        ></vs-multiselect>
+        <small>{{ form.select11 }}</small>
       </div>
       <div>
         <span>Disabled</span>
@@ -87,7 +97,8 @@
       </div>
       <div>
         <span>Error</span>
-        <vs-multiselect :options="options2" is-search isError></vs-multiselect>
+        <vs-multiselect :options="options2" is-search isError v-model="form.select12"></vs-multiselect>
+        <small>{{ form.select12 }}</small>
       </div>
     </div>
 
@@ -172,14 +183,15 @@
       return {
         options1: ['Derek', 'Ryan', 'BB', 'Chris'],
         options2: [
-          { label: 'ashwin', value: 'ash' },
-          { label: 'shenoy', value: 'she' },
-          { label: 'Chris', value: 'chris' },
-          { label: 'Chris', value: 'captain A' },
+          { label: 'Iron Man', value: 'Tony' },
+          { label: 'Hulk', value: 'Bruce Banner' },
+          { label: 'Capt. America', value: 'Steve Rogers' },
+          { label: 'Scarlet Witch', value: 'Wanda' },
+          { label: 'Star Lord', value: 'Peter Quill' },
           { label: 'Thor', value: 'thor', disabled: true },
         ],
-        preselected2: ['ash', 'captain A'],
-        preselected: 'captain A',
+        preselected2: ['Wanda', 'Bruce Banner'],
+        preselected: 'Wanda',
         menu: [
           { label: 'Google', value: 'https://google.com' },
           { label: 'Twitter', value: 'https://twitter.com' },
@@ -193,7 +205,12 @@
           select4: '',
           select5: '',
           select6: '',
-          select7: 'ash',
+          select7: 'Tony',
+          select8: '',
+          select9: '',
+          select10: '',
+          select11: '',
+          select12: '',
         },
       };
     },

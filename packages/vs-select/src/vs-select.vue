@@ -23,14 +23,14 @@
         aria-haspopup="true"
         :aria-expanded="!isMenuHidden"
       />
-      <span class="vs-select__icon">
+      <div class="vs-select__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
           <path
             fill="currentColor"
             d="M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
           />
         </svg>
-      </span>
+      </div>
     </div>
 
     <div class="vs-select__menu-wrapper" v-if="!disabled">
@@ -63,7 +63,7 @@
             <span v-else>{{ option }}</span>
           </li>
           <li v-if="!selectOptions.length" class="vs-select__menu-item vs-select__menu--no-item" role="menuitem">
-            No Data Available
+            {{ emptyItemsText }}
           </li>
         </slot>
       </ul>
@@ -119,6 +119,10 @@
         type: Boolean,
         default: false,
       },
+      emptyItemsText: {
+        type: String,
+        default: 'No Data Available',
+      },
     },
 
     data() {
@@ -142,7 +146,7 @@
       },
 
       isReadonly() {
-        if (this.isSearch && !this.disabled) {
+        if (this.isSearch && !this.disabled && !this.isMenu) {
           return false;
         }
         return true;
@@ -175,10 +179,13 @@
         ) {
           this.isObject = true;
           if (this.preselected) {
-            this.selectedObject = this.options.filter((i) => i.value === this.preselected)[0];
-            this.selected = this.selectedObject.value;
-            this.inputValue = this.selectedObject.label;
-            return;
+            const selectedFilter = this.options.filter((item) => item.value === this.preselected);
+            if (selectedFilter.length > 0) {
+              this.selectedObject = selectedFilter[0];
+              this.selected = this.selectedObject.value;
+              this.inputValue = this.selectedObject.label;
+              return;
+            }
           }
           if (this.value) {
             // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
@@ -238,7 +245,7 @@
         }
         this.$refs['vs-select-box'].focus();
         this.isMenuHidden = false;
-        if (!this.searchTerm & this.isSearch) {
+        if (!this.searchTerm && this.isSearch && !this.isMenu) {
           this.inputValue = '';
         }
       },

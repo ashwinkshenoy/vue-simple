@@ -15,14 +15,14 @@
       <span>
         {{ selectedItems ? selectedItems : label }}
       </span>
-      <span class="vs-multiselect__icon">
+      <div class="vs-multiselect__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
           <path
             fill="currentColor"
             d="M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
           />
         </svg>
-      </span>
+      </div>
     </div>
 
     <div class="vs-multiselect__menu-wrapper" v-if="!disabled">
@@ -71,7 +71,7 @@
             class="vs-multiselect__menu-item vs-multiselect__menu--no-item"
             role="menuitem"
           >
-            No Data Available
+            {{ emptyItemsText }}
           </li>
         </slot>
       </ul>
@@ -114,6 +114,10 @@
       disabled: {
         type: Boolean,
         default: false,
+      },
+      emptyItemsText: {
+        type: String,
+        default: 'No Data Available',
       },
     },
 
@@ -245,8 +249,8 @@
           this.$refs['vs-multiselect-box'].blur();
           return;
         }
-        this.$refs['vs-multiselect-box'].focus();
         this.isMenuHidden = false;
+        this.$nextTick(() => this.$refs['vs-multiselect-box'].focus());
         if (!this.selected) {
           this.inputValue = '';
         }
@@ -343,7 +347,7 @@
       }
 
       span {
-        padding: 10px 0 10px 15px;
+        padding: 10px 40px 10px 15px;
       }
 
       &#{$el}--is-open:before {
