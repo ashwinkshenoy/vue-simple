@@ -196,6 +196,7 @@
 
     mounted() {
       if (window) {
+        this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
       }
     },

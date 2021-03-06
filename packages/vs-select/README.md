@@ -72,7 +72,7 @@ yarn add vs-select
 ### 🌎 CDN
 
 ```javascript
-<script src='https://unpkg.com/vs-select@0.9.5/dist/vs-select.min.js'></script>
+<script src='https://unpkg.com/vs-select@0.9.6/dist/vs-select.min.js'></script>
 ```
 
 ```html

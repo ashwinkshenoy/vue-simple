@@ -1,6 +1,6 @@
 {
   "name": "vs-select",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "A simple vue select. Perfect for all your select scenarios.",
   "main": "dist/vs-select.umd.js",
   "module": "dist/vs-select.esm.js",
