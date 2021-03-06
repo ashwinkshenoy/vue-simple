@@ -34,7 +34,10 @@
     </div>
 
     <div class="vs-select__menu-wrapper" v-if="!disabled">
-      <ul class="vs-select__menu" :aria-hidden="!disabled ? isMenuHidden : true">
+      <ul
+        :class="['vs-select__menu', { 'vs-select__menu--top': isMenuTop }]"
+        :aria-hidden="!disabled ? isMenuHidden : true"
+      >
         <slot
           name="options"
           :options="selectOptions"
@@ -42,7 +45,12 @@
           :selectedObject="selectedObject"
           :onSelectedItem="onSelectedItem"
         >
-          <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
+          <li
+            class="vs-select__menu-item"
+            @click="onSelectedItem(-1)"
+            v-if="hasEmptyOption"
+            role="menuitem"
+          >
             -
           </li>
           <li
@@ -51,10 +59,15 @@
             :class="[
               'vs-select__menu-item',
               { 'vs-select__menu--is-checked': !isMenu && selected === option },
-              { 'vs-select__menu--is-checked': !isMenu && isObject && selectedObject.value === option.value },
+              {
+                'vs-select__menu--is-checked':
+                  !isMenu && isObject && selectedObject.value === option.value,
+              },
               { 'vs-select__menu-item--is-disabled': option.disabled },
             ]"
-            :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
+            :aria-selected="
+              (isObject && selectedObject.value === option.value) || selected === option
+            "
             @click="!option.disabled ? onSelectedItem(option, index) : null"
             role="menuitem"
             tabIndex="0"
@@ -62,7 +75,11 @@
             <span v-if="isObject">{{ option.label }}</span>
             <span v-else>{{ option }}</span>
           </li>
-          <li v-if="!selectOptions.length" class="vs-select__menu-item vs-select__menu--no-item" role="menuitem">
+          <li
+            v-if="!selectOptions.length"
+            class="vs-select__menu-item vs-select__menu--no-item"
+            role="menuitem"
+          >
             {{ emptyItemsText }}
           </li>
         </slot>
@@ -133,6 +150,7 @@
         selectedObject: {},
         isObject: false,
         searchTerm: '',
+        isMenuTop: false,
       };
     },
 
@@ -140,7 +158,9 @@
       selectOptions() {
         return (
           this.options.filter(
-            (list) => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
+            (list) =>
+              !this.searchTerm ||
+              new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list)
           ) || ''
         );
       },
@@ -153,10 +173,6 @@
       },
     },
 
-    created() {
-      this.initOptions();
-    },
-
     watch: {
       inputValue(value) {
         if (!this.isMenuHidden) {
@@ -167,6 +183,27 @@
       preselected() {
         this.selected = this.preselected;
       },
+
+      options: {
+        handler: 'initOptions',
+        immediate: false,
+      },
+    },
+
+    created() {
+      this.initOptions();
+    },
+
+    mounted() {
+      if (window) {
+        window.addEventListener('scroll', this.handleScroll);
+      }
+    },
+
+    destroyed() {
+      if (window) {
+        window.removeEventListener('scroll', this.handleScroll);
+      }
     },
 
     methods: {
@@ -237,6 +274,14 @@
         this.inputValue = value;
       },
 
+      handleScroll() {
+        if (window.innerHeight - this.$refs['vs-select-box'].getBoundingClientRect().bottom < 250) {
+          this.isMenuTop = true;
+        } else {
+          this.isMenuTop = false;
+        }
+      },
+
       setSelectEnv() {
         if (!this.isMenuHidden && !this.searchTerm) {
           this.isMenuHidden = true;
@@ -303,8 +348,8 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
-        color 0.25s ease-in-out;
+      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out,
+        background-color 0.25s ease-in-out, color 0.25s ease-in-out;
       outline: 0;
       border: 1px solid var(--vs-select-border);
       border-radius: var(--vs-select-border-radius);
@@ -398,6 +443,11 @@
       font-weight: 400;
       width: 100%;
       left: 0;
+
+      &--top {
+        bottom: 40px;
+        box-shadow: 0 -2px 20px 0 rgb(4 68 77 / 15%);
+      }
 
       &-item {
         display: block;
