@@ -1,12 +1,6 @@
 <template>
   <transition :name="toggleTransition" @after-enter="onEnter" @after-leave="onLeave">
-    <div
-      v-show="isOpen"
-      class="vs-modal vs-modal__mask"
-      :class="classes"
-      :role="role"
-      @click.self="onBackdropClick"
-    >
+    <div v-show="isOpen" class="vs-modal vs-modal__mask" :class="classes" :role="role" @click.self="onBackdropClick">
       <div
         class="vs-modal__wrapper"
         :class="{ 'has-dummy-scrollbar': preventShift }"
@@ -27,10 +21,7 @@
 
           <div class="vs-modal__close-button">
             <slot name="close">
-              <button
-                v-if="dismissOnCloseButton && !removeCloseButton && dismissible"
-                @click="close"
-              >
+              <button v-if="dismissOnCloseButton && !removeCloseButton && dismissible" @click="close">
                 <img src="./images/close.png" alt="close" />
               </button>
             </slot>
@@ -50,71 +41,71 @@
 </template>
 
 <script>
-  import VsFocusContainer from "./vs-focus-container.vue";
-  import classlist from "./utils/classlist";
+  import VsFocusContainer from './vs-focus-container.vue';
+  import classlist from './utils/classlist';
 
   export default {
-    name: "VsModal",
+    name: 'VsModal',
 
     components: {
-      VsFocusContainer
+      VsFocusContainer,
     },
 
     props: {
       title: {
         type: String,
-        default: "Modal title"
+        default: 'Modal title',
       },
       alignTop: {
         type: Boolean,
-        default: false
+        default: false,
       },
       alignTopMargin: {
         type: Number,
-        default: 60
+        default: 60,
       },
       size: {
         type: String,
-        default: "m"
+        default: 'm',
       },
       role: {
         type: String,
-        default: "dialog"
+        default: 'dialog',
       },
       transition: {
         type: String,
-        default: "slide-up"
+        default: 'slide-up',
       },
       removeHeader: {
         type: Boolean,
-        default: false
+        default: false,
       },
       removeCloseButton: {
         type: Boolean,
-        default: false
+        default: false,
       },
       preventShift: {
         type: Boolean,
-        default: false
+        default: false,
       },
       dismissible: {
         type: Boolean,
-        default: true
+        default: true,
       },
       dismissOn: {
         type: String,
-        default: "backdrop esc close-button"
+        default: 'backdrop esc close-button',
       },
       backdropBlur: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
 
     data() {
       return {
         isOpen: false,
-        lastFocusedElement: null
+        lastFocusedElement: null,
       };
     },
 
@@ -122,16 +113,16 @@
       classes() {
         return [
           `vs-modal--size-${this.size}`,
-          { "has-footer": this.hasFooter },
-          { "is-open": this.isOpen },
-          { "is-aligned-top": this.alignTop },
-          { "is-backdrop-blur": this.backdropBlur }
+          { 'has-footer': this.hasFooter },
+          { 'is-open': this.isOpen },
+          { 'is-aligned-top': this.alignTop },
+          { 'is-backdrop-blur': this.backdropBlur },
         ];
       },
 
       alignTopStyle() {
         if (this.alignTop) {
-          return { "padding-top": `${this.alignTopMargin}px` };
+          return { 'padding-top': `${this.alignTopMargin}px` };
         }
         return null;
       },
@@ -145,24 +136,24 @@
       },
 
       dismissOnBackdrop() {
-        return this.dismissOn.indexOf("backdrop") > -1;
+        return this.dismissOn.indexOf('backdrop') > -1;
       },
 
       dismissOnCloseButton() {
-        return this.dismissOn.indexOf("close-button") > -1;
+        return this.dismissOn.indexOf('close-button') > -1;
       },
 
       dismissOnEsc() {
-        return this.dismissOn.indexOf("esc") > -1;
-      }
+        return this.dismissOn.indexOf('esc') > -1;
+      },
     },
 
     watch: {
       isOpen() {
         this.$nextTick(() => {
-          this[this.isOpen ? "onOpen" : "onClose"]();
+          this[this.isOpen ? 'onOpen' : 'onClose']();
         });
-      }
+      },
     },
 
     beforeDestroy() {
@@ -223,17 +214,17 @@
         this.lastFocusedElement = document.activeElement;
         this.$refs.focusContainer.focus();
 
-        classlist.add(document.body, "vs-modal--is-open");
+        classlist.add(document.body, 'vs-modal--is-open');
         this.incrementOpenModalCount();
 
-        this.$emit("open");
+        this.$emit('open');
       },
 
       /**
        * Emitted when modal starts to close
        */
       onClose() {
-        this.$emit("close");
+        this.$emit('close');
         this.returnFocus();
       },
 
@@ -241,24 +232,24 @@
        * Emitted after transition is done and opened
        */
       onEnter() {
-        this.$emit("reveal");
+        this.$emit('reveal');
       },
 
       /**
        * Emitted after transition is done and closes
        */
       onLeave() {
-        this.$emit("hide");
+        this.$emit('hide');
         const newCount = this.decrementOpenModalCount();
 
         // Remove modal open class on body tag
         if (newCount === 0) {
-          classlist.remove(document.body, "vs-modal--is-open");
+          classlist.remove(document.body, 'vs-modal--is-open');
         }
       },
 
       getOpenModalCount() {
-        const count = document.body.getAttribute("data-open-modals");
+        const count = document.body.getAttribute('data-open-modals');
         return count === undefined ? 0 : Number(count);
       },
 
@@ -268,9 +259,9 @@
       setOpenModalCount(count) {
         const normalizedCount = Math.max(0, count);
         if (normalizedCount === 0) {
-          document.body.removeAttribute("data-open-modals");
+          document.body.removeAttribute('data-open-modals');
         } else {
-          document.body.setAttribute("data-open-modals", normalizedCount);
+          document.body.setAttribute('data-open-modals', normalizedCount);
         }
         return normalizedCount;
       },
@@ -284,8 +275,8 @@
 
       decrementOpenModalCount() {
         return this.setOpenModalCount(this.getOpenModalCount() - 1);
-      }
-    }
+      },
+    },
   };
 </script>
 
@@ -309,7 +300,7 @@
   $c-space-inset-l: 16px;
   $c-space-inset-xl: 24px;
   $z-index-modal-overlay: 800;
-  $el: ".vs-modal";
+  $el: '.vs-modal';
 
   #{$el} {
     font-size: $text-body-m1;
@@ -405,12 +396,13 @@
     &__close-button button {
       position: absolute;
       z-index: 100;
-      top: 15px;
+      top: 20px;
       right: 20px;
       background: none;
       border: none;
       text-align: right;
       margin: 0;
+      padding: 0;
 
       img {
         width: 12px;

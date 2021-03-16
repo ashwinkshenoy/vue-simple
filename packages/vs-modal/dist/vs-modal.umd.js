@@ -379,67 +379,67 @@
   //
 
   var script$1 = {
-    name: "VsModal",
+    name: 'VsModal',
 
     components: {
-      VsFocusContainer: __vue_component__
+      VsFocusContainer: __vue_component__,
     },
 
     props: {
       title: {
         type: String,
-        default: "Modal title"
+        default: 'Modal title',
       },
       alignTop: {
         type: Boolean,
-        default: false
+        default: false,
       },
       alignTopMargin: {
         type: Number,
-        default: 60
+        default: 60,
       },
       size: {
         type: String,
-        default: "m"
+        default: 'm',
       },
       role: {
         type: String,
-        default: "dialog"
+        default: 'dialog',
       },
       transition: {
         type: String,
-        default: "slide-up"
+        default: 'slide-up',
       },
       removeHeader: {
         type: Boolean,
-        default: false
+        default: false,
       },
       removeCloseButton: {
         type: Boolean,
-        default: false
+        default: false,
       },
       preventShift: {
         type: Boolean,
-        default: false
+        default: false,
       },
       dismissible: {
         type: Boolean,
-        default: true
+        default: true,
       },
       dismissOn: {
         type: String,
-        default: "backdrop esc close-button"
+        default: 'backdrop esc close-button',
       },
       backdropBlur: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
 
     data: function data() {
       return {
         isOpen: false,
-        lastFocusedElement: null
+        lastFocusedElement: null,
       };
     },
 
@@ -447,16 +447,15 @@
       classes: function classes() {
         return [
           ("vs-modal--size-" + (this.size)),
-          { "has-footer": this.hasFooter },
-          { "is-open": this.isOpen },
-          { "is-aligned-top": this.alignTop },
-          { "is-backdrop-blur": this.backdropBlur }
-        ];
+          { 'has-footer': this.hasFooter },
+          { 'is-open': this.isOpen },
+          { 'is-aligned-top': this.alignTop },
+          { 'is-backdrop-blur': this.backdropBlur } ];
       },
 
       alignTopStyle: function alignTopStyle() {
         if (this.alignTop) {
-          return { "padding-top": ((this.alignTopMargin) + "px") };
+          return { 'padding-top': ((this.alignTopMargin) + "px") };
         }
         return null;
       },
@@ -470,16 +469,16 @@
       },
 
       dismissOnBackdrop: function dismissOnBackdrop() {
-        return this.dismissOn.indexOf("backdrop") > -1;
+        return this.dismissOn.indexOf('backdrop') > -1;
       },
 
       dismissOnCloseButton: function dismissOnCloseButton() {
-        return this.dismissOn.indexOf("close-button") > -1;
+        return this.dismissOn.indexOf('close-button') > -1;
       },
 
       dismissOnEsc: function dismissOnEsc() {
-        return this.dismissOn.indexOf("esc") > -1;
-      }
+        return this.dismissOn.indexOf('esc') > -1;
+      },
     },
 
     watch: {
@@ -487,9 +486,9 @@
         var this$1 = this;
 
         this.$nextTick(function () {
-          this$1[this$1.isOpen ? "onOpen" : "onClose"]();
+          this$1[this$1.isOpen ? 'onOpen' : 'onClose']();
         });
-      }
+      },
     },
 
     beforeDestroy: function beforeDestroy() {
@@ -550,17 +549,17 @@
         this.lastFocusedElement = document.activeElement;
         this.$refs.focusContainer.focus();
 
-        classlist.add(document.body, "vs-modal--is-open");
+        classlist.add(document.body, 'vs-modal--is-open');
         this.incrementOpenModalCount();
 
-        this.$emit("open");
+        this.$emit('open');
       },
 
       /**
        * Emitted when modal starts to close
        */
       onClose: function onClose() {
-        this.$emit("close");
+        this.$emit('close');
         this.returnFocus();
       },
 
@@ -568,24 +567,24 @@
        * Emitted after transition is done and opened
        */
       onEnter: function onEnter() {
-        this.$emit("reveal");
+        this.$emit('reveal');
       },
 
       /**
        * Emitted after transition is done and closes
        */
       onLeave: function onLeave() {
-        this.$emit("hide");
+        this.$emit('hide');
         var newCount = this.decrementOpenModalCount();
 
         // Remove modal open class on body tag
         if (newCount === 0) {
-          classlist.remove(document.body, "vs-modal--is-open");
+          classlist.remove(document.body, 'vs-modal--is-open');
         }
       },
 
       getOpenModalCount: function getOpenModalCount() {
-        var count = document.body.getAttribute("data-open-modals");
+        var count = document.body.getAttribute('data-open-modals');
         return count === undefined ? 0 : Number(count);
       },
 
@@ -595,9 +594,9 @@
       setOpenModalCount: function setOpenModalCount(count) {
         var normalizedCount = Math.max(0, count);
         if (normalizedCount === 0) {
-          document.body.removeAttribute("data-open-modals");
+          document.body.removeAttribute('data-open-modals');
         } else {
-          document.body.setAttribute("data-open-modals", normalizedCount);
+          document.body.setAttribute('data-open-modals', normalizedCount);
         }
         return normalizedCount;
       },
@@ -611,8 +610,8 @@
 
       decrementOpenModalCount: function decrementOpenModalCount() {
         return this.setOpenModalCount(this.getOpenModalCount() - 1);
-      }
-    }
+      },
+    },
   };
 
   var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWNxwqAAAAB3RSTlMAJeTmmCIcbPbyAQAAAOtJREFUSMeF1ksKwjAURuE6cF50BY4cC4oLEHQquAVXYIVs3wiFn3C4nA76SG+/PpLc2+l9fk7lsr3dp0c71QH79p2ubZmr85t+sgshCHTh1UIQaJe+DkFgmddNBZyyLYGRIAACAAgA2SeAAwI5OowBu/WaEJ95AI4BQBD4N6xEgFyQFsSTYDgJAmgkkFYCIACAAABiAEgAABGgIAIURICCCFAQAEAQYIDewh9SX9M/lH5q7yztbh8wOuR80Oqw94mjU88nr05/TyCagjyJaRr0RKqp2JO5lgMvKFqStKhpWbTC6qVZi7v+HvwAcK2oz9BduqwAAAAASUVORK5CYII=";
@@ -757,7 +756,7 @@
     /* style */
     var __vue_inject_styles__$1 = function (inject) {
       if (!inject) { return }
-      inject("data-v-b1171350_0", { source: ".vs-modal {\n  font-size: 0.875em;\n}\n.vs-modal.is-aligned-top .vs-modal__wrapper {\n  vertical-align: initial;\n}\n.vs-modal.is-aligned-top.has-footer .vs-modal__body {\n  max-height: calc(100vh - 125px);\n}\n.vs-modal.has-footer .vs-modal__body {\n  max-height: calc(100vh - 125px);\n}\n.vs-modal:not(.has-footer) .vs-modal__body {\n  padding: 21px 24px;\n}\n.vs-modal--is-open {\n  overflow: hidden;\n}\n.vs-modal.is-backdrop-blur {\n  backdrop-filter: blur(3px);\n}\n.vs-modal__mask {\n  display: table;\n  position: fixed;\n  z-index: 800;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  transition: opacity 0.3s ease;\n  background-color: rgba(51, 51, 51, 0.5);\n}\n.vs-modal__wrapper {\n  display: table-cell;\n  overflow-x: hidden;\n  text-align: center;\n  vertical-align: middle;\n}\n.vs-modal__wrapper.has-dummy-scrollbar {\n  overflow-y: scroll;\n}\n.vs-modal__container {\n  display: inline-block;\n  position: relative;\n  width: 530px;\n  max-width: 100vw;\n  max-height: 100vh;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  transition: all 0.3s ease;\n  border-radius: 3px;\n  outline: none;\n  background-color: #ffffff;\n  box-shadow: 0 2px 8px rgba(51, 51, 51, 0.33);\n  text-align: initial;\n}\n.vs-modal__header {\n  display: flex;\n  position: relative;\n  z-index: 1;\n  align-items: center;\n  height: 55px;\n  padding: 0 24px;\n}\n.vs-modal__header-text {\n  display: flex;\n  flex-grow: 1;\n  align-items: center;\n  margin: 0;\n  font-size: 1.125em;\n  font-weight: normal;\n}\n.vs-modal__close-button button {\n  position: absolute;\n  z-index: 100;\n  top: 15px;\n  right: 20px;\n  background: none;\n  border: none;\n  text-align: right;\n  margin: 0;\n}\n.vs-modal__close-button button img {\n  width: 12px;\n  height: 12px;\n}\n.vs-modal__body {\n  max-height: calc(100vh - 55px);\n  padding: 16px 24px;\n  overflow-y: auto;\n}\n.vs-modal__footer {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  height: 70px;\n  padding: 0 24px;\n}\n.vs-modal--size-s > .vs-modal__wrapper > .vs-modal__container {\n  width: 320px;\n}\n.vs-modal--size-l > .vs-modal__wrapper > .vs-modal__container {\n  width: 850px;\n}\n.vs-modal--size-fullscreen > .vs-modal__wrapper > .vs-modal__container {\n  width: 100vw;\n  border-radius: 0;\n}\n.vs-modal--size-fullscreen > .vs-modal__wrapper > .vs-modal__container .vs-modal__body {\n  height: 100vh;\n  max-height: 100vh;\n}\n.vs-modal--size-auto > .vs-modal__wrapper > .vs-modal__container {\n  width: initial;\n}\n.vs-modal--transition-fade-enter, .vs-modal--transition-fade-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-up-enter, .vs-modal--transition-slide-up-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-up-enter .vs-modal__container, .vs-modal--transition-slide-up-leave-active .vs-modal__container {\n  transform: translateY(20px);\n}\n.vs-modal--transition-slide-down-enter, .vs-modal--transition-slide-down-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-down-enter .vs-modal__container, .vs-modal--transition-slide-down-leave-active .vs-modal__container {\n  transform: translateY(-20px);\n}", map: undefined, media: undefined });
+      inject("data-v-74d282e4_0", { source: ".vs-modal {\n  font-size: 0.875em;\n}\n.vs-modal.is-aligned-top .vs-modal__wrapper {\n  vertical-align: initial;\n}\n.vs-modal.is-aligned-top.has-footer .vs-modal__body {\n  max-height: calc(100vh - 125px);\n}\n.vs-modal.has-footer .vs-modal__body {\n  max-height: calc(100vh - 125px);\n}\n.vs-modal:not(.has-footer) .vs-modal__body {\n  padding: 21px 24px;\n}\n.vs-modal--is-open {\n  overflow: hidden;\n}\n.vs-modal.is-backdrop-blur {\n  backdrop-filter: blur(3px);\n}\n.vs-modal__mask {\n  display: table;\n  position: fixed;\n  z-index: 800;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  transition: opacity 0.3s ease;\n  background-color: rgba(51, 51, 51, 0.5);\n}\n.vs-modal__wrapper {\n  display: table-cell;\n  overflow-x: hidden;\n  text-align: center;\n  vertical-align: middle;\n}\n.vs-modal__wrapper.has-dummy-scrollbar {\n  overflow-y: scroll;\n}\n.vs-modal__container {\n  display: inline-block;\n  position: relative;\n  width: 530px;\n  max-width: 100vw;\n  max-height: 100vh;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  transition: all 0.3s ease;\n  border-radius: 3px;\n  outline: none;\n  background-color: #ffffff;\n  box-shadow: 0 2px 8px rgba(51, 51, 51, 0.33);\n  text-align: initial;\n}\n.vs-modal__header {\n  display: flex;\n  position: relative;\n  z-index: 1;\n  align-items: center;\n  height: 55px;\n  padding: 0 24px;\n}\n.vs-modal__header-text {\n  display: flex;\n  flex-grow: 1;\n  align-items: center;\n  margin: 0;\n  font-size: 1.125em;\n  font-weight: normal;\n}\n.vs-modal__close-button button {\n  position: absolute;\n  z-index: 100;\n  top: 20px;\n  right: 20px;\n  background: none;\n  border: none;\n  text-align: right;\n  margin: 0;\n  padding: 0;\n}\n.vs-modal__close-button button img {\n  width: 12px;\n  height: 12px;\n}\n.vs-modal__body {\n  max-height: calc(100vh - 55px);\n  padding: 16px 24px;\n  overflow-y: auto;\n}\n.vs-modal__footer {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  height: 70px;\n  padding: 0 24px;\n}\n.vs-modal--size-s > .vs-modal__wrapper > .vs-modal__container {\n  width: 320px;\n}\n.vs-modal--size-l > .vs-modal__wrapper > .vs-modal__container {\n  width: 850px;\n}\n.vs-modal--size-fullscreen > .vs-modal__wrapper > .vs-modal__container {\n  width: 100vw;\n  border-radius: 0;\n}\n.vs-modal--size-fullscreen > .vs-modal__wrapper > .vs-modal__container .vs-modal__body {\n  height: 100vh;\n  max-height: 100vh;\n}\n.vs-modal--size-auto > .vs-modal__wrapper > .vs-modal__container {\n  width: initial;\n}\n.vs-modal--transition-fade-enter, .vs-modal--transition-fade-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-up-enter, .vs-modal--transition-slide-up-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-up-enter .vs-modal__container, .vs-modal--transition-slide-up-leave-active .vs-modal__container {\n  transform: translateY(20px);\n}\n.vs-modal--transition-slide-down-enter, .vs-modal--transition-slide-down-leave-active {\n  opacity: 0;\n}\n.vs-modal--transition-slide-down-enter .vs-modal__container, .vs-modal--transition-slide-down-leave-active .vs-modal__container {\n  transform: translateY(-20px);\n}", map: undefined, media: undefined });
 
     };
     /* scoped */
