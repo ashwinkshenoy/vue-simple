@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue2-datepicker": "^3.9.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
