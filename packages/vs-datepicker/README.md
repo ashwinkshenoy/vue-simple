@@ -19,7 +19,8 @@ A light weight vue datepicker plugin.
 
 ### 📺 Live Demo
 
-Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-yhjce)
+Code Sandbox Demo: [Link](https://4vcnu.csb.app/)
+Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
 
 <br />
 
@@ -64,7 +65,7 @@ yarn add vs-datepicker
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-datepicker@0.2.0/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/vs-datepicker@0.4.0/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html
