@@ -48,7 +48,7 @@ See the individual package README for the Vue component you would like to instal
 
 Creating quality code packages/ guidelines takes a lot of time.  
 Hence would recommend everyone to help in contributing.  
-Cheers!! ❤️
+Cheers!! 🍻
 
 <br>
 
