@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700&:display=swap')
+
+:root {
+  --white: #ffffff
+  --green: #51b953
+  --grey1: #fdf0e3
+  --grey3: #fbfbfb
+  --red: #ab3307
+  --blue: #0172cb
+
+  --color-line-grey: #EBEBEB
+  --color-dark-line-grey: #E0E0E0
+  --color-mercury-grey: #CCCCCC
+  --color-slate-grey: #808080
+  --color-pepper-grey: #333333
+  --color-frosty-grey: #F7F7F7
+  --color-darkest-blue: #18324C
+  --color-true-blue: #163E6B
+  --color-calm-blue: #BDE8EA
+  --color-calmer-blue: #D9F6F7
+  --color-calm-green: #ACDEAC
+  --color-calmer-green: #E4F5E4
+  --color-calm-pink: #F4BFB6
+  --color-calmer-pink: #FFE5E1
+  --color-smart-green: #5CCC5E
+  --color-trusty-peach: #FF917D
+  --color-epic-yellow: #FFD100
+  --color-pale-green: #DDFBE0
+  --color-text-error-on-white: #f55335
+  --color-interactive-blue: #1863E6
+  --color-navy-medium: #2D69B0
+  --color-rich-blue: #1863E6
+}
+
+$force = !important
+$mobile = 720px
+$tablet = 960px
+$pageWidth = 1119px
+
+html
+  height: 100%
+
+body
+  font-family 'Roboto', sans-serif
+
+.can-hide
+  position absolute $force
+  height 1px
+  width 1px
+  overflow hidden
+  clip rect(1px 1px 1px 1px)
+  clip rect(1px, 1px, 1px, 1px)
+  white-space nowrap
+
+.content
+  font-size 30px
+
+h2, h3
+  position relative
+  border-bottom 0
+  display table
+  margin-bottom 25px $force
+
+  &::after
+    background #52b953
+    border-radius: 10px;
+    bottom: -4px;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 55%;
+
+h3::after
+  background #718096
+
+// --- Header ---
+.navbar
+  line-height 1.475rem $force
+  height 70px
+  position sticky
+
+  .sidebar-button
+    top 14px
+
+  .logo
+    height 40px $force
+    min-width 2.2rem $force
+    margin-top 5px;
+
+    @media (min-width: $tablet)
+      margin-top 0;
+      height: 50px $force
+
+  .links
+    top 16px $force
+    right 2rem $force
+
+    @media (min-width: $tablet)
+      top 16px $force
+      right 1.5rem $force
+
+    .search-query
+      border-radius 3px
+
+  @media (min-width: $mobile)
+    .search-box
+      border-left 1px solid var(--color-dark-line-grey)
+      padding-left 1rem
+
+    .links
+      right unset
+      left 17rem
+      padding-left 0 $force
+
+      .search-query
+        width 25rem
+        padding-left 2.5rem
+        border-color transparent
+
+        &:focus
+          border 1px solid var(--color-smart-green) $force
+
+  @media (min-width: $mobile) and (max-width: $tablet)
+    .links
+      left 14rem $force
+
+.search-box input
+  background #fff url(/icons/search.svg) 0.6rem 0.5rem no-repeat $force
+  background-size 1rem $force
+
+// --- Sidebar ---
+.sidebar
+  top 0 $force
+  padding-top: 0;
+
+  @media (min-width: $tablet)
+    top $navbarHeight $force
+
+  @media (max-width: $MQNarrow)
+    width 14rem
+
+  & > .sidebar-links
+    padding-top 1.5rem $force
+  .sidebar-link
+    transition all .3s
+  .sidebar-heading
+    align-items center
+    display flex
+    font-weight 600 $force
+    justify-content space-between
+    position relative
+    transition 1s all linear
+    &.open
+      font-weight 600 $force
+    .arrow
+      top -10px $force
+      left -5px $force
+      &.right,
+      &.down
+        border 0
+      &.downafter
+        transform rotate(-180deg)
+      &::after
+        background-image url('/icons/arrow-down.png')
+        background-size cover
+        content ''
+        height 12px
+        left -5px
+        position absolute
+        transition .17s all linear
+        width 12px
+
+
+details
+  z-index 5
+  position relative
+  summary
+    cursor pointer
+
+.theme-default-content
+  &:not(.custom)
+    max-width $pageWidth
+    padding-top 0
+    margin-top 0
+  code
+    color #e2777a
+    font-weight 600
+
+
+.page
+  @media (max-width: $MQNarrow)
+    padding-left 14rem
+
+  @media (max-width: $MQMobile)
+    padding-left 0
+
+  .page-edit
+  .page-nav
+    max-width $pageWidth $force
+
+.home-page
+  &__hero
+    margin-top 110px
+
+.home
+  .hero
+    margin 100px auto
+  .feature
+    h2
+      margin 0
+  h2
+    margin 0 auto
+    &::after
+      content none
+  img
+    width 50%
+  .action-button
+    background-color #5CCC5E $force
+    padding 12px 50px $force
+    border-radius 50px $force
+    border-bottom 0 $force
+    &:hover
+      background-color #52b953 $force
+
+.theme-default-content:not(.custom) > h1, .theme-default-content:not(.custom) > h2, .theme-default-content:not(.custom) > h3, .theme-default-content:not(.custom) > h4, .theme-default-content:not(.custom) > h5, .theme-default-content:not(.custom) > h6
+  padding-top: 5.5rem;
