@@ -42,10 +42,12 @@
 </script>
 
 <style lang="scss">
-  .component-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: baseline;
+  @media screen and (min-width: 768px) {
+    .component-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: baseline;
+    }
   }
 
   .component-badge {
@@ -62,9 +64,10 @@
 
   .component-links {
     justify-self: flex-end;
-    display: flex;
+    display: block;
     z-index: 1;
     position: relative;
+    margin-top: 10px;
 
     a {
       display: flex;
@@ -77,14 +80,10 @@
       font-size: 14px;
       padding: 6px 10px;
       text-decoration: none !important;
-      margin: 0 10px;
+      margin: 15px 0;
       cursor: pointer;
       user-select: none;
       font-weight: 400;
-
-      &:first-child {
-        margin-left: 0;
-      }
 
       img {
         width: 23px;
@@ -92,6 +91,18 @@
 
       span {
         margin: 0 3px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+      display: flex;
+
+      a {
+        margin: 0 10px;
+        &:first-child {
+          margin-left: 0;
+        }
       }
     }
   }
