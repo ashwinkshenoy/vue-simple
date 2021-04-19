@@ -10,6 +10,7 @@ module.exports = {
         updatePopup: true,
       },
     ],
+    ['@vuepress/back-to-top'],
   ],
   head: [
     ['link', { rel: 'icon', href: `/favicon.png` }],
@@ -18,6 +19,20 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    [
+      'script',
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-DQBJ2B92VJ',
+      },
+    ],
+    [
+      'script',
+
+      [
+        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-DQBJ2B92VJ');",
+      ],
+    ],
   ],
   docsDir: 'docs',
   host: 'localhost',

@@ -9,6 +9,8 @@
   🌈 A Simple collection of Tiny Vue Packages. 
   <br />
   ⚡️ Perfect for all your daily coding scenarios.
+  <br />
+  <a href="https://vuesimple.netlify.app" target="_blank">Documentation</a>
 </div>
 
 <br /><br />
@@ -35,12 +37,12 @@ Vue Simple provides consistent styling and behavior for your daily coding/protot
 
 See the individual package README for the Vue component you would like to install.
 
-| Package                                   | Version                                                              | Size                                                                                           | Downloads                                                             |
-| ----------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [`vs-modal`](packages/vs-modal)           | ![npm](https://img.shields.io/npm/v/vs-modal?style=flat-square)      | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-modal?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-modal?style=flat-square)      |
-| [`vs-alert`](packages/vs-alert)           | ![npm](https://img.shields.io/npm/v/vs-alert?style=flat-square)      | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-alert?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-alert?style=flat-square)      |
-| [`vs-select`](packages/vs-select)         | ![npm](https://img.shields.io/npm/v/vs-select?style=flat-square)     | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-select?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/vs-select?style=flat-square)     |
-| [`vs-datepicker`](packages/vs-datepicker) | ![npm](https://img.shields.io/npm/v/vs-datepicker?style=flat-square) | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-datepicker?style=flat-square) | ![npm](https://img.shields.io/npm/dt/vs-datepicker?style=flat-square) |
+| Package                                   | Version                                                                                               | Size                                                                                           | Downloads                                                             |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [`vs-modal`](packages/vs-modal)           | [![npm](https://img.shields.io/npm/v/vs-modal.svg)](https://www.npmjs.com/package/vs-modal)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-modal?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-modal?style=flat-square)      |
+| [`vs-alert`](packages/vs-alert)           | [![npm](https://img.shields.io/npm/v/vs-alert.svg)](https://www.npmjs.com/package/vs-alert)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-alert?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-alert?style=flat-square)      |
+| [`vs-select`](packages/vs-select)         | [![npm](https://img.shields.io/npm/v/vs-select.svg)](https://www.npmjs.com/package/vs-select)         | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-select?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/vs-select?style=flat-square)     |
+| [`vs-datepicker`](packages/vs-datepicker) | [![npm](https://img.shields.io/npm/v/vs-datepicker.svg)](https://www.npmjs.com/package/vs-datepicker) | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-datepicker?style=flat-square) | ![npm](https://img.shields.io/npm/dt/vs-datepicker?style=flat-square) |
 
 <br>
 
