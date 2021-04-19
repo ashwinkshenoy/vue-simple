@@ -40,6 +40,9 @@
     </div>
 
     <br /><br />
+    <hr />
+
+    <br /><br />
     <strong>Select</strong>
     <br /><br />
     <div class="grid">
@@ -173,6 +176,13 @@
 
     <br />
 
+    <vs-alert type="secondary" title="Secondary Heading" show-close>
+      Secondary Message
+      <template slot="close">close</template>
+    </vs-alert>
+
+    <br />
+
     <vs-alert type="success" no-bg>
       Success Message
     </vs-alert>
@@ -193,6 +203,12 @@
 
     <vs-alert type="info" no-bg>
       Information Message
+    </vs-alert>
+
+    <br />
+
+    <vs-alert type="secondary" no-bg>
+      Secondary Message
     </vs-alert>
 
     <br /><br />

@@ -43,15 +43,15 @@ module.exports = {
     },
     searchPlaceholder: 'Search...',
     sidebar: [
-      // {
-      //   title: 'Development',
-      //   collapsable: true,
-      //   children: getPages('./docs/development/'),
-      // },
       {
         title: 'Components',
         collapsable: true,
         children: getPages('./docs/components/'),
+      },
+      {
+        title: 'Grid',
+        collapsable: true,
+        children: getPages('./docs/grid/'),
       },
       {
         title: 'Utilities',

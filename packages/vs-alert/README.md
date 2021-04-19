@@ -62,7 +62,7 @@ yarn add vs-alert
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-alert@1.2.77/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/vs-alert@1.2.79/dist/vs-alert.min.js"></script>
 ```
 
 ```html
@@ -123,12 +123,12 @@ After installation,
 
 ### ⚙ Props
 
-| Name      | Type    | Default | Description                                                 |
-| --------- | ------- | ------- | ----------------------------------------------------------- |
-| type      | String  | -       | Type of alert to be shown. (success, warning, error, info)  |
-| title     | String  | -       | The alert title (text only). For HTML, use the header slot. |
-| showClose | Boolean | false   | Show alert close icon                                       |
-| noBg      | Boolean | false   | Remove background color                                     |
+| Name      | Type    | Default | Description                                                           |
+| --------- | ------- | ------- | --------------------------------------------------------------------- |
+| type      | String  | -       | Type of alert to be shown. (success, warning, error, info, secondary) |
+| title     | String  | -       | The alert title (text only). For HTML, use the header slot.           |
+| showClose | Boolean | false   | Show alert close icon                                                 |
+| noBg      | Boolean | false   | Remove background color                                               |
 
 <br />
 
@@ -148,3 +148,4 @@ You can define own item markup via slots:
 | --------- | --------------------------------------------- |
 | (default) | Holds the alert content and can contain HTML. |
 | icon      | Slot to add custom icon for type              |
+| title     | Slot to add custom title                      |

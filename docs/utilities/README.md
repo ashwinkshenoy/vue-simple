@@ -21,3 +21,7 @@ CSS
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-utilities@4" />
 ```
+
+<br />
+
+Original credits to [Zendesk Garden Utilities](https://github.com/zendeskgarden/css-components/tree/main/packages/utilities)

@@ -63,6 +63,15 @@
   //
   //
   //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   var script = {
     name: 'VsAlert',
@@ -249,17 +258,28 @@
                       }
                     },
                     [
-                      _c("g", { attrs: { fill: "none", stroke: "#038153" } }, [
-                        _c("path", {
+                      _c(
+                        "g",
+                        {
                           attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M4 9l2.5 2.5 5-5"
+                            fill: "none",
+                            stroke: "var(--vs-alert-success-icon)"
                           }
-                        }),
-                        _vm._v(" "),
-                        _c("circle", { attrs: { cx: "7.5", cy: "8.5", r: "7" } })
-                      ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M4 9l2.5 2.5 5-5"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            attrs: { cx: "7.5", cy: "8.5", r: "7" }
+                          })
+                        ]
+                      )
                     ]
                   )
                 : _vm._e(),
@@ -279,7 +299,7 @@
                       _c("path", {
                         attrs: {
                           fill: "none",
-                          stroke: "#ad5918",
+                          stroke: "var(--vs-alert-warning-icon)",
                           "stroke-linecap": "round",
                           d:
                             "M.88 13.77L7.06 1.86c.19-.36.7-.36.89 0l6.18 11.91c.17.33-.07.73-.44.73H1.32c-.37 0-.61-.4-.44-.73zM7.5 6v3.5"
@@ -305,16 +325,32 @@
                       }
                     },
                     [
-                      _c("g", { attrs: { fill: "none", stroke: "#cc3340" } }, [
-                        _c("circle", { attrs: { cx: "7.5", cy: "8.5", r: "7" } }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: { "stroke-linecap": "round", d: "M7.5 4.5V9" }
-                        })
-                      ]),
+                      _c(
+                        "g",
+                        {
+                          attrs: {
+                            fill: "none",
+                            stroke: "var(--vs-alert-error-icon)"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "7.5", cy: "8.5", r: "7" }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: { "stroke-linecap": "round", d: "M7.5 4.5V9" }
+                          })
+                        ]
+                      ),
                       _vm._v(" "),
                       _c("circle", {
-                        attrs: { cx: "7.5", cy: "12", r: "1", fill: "#cc3340" }
+                        attrs: {
+                          cx: "7.5",
+                          cy: "12",
+                          r: "1",
+                          fill: "var(--vs-alert-error-icon)"
+                        }
                       })
                     ]
                   )
@@ -332,18 +368,65 @@
                       }
                     },
                     [
-                      _c("g", { attrs: { stroke: "#337fbd" } }, [
-                        _c("circle", {
-                          attrs: { cx: "7.5", cy: "8.5", r: "7", fill: "none" }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: { "stroke-linecap": "round", d: "M7.5 12.5V8" }
-                        })
-                      ]),
+                      _c(
+                        "g",
+                        { attrs: { stroke: "var(--vs-alert-info-icon)" } },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "7.5", cy: "8.5", r: "7", fill: "none" }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: { "stroke-linecap": "round", d: "M7.5 12.5V8" }
+                          })
+                        ]
+                      ),
                       _vm._v(" "),
                       _c("circle", {
-                        attrs: { cx: "7.5", cy: "5", r: "1", fill: "#337fbd" }
+                        attrs: {
+                          cx: "7.5",
+                          cy: "5",
+                          r: "1",
+                          fill: "var(--vs-alert-info-icon)"
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.type === "secondary"
+                ? _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 16 16"
+                      }
+                    },
+                    [
+                      _c(
+                        "g",
+                        { attrs: { stroke: "var(--vs-alert-secondary-icon)" } },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "7.5", cy: "8.5", r: "7", fill: "none" }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: { "stroke-linecap": "round", d: "M7.5 12.5V8" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("circle", {
+                        attrs: {
+                          cx: "7.5",
+                          cy: "5",
+                          r: "1",
+                          fill: "var(--vs-alert-secondary-icon)"
+                        }
                       })
                     ]
                   )
@@ -353,11 +436,13 @@
           2
         ),
         _vm._v(" "),
-        _vm.title
-          ? _c("div", { staticClass: "vs-alert__heading" }, [
-              _vm._v(_vm._s(_vm.title))
-            ])
-          : _vm._e(),
+        _vm._t("title", [
+          _vm.title
+            ? _c("div", { staticClass: "vs-alert__heading" }, [
+                _vm._v(_vm._s(_vm.title))
+              ])
+            : _vm._e()
+        ]),
         _vm._v(" "),
         _vm._t("default"),
         _vm._v(" "),
@@ -408,7 +493,7 @@
     /* style */
     var __vue_inject_styles__ = function (inject) {
       if (!inject) { return }
-      inject("data-v-fd565b66_0", { source: ".vs-alert {\n  position: relative;\n  border-radius: 4px;\n  padding: 12px 30px;\n  line-height: 1.42857;\n  font-size: 14px;\n}\n.vs-alert-icon__wrapper svg {\n  position: absolute;\n  left: 8px;\n  margin-top: 1px;\n}\n.vs-alert__heading {\n  font-weight: 600;\n}\n.vs-alert-button {\n  display: block;\n  position: absolute;\n  top: 8px;\n  right: 4px;\n  transition: background-color 0.1s ease-in-out 0s, color 0.25s ease-in-out 0s;\n  border: none;\n  background-color: transparent;\n  cursor: pointer;\n  padding: 0px;\n  width: 28px;\n  height: 28px;\n  overflow: hidden;\n  color: #333333;\n  font-size: 0px;\n  user-select: none;\n}\n.vs-alert-button.success {\n  color: #186146;\n}\n.vs-alert-button.warning {\n  color: #ad5918;\n}\n.vs-alert-button.error {\n  color: #8c232c;\n}\n.vs-alert-button.info {\n  color: #1f73b7;\n}\n.vs-alert-success {\n  border: 1px solid #aecfc2;\n  background-color: #edf8f4;\n  color: #186146;\n}\n.vs-alert-warning {\n  border: 1px solid #fed6a8;\n  background-color: #fff7ed;\n  color: #ad5918;\n}\n.vs-alert-error {\n  border: 1px solid #f5b5ba;\n  background-color: #fff0f1;\n  color: #8c232c;\n}\n.vs-alert-info {\n  border: 1px solid #adcce4;\n  background-color: #edf7ff;\n  color: #1f73b7;\n}\n.vs-alert--no-bg {\n  background-color: transparent;\n  border-color: transparent;\n  padding: 0 22px;\n  font-size: 13px;\n}\n.vs-alert--no-bg .vs-alert-icon__wrapper svg {\n  left: 0;\n  margin-top: 0;\n}\n.vs-alert--no-bg.vs-alert-success {\n  color: #038153;\n}\n.vs-alert--no-bg.vs-alert-warning {\n  color: #ad5918;\n}\n.vs-alert--no-bg.vs-alert-error {\n  color: #cc3340;\n}\n.vs-alert--no-bg.vs-alert-info {\n  color: #337fbd;\n}", map: undefined, media: undefined });
+      inject("data-v-6a90b54e_0", { source: ".vs-alert {\n  --vs-alert-success-bc: #aecfc2;\n  --vs-alert-success-bg: #edf8f4;\n  --vs-alert-success-color: #186146;\n  --vs-alert-success-icon: #038153;\n  --vs-alert-warning-bc: #fed6a8;\n  --vs-alert-warning-bg: #fff7ed;\n  --vs-alert-warning-color: #ad5918;\n  --vs-alert-warning-icon: #ad5918;\n  --vs-alert-error-bc: #f5b5ba;\n  --vs-alert-error-bg: #fff0f1;\n  --vs-alert-error-color: #8c232c;\n  --vs-alert-error-icon: #cc3340;\n  --vs-alert-info-bc: #adcce4;\n  --vs-alert-info-bg: #edf7ff;\n  --vs-alert-info-color: #1f73b7;\n  --vs-alert-info-icon: #337fbd;\n  --vs-alert-secondary-bc: #d8dcde;\n  --vs-alert-secondary-bg: #f8f9f9;\n  --vs-alert-secondary-color: #68737d;\n  --vs-alert-secondary-icon: #68737d;\n  position: relative;\n  border-radius: 4px;\n  padding: 12px 30px;\n  line-height: 1.42857;\n  font-size: 14px;\n}\n.vs-alert-icon__wrapper svg {\n  position: absolute;\n  left: 8px;\n  margin-top: 1px;\n}\n.vs-alert__heading {\n  font-weight: 600;\n}\n.vs-alert-button {\n  display: block;\n  position: absolute;\n  top: 8px;\n  right: 4px;\n  transition: background-color 0.1s ease-in-out 0s, color 0.25s ease-in-out 0s;\n  border: none;\n  background-color: transparent;\n  cursor: pointer;\n  padding: 0px;\n  width: 28px;\n  height: 28px;\n  overflow: hidden;\n  color: #333333;\n  font-size: 0px;\n  user-select: none;\n}\n.vs-alert-button.success {\n  color: var(--vs-alert-success-color);\n}\n.vs-alert-button.warning {\n  color: var(--vs-alert-warning-color);\n}\n.vs-alert-button.error {\n  color: var(--vs-alert-error-color);\n}\n.vs-alert-button.info {\n  color: var(--vs-alert-info-color);\n}\n.vs-alert-button.secondary {\n  color: var(--vs-alert-secondary-color);\n}\n.vs-alert-success {\n  border: 1px solid var(--vs-alert-success-bc);\n  background-color: var(--vs-alert-success-bg);\n  color: var(--vs-alert-success-color);\n}\n.vs-alert-warning {\n  border: 1px solid var(--vs-alert-warning-bc);\n  background-color: var(--vs-alert-warning-bg);\n  color: var(--vs-alert-warning-color);\n}\n.vs-alert-error {\n  border: 1px solid var(--vs-alert-error-bc);\n  background-color: var(--vs-alert-error-bg);\n  color: var(--vs-alert-error-color);\n}\n.vs-alert-info {\n  border: 1px solid var(--vs-alert-info-bc);\n  background-color: var(--vs-alert-info-bg);\n  color: var(--vs-alert-info-color);\n}\n.vs-alert-secondary {\n  border: 1px solid var(--vs-alert-secondary-bc);\n  background-color: var(--vs-alert-secondary-bg);\n  color: var(--vs-alert-secondary-color);\n}\n.vs-alert--no-bg {\n  background-color: transparent;\n  border-color: transparent;\n  padding: 0 22px;\n  font-size: 13px;\n}\n.vs-alert--no-bg .vs-alert-icon__wrapper svg {\n  left: 0;\n  margin-top: 0;\n}\n.vs-alert--no-bg.vs-alert-success {\n  color: var(--vs-alert-success-icon);\n}\n.vs-alert--no-bg.vs-alert-warning {\n  color: var(--vs-alert-warning-icon);\n}\n.vs-alert--no-bg.vs-alert-error {\n  color: var(--vs-alert-error-icon);\n}\n.vs-alert--no-bg.vs-alert-info {\n  color: var(--vs-alert-info-icon);\n}\n.vs-alert--no-bg.vs-alert-secondary {\n  color: var(--vs-alert-secondary-icon);\n}", map: undefined, media: undefined });
 
     };
     /* scoped */

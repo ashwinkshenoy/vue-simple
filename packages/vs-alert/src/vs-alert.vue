@@ -4,7 +4,7 @@
     <span class="vs-alert-icon__wrapper">
       <slot name="icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'success'">
-          <g fill="none" stroke="#038153">
+          <g fill="none" stroke="var(--vs-alert-success-icon)">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 9l2.5 2.5 5-5" />
             <circle cx="7.5" cy="8.5" r="7" />
           </g>
@@ -12,31 +12,40 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'warning'">
           <path
             fill="none"
-            stroke="#ad5918"
+            stroke="var(--vs-alert-warning-icon)"
             stroke-linecap="round"
             d="M.88 13.77L7.06 1.86c.19-.36.7-.36.89 0l6.18 11.91c.17.33-.07.73-.44.73H1.32c-.37 0-.61-.4-.44-.73zM7.5 6v3.5"
           />
           <circle cx="7.5" cy="12" r="1" fill="#ad5918" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'error'">
-          <g fill="none" stroke="#cc3340">
+          <g fill="none" stroke="var(--vs-alert-error-icon)">
             <circle cx="7.5" cy="8.5" r="7" />
             <path stroke-linecap="round" d="M7.5 4.5V9" />
           </g>
-          <circle cx="7.5" cy="12" r="1" fill="#cc3340" />
+          <circle cx="7.5" cy="12" r="1" fill="var(--vs-alert-error-icon)" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'info'">
-          <g stroke="#337fbd">
+          <g stroke="var(--vs-alert-info-icon)">
             <circle cx="7.5" cy="8.5" r="7" fill="none" />
             <path stroke-linecap="round" d="M7.5 12.5V8" />
           </g>
-          <circle cx="7.5" cy="5" r="1" fill="#337fbd" />
+          <circle cx="7.5" cy="5" r="1" fill="var(--vs-alert-info-icon)" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'secondary'">
+          <g stroke="var(--vs-alert-secondary-icon)">
+            <circle cx="7.5" cy="8.5" r="7" fill="none" />
+            <path stroke-linecap="round" d="M7.5 12.5V8" />
+          </g>
+          <circle cx="7.5" cy="5" r="1" fill="var(--vs-alert-secondary-icon)" />
         </svg>
       </slot>
     </span>
 
     <!-- Heading -->
-    <div v-if="title" class="vs-alert__heading">{{ title }}</div>
+    <slot name="title">
+      <div v-if="title" class="vs-alert__heading">{{ title }}</div>
+    </slot>
 
     <!-- Default Slot -->
     <slot></slot>
@@ -91,6 +100,31 @@
   $el: '.vs-alert';
 
   #{$el} {
+    --vs-alert-success-bc: #aecfc2;
+    --vs-alert-success-bg: #edf8f4;
+    --vs-alert-success-color: #186146;
+    --vs-alert-success-icon: #038153;
+
+    --vs-alert-warning-bc: #fed6a8;
+    --vs-alert-warning-bg: #fff7ed;
+    --vs-alert-warning-color: #ad5918;
+    --vs-alert-warning-icon: #ad5918;
+
+    --vs-alert-error-bc: #f5b5ba;
+    --vs-alert-error-bg: #fff0f1;
+    --vs-alert-error-color: #8c232c;
+    --vs-alert-error-icon: #cc3340;
+
+    --vs-alert-info-bc: #adcce4;
+    --vs-alert-info-bg: #edf7ff;
+    --vs-alert-info-color: #1f73b7;
+    --vs-alert-info-icon: #337fbd;
+
+    --vs-alert-secondary-bc: #d8dcde;
+    --vs-alert-secondary-bg: #f8f9f9;
+    --vs-alert-secondary-color: #68737d;
+    --vs-alert-secondary-icon: #68737d;
+
     position: relative;
     border-radius: 4px;
     padding: 12px 30px;
@@ -124,38 +158,46 @@
       font-size: 0px;
       user-select: none;
       &.success {
-        color: #186146;
+        color: var(--vs-alert-success-color);
       }
       &.warning {
-        color: #ad5918;
+        color: var(--vs-alert-warning-color);
       }
       &.error {
-        color: #8c232c;
+        color: var(--vs-alert-error-color);
       }
       &.info {
-        color: #1f73b7;
+        color: var(--vs-alert-info-color);
+      }
+      &.secondary {
+        color: var(--vs-alert-secondary-color);
       }
     }
 
     &-success {
-      border: 1px solid #aecfc2;
-      background-color: #edf8f4;
-      color: #186146;
+      border: 1px solid var(--vs-alert-success-bc);
+      background-color: var(--vs-alert-success-bg);
+      color: var(--vs-alert-success-color);
     }
     &-warning {
-      border: 1px solid #fed6a8;
-      background-color: #fff7ed;
-      color: #ad5918;
+      border: 1px solid var(--vs-alert-warning-bc);
+      background-color: var(--vs-alert-warning-bg);
+      color: var(--vs-alert-warning-color);
     }
     &-error {
-      border: 1px solid #f5b5ba;
-      background-color: #fff0f1;
-      color: #8c232c;
+      border: 1px solid var(--vs-alert-error-bc);
+      background-color: var(--vs-alert-error-bg);
+      color: var(--vs-alert-error-color);
     }
     &-info {
-      border: 1px solid #adcce4;
-      background-color: #edf7ff;
-      color: #1f73b7;
+      border: 1px solid var(--vs-alert-info-bc);
+      background-color: var(--vs-alert-info-bg);
+      color: var(--vs-alert-info-color);
+    }
+    &-secondary {
+      border: 1px solid var(--vs-alert-secondary-bc);
+      background-color: var(--vs-alert-secondary-bg);
+      color: var(--vs-alert-secondary-color);
     }
 
     &--no-bg {
@@ -170,16 +212,19 @@
       }
 
       &#{$el}-success {
-        color: #038153;
+        color: var(--vs-alert-success-icon);
       }
       &#{$el}-warning {
-        color: #ad5918;
+        color: var(--vs-alert-warning-icon);
       }
       &#{$el}-error {
-        color: #cc3340;
+        color: var(--vs-alert-error-icon);
       }
       &#{$el}-info {
-        color: #337fbd;
+        color: var(--vs-alert-info-icon);
+      }
+      &#{$el}-secondary {
+        color: var(--vs-alert-secondary-icon);
       }
     }
   }
