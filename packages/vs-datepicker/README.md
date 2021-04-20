@@ -65,7 +65,7 @@ yarn add vs-datepicker
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-datepicker@0.4.0/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/vs-datepicker@1.0.1/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html
@@ -138,6 +138,7 @@ After installation,
 | ----------- | ------------------------------------ | ------------ | -------------------------------------------- |
 | type        | `date|datetime|year|month|time|week` | `date`       | Select the type of picker                    |
 | format      | [Token](#token)                      | `MM-DD-YYYY` | To set the date format. similar to moment.js |
+| value-type  | [Value-Type](#value-type)            | 'date'       | Data type of the binding value/v-model.      |
 | range       | Boolean                              | false        | If true, pick the range date                 |
 | label       | String                               | Date         | Label to datepicker                          |
 | isError     | Boolean                              | -            | Highlight input box with red if error        |
@@ -147,6 +148,7 @@ After installation,
 | min         | String                               | -            | Min date allowed                             |
 | id          | String                               | -            | Id added to datepicker component             |
 | placeholder | String                               | -            | Placeholder to datepicker input box          |
+| lang        | Object                               | -            | Override the default locale                  |
 
 <br />
 
@@ -173,6 +175,17 @@ Example for `maxdate`
   };
 </script>
 ```
+
+<br />
+
+### 🔥 Events
+
+| Name    | Description                            |
+| ------- | -------------------------------------- |
+| v-model | When the value changes                 |
+| change  | When the value change(same as v-model) |
+| open    | When panel opening                     |
+| close   | When panel closing                     |
 
 <br />
 
@@ -215,14 +228,40 @@ Example for `maxdate`
 
 <br />
 
-### 🔥 Events
+### Value Type
 
-| Name    | Description                            |
-| ------- | -------------------------------------- |
-| v-model | When the value changes                 |
-| change  | When the value change(same as v-model) |
-| open    | When panel opening                     |
-| close   | When panel closing                     |
+| Value             | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| 'date'            | Returns a Date object                              |
+| 'timestamp'       | Returns a timestamp number                         |
+| 'format'          | Returns a string formatted using pattern of format |
+| token(MM/DD/YYYY) | Returns a string formatted using this pattern      |
+
+<br />
+
+### Full lang config
+
+```javascript
+{
+  // the locale of formatting and parsing function
+  formatLocale: {
+    // MMMM
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    // MMM
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    // dddd
+    weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    // ddd
+    weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    // dd
+    weekdaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    // first day of week
+    firstDayOfWeek: 0,
+    // first week contains January 1st.
+    firstWeekContainsDate: 1,
+  },
+}
+```
 
 <br />
 

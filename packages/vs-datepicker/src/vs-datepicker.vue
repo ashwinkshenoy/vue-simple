@@ -6,10 +6,9 @@
     </label>
     <date-picker
       v-model="selectedDate"
-      lang="en"
       :type="type"
       :input-class="classes"
-      value-type="format"
+      :value-type="valueType"
       :format="format"
       :id="id"
       :disabled="disabled"
@@ -19,6 +18,7 @@
       prefix-class="vs"
       :range="range"
       :placeholder="placeholder"
+      :lang="lang"
       @change="emitChange"
     >
     </date-picker>
@@ -50,10 +50,7 @@
         type: String,
         default: 'Date',
       },
-      value: {
-        type: [String, Array],
-        default: '',
-      },
+      value: {},
       max: {
         type: String,
         default: '',
@@ -80,6 +77,13 @@
       },
       placeholder: {
         type: String,
+      },
+      lang: {
+        type: Object,
+      },
+      valueType: {
+        type: String,
+        default: 'date', // date, format, timestamp, or token like 'YYYY-MM-DD'
       },
     },
 
@@ -135,7 +139,9 @@
   @import 'vue2-datepicker/scss/index.scss';
 
   #{$el} {
+    --primary-color: #1f73b7;
     position: relative;
+    width: 100%;
 
     &__label {
       line-height: 1.42857;
@@ -165,11 +171,11 @@
       align-items: center;
 
       &:hover {
-        border-color: #1f73b7;
+        border-color: var(--primary-color);
       }
 
       &:focus {
-        border-color: #1f73b7;
+        border-color: var(--primary-color);
         box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
       }
 
@@ -205,11 +211,70 @@
     }
   }
 
-  .vs-datepicker {
-    width: 100%;
-  }
+  .vs-datepicker-main {
+    --vs-datepicker-primary-color: #1f73b7;
+    --vs-datepicker-grey: #c2c8cc;
+    --vs-datepicker-white: #ffffff;
+    --vs-datepicker-black: #333333;
+    --vs-datepicker-range-color: rgba(31, 115, 183, 0.08);
+    --vs-datepicker-font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu,
+      Cantarell, Helvetica Neue, Arial, sans-serif;
 
-  .vs-calendar-header-label {
-    line-height: 10px;
+    color: var(--vs-datepicker-black);
+    font-feature-settings: 'kern', 'kern';
+    -webkit-font-kerning: normal;
+    font-kerning: normal;
+    font-family: var(--vs-datepicker-font-family);
+
+    .vs-calendar {
+      width: 275px;
+      padding: 15px 15px;
+    }
+
+    .vs-calendar-header {
+      height: 40px;
+      line-height: 30px;
+    }
+
+    .vs-calendar-header-label {
+      line-height: 10px;
+    }
+
+    .vs-calendar-content {
+      .cell {
+        color: var(--vs-datepicker-primary-color);
+        &.active {
+          color: var(--vs-datepicker-white);
+        }
+        &.disabled,
+        &.not-current-month {
+          color: var(--vs-datepicker-grey);
+          background-color: transparent;
+        }
+        &.in-range {
+          background-color: var(--vs-datepicker-range-color);
+          background-color: rgba(31, 115, 183, 0.08);
+        }
+      }
+      .vs-table {
+        th {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        &.vs-table-date td,
+        &.vs-table-date th {
+          font-size: 13px;
+        }
+      }
+    }
+    .vs-btn {
+      font-feature-settings: 'kern', 'kern';
+      -webkit-font-kerning: normal;
+      font-kerning: normal;
+      font-family: var(--vs-datepicker-font-family);
+      color: var(--vs-datepicker-black);
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 </style>

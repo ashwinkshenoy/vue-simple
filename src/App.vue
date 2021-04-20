@@ -1,43 +1,6 @@
 <template>
   <div class="app">
-    <strong>Datepicker</strong>
-    <br /><br />
-    <div class="grid">
-      <vs-datepicker
-        label="Date"
-        id="deliveryDate"
-        v-model="form.date"
-        :max="maxDate"
-        placeholder="DD-MM-YYYY"
-        format="DD-MM-YYYY"
-        @change="log"
-      ></vs-datepicker>
-      <vs-datepicker
-        label="Range Date"
-        id="deliveryDate"
-        v-model="form.dateRange"
-        :max="maxDate"
-        range
-        placeholder="Select A Date Range"
-      ></vs-datepicker>
-      <vs-datepicker
-        label="Time"
-        id="deliveryDate"
-        v-model="form.time"
-        :max="maxDate"
-        type="time"
-        format="hh:mm A"
-        placeholder="hh:mm A"
-      ></vs-datepicker>
-      <vs-datepicker
-        label="Custom Format Date"
-        id="deliveryDate"
-        v-model="form.customdate"
-        :max="maxDate"
-        placeholder="DD MMM YYYY"
-        format="DD MMM YYYY"
-      ></vs-datepicker>
-    </div>
+    <datepicker-demo />
 
     <br /><br />
     <hr />
@@ -221,20 +184,20 @@
 </template>
 
 <script>
-  import VsDatepicker from '../packages/vs-datepicker/src/vs-datepicker';
   import VsSelect from '../packages/vs-select/src/vs-select';
   import VsMultiselect from '../packages/vs-select/src/vs-multiselect';
   import VsAlert from '../packages/vs-alert/src/vs-alert';
-  import Modal from './modal';
+  import Modal from './Modal';
+  import DatepickerDemo from './DatepickerDemo';
 
   export default {
     name: 'App',
     components: {
-      VsDatepicker,
       VsSelect,
       VsMultiselect,
       VsAlert,
       Modal,
+      DatepickerDemo,
     },
 
     data() {
@@ -269,12 +232,7 @@
           select10: '',
           select11: '',
           select12: '',
-          date: '',
-          dateRange: '',
-          time: '',
-          customdate: '',
         },
-        maxDate: new Date().toISOString().substring(0, 10), // Max date -> Today
       };
     },
 
