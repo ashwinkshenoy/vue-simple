@@ -23,15 +23,14 @@ module.exports = {
       'script',
       {
         async: true,
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-DQBJ2B92VJ',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-E4BDWDXT0L',
       },
     ],
     [
       'script',
-
-      [
-        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-DQBJ2B92VJ');",
-      ],
+      {},
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-E4BDWDXT0L');",
+      ,
     ],
   ],
   docsDir: 'docs',
@@ -53,8 +52,8 @@ module.exports = {
     editLinkText: 'Help us improve this page!',
     smoothScroll: true,
     algolia: {
-      apiKey: '06162ea3ef6ab72eecfde4fe3f555fbe',
-      indexName: 'cargo-vue',
+      apiKey: '6d990b86d8298fb9ab5f36102aecf449',
+      indexName: 'vuesimple',
     },
     searchPlaceholder: 'Search...',
     sidebar: [
