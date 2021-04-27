@@ -10,14 +10,14 @@ module.exports = {
         updatePopup: true,
       },
     ],
-    [
-      'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '',
-        indexSuffix: '/',
-        notFoundPath: '/404.html',
-      },
-    ],
+    // [
+    //   'vuepress-plugin-clean-urls',
+    //   {
+    //     normalSuffix: '',
+    //     indexSuffix: '/',
+    //     notFoundPath: '/404.html',
+    //   },
+    // ],
     ['@vuepress/back-to-top'],
   ],
   head: [
