@@ -13,7 +13,7 @@
 <style lang="scss">
   .color-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 20px;
     margin-bottom: 50px;
   }
