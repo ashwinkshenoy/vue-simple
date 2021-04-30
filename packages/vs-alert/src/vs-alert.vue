@@ -127,13 +127,13 @@
 
     position: relative;
     border-radius: 4px;
-    padding: 12px 30px;
+    padding: 20px 40px;
     line-height: 1.42857;
     font-size: 14px;
 
     &-icon__wrapper svg {
       position: absolute;
-      left: 8px;
+      left: 15px;
       margin-top: 1px;
     }
 
@@ -144,8 +144,8 @@
     &-button {
       display: block;
       position: absolute;
-      top: 8px;
-      right: 4px;
+      top: 15px;
+      right: 10px;
       transition: background-color 0.1s ease-in-out 0s, color 0.25s ease-in-out 0s;
       border: none;
       background-color: transparent;

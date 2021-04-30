@@ -43,7 +43,7 @@ yarn add vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-alert@1.2.77/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/vs-alert@1.2.80/dist/vs-alert.min.js"></script>
 ```
 
 ```html
