@@ -180,6 +180,33 @@
     <strong>Modals</strong>
     <br /><br />
     <modal></modal>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Tags</strong>
+    <br /><br />
+
+    <small>Sizes</small>
+    <br />
+    <vs-tag size="small" class="mr-10">Small</vs-tag>
+    <vs-tag class="mr-10">Medium</vs-tag>
+    <vs-tag size="large" class="mr-10">Large</vs-tag>
+    <br /><br />
+
+    <small>Types</small>
+    <br />
+    <vs-tag type="primary" class="mr-10">Primary</vs-tag>
+    <vs-tag type="danger" class="mr-10">Danger</vs-tag>
+    <vs-tag type="warning" class="mr-10">Warning</vs-tag>
+    <vs-tag type="secondary" class="mr-10">Secondary</vs-tag>
+    <br /><br />
+
+    <small>Shapes</small>
+    <br />
+    <vs-tag class="mr-10">Completed</vs-tag>
+    <vs-tag is-pill class="mr-10">Completed</vs-tag>
+    <vs-tag is-round class="mr-10">8</vs-tag>
   </div>
 </template>
 
@@ -187,6 +214,7 @@
   import VsSelect from '../packages/vs-select/src/vs-select';
   import VsMultiselect from '../packages/vs-select/src/vs-multiselect';
   import VsAlert from '../packages/vs-alert/src/vs-alert';
+  import VsTag from '../packages/vs-tag/src/vs-tag';
   import Modal from './Modal';
   import DatepickerDemo from './DatepickerDemo';
 
@@ -198,6 +226,7 @@
       VsAlert,
       Modal,
       DatepickerDemo,
+      VsTag,
     },
 
     data() {
@@ -289,5 +318,9 @@
     &--is-checked:after {
       opacity: 1;
     }
+  }
+
+  .mr-10 {
+    margin-right: 10px;
   }
 </style>

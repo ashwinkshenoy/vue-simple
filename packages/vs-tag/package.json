@@ -1,0 +1,56 @@
+{
+  "name": "vs-tag",
+  "version": "1.0.0",
+  "description": "A simple vue tag. Perfect for all your tag scenarios.",
+  "main": "dist/vs-tag.umd.js",
+  "module": "dist/vs-tag.esm.js",
+  "unpkg": "dist/vs-tag.min.js",
+  "browser": {
+    "./sfc": "src/vs-tag.vue"
+  },
+  "scripts": {
+    "build": "rm -rfv dist && npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vs-tag.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vs-tag.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vs-tag.min.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-image": "2.0.5",
+    "minimist": "^1.2.0",
+    "rollup": "^1.32.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-vue": "^5.1.9",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "tag",
+    "notification",
+    "front-end",
+    "popup",
+    "web",
+    "vue-js",
+    "tag",
+    "vue-js-tag",
+    "vue-tag",
+    "vs-tag"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-tag",
+  "dependencies": {}
+}
