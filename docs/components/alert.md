@@ -94,7 +94,7 @@ After installation,
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
   `import VsAlert from 'vs-alert'`
-  & add in `component:{VsAlert}` and use it within component, without globally installing in plugin folder.
+  & add in `components:{VsAlert}` and use it within component, without globally installing in plugin folder.
 
 :::
 
