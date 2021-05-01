@@ -197,6 +197,7 @@
     <small>Types</small>
     <br />
     <vs-tag type="primary" class="mr-10">Primary</vs-tag>
+    <vs-tag type="success" class="mr-10">Success</vs-tag>
     <vs-tag type="danger" class="mr-10">Danger</vs-tag>
     <vs-tag type="warning" class="mr-10">Warning</vs-tag>
     <vs-tag type="secondary" class="mr-10">Secondary</vs-tag>
@@ -207,6 +208,14 @@
     <vs-tag class="mr-10">Completed</vs-tag>
     <vs-tag is-pill class="mr-10">Completed</vs-tag>
     <vs-tag is-round class="mr-10">8</vs-tag>
+    <br /><br />
+
+    <small>Custom Color</small>
+    <br />
+    <vs-tag bg-color="#1dbdbc" text-color="#083a39" class="mr-10">Teal</vs-tag>
+    <vs-tag bg-color="#00a656" text-color="#fff" class="mr-10">Green</vs-tag>
+    <vs-tag bg-color="#ff6224" text-color="#fff" class="mr-10">Orange</vs-tag>
+    <vs-tag bg-color="#ffd424" text-color="#796510" class="mr-10">Lemon</vs-tag>
   </div>
 </template>
 

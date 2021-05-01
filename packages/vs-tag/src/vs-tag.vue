@@ -1,5 +1,5 @@
 <template>
-  <span :class="['vs-tag', classList]">
+  <span :class="['vs-tag', classList]" :style="isCssVars">
     <slot></slot>
   </span>
 </template>
@@ -29,6 +29,12 @@
         type: Boolean,
         default: false,
       },
+      bgColor: {
+        type: String,
+      },
+      textColor: {
+        type: String,
+      },
     },
 
     computed: {
@@ -41,6 +47,17 @@
           { 'vs-tag--round': this.isRound },
         ];
       },
+
+      cssVars() {
+        return {
+          '--vs-tag-bg-color': this.bgColor,
+          '--vs-tag-text-color': this.textColor,
+        };
+      },
+
+      isCssVars() {
+        return this.bgColor || this.textColor ? this.cssVars : '';
+      },
     },
   };
 </script>
@@ -49,18 +66,26 @@
   $el: '.vs-tag';
 
   #{$el} {
+    --vs-tag-bg-color: #e9ebed;
+    --vs-tag-text-color: #49545c;
     --vs-tag-primary: #1f73b7;
+    --vs-tag-success: #186146;
     --vs-tag-danger: #cc3340;
     --vs-tag-warning: #ffb057;
     --vs-tag-secondary: #3a3a3a;
     --vs-tag-font-bold: 600;
 
-    background-color: #e9ebed;
-    color: #49545c;
+    background-color: var(--vs-tag-bg-color);
+    color: var(--vs-tag-text-color);
     max-width: 100%;
 
     &__primary {
       background: var(--vs-tag-primary);
+      color: #ffffff;
+    }
+
+    &__success {
+      background: var(--vs-tag-success);
       color: #ffffff;
     }
 

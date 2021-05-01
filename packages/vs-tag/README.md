@@ -39,8 +39,8 @@ yarn add vs-tag
 
 ```html
 <template>
-  <vs-tag type="success">
-    Success
+  <vs-tag type="primary">
+    Primary
   </vs-tag>
 </template>
 
@@ -65,8 +65,8 @@ yarn add vs-tag
 
 ```html
 <template>
-  <vs-tag type="success">
-    Success
+  <vs-tag type="primary">
+    Primary
   </vs-tag>
 </template>
 ```
@@ -104,8 +104,8 @@ After installation,
 
   ```html
   <template>
-    <vs-tag type="success">
-      Success
+    <vs-tag type="primary">
+      Primary
     </vs-tag>
   </template>
   ```
@@ -121,13 +121,15 @@ After installation,
 
 ### ⚙ Props
 
-| Name     | Type    | Default  | Description                                                            |
-| -------- | ------- | -------- | ---------------------------------------------------------------------- |
-| type     | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
-| size     | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
-| is-bold  | Boolean | `true`   | Bold text for tag.                                                     |
-| is-pill  | Boolean | `medium` | Applies pill styling                                                   |
-| is-round | Boolean | `medium` | Applies styles to round the tag                                        |
+| Name       | Type    | Default  | Description                                                            |
+| ---------- | ------- | -------- | ---------------------------------------------------------------------- |
+| type       | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
+| size       | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
+| is-bold    | Boolean | `true`   | Bold text for tag.                                                     |
+| is-pill    | Boolean | `medium` | Applies pill styling                                                   |
+| is-round   | Boolean | `medium` | Applies styles to round the tag                                        |
+| bg-color   | String  | -        | Applies hex/rgb/text color to tags background color                    |
+| text-color | String  | -        | Applies hex/rgb/text color to tags text color                          |
 
 <br />
 

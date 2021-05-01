@@ -35,6 +35,12 @@
         type: Boolean,
         default: false,
       },
+      bgColor: {
+        type: String,
+      },
+      textColor: {
+        type: String,
+      },
     },
 
     computed: {
@@ -45,6 +51,17 @@
           { 'vs-tag--bold': this.isBold },
           { 'vs-tag--pill': this.isPill },
           { 'vs-tag--round': this.isRound } ];
+      },
+
+      cssVars: function cssVars() {
+        return {
+          '--vs-tag-bg-color': this.bgColor,
+          '--vs-tag-text-color': this.textColor,
+        };
+      },
+
+      isCssVars: function isCssVars() {
+        return this.bgColor || this.textColor ? this.cssVars : '';
       },
     },
   };
@@ -187,7 +204,7 @@
     var _c = _vm._self._c || _h;
     return _c(
       "span",
-      { class: ["vs-tag", _vm.classList] },
+      { class: ["vs-tag", _vm.classList], style: _vm.isCssVars },
       [_vm._t("default")],
       2
     )
@@ -198,7 +215,7 @@
     /* style */
     var __vue_inject_styles__ = function (inject) {
       if (!inject) { return }
-      inject("data-v-789669a2_0", { source: ".vs-tag {\n  --vs-tag-primary: #1f73b7;\n  --vs-tag-danger: #cc3340;\n  --vs-tag-warning: #ffb057;\n  --vs-tag-secondary: #3a3a3a;\n  --vs-tag-font-bold: 600;\n  background-color: #e9ebed;\n  color: #49545c;\n  max-width: 100%;\n}\n.vs-tag__primary {\n  background: var(--vs-tag-primary);\n  color: #ffffff;\n}\n.vs-tag__danger {\n  background: var(--vs-tag-danger);\n  color: #ffffff;\n}\n.vs-tag__warning {\n  background: var(--vs-tag-warning);\n  color: #703815;\n}\n.vs-tag__secondary {\n  background: var(--vs-tag-secondary);\n  color: #ffffff;\n}\n.vs-tag__size-small {\n  padding: 2px 5px;\n  font-size: 10px;\n  border-radius: 2px;\n}\n.vs-tag__size-medium {\n  font-size: 12px;\n  min-width: calc(16px + 1ch);\n  padding: 4px 8px;\n  border-radius: 2px;\n}\n.vs-tag__size-large {\n  font-size: 12px;\n  min-width: calc(24px + 1ch);\n  padding: 8px 13px;\n  border-radius: 4px;\n}\n.vs-tag--bold {\n  font-weight: var(--vs-tag-font-bold);\n}\n.vs-tag--pill {\n  border-radius: 100px;\n  min-width: 30px;\n}\n.vs-tag--round {\n  border-radius: 50%;\n  min-width: 20px;\n}", map: undefined, media: undefined });
+      inject("data-v-261245c7_0", { source: ".vs-tag {\n  --vs-tag-bg-color: #e9ebed;\n  --vs-tag-text-color: #49545c;\n  --vs-tag-primary: #1f73b7;\n  --vs-tag-success: #186146;\n  --vs-tag-danger: #cc3340;\n  --vs-tag-warning: #ffb057;\n  --vs-tag-secondary: #3a3a3a;\n  --vs-tag-font-bold: 600;\n  background-color: var(--vs-tag-bg-color);\n  color: var(--vs-tag-text-color);\n  max-width: 100%;\n}\n.vs-tag__primary {\n  background: var(--vs-tag-primary);\n  color: #ffffff;\n}\n.vs-tag__success {\n  background: var(--vs-tag-success);\n  color: #ffffff;\n}\n.vs-tag__danger {\n  background: var(--vs-tag-danger);\n  color: #ffffff;\n}\n.vs-tag__warning {\n  background: var(--vs-tag-warning);\n  color: #703815;\n}\n.vs-tag__secondary {\n  background: var(--vs-tag-secondary);\n  color: #ffffff;\n}\n.vs-tag__size-small {\n  padding: 2px 5px;\n  font-size: 10px;\n  border-radius: 2px;\n}\n.vs-tag__size-medium {\n  font-size: 12px;\n  min-width: calc(16px + 1ch);\n  padding: 4px 8px;\n  border-radius: 2px;\n}\n.vs-tag__size-large {\n  font-size: 12px;\n  min-width: calc(24px + 1ch);\n  padding: 8px 13px;\n  border-radius: 4px;\n}\n.vs-tag--bold {\n  font-weight: var(--vs-tag-font-bold);\n}\n.vs-tag--pill {\n  border-radius: 100px;\n  min-width: 30px;\n}\n.vs-tag--round {\n  border-radius: 50%;\n  min-width: 20px;\n}", map: undefined, media: undefined });
 
     };
     /* scoped */
