@@ -1,5 +1,10 @@
 <template>
-  <div class="vs-multiselect">
+  <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]">
+    <label class="vs-multiselect__label">
+      <span>{{ label }}</span>
+      <span class="vs-multiselect--required" v-if="required"> *</span>
+    </label>
+
     <div
       class="vs-multiselect__select-wrapper"
       :class="[
@@ -14,7 +19,7 @@
       :aria-expanded="!isMenuHidden"
     >
       <span>
-        {{ selectedItems ? selectedItems : label }}
+        {{ selectedItems ? selectedItems : placeholder }}
       </span>
       <div class="vs-multiselect__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -45,11 +50,7 @@
           <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
             -
           </li>
-          <li
-            class="vs-multiselect__menu-item vs-multiselect__input-wrapper"
-            v-show="isSearch"
-            role="menuitem"
-          >
+          <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch" role="menuitem">
             <input
               ref="vs-multiselect-box"
               class="vs-multiselect__input"
@@ -93,6 +94,13 @@
       label: {
         type: String,
         required: false,
+      },
+      required: {
+        type: Boolean,
+      },
+      placeholder: {
+        type: String,
+        required: false,
         default: 'Select',
       },
       // For array of object - pass value
@@ -100,6 +108,7 @@
         type: Array,
         required: false,
       },
+      value: {},
       // Array or array of object
       // 1) [1,2,3]
       // 2) [{label: 'Jack', value: '1'}, {label: 'Bill', value: '2'}]
@@ -127,12 +136,16 @@
         type: String,
         default: 'No Data Available',
       },
+      isCompact: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data() {
       return {
         isMenuHidden: true,
-        inputValue: this.label,
+        inputValue: this.placeholder,
         selected: null,
         selectedObject: {},
         isObject: false,
@@ -146,9 +159,7 @@
       selectOptions() {
         return (
           this.options.filter(
-            (list) =>
-              !this.searchTerm ||
-              new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list)
+            list => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
           ) || ''
         );
       },
@@ -159,12 +170,12 @@
           if (items.length > 2) {
             return `${items[0]}, ${items[1]}, and ${items.length - 2} more`;
           }
-          return this.selectedArrayObject.map((list) => list).join(', ');
+          return this.selectedArrayObject.map(list => list).join(', ');
         }
         if (items.length > 2) {
           return `${items[0].label}, ${items[1].label}, and ${items.length - 2} more`;
         }
-        return this.selectedArrayObject.map((list) => list.label).join(', ');
+        return this.selectedArrayObject.map(list => list.label).join(', ');
       },
     },
 
@@ -174,6 +185,11 @@
           this.searchTerm = value;
         }
       },
+
+      value(value) {
+        this.selectedArrayObject = value;
+      },
+
       options: {
         handler: 'initOptions',
         immediate: false,
@@ -186,7 +202,7 @@
 
     mounted() {
       if (window) {
-        window.addEventListener('click', (e) => {
+        window.addEventListener('click', e => {
           if (!this.$el.contains(e.target)) {
             this.isMenuHidden = true;
           }
@@ -206,14 +222,14 @@
       initOptions() {
         // If Array of Object
         if (
-          this.options.some((value) => {
+          this.options.some(value => {
             return typeof value == 'object';
           })
         ) {
           this.isObject = true;
           // Set preselected
           this.selectedArrayObject = this.options.filter(
-            ({ value: id1 }) => this.preselected && this.preselected.some((id2) => id2 === id1)
+            ({ value: id1 }) => this.preselected && this.preselected.some(id2 => id2 === id1),
           );
         } else {
           this.isObject = false;
@@ -223,9 +239,9 @@
 
       setSelected(option) {
         if (this.isObject) {
-          return this.selectedArrayObject.filter((list) => list.value === option.value).length > 0;
+          return this.selectedArrayObject.filter(list => list.value === option.value).length > 0;
         }
-        return this.selectedArrayObject.filter((list) => list === option).length > 0;
+        return this.selectedArrayObject.filter(list => list === option).length > 0;
       },
 
       onSelectedItem(option) {
@@ -239,16 +255,14 @@
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {
-            this.selectedArrayObject = this.selectedArrayObject.filter(
-              (i) => i.value !== option.value
-            );
+            this.selectedArrayObject = this.selectedArrayObject.filter(i => i.value !== option.value);
           }
         } else {
-          const isContains = this.selectedArrayObject.filter((i) => option.includes(i)).length > 0;
+          const isContains = this.selectedArrayObject.filter(i => option.includes(i)).length > 0;
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {
-            this.selectedArrayObject = this.selectedArrayObject.filter((i) => i !== option);
+            this.selectedArrayObject = this.selectedArrayObject.filter(i => i !== option);
           }
         }
         this.$emit('input', this.selectedArrayObject);
@@ -258,7 +272,7 @@
       },
 
       containsObject(mainObject, selectedOption) {
-        return mainObject.some((list) => list.value === selectedOption.value);
+        return mainObject.some(list => list.value === selectedOption.value);
       },
 
       searchSelectList() {
@@ -274,10 +288,7 @@
       },
 
       handleScroll() {
-        if (
-          window.innerHeight - this.$refs['vs-multiselect'].getBoundingClientRect().bottom <
-          250
-        ) {
+        if (window.innerHeight - this.$refs['vs-multiselect'].getBoundingClientRect().bottom < 250) {
           this.isMenuTop = true;
         } else {
           this.isMenuTop = false;
@@ -331,8 +342,31 @@
       }
     }
 
+    &__label {
+      line-height: 1.42857;
+      color: #2f3941;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
     &__input-wrapper:hover {
       background-color: transparent !important;
+    }
+
+    &--compact {
+      #{$el}__select-wrapper {
+        min-height: 32px;
+        max-height: 32px;
+
+        span {
+          padding: 7px 37px 7px 11px;
+        }
+      }
+      #{$el}__menu--top {
+        bottom: 32px;
+      }
     }
 
     &__input {
@@ -354,8 +388,8 @@
       appearance: none;
       position: relative;
       text-align: left;
-      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out,
-        background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
+        color 0.25s ease-in-out;
       outline: 0;
       border: 1px solid var(--vs-select-border);
       border-radius: var(--vs-select-border-radius);
@@ -414,7 +448,7 @@
     }
 
     &__no-search li:nth-child(2) {
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     &__menu {
@@ -450,7 +484,7 @@
         position: relative;
         z-index: 0;
         cursor: pointer;
-        padding: 10px 32px;
+        padding: 8px 36px;
         text-decoration: none;
         line-height: 20px;
         word-wrap: break-word;
@@ -469,12 +503,12 @@
         }
 
         &:first-child {
-          margin-top: 8px;
+          margin-top: 4px;
           padding: 0;
         }
 
         &:last-child {
-          margin-bottom: 8px;
+          margin-bottom: 4px;
         }
 
         &:before {

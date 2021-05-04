@@ -1,5 +1,9 @@
 <template>
-  <div class="vs-select" :class="classList">
+  <div :class="['vs-select', { 'vs-select--compact': isCompact }]">
+    <label class="vs-select__label">
+      <span>{{ label }}</span>
+      <span class="vs-select--required" v-if="required"> *</span>
+    </label>
     <div
       class="vs-select__input-wrapper"
       :class="[
@@ -45,12 +49,7 @@
           :selectedObject="selectedObject"
           :onSelectedItem="onSelectedItem"
         >
-          <li
-            class="vs-select__menu-item"
-            @click="onSelectedItem(-1)"
-            v-if="hasEmptyOption"
-            role="menuitem"
-          >
+          <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
             -
           </li>
           <li
@@ -60,14 +59,11 @@
               'vs-select__menu-item',
               { 'vs-select__menu--is-checked': !isMenu && selected === option },
               {
-                'vs-select__menu--is-checked':
-                  !isMenu && isObject && selectedObject.value === option.value,
+                'vs-select__menu--is-checked': !isMenu && isObject && selectedObject.value === option.value,
               },
               { 'vs-select__menu-item--is-disabled': option.disabled },
             ]"
-            :aria-selected="
-              (isObject && selectedObject.value === option.value) || selected === option
-            "
+            :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
             role="menuitem"
             tabIndex="0"
@@ -75,11 +71,7 @@
             <span v-if="isObject">{{ option.label }}</span>
             <span v-else>{{ option }}</span>
           </li>
-          <li
-            v-if="!selectOptions.length"
-            class="vs-select__menu-item vs-select__menu--no-item"
-            role="menuitem"
-          >
+          <li v-if="!selectOptions.length" class="vs-select__menu-item vs-select__menu--no-item" role="menuitem">
             {{ emptyItemsText }}
           </li>
         </slot>
@@ -92,6 +84,13 @@
   export default {
     props: {
       label: {
+        type: String,
+        required: false,
+      },
+      required: {
+        type: Boolean,
+      },
+      placeholder: {
         type: String,
         required: false,
         default: 'Select',
@@ -111,10 +110,6 @@
       options: {
         type: Array,
         required: true,
-      },
-      classList: {
-        type: Array,
-        required: false,
       },
       hasEmptyOption: {
         type: Boolean,
@@ -136,6 +131,10 @@
         type: Boolean,
         default: false,
       },
+      isCompact: {
+        type: Boolean,
+        default: false,
+      },
       emptyItemsText: {
         type: String,
         default: 'No Data Available',
@@ -145,7 +144,7 @@
     data() {
       return {
         isMenuHidden: true,
-        inputValue: this.label,
+        inputValue: this.placeholder,
         selected: null,
         selectedObject: {},
         isObject: false,
@@ -158,9 +157,7 @@
       selectOptions() {
         return (
           this.options.filter(
-            (list) =>
-              !this.searchTerm ||
-              new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list)
+            list => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
           ) || ''
         );
       },
@@ -182,6 +179,11 @@
 
       preselected() {
         this.selected = this.preselected;
+      },
+
+      value() {
+        this.selected = this.value;
+        this.inputValue = this.value;
       },
 
       options: {
@@ -211,13 +213,13 @@
       initOptions() {
         // If Array of Object
         if (
-          this.options.some((value) => {
+          this.options.some(value => {
             return typeof value == 'object';
           })
         ) {
           this.isObject = true;
           if (this.preselected) {
-            const selectedFilter = this.options.filter((item) => item.value === this.preselected);
+            const selectedFilter = this.options.filter(item => item.value === this.preselected);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -227,7 +229,7 @@
           }
           if (this.value) {
             // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
-            const selectedFilter = this.options.filter((item) => item.value === this.value);
+            const selectedFilter = this.options.filter(item => item.value === this.value);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -254,12 +256,12 @@
         // If Array of Object
         // 2 diff emits of input/on-select are required
         if (this.isObject) {
-          this.selectedObject = this.options.filter((i) => i.value === option.value)[0];
+          this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
           this.$emit('input', this.selectedObject.value);
           this.$emit('on-select', this.selectedObject.value);
         } else {
-          this.selected = this.options.filter((i) => i === option)[0];
+          this.selected = this.options.filter(i => i === option)[0];
           this.$emit('input', this.selected);
           this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
         }
@@ -306,7 +308,7 @@
           this.inputValue = this.selectedObject.label;
         }
         if (!this.selected) {
-          this.inputValue = this.label;
+          this.inputValue = this.placeholder;
         }
       },
     },
@@ -334,12 +336,34 @@
       }
     }
 
+    &__label {
+      line-height: 1.42857;
+      color: #2f3941;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
     &--cursor-pointer {
       cursor: pointer;
     }
 
     &--error #{$el}__input-wrapper {
       border-color: var(--vs-select-error);
+    }
+
+    &--compact {
+      #{$el}__input-wrapper {
+        min-height: 32px;
+        max-height: 32px;
+      }
+      #{$el}__input {
+        padding: 7px 37px 7px 11px;
+      }
+      #{$el}__menu--top {
+        bottom: 32px;
+      }
     }
 
     &__input-wrapper {
@@ -349,8 +373,8 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out,
-        background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
+        color 0.25s ease-in-out;
       outline: 0;
       border: 1px solid var(--vs-select-border);
       border-radius: var(--vs-select-border-radius);
@@ -455,7 +479,7 @@
         position: relative;
         z-index: 0;
         cursor: pointer;
-        padding: 10px 32px;
+        padding: 8px 36px;
         text-decoration: none;
         line-height: 20px;
         word-wrap: break-word;
@@ -473,11 +497,11 @@
         }
 
         &:first-child {
-          margin-top: 8px;
+          margin-top: 4px;
         }
 
         &:last-child {
-          margin-bottom: 8px;
+          margin-bottom: 4px;
         }
 
         &:before {

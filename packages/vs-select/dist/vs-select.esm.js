@@ -80,18 +80,17 @@
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 var script = {
   props: {
     label: {
+      type: String,
+      required: false,
+    },
+    required: {
+      type: Boolean,
+    },
+    placeholder: {
       type: String,
       required: false,
       default: 'Select',
@@ -111,10 +110,6 @@ var script = {
     options: {
       type: Array,
       required: true,
-    },
-    classList: {
-      type: Array,
-      required: false,
     },
     hasEmptyOption: {
       type: Boolean,
@@ -136,6 +131,10 @@ var script = {
       type: Boolean,
       default: false,
     },
+    isCompact: {
+      type: Boolean,
+      default: false,
+    },
     emptyItemsText: {
       type: String,
       default: 'No Data Available',
@@ -145,7 +144,7 @@ var script = {
   data: function data() {
     return {
       isMenuHidden: true,
-      inputValue: this.label,
+      inputValue: this.placeholder,
       selected: null,
       selectedObject: {},
       isObject: false,
@@ -160,8 +159,7 @@ var script = {
 
       return (
         this.options.filter(
-          function (list) { return !this$1.searchTerm ||
-            new RegExp(this$1.searchTerm, 'i').test(this$1.isObject ? list.label : list); }
+          function (list) { return !this$1.searchTerm || new RegExp(this$1.searchTerm, 'i').test(this$1.isObject ? list.label : list); }
         ) || ''
       );
     },
@@ -183,6 +181,11 @@ var script = {
 
     preselected: function preselected() {
       this.selected = this.preselected;
+    },
+
+    value: function value() {
+      this.selected = this.value;
+      this.inputValue = this.value;
     },
 
     options: {
@@ -309,7 +312,7 @@ var script = {
         this.inputValue = this.selectedObject.label;
       }
       if (!this.selected) {
-        this.inputValue = this.label;
+        this.inputValue = this.placeholder;
       }
     },
   },
@@ -451,197 +454,212 @@ var __vue_render__ = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("div", { staticClass: "vs-select", class: _vm.classList }, [
-    _c(
-      "div",
-      {
-        staticClass: "vs-select__input-wrapper",
-        class: [
-          { "vs-select--error": _vm.isError },
-          { "vs-select--cursor-pointer": !_vm.isSearch },
-          { "vs-select--is-open": !_vm.isMenuHidden },
-          { "vs-select--disabled": _vm.disabled },
-          { "vs-select--menu": _vm.isMenu }
-        ]
-      },
-      [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.inputValue,
-              expression: "inputValue"
-            }
-          ],
-          ref: "vs-select-box",
-          class: [
-            "vs-select__input",
-            { "vs-select--cursor-pointer": _vm.isMenuHidden }
-          ],
-          attrs: {
-            disabled: _vm.disabled,
-            readonly: _vm.isReadonly,
-            role: "menu",
-            "aria-haspopup": "true",
-            "aria-expanded": !_vm.isMenuHidden
-          },
-          domProps: { value: _vm.inputValue },
-          on: {
-            click: function($event) {
-              !_vm.disabled ? _vm.setSelectEnv() : null;
-            },
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              !_vm.disabled ? _vm.setSelectEnv() : null;
-            },
-            blur: _vm.setSelectClose,
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.inputValue = $event.target.value;
-            }
-          }
-        }),
+  return _c(
+    "div",
+    { class: ["vs-select", { "vs-select--compact": _vm.isCompact }] },
+    [
+      _c("label", { staticClass: "vs-select__label" }, [
+        _c("span", [_vm._v(_vm._s(_vm.label))]),
         _vm._v(" "),
-        _c("div", { staticClass: "vs-select__icon" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "12",
-                height: "12",
-                viewBox: "0 0 12 12"
+        _vm.required
+          ? _c("span", { staticClass: "vs-select--required" }, [_vm._v(" *")])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "vs-select__input-wrapper",
+          class: [
+            { "vs-select--error": _vm.isError },
+            { "vs-select--cursor-pointer": !_vm.isSearch },
+            { "vs-select--is-open": !_vm.isMenuHidden },
+            { "vs-select--disabled": _vm.disabled },
+            { "vs-select--menu": _vm.isMenu }
+          ]
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.inputValue,
+                expression: "inputValue"
               }
+            ],
+            ref: "vs-select-box",
+            class: [
+              "vs-select__input",
+              { "vs-select--cursor-pointer": _vm.isMenuHidden }
+            ],
+            attrs: {
+              disabled: _vm.disabled,
+              readonly: _vm.isReadonly,
+              role: "menu",
+              "aria-haspopup": "true",
+              "aria-expanded": !_vm.isMenuHidden
             },
-            [
-              _c("path", {
-                attrs: {
-                  fill: "currentColor",
-                  d:
-                    "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+            domProps: { value: _vm.inputValue },
+            on: {
+              click: function($event) {
+                !_vm.disabled ? _vm.setSelectEnv() : null;
+              },
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
                 }
-              })
-            ]
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    !_vm.disabled
-      ? _c("div", { staticClass: "vs-select__menu-wrapper" }, [
-          _c(
-            "ul",
-            {
-              class: [
-                "vs-select__menu",
-                { "vs-select__menu--top": _vm.isMenuTop }
-              ],
-              attrs: { "aria-hidden": !_vm.disabled ? _vm.isMenuHidden : true }
-            },
-            [
-              _vm._t(
-                "options",
-                [
-                  _vm.hasEmptyOption
-                    ? _c(
+                !_vm.disabled ? _vm.setSelectEnv() : null;
+              },
+              blur: _vm.setSelectClose,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.inputValue = $event.target.value;
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "vs-select__icon" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "currentColor",
+                    d:
+                      "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+                  }
+                })
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      !_vm.disabled
+        ? _c("div", { staticClass: "vs-select__menu-wrapper" }, [
+            _c(
+              "ul",
+              {
+                class: [
+                  "vs-select__menu",
+                  { "vs-select__menu--top": _vm.isMenuTop }
+                ],
+                attrs: {
+                  "aria-hidden": !_vm.disabled ? _vm.isMenuHidden : true
+                }
+              },
+              [
+                _vm._t(
+                  "options",
+                  [
+                    _vm.hasEmptyOption
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "vs-select__menu-item",
+                            attrs: { role: "menuitem" },
+                            on: {
+                              click: function($event) {
+                                return _vm.onSelectedItem(-1)
+                              }
+                            }
+                          },
+                          [_vm._v("\n          -\n        ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.selectOptions, function(option, index) {
+                      return _c(
                         "li",
                         {
-                          staticClass: "vs-select__menu-item",
-                          attrs: { role: "menuitem" },
+                          key: "vs-selected-" + index,
+                          class: [
+                            "vs-select__menu-item",
+                            {
+                              "vs-select__menu--is-checked":
+                                !_vm.isMenu && _vm.selected === option
+                            },
+                            {
+                              "vs-select__menu--is-checked":
+                                !_vm.isMenu &&
+                                _vm.isObject &&
+                                _vm.selectedObject.value === option.value
+                            },
+                            {
+                              "vs-select__menu-item--is-disabled":
+                                option.disabled
+                            }
+                          ],
+                          attrs: {
+                            "aria-selected":
+                              (_vm.isObject &&
+                                _vm.selectedObject.value === option.value) ||
+                              _vm.selected === option,
+                            role: "menuitem",
+                            tabIndex: "0"
+                          },
                           on: {
                             click: function($event) {
-                              return _vm.onSelectedItem(-1)
+                              !option.disabled
+                                ? _vm.onSelectedItem(option, index)
+                                : null;
                             }
                           }
                         },
-                        [_vm._v("\n          -\n        ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm._l(_vm.selectOptions, function(option, index) {
-                    return _c(
-                      "li",
-                      {
-                        key: "vs-selected-" + index,
-                        class: [
-                          "vs-select__menu-item",
-                          {
-                            "vs-select__menu--is-checked":
-                              !_vm.isMenu && _vm.selected === option
-                          },
-                          {
-                            "vs-select__menu--is-checked":
-                              !_vm.isMenu &&
-                              _vm.isObject &&
-                              _vm.selectedObject.value === option.value
-                          },
-                          {
-                            "vs-select__menu-item--is-disabled": option.disabled
-                          }
-                        ],
-                        attrs: {
-                          "aria-selected":
-                            (_vm.isObject &&
-                              _vm.selectedObject.value === option.value) ||
-                            _vm.selected === option,
-                          role: "menuitem",
-                          tabIndex: "0"
-                        },
-                        on: {
-                          click: function($event) {
-                            !option.disabled
-                              ? _vm.onSelectedItem(option, index)
-                              : null;
-                          }
-                        }
-                      },
-                      [
-                        _vm.isObject
-                          ? _c("span", [_vm._v(_vm._s(option.label))])
-                          : _c("span", [_vm._v(_vm._s(option))])
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  !_vm.selectOptions.length
-                    ? _c(
-                        "li",
-                        {
-                          staticClass:
-                            "vs-select__menu-item vs-select__menu--no-item",
-                          attrs: { role: "menuitem" }
-                        },
                         [
-                          _vm._v(
-                            "\n          " +
-                              _vm._s(_vm.emptyItemsText) +
-                              "\n        "
-                          )
+                          _vm.isObject
+                            ? _c("span", [_vm._v(_vm._s(option.label))])
+                            : _c("span", [_vm._v(_vm._s(option))])
                         ]
                       )
-                    : _vm._e()
-                ],
-                {
-                  options: _vm.selectOptions,
-                  selected: _vm.selected,
-                  selectedObject: _vm.selectedObject,
-                  onSelectedItem: _vm.onSelectedItem
-                }
-              )
-            ],
-            2
-          )
-        ])
-      : _vm._e()
-  ])
+                    }),
+                    _vm._v(" "),
+                    !_vm.selectOptions.length
+                      ? _c(
+                          "li",
+                          {
+                            staticClass:
+                              "vs-select__menu-item vs-select__menu--no-item",
+                            attrs: { role: "menuitem" }
+                          },
+                          [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(_vm.emptyItemsText) +
+                                "\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  {
+                    options: _vm.selectOptions,
+                    selected: _vm.selected,
+                    selectedObject: _vm.selectedObject,
+                    onSelectedItem: _vm.onSelectedItem
+                  }
+                )
+              ],
+              2
+            )
+          ])
+        : _vm._e()
+    ]
+  )
 };
 var __vue_staticRenderFns__ = [];
 __vue_render__._withStripped = true;
@@ -649,7 +667,7 @@ __vue_render__._withStripped = true;
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-4fd3e598_0", { source: ".vs-select {\n  --vs-select-color: #1f73b7;\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-select:hover .vs-select__input-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-select--cursor-pointer {\n  cursor: pointer;\n}\n.vs-select--error .vs-select__input-wrapper {\n  border-color: var(--vs-select-error);\n}\n.vs-select__input-wrapper {\n  overflow: hidden;\n  position: relative;\n  text-align: left;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-select__input-wrapper .vs-select__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-select__input-wrapper .vs-select__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-select__input-wrapper.vs-select--is-open .vs-select__icon svg {\n  transform: rotate(180deg);\n}\n.vs-select__input-wrapper.vs-select--menu {\n  border-color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--menu .vs-select__input,\n.vs-select__input-wrapper.vs-select--menu .vs-select__icon {\n  color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--disabled {\n  background: #f8f9f9;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-select__input-wrapper.vs-select--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-select__input-wrapper.vs-select--disabled .vs-select__input,\n.vs-select__input-wrapper.vs-select--disabled .vs-select__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-select__input {\n  color: #2f3941;\n  width: 77%;\n  border: none !important;\n  padding: 10px 37px 10px 15px;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n  position: relative;\n  z-index: 50;\n}\n.vs-select__input[readonly] {\n  cursor: pointer;\n}\n.vs-select__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-select__menu--top {\n  bottom: 40px;\n  box-shadow: 0 -2px 20px 0 rgba(4, 68, 77, 0.15);\n}\n.vs-select__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-select__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-select__menu-item:focus {\n  outline: none;\n}\n.vs-select__menu-item:first-child {\n  margin-top: 8px;\n}\n.vs-select__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-select__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-select__menu-item--is-disabled {\n  color: #c2c8cc;\n  cursor: no-drop;\n}\n.vs-select__menu-item--is-disabled:hover {\n  background-color: transparent;\n}\n.vs-select__menu--no-item {\n  text-align: center;\n}\n.vs-select .vs-select__menu--is-checked:before,\n.vs-select .vs-select__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-select .vs-select__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
+    inject("data-v-0f9888b0_0", { source: ".vs-select {\n  --vs-select-color: #1f73b7;\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-select:hover .vs-select__input-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-select__label {\n  line-height: 1.42857;\n  color: #2f3941;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 8px;\n  display: inline-block;\n}\n.vs-select--cursor-pointer {\n  cursor: pointer;\n}\n.vs-select--error .vs-select__input-wrapper {\n  border-color: var(--vs-select-error);\n}\n.vs-select--compact .vs-select__input-wrapper {\n  min-height: 32px;\n  max-height: 32px;\n}\n.vs-select--compact .vs-select__input {\n  padding: 7px 37px 7px 11px;\n}\n.vs-select--compact .vs-select__menu--top {\n  bottom: 32px;\n}\n.vs-select__input-wrapper {\n  overflow: hidden;\n  position: relative;\n  text-align: left;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-select__input-wrapper .vs-select__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-select__input-wrapper .vs-select__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-select__input-wrapper.vs-select--is-open .vs-select__icon svg {\n  transform: rotate(180deg);\n}\n.vs-select__input-wrapper.vs-select--menu {\n  border-color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--menu .vs-select__input,\n.vs-select__input-wrapper.vs-select--menu .vs-select__icon {\n  color: var(--vs-select-color);\n}\n.vs-select__input-wrapper.vs-select--disabled {\n  background: #f8f9f9;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-select__input-wrapper.vs-select--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-select__input-wrapper.vs-select--disabled .vs-select__input,\n.vs-select__input-wrapper.vs-select--disabled .vs-select__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-select__input {\n  color: #2f3941;\n  width: 77%;\n  border: none !important;\n  padding: 10px 37px 10px 15px;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n  position: relative;\n  z-index: 50;\n}\n.vs-select__input[readonly] {\n  cursor: pointer;\n}\n.vs-select__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-select__menu--top {\n  bottom: 40px;\n  box-shadow: 0 -2px 20px 0 rgba(4, 68, 77, 0.15);\n}\n.vs-select__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 8px 36px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-select__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-select__menu-item:focus {\n  outline: none;\n}\n.vs-select__menu-item:first-child {\n  margin-top: 4px;\n}\n.vs-select__menu-item:last-child {\n  margin-bottom: 4px;\n}\n.vs-select__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-select__menu-item--is-disabled {\n  color: #c2c8cc;\n  cursor: no-drop;\n}\n.vs-select__menu-item--is-disabled:hover {\n  background-color: transparent;\n}\n.vs-select__menu--no-item {\n  text-align: center;\n}\n.vs-select .vs-select__menu--is-checked:before,\n.vs-select .vs-select__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-select .vs-select__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -766,10 +784,18 @@ __vue_render__._withStripped = true;
 //
 //
 //
+//
 
 var script$1 = {
   props: {
     label: {
+      type: String,
+      required: false,
+    },
+    required: {
+      type: Boolean,
+    },
+    placeholder: {
       type: String,
       required: false,
       default: 'Select',
@@ -779,6 +805,7 @@ var script$1 = {
       type: Array,
       required: false,
     },
+    value: {},
     // Array or array of object
     // 1) [1,2,3]
     // 2) [{label: 'Jack', value: '1'}, {label: 'Bill', value: '2'}]
@@ -806,12 +833,16 @@ var script$1 = {
       type: String,
       default: 'No Data Available',
     },
+    isCompact: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data: function data() {
     return {
       isMenuHidden: true,
-      inputValue: this.label,
+      inputValue: this.placeholder,
       selected: null,
       selectedObject: {},
       isObject: false,
@@ -827,8 +858,7 @@ var script$1 = {
 
       return (
         this.options.filter(
-          function (list) { return !this$1.searchTerm ||
-            new RegExp(this$1.searchTerm, 'i').test(this$1.isObject ? list.label : list); }
+          function (list) { return !this$1.searchTerm || new RegExp(this$1.searchTerm, 'i').test(this$1.isObject ? list.label : list); }
         ) || ''
       );
     },
@@ -854,6 +884,11 @@ var script$1 = {
         this.searchTerm = value;
       }
     },
+
+    value: function value(value$1) {
+      this.selectedArrayObject = value$1;
+    },
+
     options: {
       handler: 'initOptions',
       immediate: false,
@@ -927,9 +962,7 @@ var script$1 = {
         if (!isContains) {
           this.selectedArrayObject.push(option);
         } else {
-          this.selectedArrayObject = this.selectedArrayObject.filter(
-            function (i) { return i.value !== option.value; }
-          );
+          this.selectedArrayObject = this.selectedArrayObject.filter(function (i) { return i.value !== option.value; });
         }
       } else {
         var isContains$1 = this.selectedArrayObject.filter(function (i) { return option.includes(i); }).length > 0;
@@ -962,10 +995,7 @@ var script$1 = {
     },
 
     handleScroll: function handleScroll() {
-      if (
-        window.innerHeight - this.$refs['vs-multiselect'].getBoundingClientRect().bottom <
-        250
-      ) {
+      if (window.innerHeight - this.$refs['vs-multiselect'].getBoundingClientRect().bottom < 250) {
         this.isMenuTop = true;
       } else {
         this.isMenuTop = false;
@@ -1008,206 +1038,224 @@ var __vue_render__$1 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("div", { staticClass: "vs-multiselect" }, [
-    _c(
-      "div",
-      {
-        ref: "vs-multiselect",
-        staticClass: "vs-multiselect__select-wrapper",
-        class: [
-          { "vs-multiselect--error": _vm.isError },
-          { "vs-multiselect--is-open": !_vm.isMenuHidden },
-          { "vs-multiselect--disabled": _vm.disabled }
-        ],
-        attrs: {
-          role: "menu",
-          "aria-haspopup": "true",
-          "aria-expanded": !_vm.isMenuHidden
-        },
-        on: {
-          click: function($event) {
-            !_vm.disabled ? _vm.setSelectEnv() : null;
-          }
-        }
-      },
-      [
-        _c("span", [
-          _vm._v(
-            "\n      " +
-              _vm._s(_vm.selectedItems ? _vm.selectedItems : _vm.label) +
-              "\n    "
-          )
-        ]),
+  return _c(
+    "div",
+    { class: ["vs-multiselect", { "vs-multiselect--compact": _vm.isCompact }] },
+    [
+      _c("label", { staticClass: "vs-multiselect__label" }, [
+        _c("span", [_vm._v(_vm._s(_vm.label))]),
         _vm._v(" "),
-        _c("div", { staticClass: "vs-multiselect__icon" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "12",
-                height: "12",
-                viewBox: "0 0 12 12"
-              }
-            },
-            [
-              _c("path", {
+        _vm.required
+          ? _c("span", { staticClass: "vs-multiselect--required" }, [
+              _vm._v(" *")
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          ref: "vs-multiselect",
+          staticClass: "vs-multiselect__select-wrapper",
+          class: [
+            { "vs-multiselect--error": _vm.isError },
+            { "vs-multiselect--is-open": !_vm.isMenuHidden },
+            { "vs-multiselect--disabled": _vm.disabled }
+          ],
+          attrs: {
+            role: "menu",
+            "aria-haspopup": "true",
+            "aria-expanded": !_vm.isMenuHidden
+          },
+          on: {
+            click: function($event) {
+              !_vm.disabled ? _vm.setSelectEnv() : null;
+            }
+          }
+        },
+        [
+          _c("span", [
+            _vm._v(
+              "\n      " +
+                _vm._s(
+                  _vm.selectedItems ? _vm.selectedItems : _vm.placeholder
+                ) +
+                "\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "vs-multiselect__icon" }, [
+            _c(
+              "svg",
+              {
                 attrs: {
-                  fill: "currentColor",
-                  d:
-                    "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
                 }
-              })
-            ]
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    !_vm.disabled
-      ? _c("div", { staticClass: "vs-multiselect__menu-wrapper" }, [
-          _c(
-            "ul",
-            {
-              class: [
-                "vs-multiselect__menu",
-                { "vs-multiselect__menu--top": _vm.isMenuTop },
-                { "vs-multiselect__no-search": !_vm.isSearch }
-              ],
-              attrs: { "aria-hidden": !_vm.disabled ? _vm.isMenuHidden : true }
-            },
-            [
-              _vm._t(
-                "options",
-                [
-                  _vm.hasEmptyOption
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "vs-multiselect__menu-item",
-                          on: {
-                            click: function($event) {
-                              return _vm.onSelectedItem(-1)
-                            }
-                          }
-                        },
-                        [_vm._v("\n          -\n        ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.isSearch,
-                          expression: "isSearch"
-                        }
-                      ],
-                      staticClass:
-                        "vs-multiselect__menu-item vs-multiselect__input-wrapper",
-                      attrs: { role: "menuitem" }
-                    },
-                    [
-                      _c("input", {
-                        directives: [
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "currentColor",
+                    d:
+                      "M1.646 3.646a.5.5 0 01.638-.057l.07.057L6 7.293l3.646-3.647a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-4 4a.5.5 0 01-.638.057l-.07-.057-4-4a.5.5 0 010-.708z"
+                  }
+                })
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      !_vm.disabled
+        ? _c("div", { staticClass: "vs-multiselect__menu-wrapper" }, [
+            _c(
+              "ul",
+              {
+                class: [
+                  "vs-multiselect__menu",
+                  { "vs-multiselect__menu--top": _vm.isMenuTop },
+                  { "vs-multiselect__no-search": !_vm.isSearch }
+                ],
+                attrs: {
+                  "aria-hidden": !_vm.disabled ? _vm.isMenuHidden : true
+                }
+              },
+              [
+                _vm._t(
+                  "options",
+                  [
+                    _vm.hasEmptyOption
+                      ? _c(
+                          "li",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.inputValue,
-                            expression: "inputValue"
-                          }
-                        ],
-                        ref: "vs-multiselect-box",
-                        staticClass: "vs-multiselect__input",
-                        attrs: {
-                          disabled: _vm.disabled,
-                          placeholder: "Search..."
-                        },
-                        domProps: { value: _vm.inputValue },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            staticClass: "vs-multiselect__menu-item",
+                            on: {
+                              click: function($event) {
+                                return _vm.onSelectedItem(-1)
+                              }
                             }
-                            _vm.inputValue = $event.target.value;
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.selectOptions, function(option, index) {
-                    return _c(
+                          },
+                          [_vm._v("\n          -\n        ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
                       "li",
                       {
-                        key: "vs-selected-" + index,
-                        staticClass: "vs-multiselect__menu-item",
-                        class: [
+                        directives: [
                           {
-                            "vs-multiselect__menu--is-checked": _vm.setSelected(
-                              option
-                            )
-                          },
-                          {
-                            "vs-multiselect__menu-item--is-disabled":
-                              option.disabled
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.isSearch,
+                            expression: "isSearch"
                           }
                         ],
-                        attrs: {
-                          "aria-selected": _vm.setSelected(option),
-                          role: "menuitem",
-                          tabIndex: "0"
-                        },
-                        on: {
-                          click: function($event) {
-                            !option.disabled
-                              ? _vm.onSelectedItem(option, index)
-                              : null;
-                          }
-                        }
+                        staticClass:
+                          "vs-multiselect__menu-item vs-multiselect__input-wrapper",
+                        attrs: { role: "menuitem" }
                       },
                       [
-                        _vm.isObject
-                          ? _c("span", [_vm._v(_vm._s(option.label))])
-                          : _c("span", [_vm._v(_vm._s(option))])
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputValue,
+                              expression: "inputValue"
+                            }
+                          ],
+                          ref: "vs-multiselect-box",
+                          staticClass: "vs-multiselect__input",
+                          attrs: {
+                            disabled: _vm.disabled,
+                            placeholder: "Search..."
+                          },
+                          domProps: { value: _vm.inputValue },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.inputValue = $event.target.value;
+                            }
+                          }
+                        })
                       ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  !_vm.selectOptions.length
-                    ? _c(
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.selectOptions, function(option, index) {
+                      return _c(
                         "li",
                         {
-                          staticClass:
-                            "vs-multiselect__menu-item vs-multiselect__menu--no-item",
-                          attrs: { role: "menuitem" }
+                          key: "vs-selected-" + index,
+                          staticClass: "vs-multiselect__menu-item",
+                          class: [
+                            {
+                              "vs-multiselect__menu--is-checked": _vm.setSelected(
+                                option
+                              )
+                            },
+                            {
+                              "vs-multiselect__menu-item--is-disabled":
+                                option.disabled
+                            }
+                          ],
+                          attrs: {
+                            "aria-selected": _vm.setSelected(option),
+                            role: "menuitem",
+                            tabIndex: "0"
+                          },
+                          on: {
+                            click: function($event) {
+                              !option.disabled
+                                ? _vm.onSelectedItem(option, index)
+                                : null;
+                            }
+                          }
                         },
                         [
-                          _vm._v(
-                            "\n          " +
-                              _vm._s(_vm.emptyItemsText) +
-                              "\n        "
-                          )
+                          _vm.isObject
+                            ? _c("span", [_vm._v(_vm._s(option.label))])
+                            : _c("span", [_vm._v(_vm._s(option))])
                         ]
                       )
-                    : _vm._e()
-                ],
-                {
-                  options: _vm.selectOptions,
-                  selected: _vm.selected,
-                  selectedObject: _vm.selectedArrayObject,
-                  onSelectedItem: _vm.onSelectedItem
-                }
-              )
-            ],
-            2
-          )
-        ])
-      : _vm._e()
-  ])
+                    }),
+                    _vm._v(" "),
+                    !_vm.selectOptions.length
+                      ? _c(
+                          "li",
+                          {
+                            staticClass:
+                              "vs-multiselect__menu-item vs-multiselect__menu--no-item",
+                            attrs: { role: "menuitem" }
+                          },
+                          [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(_vm.emptyItemsText) +
+                                "\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  {
+                    options: _vm.selectOptions,
+                    selected: _vm.selected,
+                    selectedObject: _vm.selectedArrayObject,
+                    onSelectedItem: _vm.onSelectedItem
+                  }
+                )
+              ],
+              2
+            )
+          ])
+        : _vm._e()
+    ]
+  )
 };
 var __vue_staticRenderFns__$1 = [];
 __vue_render__$1._withStripped = true;
@@ -1215,7 +1263,7 @@ __vue_render__$1._withStripped = true;
   /* style */
   var __vue_inject_styles__$1 = function (inject) {
     if (!inject) { return }
-    inject("data-v-a448d820_0", { source: ".vs-multiselect {\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-multiselect:hover .vs-multiselect__select-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-multiselect__input-wrapper:hover {\n  background-color: transparent !important;\n}\n.vs-multiselect__input {\n  width: 85%;\n  border: none !important;\n  padding: 0.71429em 1.14286em;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n}\n.vs-multiselect__select-wrapper {\n  display: grid;\n  align-items: center;\n  cursor: pointer;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  position: relative;\n  text-align: left;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--error {\n  border-color: var(--vs-select-error) !important;\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-multiselect__select-wrapper span {\n  padding: 10px 40px 10px 15px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--is-open:before {\n  transform: rotate(180deg) translateY(-1px);\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled {\n  background: #f8f9f9;\n  color: #c2c8cc;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__input,\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-multiselect__no-search li:nth-child(2) {\n  margin-top: 10px;\n}\n.vs-multiselect__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-multiselect__menu--top {\n  bottom: 40px;\n  box-shadow: 0 -2px 20px 0 rgba(4, 68, 77, 0.15);\n}\n.vs-multiselect__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 10px 32px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-multiselect__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-multiselect__menu-item:focus {\n  outline: none;\n}\n.vs-multiselect__menu-item:first-child {\n  margin-top: 8px;\n  padding: 0;\n}\n.vs-multiselect__menu-item:last-child {\n  margin-bottom: 8px;\n}\n.vs-multiselect__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-multiselect__menu-item--is-disabled {\n  color: #c2c8cc;\n  cursor: no-drop;\n}\n.vs-multiselect__menu-item--is-disabled:hover {\n  background-color: transparent;\n}\n.vs-multiselect__menu--no-item {\n  margin-bottom: 8px;\n  padding: 10px;\n  text-align: center;\n}\n.vs-multiselect .vs-multiselect__menu--is-checked:before,\n.vs-multiselect .vs-multiselect__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-multiselect .vs-multiselect__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
+    inject("data-v-db317588_0", { source: ".vs-multiselect {\n  --vs-select-bg: #ffffff;\n  --vs-select-border: #d8dcde;\n  --vs-select-border-hover: #5293c7;\n  --vs-select-hover: #edf7ff;\n  --vs-select-error: #cc3340;\n  --vs-select-icon: #68737d;\n  --vs-select-border-radius: 4px;\n  width: 100%;\n  position: relative;\n}\n.vs-multiselect:hover .vs-multiselect__select-wrapper {\n  border-color: var(--vs-select-border-hover);\n}\n.vs-multiselect__label {\n  line-height: 1.42857;\n  color: #2f3941;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 8px;\n  display: inline-block;\n}\n.vs-multiselect__input-wrapper:hover {\n  background-color: transparent !important;\n}\n.vs-multiselect--compact .vs-multiselect__select-wrapper {\n  min-height: 32px;\n  max-height: 32px;\n}\n.vs-multiselect--compact .vs-multiselect__select-wrapper span {\n  padding: 7px 37px 7px 11px;\n}\n.vs-multiselect--compact .vs-multiselect__menu--top {\n  bottom: 32px;\n}\n.vs-multiselect__input {\n  width: 85%;\n  border: none !important;\n  padding: 0.71429em 1.14286em;\n  box-shadow: none !important;\n  outline: none !important;\n  font-family: inherit;\n  background: transparent;\n}\n.vs-multiselect__select-wrapper {\n  display: grid;\n  align-items: center;\n  cursor: pointer;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  position: relative;\n  text-align: left;\n  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;\n  outline: 0;\n  border: 1px solid var(--vs-select-border);\n  border-radius: var(--vs-select-border-radius);\n  background-color: var(--vs-select-bg);\n  width: 100%;\n  min-height: 40px;\n  box-sizing: border-box;\n  vertical-align: middle;\n  line-height: 1.28571;\n  color: #2f3941;\n  font-family: inherit;\n  font-size: 14px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--error {\n  border-color: var(--vs-select-error) !important;\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon {\n  position: absolute;\n  top: 58%;\n  right: 14px;\n  cursor: pointer;\n  transform: translateY(-50%);\n  color: var(--vs-select-icon);\n}\n.vs-multiselect__select-wrapper .vs-multiselect__icon svg {\n  transition: 0.17s all linear;\n  width: 12px;\n  height: 12px;\n}\n.vs-multiselect__select-wrapper span {\n  padding: 10px 40px 10px 15px;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--is-open:before {\n  transform: rotate(180deg) translateY(-1px);\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled {\n  background: #f8f9f9;\n  color: #c2c8cc;\n  cursor: no-drop;\n  border-color: #e9ebed;\n  user-select: none;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled:hover {\n  border-color: #e9ebed;\n}\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__input,\n.vs-multiselect__select-wrapper.vs-multiselect--disabled .vs-multiselect__icon {\n  cursor: no-drop;\n  user-select: none;\n  color: #c2c8cc;\n}\n.vs-multiselect__no-search li:nth-child(2) {\n  margin-top: 4px;\n}\n.vs-multiselect__menu {\n  z-index: 150;\n  max-height: 250px;\n  overflow-x: hidden;\n  overflow-y: auto;\n  display: inline-block;\n  position: absolute;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid #d8dcde;\n  border-radius: var(--vs-select-border-radius);\n  box-shadow: 0 10px 20px 0 rgba(4, 68, 77, 0.15);\n  background-color: #fff;\n  cursor: default;\n  padding: 0;\n  min-width: 180px;\n  text-align: left;\n  white-space: normal;\n  font-size: 14px;\n  font-weight: 400;\n  width: 100%;\n  left: 0;\n}\n.vs-multiselect__menu--top {\n  bottom: 40px;\n  box-shadow: 0 -2px 20px 0 rgba(4, 68, 77, 0.15);\n}\n.vs-multiselect__menu-item {\n  display: block;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  padding: 8px 36px;\n  text-decoration: none;\n  line-height: 20px;\n  word-wrap: break-word;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.vs-multiselect__menu-item:hover {\n  background-color: var(--vs-select-hover);\n  text-decoration: none;\n}\n.vs-multiselect__menu-item:focus {\n  outline: none;\n}\n.vs-multiselect__menu-item:first-child {\n  margin-top: 4px;\n  padding: 0;\n}\n.vs-multiselect__menu-item:last-child {\n  margin-bottom: 4px;\n}\n.vs-multiselect__menu-item:before {\n  position: absolute;\n  top: 0;\n  left: 0;\n  -webkit-transition: opacity 0.1s ease-in-out;\n  transition: opacity 0.1s ease-in-out;\n  opacity: 0;\n  background: no-repeat 50%/16px url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E\");\n  width: 32px;\n  height: 40px;\n  content: \"\";\n}\n.vs-multiselect__menu-item--is-disabled {\n  color: #c2c8cc;\n  cursor: no-drop;\n}\n.vs-multiselect__menu-item--is-disabled:hover {\n  background-color: transparent;\n}\n.vs-multiselect__menu--no-item {\n  margin-bottom: 8px;\n  padding: 10px;\n  text-align: center;\n}\n.vs-multiselect .vs-multiselect__menu--is-checked:before,\n.vs-multiselect .vs-multiselect__menu-item[aria-checked=true]:before {\n  opacity: 1;\n}\n.vs-multiselect .vs-multiselect__menu[aria-hidden=true] {\n  display: inline-block;\n  transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;\n  visibility: hidden;\n  opacity: 0;\n}", map: undefined, media: undefined });
 
   };
   /* scoped */

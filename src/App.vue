@@ -10,33 +10,33 @@
     <br /><br />
     <div class="grid">
       <div>
-        <span>No Search</span>
-        <vs-select :options="options1" v-model="form.select1"></vs-select>
-        <small>{{ form.select1 }}</small>
+        <vs-select label="No Search" :options="options1" v-model="form.select1"></vs-select>
+        <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
-        <span>Search</span>
-        <vs-select :options="options1" is-search v-model="form.select2"></vs-select>
-        <small>{{ form.select2 }}</small>
+        <vs-select label="Search" :options="options1" is-search v-model="form.select2"></vs-select>
+        <small>v-model: {{ form.select2 }}</small>
       </div>
       <div>
-        <span>No Search (Object)</span>
-        <vs-select :options="options2" v-model="form.select3"></vs-select>
-        <small>{{ form.select3 }}</small>
+        <vs-select label="No Search (Object)" :options="options2" v-model="form.select3"></vs-select>
+        <small>v-model: {{ form.select3 }}</small>
       </div>
       <div>
-        <span>Search (Object)</span>
-        <vs-select :options="options2" is-search v-model="form.select4" emptyItemsText="Not Found"></vs-select>
-        <small>{{ form.select4 }}</small>
+        <vs-select
+          label="Search (Object)"
+          :options="options2"
+          is-search
+          v-model="form.select4"
+          emptyItemsText="Not Found"
+        ></vs-select>
+        <small>v-model: {{ form.select4 }}</small>
       </div>
       <div>
-        <span>Disabled</span>
-        <vs-select :options="options2" is-search disabled v-model="form.select5"></vs-select>
-        <small>{{ form.select5 }}</small>
+        <vs-select label="Disabled" :options="options2" is-search disabled v-model="form.select5"></vs-select>
+        <small>v-model: {{ form.select5 }}</small>
       </div>
       <div>
-        <span>Search (Customizable)</span>
-        <vs-select :options="options1" is-search v-model="form.select6">
+        <vs-select label="Search (Customizable)" :options="options1" is-search v-model="form.select6">
           <template v-slot:options="{ options, selected, onSelectedItem }">
             <li
               v-for="(option, index) in options"
@@ -49,19 +49,26 @@
             </li>
           </template>
         </vs-select>
-        <small>{{ form.select6 }}</small>
+        <small>v-model: {{ form.select6 }}</small>
       </div>
       <div>
-        <span>Preselected & v-model</span>
-        <vs-select :options="options2" is-search :preselected="preselected" v-model="form.select7"></vs-select>
-        <small>{{ form.select7 }}</small>
+        <vs-select
+          label="Preselected & v-model"
+          :options="options2"
+          is-search
+          :preselected="preselected"
+          v-model="form.select7"
+        ></vs-select>
+        <small>v-model: {{ form.select7 }}</small>
         <br />
         <small>Preselected given priority</small>
       </div>
-      <div></div>
       <div>
-        <span>Menu (Object)</span>
-        <vs-select :options="menu" @on-select="log" is-menu is-search></vs-select>
+        <vs-select label="Compact" :options="options1" v-model="form.select1" is-compact></vs-select>
+        <small>v-model: {{ form.select1 }}</small>
+      </div>
+      <div>
+        <vs-select label="Menu (Object)" :options="menu" @on-select="log" is-menu is-search></vs-select>
       </div>
     </div>
 
@@ -73,38 +80,37 @@
 
     <div class="grid">
       <div>
-        <span>No Search (Array)</span>
-        <vs-multiselect :options="options1" v-model="form.select8"></vs-multiselect>
-        <small>{{ form.select8 }}</small>
+        <vs-multiselect label="No Search (Array)" :options="options1" v-model="form.select8"></vs-multiselect>
+        <small>v-model: {{ form.select8 }}</small>
       </div>
       <div>
-        <span>Search (Array)</span>
-        <vs-multiselect :options="options1" is-search v-model="form.select9"></vs-multiselect>
-        <small>{{ form.select9 }}</small>
+        <vs-multiselect label="Search (Array)" :options="options1" is-search v-model="form.select9"></vs-multiselect>
+        <small>v-model: {{ form.select9 }}</small>
       </div>
       <div>
-        <span>No Search (Object)</span>
-        <vs-multiselect :options="options2" v-model="form.select10"></vs-multiselect>
-        <small>{{ form.select10 }}</small>
+        <vs-multiselect label="No Search (Object)" :options="options2" v-model="form.select10"></vs-multiselect>
+        <small>v-model: {{ form.select10 }}</small>
       </div>
       <div>
-        <span>Search (Object)</span>
         <vs-multiselect
+          label="Search (Object)"
           :options="options2"
           is-search
           :preselected="preselected2"
           v-model="form.select11"
         ></vs-multiselect>
-        <small>{{ form.select11 }}</small>
+        <small>v-model: {{ form.select11 }}</small>
       </div>
       <div>
-        <span>Disabled</span>
-        <vs-multiselect :options="options2" is-search disabled></vs-multiselect>
+        <vs-multiselect label="Disabled" :options="options2" is-search disabled></vs-multiselect>
       </div>
       <div>
-        <span>Error</span>
-        <vs-multiselect :options="options2" is-search isError v-model="form.select12"></vs-multiselect>
-        <small>{{ form.select12 }}</small>
+        <vs-multiselect label="Error" :options="options2" is-search isError v-model="form.select12"></vs-multiselect>
+        <small>v-model: {{ form.select12 }}</small>
+      </div>
+      <div>
+        <vs-multiselect label="Compact" :options="options1" v-model="form.select8" is-compact></vs-multiselect>
+        <small>v-model: {{ form.select8 }}</small>
       </div>
     </div>
 
