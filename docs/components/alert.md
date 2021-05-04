@@ -43,7 +43,7 @@ yarn add vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-alert@1.2.80/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/vs-alert@1.2.81/dist/vs-alert.min.js"></script>
 ```
 
 ```html
@@ -105,6 +105,7 @@ After installation,
 | type      | String  | -       | Type of alert to be shown. (success, warning, error, info)  |
 | title     | String  | -       | The alert title (text only). For HTML, use the header slot. |
 | showClose | Boolean | false   | Show alert close icon                                       |
+| small     | Boolean | false   | Applies reduced padding                                     |
 | noBg      | Boolean | false   | Remove background color                                     |
 
 ## Events

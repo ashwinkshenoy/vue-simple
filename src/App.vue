@@ -144,7 +144,20 @@
       <template slot="close">close</template>
     </vs-alert>
 
+    <br /><br />
+
+    <small>Small</small><br /><br />
+    <vs-alert type="success" small show-close>
+      Success Message
+    </vs-alert>
+
     <br />
+
+    <vs-alert type="warning" small show-close>
+      Warning Message
+    </vs-alert>
+
+    <br /><br />
 
     <vs-alert type="success" no-bg>
       Success Message

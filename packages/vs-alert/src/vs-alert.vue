@@ -86,11 +86,15 @@
         type: Boolean,
         default: false,
       },
+      small: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
       classList() {
-        return [`vs-alert-${this.type}`, { 'vs-alert--no-bg': this.noBg }];
+        return [`vs-alert-${this.type}`, { 'vs-alert--no-bg': this.noBg }, { 'vs-alert--small': this.small }];
       },
     },
   };
@@ -198,6 +202,14 @@
       border: 1px solid var(--vs-alert-secondary-bc);
       background-color: var(--vs-alert-secondary-bg);
       color: var(--vs-alert-secondary-color);
+    }
+
+    &--small {
+      padding: 12px 40px;
+
+      #{$el}-button {
+        top: 8px;
+      }
     }
 
     &--no-bg {
