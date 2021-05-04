@@ -1,9 +1,11 @@
 <template>
   <div :class="['vs-select', { 'vs-select--compact': isCompact }]">
-    <label class="vs-select__label">
-      <span>{{ label }}</span>
-      <span class="vs-select--required" v-if="required"> *</span>
-    </label>
+    <slot>
+      <label class="vs-select__label">
+        <span>{{ label }}</span>
+        <span class="vs-select--required" v-if="required"> *</span>
+      </label>
+    </slot>
     <div
       class="vs-select__input-wrapper"
       :class="[
@@ -364,6 +366,10 @@
       #{$el}__menu--top {
         bottom: 32px;
       }
+    }
+
+    &--required {
+      color: #cc3340;
     }
 
     &__input-wrapper {

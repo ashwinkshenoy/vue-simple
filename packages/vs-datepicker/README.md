@@ -65,7 +65,7 @@ yarn add vs-datepicker
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-datepicker@1.0.1/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/vs-datepicker@1.0.2/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html

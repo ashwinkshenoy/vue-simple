@@ -10,7 +10,7 @@
     <br /><br />
     <div class="grid">
       <div>
-        <vs-select label="No Search" :options="options1" v-model="form.select1"></vs-select>
+        <vs-select label="No Search" :options="options1" v-model="form.select1" required></vs-select>
         <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
@@ -80,7 +80,7 @@
 
     <div class="grid">
       <div>
-        <vs-multiselect label="No Search (Array)" :options="options1" v-model="form.select8"></vs-multiselect>
+        <vs-multiselect label="No Search (Array)" :options="options1" v-model="form.select8" required></vs-multiselect>
         <small>v-model: {{ form.select8 }}</small>
       </div>
       <div>

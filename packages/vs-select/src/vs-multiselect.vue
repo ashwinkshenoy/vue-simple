@@ -1,9 +1,11 @@
 <template>
   <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]">
-    <label class="vs-multiselect__label">
-      <span>{{ label }}</span>
-      <span class="vs-multiselect--required" v-if="required"> *</span>
-    </label>
+    <slot>
+      <label class="vs-multiselect__label">
+        <span>{{ label }}</span>
+        <span class="vs-multiselect--required" v-if="required"> *</span>
+      </label>
+    </slot>
 
     <div
       class="vs-multiselect__select-wrapper"
@@ -367,6 +369,10 @@
       #{$el}__menu--top {
         bottom: 32px;
       }
+    }
+
+    &--required {
+      color: #cc3340;
     }
 
     &__input {

@@ -72,7 +72,7 @@ yarn add vs-select
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-select@1.0.0/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/vs-select@1.0.1/dist/vs-select.min.js"></script>
 ```
 
 ```html
@@ -200,9 +200,10 @@ You can also pass `disable: true` in array of objects to disable particular item
 
 You can define own item markup via slots:
 
-| Name    | Description                                                                                                                                   |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | Holds the select option content and can contain HTML. Slot data `options, selected (Array), selectedObject(Array of Objects), onSelectedItem` |
+| Name    | Description                                                                                                                                                                         |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| default | Holds the label area                                                                                                                                                                |
+| options | Holds the select option content and can contain HTML.<br>Slot data `options, selected (Array), selectedObject(Array of Objects), onSelectedItem`<br/>Check CodeSandbox for examples |
 
 <br />
 

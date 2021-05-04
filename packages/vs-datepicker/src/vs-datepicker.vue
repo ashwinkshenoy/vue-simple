@@ -148,10 +148,11 @@
       color: #2f3941;
       font-size: 14px;
       font-weight: 600;
+      display: inline-block;
+      margin-bottom: 8px;
     }
 
     &__input {
-      margin-top: 8px;
       border: 1px solid #d8dcde;
       border-radius: 4px;
       width: 100%;
