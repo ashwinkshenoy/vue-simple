@@ -332,10 +332,9 @@
     width: 100%;
     position: relative;
 
-    &:hover {
-      #{$el}__input-wrapper {
-        border-color: var(--vs-select-border-hover);
-      }
+    #{$el}__input-wrapper:hover,
+    #{$el}__input-wrapper:focus-within {
+      border-color: var(--vs-select-border-hover);
     }
 
     &__label {

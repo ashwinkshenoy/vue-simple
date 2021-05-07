@@ -15,9 +15,12 @@
         { 'vs-multiselect--disabled': disabled },
       ]"
       @click="!disabled ? setSelectEnv() : null"
+      @keyup.enter="!disabled ? setSelectEnv() : null"
       role="menu"
       ref="vs-multiselect"
       aria-haspopup="true"
+      tabindex="0"
+      autofocus="true"
       :aria-expanded="!isMenuHidden"
     >
       <span>
@@ -338,10 +341,9 @@
     width: 100%;
     position: relative;
 
-    &:hover {
-      #{$el}__select-wrapper {
-        border-color: var(--vs-select-border-hover);
-      }
+    &__select-wrapper:hover,
+    &__select-wrapper:focus {
+      border-color: var(--vs-select-border-hover);
     }
 
     &__label {
