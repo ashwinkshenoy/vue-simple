@@ -441,8 +441,12 @@
         padding: 10px 40px 10px 15px;
       }
 
-      &#{$el}--is-open:before {
-        transform: rotate(180deg) translateY(-1px);
+      &#{$el}--is-open {
+        border-color: var(--vs-select-border-hover);
+        box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
+        &:before {
+          transform: rotate(180deg) translateY(-1px);
+        }
       }
 
       &#{$el}--disabled {

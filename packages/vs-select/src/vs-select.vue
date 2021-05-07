@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vs-select', { 'vs-select--compact': isCompact }]">
+  <div :class="['vs-select', { 'vs-select--compact': isCompact }]" @blur="setSelectClose" ref="vs-select">
     <slot>
       <label class="vs-select__label">
         <span>{{ label }}</span>
@@ -68,6 +68,7 @@
             :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
             @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
+            @keyup.esc="isMenuHidden = true"
             role="menuitem"
             tabIndex="0"
           >
@@ -166,7 +167,7 @@
       },
 
       isReadonly() {
-        if (this.isSearch && !this.disabled && !this.isMenu) {
+        if (this.isSearch && !this.isMenuHidden && !this.disabled && !this.isMenu) {
           return false;
         }
         return true;
@@ -185,8 +186,7 @@
       },
 
       value() {
-        this.selected = this.value;
-        this.inputValue = this.value;
+        this.initOptions();
       },
 
       options: {
@@ -203,7 +203,7 @@
       if (window) {
         window.addEventListener('click', e => {
           if (!this.$el.contains(e.target)) {
-            this.isMenuHidden = true;
+            this.setSelectClose();
           }
         });
         this.handleScroll();
@@ -236,7 +236,6 @@
             }
           }
           if (this.value) {
-            // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
             const selectedFilter = this.options.filter(item => item.value === this.value);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
@@ -266,15 +265,17 @@
         if (this.isObject) {
           this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
+          // this.inputValue = this.selected;
           this.$emit('input', this.selectedObject.value);
           this.$emit('on-select', this.selectedObject.value);
         } else {
           this.selected = this.options.filter(i => i === option)[0];
+          // this.inputValue = this.selected;
           this.$emit('input', this.selected);
           this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
         }
         this.searchTerm = '';
-        this.inputValue = this.selected;
+        this.setSelectClose();
       },
 
       searchSelectList() {
@@ -295,20 +296,19 @@
 
       setSelectEnv() {
         if (!this.isMenuHidden && !this.searchTerm) {
-          this.isMenuHidden = true;
-          this.$refs['vs-select-box'].blur();
+          this.setSelectClose();
           return;
         }
         this.$refs['vs-select-box'].focus();
         this.isMenuHidden = false;
-        if (!this.searchTerm && this.isSearch && !this.isMenu) {
+        if (this.isSearch && !this.isMenu) {
           this.inputValue = '';
         }
       },
 
       setSelectClose() {
         this.isMenuHidden = true;
-        this.$refs['vs-select-box'].blur();
+        // this.$refs['vs-select-box'].blur();
         if (this.selected && !this.isObject) {
           this.inputValue = this.selected;
         }
@@ -338,7 +338,8 @@
     width: 100%;
     position: relative;
 
-    #{$el}__input-wrapper:hover {
+    #{$el}__input-wrapper:hover,
+    #{$el}__input-wrapper:focus-within {
       border-color: var(--vs-select-border-hover);
     }
 
@@ -418,8 +419,15 @@
         }
       }
 
-      &#{$el}--is-open #{$el}__icon svg {
-        transform: rotate(180deg);
+      &#{$el}--is-open {
+        border-color: var(--vs-select-border-hover);
+        box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
+        &:before {
+          transform: rotate(180deg) translateY(-1px);
+        }
+        #{$el}__icon svg {
+          transform: rotate(180deg);
+        }
       }
 
       &#{$el}--menu {
