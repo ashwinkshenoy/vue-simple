@@ -164,7 +164,7 @@
       selectOptions() {
         return (
           this.options.filter(
-            (list) => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list)
+            list => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
           ) || ''
         );
       },
@@ -175,12 +175,12 @@
           if (items.length > 2) {
             return `${items[0]}, ${items[1]}, and ${items.length - 2} more`;
           }
-          return this.selectedArrayObject.map((list) => list).join(', ');
+          return this.selectedArrayObject.map(list => list).join(', ');
         }
         if (items.length > 2) {
           return `${items[0].label}, ${items[1].label}, and ${items.length - 2} more`;
         }
-        return this.selectedArrayObject.map((list) => list.label).join(', ');
+        return this.selectedArrayObject.map(list => list.label).join(', ');
       },
     },
 
@@ -207,7 +207,7 @@
 
     mounted() {
       if (window) {
-        window.addEventListener('click', (e) => {
+        window.addEventListener('click', e => {
           if (!this.$el.contains(e.target)) {
             this.isMenuHidden = true;
           }
@@ -227,14 +227,14 @@
       initOptions() {
         // If Array of Object
         if (
-          this.options.some((value) => {
+          this.options.some(value => {
             return typeof value == 'object';
           })
         ) {
           this.isObject = true;
           // Set preselected
           this.selectedArrayObject = this.options.filter(
-            ({ value: id1 }) => this.preselected && this.preselected.some((id2) => id2 === id1)
+            ({ value: id1 }) => this.preselected && this.preselected.some(id2 => id2 === id1),
           );
         } else {
           this.isObject = false;
@@ -244,9 +244,9 @@
 
       setSelected(option) {
         if (this.isObject) {
-          return this.selectedArrayObject.filter((list) => list.value === option.value).length > 0;
+          return this.selectedArrayObject.filter(list => list.value === option.value).length > 0;
         }
-        return this.selectedArrayObject.filter((list) => list === option).length > 0;
+        return this.selectedArrayObject.filter(list => list === option).length > 0;
       },
 
       onSelectedItem(option) {
@@ -260,14 +260,14 @@
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {
-            this.selectedArrayObject = this.selectedArrayObject.filter((i) => i.value !== option.value);
+            this.selectedArrayObject = this.selectedArrayObject.filter(i => i.value !== option.value);
           }
         } else {
-          const isContains = this.selectedArrayObject.filter((i) => option.includes(i)).length > 0;
+          const isContains = this.selectedArrayObject.filter(i => option.includes(i)).length > 0;
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {
-            this.selectedArrayObject = this.selectedArrayObject.filter((i) => i !== option);
+            this.selectedArrayObject = this.selectedArrayObject.filter(i => i !== option);
           }
         }
         this.$emit('input', this.selectedArrayObject);
@@ -277,7 +277,7 @@
       },
 
       containsObject(mainObject, selectedOption) {
-        return mainObject.some((list) => list.value === selectedOption.value);
+        return mainObject.some(list => list.value === selectedOption.value);
       },
 
       searchSelectList() {

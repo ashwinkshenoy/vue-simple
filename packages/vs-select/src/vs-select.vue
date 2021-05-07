@@ -159,7 +159,7 @@
       selectOptions() {
         return (
           this.options.filter(
-            (list) => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list)
+            list => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
           ) || ''
         );
       },
@@ -215,13 +215,13 @@
       initOptions() {
         // If Array of Object
         if (
-          this.options.some((value) => {
+          this.options.some(value => {
             return typeof value == 'object';
           })
         ) {
           this.isObject = true;
           if (this.preselected) {
-            const selectedFilter = this.options.filter((item) => item.value === this.preselected);
+            const selectedFilter = this.options.filter(item => item.value === this.preselected);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -231,7 +231,7 @@
           }
           if (this.value) {
             // const valueObj = this.options.filter((i) => this.value.find((item) => i.value === item))[0];
-            const selectedFilter = this.options.filter((item) => item.value === this.value);
+            const selectedFilter = this.options.filter(item => item.value === this.value);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -258,12 +258,12 @@
         // If Array of Object
         // 2 diff emits of input/on-select are required
         if (this.isObject) {
-          this.selectedObject = this.options.filter((i) => i.value === option.value)[0];
+          this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
           this.$emit('input', this.selectedObject.value);
           this.$emit('on-select', this.selectedObject.value);
         } else {
-          this.selected = this.options.filter((i) => i === option)[0];
+          this.selected = this.options.filter(i => i === option)[0];
           this.$emit('input', this.selected);
           this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
         }
