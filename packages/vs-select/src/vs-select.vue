@@ -22,7 +22,7 @@
         :disabled="disabled"
         @click="!disabled ? setSelectEnv() : null"
         @keyup.enter="!disabled ? setSelectEnv() : null"
-        @blur="setSelectClose"
+        @keyup.esc="!disabled ? (isMenuHidden = true) : null"
         v-model="inputValue"
         :readonly="isReadonly"
         role="menu"
@@ -67,6 +67,7 @@
             ]"
             :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
+            @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
             role="menuitem"
             tabIndex="0"
           >
@@ -200,6 +201,11 @@
 
     mounted() {
       if (window) {
+        window.addEventListener('click', e => {
+          if (!this.$el.contains(e.target)) {
+            this.isMenuHidden = true;
+          }
+        });
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
       }
@@ -332,9 +338,14 @@
     width: 100%;
     position: relative;
 
-    #{$el}__input-wrapper:hover,
-    #{$el}__input-wrapper:focus-within {
+    #{$el}__input-wrapper:hover {
       border-color: var(--vs-select-border-hover);
+    }
+
+    #{$el}__input-wrapper:focus,
+    #{$el}__input-wrapper:focus-within {
+      border-color: var(--vs-select-color);
+      box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
     }
 
     &__label {
@@ -447,8 +458,9 @@
       background: transparent;
       position: relative;
       z-index: 50;
-      &[readonly] {
+      &:read-only {
         cursor: pointer;
+        user-select: none;
       }
     }
 
@@ -492,7 +504,8 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        &:hover {
+        &:hover,
+        &:focus-within {
           background-color: var(--vs-select-hover);
           text-decoration: none;
         }

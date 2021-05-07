@@ -243,7 +243,7 @@
   import VsMultiselect from '../packages/vs-select/src/vs-multiselect';
   import VsAlert from '../packages/vs-alert/src/vs-alert';
   import VsTag from '../packages/vs-tag/src/vs-tag';
-  import Modal from './modal';
+  import Modal from './Modal';
   import DatepickerDemo from './DatepickerDemo';
 
   export default {

@@ -16,6 +16,7 @@
       ]"
       @click="!disabled ? setSelectEnv() : null"
       @keyup.enter="!disabled ? setSelectEnv() : null"
+      @keyup.esc="!disabled ? (isMenuHidden = true) : null"
       role="menu"
       ref="vs-multiselect"
       aria-haspopup="true"
@@ -73,6 +74,8 @@
               { 'vs-multiselect__menu-item--is-disabled': option.disabled },
             ]"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
+            @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
+            @keyup.esc="!disabled ? (isMenuHidden = true) : null"
             :aria-selected="setSelected(option)"
             role="menuitem"
             tabIndex="0"
@@ -341,9 +344,14 @@
     width: 100%;
     position: relative;
 
-    &__select-wrapper:hover,
-    &__select-wrapper:focus {
+    &__select-wrapper:hover {
       border-color: var(--vs-select-border-hover);
+    }
+
+    &__select-wrapper:focus,
+    &__select-wrapper:focus-within {
+      border-color: var(--vs-select-border-hover);
+      box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
     }
 
     &__label {
@@ -501,7 +509,8 @@
         -ms-user-select: none;
         user-select: none;
 
-        &:hover {
+        &:hover,
+        &:focus-within {
           background-color: var(--vs-select-hover);
           text-decoration: none;
         }
