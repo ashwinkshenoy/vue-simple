@@ -1,0 +1,32 @@
+{
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.arrowParens": "avoid",
+  "prettier.semi": true,
+  "prettier.trailingComma": "all",
+  "prettier.bracketSpacing": true,
+  "prettier.enable": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.tabWidth": 2,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
+  "html.format.preserveNewLines": true,
+  "scssFormatter.singleQuote": true,
+  "vetur.validation.template": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "html"
+  },
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.includeLanguages": {
+    "javascript": "html",
+    "vue-html": "html",
+    "vue": "html, jade"
+  }
+}
