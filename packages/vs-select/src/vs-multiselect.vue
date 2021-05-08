@@ -74,8 +74,10 @@
               { 'vs-multiselect__menu-item--is-disabled': option.disabled },
             ]"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
+            @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
             @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
             @keyup.esc="!disabled ? (isMenuHidden = true) : null"
+            @blur="index === selectOptions.length - 1 ? (isMenuHidden = true) : null"
             :aria-selected="setSelected(option)"
             role="menuitem"
             tabIndex="0"
@@ -364,7 +366,8 @@
     }
 
     &__input-wrapper:hover,
-    &__input-wrapper:focus {
+    &__input-wrapper:focus,
+    &__input-wrapper:focus-within {
       background-color: transparent !important;
     }
 

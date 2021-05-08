@@ -67,8 +67,10 @@
             ]"
             :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
             @click="!option.disabled ? onSelectedItem(option, index) : null"
+            @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
             @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
             @keyup.esc="isMenuHidden = true"
+            @blur="index === selectOptions.length - 1 ? setSelectClose() : null"
             role="menuitem"
             tabIndex="0"
           >
