@@ -78,6 +78,10 @@
     background-color: var(--vs-tag-bg-color);
     color: var(--vs-tag-text-color);
     max-width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &__primary {
       background: var(--vs-tag-primary);
@@ -130,12 +134,14 @@
 
     &--pill {
       border-radius: 100px;
-      min-width: 30px;
+      min-width: 20px;
+      text-align: center;
     }
 
     &--round {
       border-radius: 50%;
-      min-width: 20px;
+      min-width: 9px;
+      text-align: center;
     }
   }
 </style>

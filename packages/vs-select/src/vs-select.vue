@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vs-select', { 'vs-select--compact': isCompact }]" @blur="setSelectClose" ref="vs-select">
+  <div :class="['vs-select', { 'vs-select--compact': isCompact }]" ref="vs-select">
     <slot>
       <label class="vs-select__label">
         <span>{{ label }}</span>
@@ -21,7 +21,7 @@
         :class="['vs-select__input', { 'vs-select--cursor-pointer': isMenuHidden }]"
         :disabled="disabled"
         @click="!disabled ? setSelectEnv() : null"
-        @keyup.enter="!disabled ? setSelectEnv() : null"
+        @keydown.space.prevent="!disabled ? setSelectEnv() : null"
         @keyup.esc="!disabled ? (isMenuHidden = true) : null"
         v-model="inputValue"
         :readonly="isReadonly"

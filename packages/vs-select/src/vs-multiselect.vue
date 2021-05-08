@@ -15,7 +15,7 @@
         { 'vs-multiselect--disabled': disabled },
       ]"
       @click="!disabled ? setSelectEnv() : null"
-      @keyup.enter="!disabled ? setSelectEnv() : null"
+      @keydown.space.prevent="!disabled ? setSelectEnv() : null"
       @keyup.esc="!disabled ? (isMenuHidden = true) : null"
       role="menu"
       ref="vs-multiselect"
