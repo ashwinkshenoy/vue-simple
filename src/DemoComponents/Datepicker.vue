@@ -69,7 +69,7 @@
 </template>
 
 <script>
-  import VsDatepicker from '../packages/vs-datepicker/src/vs-datepicker';
+  import VsDatepicker from '../../packages/vs-datepicker/src/vs-datepicker';
 
   export default {
     name: 'DatepickerDemo',

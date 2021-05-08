@@ -55,7 +55,7 @@ yarn add vs-select
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-select@1.0.4/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/vs-select@1.0.5/dist/vs-select.min.js"></script>
 ```
 
 ```html

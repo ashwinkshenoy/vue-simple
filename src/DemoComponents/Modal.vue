@@ -165,7 +165,7 @@
 </template>
 
 <script>
-  import VsModal from '../packages/vs-modal/src/vs-modal';
+  import VsModal from '../../packages/vs-modal/src/vs-modal';
 
   export default {
     components: {

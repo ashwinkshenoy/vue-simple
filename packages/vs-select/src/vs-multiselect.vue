@@ -363,7 +363,8 @@
       display: inline-block;
     }
 
-    &__input-wrapper:hover {
+    &__input-wrapper:hover,
+    &__input-wrapper:focus {
       background-color: transparent !important;
     }
 
