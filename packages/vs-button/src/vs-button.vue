@@ -1,27 +1,43 @@
 <template>
-  <button :class="['vs-button', classList]">
-    <slot></slot>
-  </button>
+  <component
+    :is="isLink"
+    :role="href ? 'button' : false"
+    :href="href"
+    :target="target"
+    :rel="rel"
+    :type="isLink ? 'button' : false"
+    :disabled="disabled || isLoading"
+    :class="['vs-button', classList]"
+    @click="emitClick"
+  >
+    <slot name="loader" v-if="isLoading">
+      <vs-loader :size="35"></vs-loader>
+    </slot>
+    <slot v-else></slot>
+  </component>
 </template>
 
 <script>
+  import VsLoader from './vs-loader.vue';
+
   export default {
     name: 'VsButton',
 
+    components: {
+      VsLoader,
+    },
+
     props: {
-      type: {
+      variant: {
         type: String,
+        default: 'primary',
       },
       // small. medium, large
       size: {
         type: String,
         default: 'medium',
       },
-      isBold: {
-        type: Boolean,
-        default: true,
-      },
-      isPill: {
+      fill: {
         type: Boolean,
         default: false,
       },
@@ -29,10 +45,21 @@
         type: Boolean,
         default: false,
       },
-      bgColor: {
+      isLoading: {
+        type: Boolean,
+        default: false,
+      },
+      disabled: {
+        type: [Boolean, String],
+        default: false,
+      },
+      href: {
         type: String,
       },
-      textColor: {
+      target: {
+        type: String,
+      },
+      rel: {
         type: String,
       },
     },
@@ -40,12 +67,23 @@
     computed: {
       classList() {
         return [
-          this.type ? `vs-tag__${this.type}` : '',
-          `vs-tag__size-${this.size}`,
-          { 'vs-tag--bold': this.isBold },
-          { 'vs-tag--pill': this.isPill },
-          { 'vs-tag--round': this.isRound },
+          [this.variant === 'link' ? 'vs-button__link' : `vs-button__${this.variant}${this.fill ? '-fill' : ''}`],
+          `vs-button--${this.size}`,
+          { 'vs-button--loading': this.isLoading },
+          { 'vs-button--round': this.isRound },
         ];
+      },
+
+      isLink() {
+        return this.variant === 'link' || !!this.href ? 'a' : 'button';
+      },
+    },
+
+    methods: {
+      emitClick() {
+        if (!this.isLoading || !this.disabled) {
+          this.$emit('click');
+        }
       },
     },
   };
@@ -55,17 +93,134 @@
   $el: '.vs-button';
 
   #{$el} {
-    --vs-tag-bg-color: #e9ebed;
-    --vs-tag-text-color: #49545c;
-    --vs-tag-primary: #1f73b7;
-    --vs-tag-success: #186146;
-    --vs-tag-danger: #cc3340;
-    --vs-tag-warning: #ffb057;
-    --vs-tag-secondary: #3a3a3a;
-    --vs-tag-font-bold: 600;
+    $color-primary: #1f73b7;
+    $color-secondary: #6c757d;
+    $color-light: #f8f9fa;
+    $color-success: #28a745;
+    $color-danger: #cc3340;
+    $color-warning: #ffb057;
+    $color-disabled-bg: #e9ebed;
+    $color-disabled-text: #c2c8cc;
 
-    background-color: var(--vs-tag-bg-color);
-    color: var(--vs-tag-text-color);
-    max-width: 100%;
+    border-radius: 4px;
+    font-weight: 400;
+    box-sizing: border-box;
+    user-select: none;
+    padding: 0 1.07143em;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s, background-color 0.25s ease-in-out 0s,
+      color 0.25s ease-in-out 0s;
+    margin: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+
+    &#{$el}--small {
+      height: 32px;
+      line-height: 30px;
+      font-size: 12px;
+    }
+
+    &#{$el}--medium {
+      height: 40px;
+      line-height: 38px;
+      font-size: 14px;
+    }
+
+    &#{$el}--large {
+      height: 48px;
+      line-height: 46px;
+      font-size: 14px;
+    }
+
+    &#{$el}--round {
+      border-radius: 50px;
+    }
+
+    $theme: (primary $color-primary #ffffff), (success $color-success #ffffff), (danger $color-danger #ffffff),
+      (warning $color-warning #703815), (secondary $color-secondary #ffffff), (light $color-light #212529);
+
+    @each $button in $theme {
+      &#{$el}__#{nth($button, 1)},
+      &#{$el}__#{nth($button, 1)}:hover,
+      &#{$el}__#{nth($button, 1)}:focus {
+        background: transparent;
+        color: #{nth($button, 2)};
+        border: solid 1px #{nth($button, 2)};
+
+        &:hover {
+          border-color: darken(nth($button, 2), 10%);
+          background: lighten(nth($button, 2), 55%);
+          color: darken(nth($button, 2), 10%);
+        }
+
+        &:active {
+          border-color: darken(nth($button, 2), 20%);
+          background: lighten(nth($button, 2), 50%);
+          color: darken(nth($button, 2), 20%);
+        }
+
+        &:focus-visible {
+          border-color: darken(nth($button, 2), 10%);
+          box-shadow: 0 0 0 0.2rem lighten(nth($button, 2), 30%);
+          outline: 0;
+        }
+
+        &:disabled,
+        &#{$el}--loading {
+          background: $color-disabled-bg;
+          border-color: transparent;
+          color: $color-disabled-text;
+          cursor: no-drop;
+        }
+      }
+
+      &#{$el}__#{nth($button, 1)}-fill,
+      &#{$el}__#{nth($button, 1)}-fill:focus {
+        background: #{nth($button, 2)};
+        color: #{nth($button, 3)};
+        border: solid 1px #{nth($button, 2)};
+
+        &:hover {
+          border-color: darken(nth($button, 2), 10%);
+          background: darken(nth($button, 2), 10%);
+        }
+
+        &:active {
+          border-color: darken(nth($button, 2), 20%);
+          background: darken(nth($button, 2), 15%);
+        }
+
+        &:focus-visible {
+          border-color: darken(nth($button, 2), 10%);
+          box-shadow: 0 0 0 0.2rem lighten(nth($button, 2), 30%);
+          outline: 0;
+        }
+
+        &:disabled,
+        &#{$el}--loading {
+          background: $color-disabled-bg;
+          border-color: transparent;
+          color: $color-disabled-text;
+          cursor: no-drop;
+        }
+      }
+    }
+
+    &#{$el}__link {
+      background: transparent;
+      color: $color-primary;
+      border: none;
+      padding: 0;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>

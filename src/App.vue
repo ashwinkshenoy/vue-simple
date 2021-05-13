@@ -128,6 +128,13 @@
     <vs-tag bg-color="#00a656" text-color="#fff" class="mr-10">Green</vs-tag>
     <vs-tag bg-color="#ff6224" text-color="#fff" class="mr-10">Orange</vs-tag>
     <vs-tag bg-color="#ffd424" text-color="#796510" class="mr-10">Lemon</vs-tag>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Buttons</strong>
+    <br /><br />
+    <demo-button></demo-button>
   </div>
 </template>
 
@@ -137,6 +144,7 @@
   import Modal from './DemoComponents/Modal';
   import DatepickerDemo from './DemoComponents/Datepicker';
   import SelectDemo from './DemoComponents/Select';
+  import DemoButton from './DemoComponents/Button';
 
   export default {
     name: 'App',
@@ -146,6 +154,7 @@
       DatepickerDemo,
       SelectDemo,
       VsTag,
+      DemoButton,
     },
 
     data() {
@@ -177,6 +186,11 @@
 
   strong {
     font-size: 20px;
+  }
+
+  small {
+    margin-bottom: 5px;
+    display: inline-block;
   }
 
   .menu-item {

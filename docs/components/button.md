@@ -1,29 +1,16 @@
-# Vue Simple Button
+---
+title: Button
+---
 
-#### 🗃 A simple vue button.
+<masthead title="Button" description="A simple set of buttons">
+  <component-links
+    codesandbox="https://codesandbox.io/s/vs-button-w8x1m"
+    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-button"
+    packageName="vs-button">
+  </component-links>
+</masthead>
 
-A light weight vue plugin built groundup.
-
-[![npm](https://img.shields.io/npm/v/vs-button.svg)](https://www.npmjs.com/package/vs-button)
-[![npm](https://img.shields.io/npm/dt/vs-button.svg)](https://img.shields.io/npm/dt/vs-button.svg)
-<br />
-
-![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
-![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)
-![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)
-![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
-
-<br />
-
-### 📺 Live Demo
-
-Code Sandbox: [Link](https://codesandbox.io/s/vs-button-w8x1m)
-
-<br />
-
-### 🛠 Install
+## Install
 
 ```bash
 npm i vs-button
@@ -35,7 +22,7 @@ yarn add vs-button
 
 <br />
 
-### 🚀 Usage
+## Usage
 
 ```html
 <template>
@@ -56,7 +43,7 @@ yarn add vs-button
 
 <br />
 
-### 🌎 CDN
+## CDN
 
 ```javascript
 <script src='https://unpkg.com/vs-button@1/dist/vs-button.min.js'></script>
@@ -116,7 +103,7 @@ After installation,
 
 <br />
 
-### ⚙ Props
+## Props
 
 | Name      | Type    | Default   | Description                                                                                              |
 | --------- | ------- | --------- | -------------------------------------------------------------------------------------------------------- |
@@ -132,7 +119,7 @@ After installation,
 
 <br />
 
-### 🔥 Events
+## Events
 
 | Name  | Description                      |
 | ----- | -------------------------------- |
@@ -140,7 +127,7 @@ After installation,
 
 <br />
 
-### 📎 Slots
+## Slots
 
 You can define own item markup via slots:
 
