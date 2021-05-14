@@ -16,14 +16,14 @@ module.exports = {
     //     searchMaxSuggestions: 10,
     //   },
     // ],
-    [
-      'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '',
-        indexSuffix: '/',
-        notFoundPath: '/404.html',
-      },
-    ],
+    // [
+    //   'vuepress-plugin-clean-urls',
+    //   {
+    //     normalSuffix: '',
+    //     indexSuffix: '/',
+    //     notFoundPath: '/404.html',
+    //   },
+    // ],
     ['@vuepress/back-to-top'],
   ],
   head: [
