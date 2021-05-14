@@ -16,14 +16,14 @@ module.exports = {
     //     searchMaxSuggestions: 10,
     //   },
     // ],
-    // [
-    //   'vuepress-plugin-clean-urls',
-    //   {
-    //     normalSuffix: '',
-    //     indexSuffix: '/',
-    //     notFoundPath: '/404.html',
-    //   },
-    // ],
+    [
+      'vuepress-plugin-clean-urls',
+      {
+        normalSuffix: '',
+        indexSuffix: '/',
+        notFoundPath: '/404.html',
+      },
+    ],
     ['@vuepress/back-to-top'],
   ],
   head: [
@@ -69,7 +69,7 @@ module.exports = {
       apiKey: '6d990b86d8298fb9ab5f36102aecf449',
       indexName: 'vuesimple',
       algoliaOptions: {
-        hitsPerPage: 10,
+        hitsPerPage: 6,
       },
     },
     searchPlaceholder: 'Search...',
