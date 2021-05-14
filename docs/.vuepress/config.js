@@ -62,6 +62,9 @@ module.exports = {
     algolia: {
       apiKey: '6d990b86d8298fb9ab5f36102aecf449',
       indexName: 'vuesimple',
+      algoliaOptions: {
+        hitsPerPage: 10,
+      },
     },
     searchPlaceholder: 'Search...',
     sidebar: [

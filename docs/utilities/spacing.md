@@ -17,10 +17,10 @@ The **property** applies the type of spacing:
 
 The **direction** designates the side, the property applies to:
 
-- `t` - applies the spacing for `margin-top` and `padding-top`.
-- `r` - applies the spacing for `margin-right` and `padding-right`.
-- `b` - applies the spacing for `margin-bottom` and `padding-bottom`.
-- `l` - applies the spacing for `margin-left` and `padding-left`.
+- `t` - applies the spacing for `margin-top` or `padding-top`.
+- `r` - applies the spacing for `margin-right` or `padding-right`.
+- `b` - applies the spacing for `margin-bottom` or `padding-bottom`.
+- `l` - applies the spacing for `margin-left` or `padding-left`.
 - `h` - applies the spacing for both `*-left` and `*-right`.
 - `v` - applies the spacing for both `*-top` and `*-bottom`.
 - If left empty, applies the spacing for the property in all directions. (Ex: `u-p`, `u-m`)

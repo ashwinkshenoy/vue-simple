@@ -137,7 +137,7 @@ h3::after
   top 0 $force
   padding-top: 0;
 
-  @media (min-width: $tablet)
+  @media (min-width: $mobile)
     top $navbarHeight $force
 
   @media (max-width: $MQNarrow)
@@ -145,15 +145,12 @@ h3::after
 
   & > .sidebar-links
     padding-top 1.5rem $force
-  .sidebar-link
-    transition all .3s
   .sidebar-heading
     align-items center
     display flex
     font-weight 600 $force
     justify-content space-between
     position relative
-    transition 1s all linear
     &.open
       font-weight 600 $force
     .arrow

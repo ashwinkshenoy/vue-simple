@@ -1,7 +1,10 @@
 <template>
-  <div class="component-masthead">
+  <div class="component-masthead" :id="title.toLowerCase()">
     <div class="component-masthead__title">
-      <h1 :id="title">{{ title }}</h1>
+      <h1>
+        <a :href="`#${title.toLowerCase()}`" class="header-anchor">#</a>
+        {{ title }}
+      </h1>
       <p v-html="description"></p>
     </div>
     <div class="component-masthead__info">

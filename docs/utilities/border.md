@@ -11,12 +11,12 @@ These classes can be applied using the following format <br/>
 
 The **direction** designates the side the property applies to:
 
-- `t` - applies the spacing for `margin-top` and `padding-top`.
-- `r` - applies the spacing for `margin-right` and `padding-right`.
-- `b` - applies the spacing for `margin-bottom` and `padding-bottom`.
-- `l` - applies the spacing for `margin-left` and `padding-left`.
-- `h` - applies the spacing for both `*-left` and `*-right`.
-- `v` - applies the spacing for both `*-top` and `*-bottom`.
+- `t` - applies the border to `top`.
+- `r` - applies the border to `right`.
+- `b` - applies the border to `bottom`.
+- `l` - applies the border to `left`.
+- `h` - applies the border to both `*-left` and `*-right`.
+- `v` - applies the border to both `*-top` and `*-bottom`.
 - If left empty, applies the border in all directions. (Ex: `u-border`)
 
 ## Border Radius
