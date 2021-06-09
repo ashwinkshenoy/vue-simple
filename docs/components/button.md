@@ -45,8 +45,8 @@ yarn add vs-button
 
 ## CDN
 
-```javascript
-<script src='https://unpkg.com/vs-button@1/dist/vs-button.min.js'></script>
+```html
+<script src="https://unpkg.com/vs-button@1.0.1/dist/vs-button.min.js"></script>
 ```
 
 ```html
