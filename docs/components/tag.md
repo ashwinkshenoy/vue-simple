@@ -46,7 +46,7 @@ yarn add vs-tag
 
 ## CDN
 
-```javascript
+```html
 <script src="https://unpkg.com/vs-tag@1/dist/vs-tag.min.js"></script>
 ```
 

@@ -11,7 +11,7 @@
     @click="emitClick"
   >
     <slot name="loader" v-if="isLoading">
-      <vs-loader :size="35"></vs-loader>
+      <vs-loader size="8px"></vs-loader>
     </slot>
     <slot v-else></slot>
   </component>
