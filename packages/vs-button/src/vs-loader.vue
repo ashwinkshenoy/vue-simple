@@ -20,7 +20,7 @@
       },
       margin: {
         type: String,
-        default: '1px 2px',
+        default: '3px',
       },
       radius: {
         type: String,
@@ -57,34 +57,41 @@
 </script>
 
 <style lang="scss">
-  @-webkit-keyframes v-pulseStretchDelay {
-    0%,
-    80% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-opacity: 1;
-      opacity: 1;
+  .vs-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @-webkit-keyframes v-pulseStretchDelay {
+      0%,
+      80% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-opacity: 1;
+        opacity: 1;
+      }
+      45% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        -webkit-opacity: 0.7;
+        opacity: 0.7;
+      }
     }
-    45% {
-      -webkit-transform: scale(0.1);
-      transform: scale(0.1);
-      -webkit-opacity: 0.7;
-      opacity: 0.7;
-    }
-  }
-  @keyframes v-pulseStretchDelay {
-    0%,
-    80% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-opacity: 1;
-      opacity: 1;
-    }
-    45% {
-      -webkit-transform: scale(0.1);
-      transform: scale(0.1);
-      -webkit-opacity: 0.7;
-      opacity: 0.7;
+
+    @keyframes v-pulseStretchDelay {
+      0%,
+      80% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-opacity: 1;
+        opacity: 1;
+      }
+      45% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        -webkit-opacity: 0.7;
+        opacity: 0.7;
+      }
     }
   }
 </style>

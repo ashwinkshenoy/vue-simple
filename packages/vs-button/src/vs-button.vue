@@ -11,7 +11,7 @@
     @click="emitClick"
   >
     <slot name="loader" v-if="isLoading">
-      <vs-loader size="8px"></vs-loader>
+      <vs-loader :size="loaderSize" :color="loaderColor"></vs-loader>
     </slot>
     <slot v-else></slot>
   </component>
@@ -48,6 +48,14 @@
       isLoading: {
         type: Boolean,
         default: false,
+      },
+      loaderSize: {
+        type: String,
+        default: '8px',
+      },
+      loaderColor: {
+        type: String,
+        default: '#1f73b7',
       },
       disabled: {
         type: [Boolean, String],

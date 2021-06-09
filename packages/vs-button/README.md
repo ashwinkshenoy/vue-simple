@@ -59,7 +59,7 @@ yarn add vs-button
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-button@1.0.1/dist/vs-button.min.js"></script>
+<script src="https://unpkg.com/vs-button@1.0.2/dist/vs-button.min.js"></script>
 ```
 
 ```html
