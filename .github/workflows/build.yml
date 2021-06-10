@@ -26,8 +26,8 @@ jobs:
 
       - name: Install All Packages & Version
         run: |
-        npm run lerna:bootstrap
-        npm run lerna:version
+          npm run lerna:bootstrap
+          npm run lerna:version
 
       - name: Build All Packages
         run: npm run lerna:build
