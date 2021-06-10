@@ -10,7 +10,6 @@
   <br />
   ⚡️ Perfect for all your daily coding scenarios.
   <br />
-  <a href="https://vuesimple.netlify.app" target="_blank">Documentation</a>
 </div>
 
 <br /><br />
