@@ -39,11 +39,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
 
-      - name: Setup .npmrc file for publish
-        uses: actions/setup-node@v2
-        with:
-          node-version: '13.x'
-          registry-url: 'https://registry.npmjs.org'
+      - name: Authenticate with Registry
+        run: echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Checkout and pull branch (Confirmation)
         run: git checkout . && git pull origin master
