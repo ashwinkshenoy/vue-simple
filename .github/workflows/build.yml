@@ -24,8 +24,10 @@ jobs:
       - name: Checkout and Pull Branch
         run: git checkout "${GITHUB_REF:11}" && git pull origin master
 
-      - name: Install All Packages
-        run: npm run lerna:bootstrap
+      - name: Install All Packages & Version
+        run: |
+        npm run lerna:bootstrap
+        npm run lerna:version
 
       - name: Build All Packages
         run: npm run lerna:build
@@ -43,7 +45,6 @@ jobs:
 
       - name: Publish Packages
         run: |
-          npm run lerna:version
           npm run lerna:publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
