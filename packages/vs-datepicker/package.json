@@ -1,6 +1,6 @@
 {
   "name": "vs-datepicker",
-  "version": "1.3.5-alpha.10+66f1d39",
+  "version": "1.3.5",
   "description": "A simple vue datepicker. Perfect for all your datepicker scenarios.",
   "main": "dist/vs-datepicker.umd.js",
   "module": "dist/vs-datepicker.esm.js",
