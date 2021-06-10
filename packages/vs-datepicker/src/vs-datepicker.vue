@@ -81,7 +81,7 @@
       lang: {
         type: Object,
       },
-      // date, format, timestamp, or token like 'YYYY-MM-DD'
+      // EX: date, format, timestamp, or token like 'YYYY-MM-DD'
       valueType: {
         type: String,
         default: 'date',
