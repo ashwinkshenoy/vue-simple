@@ -1,6 +1,6 @@
 {
   "name": "vs-modal",
-  "version": "1.3.4",
+  "version": "1.3.5-alpha.10+66f1d39",
   "description": "A simple vue modal. Perfect for all your modal/ dialogs scenarios.",
   "main": "dist/vs-modal.umd.js",
   "module": "dist/vs-modal.esm.js",
@@ -50,5 +50,6 @@
   "bugs": {
     "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
   },
-  "homepage": "https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-modal"
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-modal",
+  "gitHead": "66f1d390d6caa9ec346508de37813f5adff15efb"
 }
