@@ -21,6 +21,15 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
+      - name: Authenticate with Registry
+        run: |
+          npm logout
+          echo "registry=http://registry.npmjs.org/" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Checkout and pull branch
         run: git checkout "${GITHUB_REF:11}" && git pull origin master
 
@@ -38,13 +47,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
-
-      - name: Authenticate with Registry
-        run: |
-          echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-          npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Checkout and pull branch (Confirmation)
         run: git checkout . && git pull origin master
