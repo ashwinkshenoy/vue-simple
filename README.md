@@ -43,6 +43,8 @@ See the individual package README for the Vue component you would like to instal
 | [`vs-select`](packages/vs-select)         | [![npm](https://img.shields.io/npm/v/vs-select.svg?style=flat-square)](https://www.npmjs.com/package/vs-select)         | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-select?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/vs-select?style=flat-square)     |
 | [`vs-datepicker`](packages/vs-datepicker) | [![npm](https://img.shields.io/npm/v/vs-datepicker.svg?style=flat-square)](https://www.npmjs.com/package/vs-datepicker) | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-datepicker?style=flat-square) | ![npm](https://img.shields.io/npm/dt/vs-datepicker?style=flat-square) |
 | [`vs-tag`](packages/vs-tag)               | [![npm](https://img.shields.io/npm/v/vs-tag.svg?style=flat-square)](https://www.npmjs.com/package/vs-tag)               | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-tag?style=flat-square)        | ![npm](https://img.shields.io/npm/dt/vs-tag?style=flat-square)        |
+| [`vs-button`](packages/vs-button)               | [![npm](https://img.shields.io/npm/v/vs-button.svg?style=flat-square)](https://www.npmjs.com/package/vs-button)               | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-button?style=flat-square)        | ![npm](https://img.shields.io/npm/dt/vs-button?style=flat-square)        |
+
 
 <br>
 
