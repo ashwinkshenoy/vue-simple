@@ -17,7 +17,6 @@ jobs:
         run: |
           git config --global user.name 'ashwinkshenoy'
           git config --global user.email 'ashwinkshenoy@gmail.com'
-          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/ashwinkshenoy/vue-simple
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
@@ -47,7 +46,7 @@ jobs:
           npm run lerna:version
           npm run lerna:publish
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_GITHUB_API_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_API_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
