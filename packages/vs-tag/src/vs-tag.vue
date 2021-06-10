@@ -9,6 +9,7 @@
     name: 'VsTag',
 
     props: {
+      // `primary`, `secondary`, `warning`, `danger`
       type: {
         type: String,
       },
