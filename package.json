@@ -6,7 +6,7 @@
     "lerna:bootstrap": "lerna bootstrap --no-ci",
     "lerna:build": "lerna run build --stream",
     "lerna:version": "lerna version patch --yes",
-    "lerna:publish": "lerna publish from-git --yes --no-verify-access",
+    "lerna:publish": "lerna publish from-git --yes --ignore-scripts --no-verify-access",
     "serve": "vue-cli-service serve",
     "build:vue": "vue-cli-service build",
     "lint": "vue-cli-service lint",
