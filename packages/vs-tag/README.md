@@ -60,7 +60,7 @@ yarn add vs-tag
 ### 🌎 CDN
 
 ```javascript
-<script src="https://unpkg.com/vs-tag@1/dist/vs-tag.min.js"></script>
+<script src='https://unpkg.com/vs-tag@<version>/dist/vs-tag.min.js'></script>
 ```
 
 ```html

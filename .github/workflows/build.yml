@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -8,11 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
     steps:
       - name: checkout
         uses: actions/checkout@v1
 
-      - name: Configure CI Git User
+      - name: Configure Git User
         run: |
           git config --global user.name '@octobot'
           git config --global user.email 'octobot@users.noreply.github.com'
@@ -37,3 +40,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+
+      - name: Setup .npmrc file for publish
+        uses: actions/setup-node@v2
+        with:
+          node-version: '13.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Checkout and pull branch (Confirmation)
+        run: git checkout "${GITHUB_REF:11}" && git pull origin master
+
+      - name: Publish packages
+        run: npm run lerna:publish
