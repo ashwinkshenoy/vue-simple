@@ -48,7 +48,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Checkout and pull branch (Confirmation)
-        run: git checkout "${GITHUB_REF:11}" && git pull origin master
+        run: git checkout . && git pull origin master
 
       - name: Publish packages
         run: npm run lerna:publish
