@@ -34,10 +34,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+        run: |
+          # Stage the file, commit and push
+          git add -A
+          git commit -m "build files"
+          git push origin master
 
       - name: Checkout and pull branch (Confirmation)
         run: git checkout . && git pull origin master
