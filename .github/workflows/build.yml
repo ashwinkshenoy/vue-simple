@@ -33,16 +33,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
 
-      - name: Push changes
-        run: |
-          # Stage the file, commit and push
-          git add -A
-          git commit -m "build files"
-          git push origin master
-
-      - name: Checkout and pull branch (Confirmation)
-        run: git checkout . && git pull origin master
-
       - name: Authenticate with Registry
         run: |
           echo "registry=http://registry.npmjs.org/" >> .npmrc
