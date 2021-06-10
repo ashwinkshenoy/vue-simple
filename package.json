@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "update:versions": "lerna version",
+    "build:packages": "lerna run build --stream",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:vue": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
