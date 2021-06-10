@@ -9,10 +9,11 @@
     name: 'VsTag',
 
     props: {
+      // `primary`, `secondary`, `warning`, `danger`
       type: {
         type: String,
       },
-      // small. medium, large
+      // `small`. `medium`, `large`
       size: {
         type: String,
         default: 'medium',
