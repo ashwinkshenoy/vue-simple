@@ -23,16 +23,15 @@ jobs:
       - name: Checkout and pull branch
         run: git checkout "${GITHUB_REF:11}" && git pull origin master
 
-      - name: Install Packages
-        run: npm install
+      - name: Install all Packages
+        run: npm run lerna:bootstrap
 
       - name: Build all packages
-        run: npm run build:packages
+        run: npm run lerna:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
-          
-  
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

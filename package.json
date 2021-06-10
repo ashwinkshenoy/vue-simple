@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "update:versions": "lerna version",
-    "build:packages": "lerna run build --stream",
+    "lerna:version": "lerna version",
+    "lerna:bootstrap": "lerna bootstrap --no-ci",
+    "lerna:build": "lerna run build --stream",
     "serve": "vue-cli-service serve",
     "build:vue": "vue-cli-service build",
     "lint": "vue-cli-service lint",
