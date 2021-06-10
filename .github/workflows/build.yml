@@ -32,7 +32,7 @@ jobs:
         run: npm run lerna:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Authenticate with Registry
         run: |
@@ -48,5 +48,6 @@ jobs:
           npm run lerna:publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
