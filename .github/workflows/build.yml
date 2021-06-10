@@ -15,19 +15,19 @@ jobs:
 
       - name: Configure Git User
         run: |
-          git config --global user.name '@octobot'
-          git config --global user.email 'octobot@users.noreply.github.com'
+          git config --global user.name 'ashwinkshenoy'
+          git config --global user.email 'ashwinkshenoy@gmail.com'
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/ashwinkshenoy/vue-simple
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
-      - name: Checkout and pull branch
+      - name: Checkout and Pull Branch
         run: git checkout "${GITHUB_REF:11}" && git pull origin master
 
-      - name: Install all Packages
+      - name: Install All Packages
         run: npm run lerna:bootstrap
 
-      - name: Build all packages
+      - name: Build All Packages
         run: npm run lerna:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
@@ -41,7 +41,15 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish packages
+      - name: Update Version
+        run: |
+          echo "registry=http://registry.npmjs.org/" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish Packages
         run: npm run lerna:publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
