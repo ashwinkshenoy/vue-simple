@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lerna:bootstrap": "lerna bootstrap --no-ci",
+    "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build --stream",
     "lerna:version": "lerna version patch --yes",
     "lerna:publish": "lerna publish from-git --yes --ignore-scripts --no-verify-access",
