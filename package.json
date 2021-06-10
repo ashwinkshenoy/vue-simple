@@ -5,7 +5,7 @@
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap --no-ci",
     "lerna:build": "lerna run build --stream",
-    "lerna:version": "lerna version --yes",
+    "lerna:version": "lerna version patch --yes",
     "lerna:publish": "lerna publish from-git --yes",
     "serve": "vue-cli-service serve",
     "build:vue": "vue-cli-service build",
