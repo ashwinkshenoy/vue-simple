@@ -52,3 +52,5 @@ jobs:
 
       - name: Publish packages
         run: npm run lerna:publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
