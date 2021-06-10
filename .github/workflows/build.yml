@@ -17,6 +17,7 @@ jobs:
         run: |
           git config --global user.name 'ashwinkshenoy'
           git config --global user.email 'ashwinkshenoy@gmail.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ashwinkshenoy/vue-simple
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
