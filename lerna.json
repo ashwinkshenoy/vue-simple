@@ -3,7 +3,6 @@
   "packages": [
     "packages/*"
   ],
-  "useWorkspaces": true,
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
