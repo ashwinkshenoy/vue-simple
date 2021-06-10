@@ -1,5 +1,5 @@
 {
-  "version": "1.3.10",
+  "version": "independent",
   "packages": [
     "packages/*"
   ],
@@ -23,6 +23,7 @@
     },
     "version": {
       "allowBranch": "master",
+      "push": false,
       "message": "build: release version %v"
     }
   }
