@@ -23,6 +23,7 @@
     },
     "version": {
       "allowBranch": "master",
+      "createRelease": "github",
       "message": "build: release version %v"
     }
   }
