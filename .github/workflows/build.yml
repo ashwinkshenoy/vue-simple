@@ -44,7 +44,7 @@ jobs:
 
       - name: Publish Packages
         run: |
-          npm run lerna:version
+          npm run lerna:version --conventional-commits
           npm run lerna:publish
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
