@@ -42,7 +42,7 @@
       </slot>
     </span>
 
-    <!-- Heading -->
+    <!-- Alert Heading -->
     <slot name="title">
       <div v-if="title" class="vs-alert__heading">{{ title }}</div>
     </slot>
@@ -71,6 +71,7 @@
     name: 'VsAlert',
 
     props: {
+      // Types: success, warning, error, info, secondary
       type: {
         type: String,
         required: true,
