@@ -5,7 +5,7 @@
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build --stream",
-    "lerna:version": "lerna version patch --yes --force-publish",
+    "lerna:version": "lerna version patch --conventional-commits --force-publish --yes",
     "lerna:publish": "lerna publish from-git --yes --ignore-scripts --no-verify-access",
     "serve": "vue-cli-service serve",
     "build:vue": "vue-cli-service build",
@@ -28,6 +28,7 @@
     "add": "^2.0.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "conventional-changelog-cli": "^2.1.1",
     "css-loader": "^5.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
