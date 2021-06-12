@@ -5,10 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.14](https://github.com/ashwinkshenoy/vue-simple/compare/v1.3.13...v1.3.14) (2021-06-12)
 
-**Note:** Version bump only for package vue-simple
-
-
-
-
-
-# 1.3.13
+**Note:** Version bump only for package vs-tag
