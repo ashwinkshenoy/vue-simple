@@ -1,6 +1,8 @@
 {
-  "version": "1.3.12",
-  "packages": ["packages/*"],
+  "version": "1.3.13",
+  "packages": [
+    "packages/*"
+  ],
   "changelog": {
     "repo": "ashwinkshenoy/vue-simple",
     "cacheDir": ".changelog",
@@ -12,7 +14,9 @@
       "PR: Internal :seedling:": ":seedling: Internal"
     }
   },
-  "ignoreChanges": ["**/*.md"],
+  "ignoreChanges": [
+    "**/*.md"
+  ],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/"
