@@ -57,7 +57,8 @@ Cheers!! 🍻
 
 ## License
 
-Copyright 2021
+Copyright 2021.
+
 Licensed under the [`MIT License`](LICENSE).
 
 <br />
