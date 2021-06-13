@@ -6,18 +6,18 @@ title: Modal
   <component-links
     codesandbox="https://codesandbox.io/s/vs-modal-n2wwm"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-modal"
-    packageName="vs-modal">
+    packageName="@vuesimple/vs-modal">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-modal
+npm i @vuesimple/vs-modal
 ```
 
 ```bash
-yarn add vs-modal
+yarn add @vuesimple/vs-modal
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ yarn add vs-modal
 </template>
 
 <script>
-  import VsModal from 'vs-modal';
+  import VsModal from '@vuesimple/vs-modal';
 
   export default {
     components: {
@@ -59,7 +59,7 @@ yarn add vs-modal
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-modal@1.2.69/dist/vs-modal.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js"></script>
 ```
 
 ```html
@@ -95,7 +95,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsModal from 'vs-modal';
+  import VsModal from '@vuesimple/vs-modal';
 
   Vue.component('vs-modal', VsModal);
   ```
@@ -142,7 +142,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsModal from 'vs-modal'`
+  `import VsModal from '@vuesimple/vs-modal'`
   & add in `component:{VsModal}` and use it within component, without globally installing in plugin folder.
 
 :::

@@ -4,8 +4,8 @@
 
 A light weight vue plugin built groundup.
 
-[![npm](https://img.shields.io/npm/v/vs-button.svg)](https://www.npmjs.com/package/vs-button)
-[![npm](https://img.shields.io/npm/dt/vs-button.svg)](https://img.shields.io/npm/dt/vs-button.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-button.svg)](https://www.npmjs.com/package/@vuesimple/vs-button)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-button.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-button.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -26,11 +26,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-button-w8x1m)
 ### 🛠 Install
 
 ```bash
-npm i vs-button
+npm i @vuesimple/vs-button
 ```
 
 ```bash
-yarn add vs-button
+yarn add @vuesimple/vs-button
 ```
 
 <br />
@@ -44,7 +44,7 @@ yarn add vs-button
 </template>
 
 <script>
-  import VsButton from 'vs-button';
+  import VsButton from '@vuesimple/vs-button';
 
   export default {
     components: {
@@ -59,7 +59,7 @@ yarn add vs-button
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-button@<version>/dist/vs-button.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-button@<version>/dist/vs-button.min.js"></script>
 ```
 
 ```html
@@ -83,7 +83,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsButton from 'vs-button';
+  import VsButton from '@vuesimple/vs-button';
 
   Vue.component('vs-button', VsButton);
   ```
@@ -111,7 +111,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsButton from 'vs-button'`
+  `import VsButton from '@vuesimple/vs-button'`
   & add in `component:{VsButton}` and use it within component, without globally installing in plugin folder.
 
 <br />

@@ -6,18 +6,18 @@ title: Tag
   <component-links
     codesandbox="https://codesandbox.io/s/vs-tag-l7q3d"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-tag"
-    packageName="vs-tag">
+    packageName="@vuesimple/vs-tag">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-tag
+npm i @vuesimple/vs-tag
 ```
 
 ```bash
-yarn add vs-tag
+yarn add @vuesimple/vs-tag
 ```
 
 <br />
@@ -32,7 +32,7 @@ yarn add vs-tag
 </template>
 
 <script>
-  import VsTag from 'vs-tag';
+  import VsTag from '@vuesimple/vs-tag';
 
   export default {
     components: {
@@ -47,7 +47,7 @@ yarn add vs-tag
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-tag@1/dist/vs-tag.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
 ```
 
 ```html
@@ -68,7 +68,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsTag from 'vs-tag';
+  import VsTag from '@vuesimple/vs-tag';
 
   Vue.component('vs-tag', VsTag);
   ```
@@ -97,7 +97,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsTag from 'vs-tag'`
+  `import VsTag from '@vuesimple/vs-tag'`
   & add in `components:{VsTag}` and use it within component, without globally installing in plugin folder.
 
 :::

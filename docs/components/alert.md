@@ -7,18 +7,18 @@ actionLink: /alert/
   <component-links
     codesandbox="https://codesandbox.io/s/vs-alert-yhjce"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-alert"
-    packageName="vs-alert">
+    packageName="@vuesimple/vs-alert">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-alert
+npm i @vuesimple/vs-alert
 ```
 
 ```bash
-yarn add vs-alert
+yarn add @vuesimple/vs-alert
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ yarn add vs-alert
 </template>
 
 <script>
-  import VsAlert from 'vs-alert';
+  import VsAlert from '@vuesimple/vs-alert';
 
   export default {
     components: {
@@ -44,7 +44,7 @@ yarn add vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-alert@1.2.81/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js"></script>
 ```
 
 ```html
@@ -65,7 +65,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsAlert from 'vs-alert';
+  import VsAlert from '@vuesimple/vs-alert';
 
   Vue.component('vs-alert', VsAlert);
   ```
@@ -94,7 +94,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsAlert from 'vs-alert'`
+  `import VsAlert from '@vuesimple/vs-alert'`
   & add in `components:{VsAlert}` and use it within component, without globally installing in plugin folder.
 
 :::

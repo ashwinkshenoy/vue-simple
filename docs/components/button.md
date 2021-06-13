@@ -6,18 +6,18 @@ title: Button
   <component-links
     codesandbox="https://codesandbox.io/s/vs-button-w8x1m"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-button"
-    packageName="vs-button">
+    packageName="@vuesimple/vs-button">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-button
+npm i @vuesimple/vs-button
 ```
 
 ```bash
-yarn add vs-button
+yarn add @vuesimple/vs-button
 ```
 
 <br />
@@ -31,7 +31,7 @@ yarn add vs-button
 </template>
 
 <script>
-  import VsButton from 'vs-button';
+  import VsButton from '@vuesimple/vs-button';
 
   export default {
     components: {
@@ -46,7 +46,7 @@ yarn add vs-button
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-button@1.0.2/dist/vs-button.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-button@<version>/dist/vs-button.min.js"></script>
 ```
 
 ```html
@@ -70,7 +70,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsButton from 'vs-button';
+  import VsButton from '@vuesimple/vs-button';
 
   Vue.component('vs-button', VsButton);
   ```
@@ -98,7 +98,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsButton from 'vs-button'`
+  `import VsButton from '@vuesimple/vs-button'`
   & add in `component:{VsButton}` and use it within component, without globally installing in plugin folder.
 
 <br />

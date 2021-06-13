@@ -6,18 +6,18 @@ title: Select
   <component-links
     codesandbox="https://codesandbox.io/s/vs-select-4ek10"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-select"
-    packageName="vs-select">
+    packageName="@vuesimple/vs-select">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-select
+npm i @vuesimple/vs-select
 ```
 
 ```bash
-yarn add vs-select
+yarn add @vuesimple/vs-select
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ yarn add vs-select
 </template>
 
 <script>
-  import { VsSelect, VsMultiselect } from 'vs-select';
+  import { VsSelect, VsMultiselect } from '@vuesimple/vs-select';
 
   export default {
     components: {
@@ -55,7 +55,7 @@ yarn add vs-select
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-select@1.0.6/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-select@<version>/dist/vs-select.min.js"></script>
 ```
 
 ```html
@@ -75,10 +75,10 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import { VsSelect, VsMultiselect } from 'vs-select';
+  import { VsSelect, VsMultiselect } from '@vuesimple/vs-select';
 
   Vue.component('vs-select', VsSelect);
-  Vue.component('vs-select', VsMultiselect);
+  Vue.component('vs-multiselect', VsMultiselect);
   ```
 
 - Update `nuxt.config.js`
@@ -145,7 +145,7 @@ You can also pass `disable: true` in array of objects to disable particular item
 </template>
 
 <script>
-  import { VsSelect } from 'vs-select';
+  import { VsSelect } from '@vuesimple/vs-select';
 
   export default {
     data() {

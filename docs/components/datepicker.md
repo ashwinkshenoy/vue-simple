@@ -6,18 +6,18 @@ title: Datepicker
   <component-links
     codesandbox="https://codesandbox.io/s/vs-datepicker-4vcnu"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-datepicker"
-    packageName="vs-datepicker">
+    packageName="@vuesimple/vs-datepicker">
   </component-links>
 </masthead>
 
 ## Install
 
 ```bash
-npm i vs-datepicker
+npm i @vuesimple/vs-datepicker
 ```
 
 ```bash
-yarn add vs-datepicker
+yarn add @vuesimple/vs-datepicker
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ yarn add vs-datepicker
 </template>
 
 <script>
-  import VsDatepicker from 'vs-datepicker';
+  import VsDatepicker from '@vuesimple/vs-datepicker';
 
   export default {
     components: {
@@ -47,7 +47,7 @@ yarn add vs-datepicker
 ## CDN
 
 ```html
-<script src="https://unpkg.com/vs-datepicker@1.0.2/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html
@@ -72,7 +72,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsDatepicker from 'vs-datepicker';
+  import VsDatepicker from '@vuesimple/vs-datepicker';
 
   Vue.component('vs-datepicker', VsDatepicker);
   ```
@@ -107,7 +107,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsDatepicker from 'vs-datepicker'`
+  `import VsDatepicker from '@vuesimple/vs-datepicker'`
   & add in `component:{VsDatepicker}` and use it within component, without globally installing in plugin folder.
   :::
 

@@ -4,8 +4,8 @@
 
 A light weight vue plugin built groundup.
 
-[![npm](https://img.shields.io/npm/v/vs-select.svg)](https://www.npmjs.com/package/vs-select)
-[![npm](https://img.shields.io/npm/dt/vs-select.svg)](https://img.shields.io/npm/dt/vs-select.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-select.svg)](https://www.npmjs.com/package/@vuesimple/vs-select)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-select.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-select.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -26,11 +26,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-select-4ek10)
 ### 🛠 Install
 
 ```bash
-npm i vs-select
+npm i @vuesimple/vs-select
 ```
 
 ```bash
-yarn add vs-select
+yarn add @vuesimple/vs-select
 ```
 
 <br />
@@ -44,7 +44,7 @@ yarn add vs-select
 </template>
 
 <script>
-  import { VsSelect, VsMultiselect } from 'vs-select';
+  import { VsSelect, VsMultiselect } from '@vuesimple/vs-select';
 
   export default {
     components: {
@@ -72,7 +72,7 @@ yarn add vs-select
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-select@<version>/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-select@<version>/dist/vs-select.min.js"></script>
 ```
 
 ```html
@@ -96,10 +96,10 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import { VsSelect, VsMultiselect } from 'vs-select';
+  import { VsSelect, VsMultiselect } from '@vuesimple/vs-select';
 
   Vue.component('vs-select', VsSelect);
-  Vue.component('vs-select', VsMultiselect);
+  Vue.component('vs-multiselect', VsMultiselect);
   ```
 
 - Update `nuxt.config.js`

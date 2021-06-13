@@ -36,15 +36,14 @@ Vue Simple provides consistent styling and behavior for your daily coding/protot
 
 See the individual package README for the Vue component you would like to install.
 
-| Package                                   | Version                                                                                                                 | Size                                                                                           | Downloads                                                             |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [`vs-modal`](packages/vs-modal)           | [![npm](https://img.shields.io/npm/v/vs-modal.svg?style=flat-square)](https://www.npmjs.com/package/vs-modal)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-modal?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-modal?style=flat-square)      |
-| [`vs-alert`](packages/vs-alert)           | [![npm](https://img.shields.io/npm/v/vs-alert.svg?style=flat-square)](https://www.npmjs.com/package/vs-alert)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-alert?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/vs-alert?style=flat-square)      |
-| [`vs-select`](packages/vs-select)         | [![npm](https://img.shields.io/npm/v/vs-select.svg?style=flat-square)](https://www.npmjs.com/package/vs-select)         | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-select?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/vs-select?style=flat-square)     |
-| [`vs-datepicker`](packages/vs-datepicker) | [![npm](https://img.shields.io/npm/v/vs-datepicker.svg?style=flat-square)](https://www.npmjs.com/package/vs-datepicker) | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-datepicker?style=flat-square) | ![npm](https://img.shields.io/npm/dt/vs-datepicker?style=flat-square) |
-| [`vs-tag`](packages/vs-tag)               | [![npm](https://img.shields.io/npm/v/vs-tag.svg?style=flat-square)](https://www.npmjs.com/package/vs-tag)               | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-tag?style=flat-square)        | ![npm](https://img.shields.io/npm/dt/vs-tag?style=flat-square)        |
-| [`vs-button`](packages/vs-button)               | [![npm](https://img.shields.io/npm/v/vs-button.svg?style=flat-square)](https://www.npmjs.com/package/vs-button)               | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vs-button?style=flat-square)        | ![npm](https://img.shields.io/npm/dt/vs-button?style=flat-square)        |
-
+| Package                                              | Version                                                                                                                                       | Size                                                                                                      | Downloads                                                                        |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [`@vuesimple/vs-modal`](packages/vs-modal)           | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-modal.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-modal)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-modal?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-modal?style=flat-square)      |
+| [`@vuesimple/vs-alert`](packages/vs-alert)           | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-alert.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-alert)           | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-alert?style=flat-square)      | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-alert?style=flat-square)      |
+| [`@vuesimple/vs-select`](packages/vs-select)         | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-select.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-select)         | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-select?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-select?style=flat-square)     |
+| [`@vuesimple/vs-datepicker`](packages/vs-datepicker) | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-datepicker.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-datepicker) | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-datepicker?style=flat-square) | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker?style=flat-square) |
+| [`@vuesimple/vs-tag`](packages/vs-tag)               | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-tag.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-tag)               | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-tag?style=flat-square)        | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-tag?style=flat-square)        |
+| [`@vuesimple/vs-button`](packages/vs-button)         | [![npm](https://img.shields.io/npm/v/@vuesimple/vs-button.svg?style=flat-square)](https://www.npmjs.com/package/@vuesimple/vs-button)         | ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@vuesimple/vs-button?style=flat-square)     | ![npm](https://img.shields.io/npm/dt/@vuesimple/vs-button?style=flat-square)     |
 
 <br>
 
@@ -58,7 +57,7 @@ Cheers!! 🍻
 
 ## License
 
-Copyright 2020
+Copyright 2021
 Licensed under the [`MIT License`](LICENSE).
 
 <br />

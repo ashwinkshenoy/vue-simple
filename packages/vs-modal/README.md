@@ -4,8 +4,8 @@
 
 A light weight vue plugin built groundup, with importance to accessibility.
 
-[![npm](https://img.shields.io/npm/v/vs-modal.svg)](https://www.npmjs.com/package/vs-modal)
-[![npm](https://img.shields.io/npm/dt/vs-modal.svg)](https://img.shields.io/npm/dt/vs-modal.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-modal.svg)](https://www.npmjs.com/package/@vuesimple/vs-modal)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-modal.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-modal.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -28,11 +28,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-modal-n2wwm)
 ### 🛠 Install
 
 ```bash
-npm i vs-modal
+npm i @vuesimple/vs-modal
 ```
 
 ```bash
-yarn add vs-modal
+yarn add @vuesimple/vs-modal
 ```
 
 <br />
@@ -53,7 +53,7 @@ yarn add vs-modal
 </template>
 
 <script>
-  import VsModal from 'vs-modal';
+  import VsModal from '@vuesimple/vs-modal';
 
   export default {
     components: {
@@ -78,7 +78,7 @@ yarn add vs-modal
 ### 🌎 CDN
 
 ```javascript
-<script src='https://unpkg.com/vs-modal@<version>/dist/vs-modal.min.js'></script>
+<script src='https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js'></script>
 ```
 
 ```html
@@ -118,7 +118,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsModal from 'vs-modal';
+  import VsModal from '@vuesimple/vs-modal';
 
   Vue.component('vs-modal', VsModal);
   ```
@@ -165,7 +165,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsModal from 'vs-modal'`
+  `import VsModal from '@vuesimple/vs-modal'`
   & add in `component:{VsModal}` and use it within component, without globally installing in plugin folder.
 
 <br />

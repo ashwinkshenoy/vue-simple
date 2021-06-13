@@ -4,8 +4,8 @@
 
 A light weight vue plugin built groundup.
 
-[![npm](https://img.shields.io/npm/v/vs-alert.svg)](https://www.npmjs.com/package/vs-alert)
-[![npm](https://img.shields.io/npm/dt/vs-alert.svg)](https://img.shields.io/npm/dt/vs-alert.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-alert.svg)](https://www.npmjs.com/package/@vuesimple/vs-alert)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-alert.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-alert.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -28,11 +28,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-alert-yhjce)
 ### 🛠 Install
 
 ```bash
-npm i vs-alert
+npm i @vuesimple/vs-alert
 ```
 
 ```bash
-yarn add vs-alert
+yarn add @vuesimple/vs-alert
 ```
 
 <br />
@@ -47,7 +47,7 @@ yarn add vs-alert
 </template>
 
 <script>
-  import VsAlert from 'vs-alert';
+  import VsAlert from '@vuesimple/vs-alert';
 
   export default {
     components: {
@@ -62,7 +62,7 @@ yarn add vs-alert
 ### 🌎 CDN
 
 ```javascript
-<script src='https://unpkg.com/vs-alert@<version>/dist/vs-alert.min.js'></script>
+<script src='https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js'></script>
 ```
 
 ```html
@@ -87,7 +87,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsAlert from 'vs-alert';
+  import VsAlert from '@vuesimple/vs-alert';
 
   Vue.component('vs-alert', VsAlert);
   ```
@@ -116,7 +116,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsAlert from 'vs-alert'`
+  `import VsAlert from '@vuesimple/vs-alert'`
   & add in `component:{VsAlert}` and use it within component, without globally installing in plugin folder.
 
 <br />

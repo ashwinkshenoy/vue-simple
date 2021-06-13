@@ -1,5 +1,5 @@
 {
-  "name": "vs-button",
+  "name": "@vuesimple/vs-button",
   "version": "1.3.17",
   "description": "A simple vue button. Perfect for all your button scenarios.",
   "main": "dist/vs-button.umd.js",
@@ -24,7 +24,6 @@
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
-  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"

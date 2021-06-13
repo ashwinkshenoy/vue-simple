@@ -4,8 +4,8 @@
 
 A light weight vue datepicker plugin.
 
-[![npm](https://img.shields.io/npm/v/vs-datepicker.svg)](https://www.npmjs.com/package/vs-datepicker)
-[![npm](https://img.shields.io/npm/dt/vs-datepicker.svg)](https://img.shields.io/npm/dt/vs-datepicker.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-datepicker.svg)](https://www.npmjs.com/package/@vuesimple/vs-datepicker)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -27,11 +27,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
 ### 🛠 Install
 
 ```bash
-npm i vs-datepicker
+npm i @vuesimple/vs-datepicker
 ```
 
 ```bash
-yarn add vs-datepicker
+yarn add @vuesimple/vs-datepicker
 ```
 
 <br />
@@ -50,7 +50,7 @@ yarn add vs-datepicker
 </template>
 
 <script>
-  import VsDatepicker from 'vs-datepicker';
+  import VsDatepicker from '@vuesimple/vs-datepicker';
 
   export default {
     components: {
@@ -65,7 +65,7 @@ yarn add vs-datepicker
 ### 🌎 CDN
 
 ```html
-<script src="https://unpkg.com/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html
@@ -94,7 +94,7 @@ After installation,
 
   ```javascript
   import Vue from 'vue';
-  import VsDatepicker from 'vs-datepicker';
+  import VsDatepicker from '@vuesimple/vs-datepicker';
 
   Vue.component('vs-datepicker', VsDatepicker);
   ```
@@ -127,7 +127,7 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsDatepicker from 'vs-datepicker'`
+  `import VsDatepicker from '@vuesimple/vs-datepicker'`
   & add in `component:{VsDatepicker}` and use it within component, without globally installing in plugin folder.
 
 <br />
