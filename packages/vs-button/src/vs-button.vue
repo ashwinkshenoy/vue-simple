@@ -164,7 +164,15 @@
 
         &:hover {
           border-color: darken(nth($button, 2), 10%);
-          background: lighten(nth($button, 2), 55%);
+          @if nth($button, 1) == warning {
+            background: lighten(nth($button, 2), 30%);
+          } @else if nth($button, 1) == danger {
+            background: lighten(nth($button, 2), 45%);
+          } @else if nth($button, 1) == secondary {
+            background: lighten(nth($button, 2), 50%);
+          } @else {
+            background: lighten(nth($button, 2), 55%);
+          }
           color: darken(nth($button, 2), 10%);
         }
 
