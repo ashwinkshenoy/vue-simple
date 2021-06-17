@@ -13,13 +13,13 @@ npm install @zendeskgarden/css-grid
 CSS
 
 ```css
-@import '@zendeskgarden/css-utilities';
+@import '@zendeskgarden/css-grid';
 ```
 
 ## CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-grid@0.1.37" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-grid@0.1.39" />
 ```
 
 All classes are consistent with the [Bootstrap Grid Documentation](https://getbootstrap.com/docs/4.0/layout/grid/).
