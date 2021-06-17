@@ -10,8 +10,8 @@
   <br />
   ⚡️ Perfect for all your daily coding scenarios.
   <br />
+  <a href="https://vuesimple.netlify.app/">Documentation</a>
 </div>
-
 <br /><br />
 
 ## Introduction
