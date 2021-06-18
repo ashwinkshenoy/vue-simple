@@ -1,11 +1,11 @@
 // Import vue component
-import VsTag from './vs-tag.vue';
+import VsPagination from './vs-pagination.vue';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component('VsTag', VsTag);
+  Vue.component('VsPagination', VsPagination);
 }
 
 // Create module definition for Vue.use()
@@ -25,4 +25,4 @@ if (GlobalVue) {
 }
 
 // To allow use as module (npm/webpack/etc.) export component
-export default VsTag;
+export default VsPagination;

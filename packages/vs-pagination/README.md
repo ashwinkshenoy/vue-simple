@@ -1,11 +1,11 @@
-# Vue Simple Tag
+# Vue Simple Pagination
 
-#### 🗃 A simple vue tag. Perfect for all your tag scenarios.
+#### 🗃 A simple vue pagination.
 
-A light weight vue plugin built groundup.
+A light weight vue plugin built with accessibility in mind.
 
-[![npm](https://img.shields.io/npm/v/@vuesimple/vs-tag.svg)](https://www.npmjs.com/package/@vuesimple/vs-tag)
-[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-tag.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-tag.svg)
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-pagination.svg)](https://www.npmjs.com/package/@vuesimple/vs-pagination)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-pagination.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-pagination.svg)
 <br />
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
@@ -26,11 +26,11 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-tag-l7q3d)
 ### 🛠 Install
 
 ```bash
-npm i @vuesimple/vs-tag
+npm i @vuesimple/vs-pagination
 ```
 
 ```bash
-yarn add @vuesimple/vs-tag
+yarn add @vuesimple/vs-pagination
 ```
 
 <br />
@@ -39,17 +39,15 @@ yarn add @vuesimple/vs-tag
 
 ```html
 <template>
-  <vs-tag type="primary">
-    Primary
-  </vs-tag>
+  <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
 </template>
 
 <script>
-  import VsTag from '@vuesimple/vs-tag';
+  import VsPagination from '@vuesimple/vs-pagination';
 
   export default {
     components: {
-      VsTag,
+      VsPagination,
     },
   };
 </script>
@@ -60,14 +58,12 @@ yarn add @vuesimple/vs-tag
 ### 🌎 CDN
 
 ```javascript
-<script src='https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js'></script>
+<script src='https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js'></script>
 ```
 
 ```html
 <template>
-  <vs-tag type="primary">
-    Primary
-  </vs-tag>
+  <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
 </template>
 ```
 
@@ -81,13 +77,13 @@ Nuxt Code Snippet
 
 After installation,
 
-- Create a file `/plugins/vs-tag.js`
+- Create a file `/plugins/vs-pagination.js`
 
   ```javascript
   import Vue from 'vue';
-  import VsTag from '@vuesimple/vs-tag';
+  import VsPagination from '@vuesimple/vs-pagination';
 
-  Vue.component('vs-tag', VsTag);
+  Vue.component('vs-pagination', VsPagination);
   ```
 
 - Update `nuxt.config.js`
@@ -95,7 +91,7 @@ After installation,
   module.exports = {
     ...
     plugins: [
-      { src: '~plugins/vs-tag', mode: 'client' }
+      { src: '~plugins/vs-pagination', mode: 'client' }
       ...
     ]
   }
@@ -104,32 +100,40 @@ After installation,
 
   ```html
   <template>
-    <vs-tag type="primary">
-      Primary
-    </vs-tag>
+    <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
   </template>
   ```
 
 **Note**
 
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
+- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag if you are facing ssr issues.
 - You can also do
-  `import VsTag from '@vuesimple/vs-tag'`
-  & add in `component:{VsTag}` and use it within component, without globally installing in plugin folder.
+  `import VsPagination from '@vuesimple/vs-pagination'`
+  & add in `component:{VsPagination}` and use it within component, without globally installing in plugin folder.
 
 <br />
 
 ### ⚙ Props
 
-| Name       | Type    | Default  | Description                                                            |
-| ---------- | ------- | -------- | ---------------------------------------------------------------------- |
-| type       | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
-| size       | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
-| is-bold    | Boolean | `true`   | Bold text for tag.                                                     |
-| is-pill    | Boolean | `medium` | Applies pill styling                                                   |
-| is-round   | Boolean | `medium` | Applies styles to round the tag                                        |
-| bg-color   | String  | -        | Applies hex/rgb/text color to tags background color                    |
-| text-color | String  | -        | Applies hex/rgb/text color to tags text color                          |
+| Name                  | Type    | Default  | Description                                                   |
+| --------------------- | ------- | -------- | ------------------------------------------------------------- |
+| page-count            | Number  | -        | Total count of pages. **required**                            |
+| page-range            | Number  | 5        | Range of pages which displayed.                               |
+| break-view-text       | String  | `...`    | Text for the break view indicator.                            |
+| container-class       | String  | -        | CSS class name for the layout.                                |
+| break-view-link-class | String  | -        | CSS class name for tag `a` of `break view` element.           |
+| active-class          | String  | active   | CSS class name for active page element.                       |
+| disabled-class        | String  | disabled | CSS class name for disabled page element.                     |
+| hide-prev-next        | Boolean | false    | Hide prev/next button when there is no previous or next page. |
+
+<br />
+
+### 🔥 Events
+
+| Name            | Description      |
+| --------------- | ---------------- |
+| change          | On page change   |
+| v-model (value) | get current page |
 
 <br />
 
@@ -137,6 +141,8 @@ After installation,
 
 You can define own item markup via slots:
 
-| Name      | Description                                 |
-| --------- | ------------------------------------------- |
-| (default) | Holds the tag content and can contain HTML. |
+| Name             | Description          |
+| ---------------- | -------------------- |
+| prevContent      | Previous button      |
+| nextContent      | Next button          |
+| breakViewContent | Break view indicator |
