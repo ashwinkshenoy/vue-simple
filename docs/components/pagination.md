@@ -1,29 +1,16 @@
-# Vue Simple Pagination
+---
+title: Pagination
+---
 
-#### 🗃 A simple vue pagination.
+<masthead title="Pagination" description="A simple pagination component">
+  <component-links
+    codesandbox="https://codesandbox.io/s/vs-pagination-vlsrl"
+    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination"
+    packageName="@vuesimple/vs-pagination">
+  </component-links>
+</masthead>
 
-A light weight vue plugin built with accessibility in mind.
-
-[![npm](https://img.shields.io/npm/v/@vuesimple/vs-pagination.svg)](https://www.npmjs.com/package/@vuesimple/vs-pagination)
-[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-pagination.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-pagination.svg)
-<br />
-
-![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
-![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)
-![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)
-![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
-
-<br />
-
-### 📺 Live Demo
-
-Code Sandbox: [Link](https://codesandbox.io/s/vs-pagination-vlsrl)
-
-<br />
-
-### 🛠 Install
+## Install
 
 ```bash
 npm i @vuesimple/vs-pagination
@@ -35,7 +22,7 @@ yarn add @vuesimple/vs-pagination
 
 <br />
 
-### 🚀 Usage
+## Usage
 
 ```html
 <template>
@@ -55,7 +42,7 @@ yarn add @vuesimple/vs-pagination
 
 <br />
 
-### 🌎 CDN
+## CDN
 
 ```javascript
 <script src='https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js'></script>
@@ -69,9 +56,9 @@ yarn add @vuesimple/vs-pagination
 
 <br />
 
-<h3> 
+<h2> 
   <img src="https://nuxtjs.org/favicon.ico" width="20px"> Nuxt.js
-</h3>
+</h2>
 
 Nuxt Code Snippet
 
@@ -113,7 +100,7 @@ After installation,
 
 <br />
 
-### ⚙ Props
+## Props
 
 | Name           | Type    | Default | Description                                                                              |
 | -------------- | ------- | ------- | ---------------------------------------------------------------------------------------- |
@@ -125,7 +112,7 @@ After installation,
 
 <br />
 
-### 🔥 Events
+## Events
 
 | Name   | Description                        |
 | ------ | ---------------------------------- |
@@ -133,7 +120,7 @@ After installation,
 
 <br />
 
-### 📎 Slots
+## Slots
 
 You can define own arrow icon markup via slots:
 
