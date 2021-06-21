@@ -39,7 +39,7 @@ yarn add @vuesimple/vs-pagination
 
 ```html
 <template>
-  <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
+  <vs-pagination :total-pages="20" @change="changePage"></vs-pagination>
 </template>
 
 <script>
@@ -63,7 +63,7 @@ yarn add @vuesimple/vs-pagination
 
 ```html
 <template>
-  <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
+  <vs-pagination :total-pages="20" @change="changePage"></vs-pagination>
 </template>
 ```
 
@@ -100,7 +100,7 @@ After installation,
 
   ```html
   <template>
-    <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"></vs-pagination>
+    <vs-pagination :total-pages="20" @change="changePage"></vs-pagination>
   </template>
   ```
 
