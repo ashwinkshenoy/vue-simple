@@ -115,25 +115,21 @@ After installation,
 
 ### ⚙ Props
 
-| Name                  | Type    | Default  | Description                                                   |
-| --------------------- | ------- | -------- | ------------------------------------------------------------- |
-| page-count            | Number  | -        | Total count of pages. **required**                            |
-| page-range            | Number  | 5        | Range of pages which displayed.                               |
-| break-view-text       | String  | `...`    | Text for the break view indicator.                            |
-| container-class       | String  | -        | CSS class name for the layout.                                |
-| break-view-link-class | String  | -        | CSS class name for tag `a` of `break view` element.           |
-| active-class          | String  | active   | CSS class name for active page element.                       |
-| disabled-class        | String  | disabled | CSS class name for disabled page element.                     |
-| hide-prev-next        | Boolean | false    | Hide prev/next button when there is no previous or next page. |
+| Name           | Type    | Default | Description                                                                              |
+| -------------- | ------- | ------- | ---------------------------------------------------------------------------------------- |
+| total-pages    | Number  | -       | Total count of pages. **required**                                                       |
+| current-page   | Number  | 1       | Sets the current page.                                                                   |
+| page-padding   | Number  | 2       | Sets the number of pages that appear before and after active page between gap indicator. |
+| page-gap       | Number  | 2       | Positions the leading and trailing gap indicator, based on the current and total pages.  |
+| hide-prev-next | Boolean | `false` | Hide prev and next button on reaching first or last page.                                |
 
 <br />
 
 ### 🔥 Events
 
-| Name            | Description      |
-| --------------- | ---------------- |
-| change          | On page change   |
-| v-model (value) | get current page |
+| Name   | Description                        |
+| ------ | ---------------------------------- |
+| change | On page change (return page value) |
 
 <br />
 

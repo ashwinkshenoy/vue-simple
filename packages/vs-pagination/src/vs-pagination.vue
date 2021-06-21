@@ -1,67 +1,71 @@
 <template>
-  <div v-if="pageCount > 1">
-    <ul :class="containerClass">
-      <li v-if="!(firstPageSelected() && hidePrevNext)" :class="[firstPageSelected() ? disabledClass : '']">
-        <a
-          @click="prevPage()"
-          @keyup.enter="prevPage()"
-          :tabindex="firstPageSelected() ? -1 : 0"
-          aria-label="Previous Page"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            focusable="false"
-            role="presentation"
-          >
-            <path
-              fill="currentColor"
-              d="M10.39 12.688a.5.5 0 01-.718.69l-.062-.066-4-5a.5.5 0 01-.054-.542l.054-.082 4-5a.5.5 0 01.83.55l-.05.074L6.641 8l3.75 4.688z"
-            ></path>
-          </svg>
+  <div>
+    <ul class="vs-pagination u-mt justify-content-center">
+      <li
+        :class="[
+          { 'vs-pagination--disabled': firstPageSelected() },
+          ,
+          { 'vs-pagination--no-cursor': !hidePrevNext && firstPageSelected() },
+        ]"
+      >
+        <a @click="moveToPage(false)">
+          <slot name="leftIcon" v-if="!(hidePrevNext && firstPageSelected())">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              focusable="false"
+              role="presentation"
+            >
+              <path
+                fill="currentColor"
+                d="M10.39 12.688a.5.5 0 01-.718.69l-.062-.066-4-5a.5.5 0 01-.054-.542l.054-.082 4-5a.5.5 0 01.83.55l-.05.074L6.641 8l3.75 4.688z"
+              ></path>
+            </svg>
+          </slot>
         </a>
       </li>
+
+      <template v-for="page in renderPages">
+        <template v-if="page.isGap">
+          <li class="vs-pagination--gap" :key="page.key"><a>...</a></li>
+        </template>
+        <template v-else>
+          <li :key="page.key" :class="{ 'vs-pagination--active': page.current }">
+            <a
+              @click="setPage(page.value)"
+              tabindex="0"
+              :aria-current="page.current ? 'true' : 'false'"
+              :aria-label="page.current ? `Current page, Page ${page.value}` : `Page ${page.value}`"
+              >{{ page.value }}</a
+            >
+          </li>
+        </template>
+      </template>
 
       <li
-        v-for="(page, index) in pages"
-        :key="'page-' + index"
-        :class="[page.selected ? activeClass : '', page.disabled ? disabledClass : '']"
+        :class="[
+          { 'vs-pagination--disabled': lastPageSelected() },
+          { 'vs-pagination--no-cursor': !hidePrevNext && lastPageSelected() },
+        ]"
       >
-        <a v-if="page.breakView" :class="[breakViewLinkClass]" tabindex="-1">
-          <slot name="breakViewContent">{{ breakViewText }}</slot>
-        </a>
-        <a v-else-if="page.disabled" tabindex="0">
-          {{ page.content }}
-        </a>
-        <a
-          v-else
-          @click="handlePageSelected(page.index + 1)"
-          @keyup.enter="handlePageSelected(page.index + 1)"
-          tabindex="0"
-          :aria-current="page.selected ? 'true' : 'false'"
-          :aria-label="page.selected ? 'Current page, Page ' + page.content : 'Page ' + page.content"
-        >
-          {{ page.content }}
-        </a>
-      </li>
-
-      <li v-if="!(lastPageSelected() && hidePrevNext)" :class="[lastPageSelected() ? disabledClass : '']">
-        <a @click="nextPage()" @keyup.enter="nextPage()" :tabindex="lastPageSelected() ? -1 : 0" aria-label="Next Page">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            focusable="false"
-            role="presentation"
-          >
-            <path
-              fill="currentColor"
-              d="M5.61 3.312a.5.5 0 01.718-.69l.062.066 4 5a.5.5 0 01.054.542l-.054.082-4 5a.5.5 0 01-.83-.55l.05-.074L9.359 8l-3.75-4.688z"
-            ></path>
-          </svg>
+        <a @click="moveToPage(true)">
+          <slot name="rightIcon" v-if="!(hidePrevNext && lastPageSelected())">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              focusable="false"
+              role="presentation"
+            >
+              <path
+                fill="currentColor"
+                d="M5.61 3.312a.5.5 0 01.718-.69l.062.066 4 5a.5.5 0 01.054.542l-.054.082-4 5a.5.5 0 01-.83-.55l.05-.074L9.359 8l-3.75-4.688z"
+              ></path>
+            </svg>
+          </slot>
         </a>
       </li>
     </ul>
@@ -71,168 +75,180 @@
 <script>
   export default {
     props: {
-      value: {
+      /**
+       * Total no. of pages
+       */
+      totalPages: {
         type: Number,
       },
-      pageCount: {
-        type: Number,
-        required: true,
-      },
-      forcePage: {
-        type: Number,
-      },
-      pageRange: {
-        type: Number,
-        default: 5,
-      },
-      marginPages: {
+      /**
+       * Sets the current page. Pages start at 1.
+       */
+      currentPage: {
         type: Number,
         default: 1,
       },
-      breakViewText: {
-        type: String,
-        default: '…',
+      /**
+       * Sets the number of pages that appear before and after active page
+       * between gap indicator
+       */
+      pagePadding: {
+        type: Number,
+        default: 2,
       },
-      containerClass: {
-        type: String,
-        default: 'vs-pagination',
+      /**
+       * Positions the leading and trailing gap indicator, based on
+       * the current and total pages
+       */
+      pageGap: {
+        type: Number,
+        default: 2,
       },
-      breakViewLinkClass: {
-        type: String,
-        default: 'break-view',
-      },
-      activeClass: {
-        type: String,
-        default: 'active',
-      },
-      disabledClass: {
-        type: String,
-        default: 'disabled',
-      },
+      /**
+       * Hide prev and next button on reaching first or last page
+       */
       hidePrevNext: {
         type: Boolean,
         default: false,
       },
     },
 
-    beforeUpdate() {
-      if (this.forcePage === undefined) return;
-      if (this.forcePage !== this.selected) {
-        this.selected = this.forcePage;
-      }
+    data() {
+      return {
+        internalPage: this.currentPage,
+      };
     },
 
     computed: {
-      selected: {
-        get() {
-          return this.value || this.innerValue;
-        },
-        set(newValue) {
-          this.innerValue = newValue;
-        },
-      },
+      renderPages() {
+        const pages = [];
+        const PADDING = this.pagePadding;
+        const GAP = this.pageGap;
 
-      /**
-       * Set pages object
-       * @returns {Object} items
-       */
-      pages() {
-        let items = {};
-        if (this.pageCount <= this.pageRange) {
-          for (let index = 0; index < this.pageCount; index++) {
-            let page = {
-              index: index,
-              content: index + 1,
-              selected: index === this.selected - 1,
-            };
-            items[index] = page;
+        for (let pageIndex = 1; pageIndex <= this.totalPages; pageIndex++) {
+          // Always display current, first, and last pages
+          if (pageIndex === this.internalPage || pageIndex < GAP || pageIndex > this.totalPages - GAP + 1) {
+            pages.push(this.createPage(pageIndex));
+            continue;
           }
-        } else {
-          const setPageItem = index => {
-            const page = {
-              index: index,
-              content: index + 1,
-              selected: index === this.selected - 1,
-            };
-            items[index] = page;
-          };
-          const setBreakView = index => {
-            const breakView = {
-              disabled: true,
-              breakView: true,
-            };
-            items[index] = breakView;
-          };
-          // 1st - loop thru low end of margin pages
-          for (let i = 0; i < this.marginPages; i++) {
-            setPageItem(i);
+
+          let minimum;
+          let maximum;
+
+          if (this.internalPage <= GAP + PADDING) {
+            minimum = GAP + 1;
+            maximum = minimum + PADDING * 2;
+          } else if (this.internalPage >= this.totalPages - GAP - PADDING) {
+            maximum = this.totalPages - GAP;
+            minimum = maximum - PADDING * 2;
+          } else {
+            minimum = this.internalPage - PADDING;
+            maximum = this.internalPage + PADDING;
           }
-          // 2nd - loop thru selected range
-          const halfPageRange = Math.floor(this.pageRange / 2);
-          let selectedRangeLow = 0;
-          if (this.selected - halfPageRange > 0) {
-            selectedRangeLow = this.selected - 1 - halfPageRange;
+
+          // Display padded window of pages
+          if (
+            (pageIndex >= minimum && pageIndex <= this.internalPage) ||
+            (pageIndex >= this.internalPage && pageIndex <= maximum)
+          ) {
+            pages.push(this.createPage(pageIndex));
+            continue;
           }
-          let selectedRangeHigh = selectedRangeLow + this.pageRange - 1;
-          if (selectedRangeHigh >= this.pageCount) {
-            selectedRangeHigh = this.pageCount - 1;
-            selectedRangeLow = selectedRangeHigh - this.pageRange + 1;
+
+          // Handle start gap
+          if (pageIndex === GAP) {
+            if (minimum > GAP + 1 && this.internalPage > GAP + PADDING + 1) {
+              pages.push(this.createGap(pageIndex));
+            } else {
+              pages.push(this.createPage(pageIndex));
+            }
+
+            continue;
           }
-          for (let i = selectedRangeLow; i <= selectedRangeHigh && i <= this.pageCount - 1; i++) {
-            setPageItem(i);
-          }
-          // Check if there is breakView in the left of selected range
-          if (selectedRangeLow > this.marginPages) {
-            setBreakView(selectedRangeLow - 1);
-          }
-          // Check if there is breakView in the right of selected range
-          if (selectedRangeHigh + 1 < this.pageCount - this.marginPages) {
-            setBreakView(selectedRangeHigh + 1);
-          }
-          // 3rd - loop thru high end of margin pages
-          for (let i = this.pageCount - 1; i >= this.pageCount - this.marginPages; i--) {
-            setPageItem(i);
+
+          // Handle end gap
+          if (pageIndex === this.totalPages - GAP + 1) {
+            if (maximum < this.totalPages - GAP && this.internalPage < this.totalPages - GAP - PADDING) {
+              pages.push(this.createGap(pageIndex));
+            } else {
+              pages.push(this.createPage(pageIndex));
+            }
+
+            continue;
           }
         }
-        return items;
+        return pages;
       },
     },
 
-    data() {
-      return {
-        innerValue: 1,
-      };
+    watch: {
+      currentPage(value) {
+        this.internalPage = value;
+      },
     },
 
     methods: {
       /**
-       * Set page selected
-       * @param {Number} selected
-       * @returns
+       * Create object for page and return
+       * @param {Number} pageIndex
+       * @returns {Object}
        */
-      handlePageSelected(selected) {
-        if (this.selected === selected) return;
-        this.innerValue = selected;
-        this.$emit('input', selected);
-        this.$emit('change', selected);
+      createPage(pageIndex) {
+        return {
+          key: pageIndex,
+          current: this.internalPage === pageIndex,
+          value: pageIndex,
+        };
       },
 
-      prevPage() {
-        if (this.selected <= 1) return;
-        this.handlePageSelected(this.selected - 1);
+      /**
+       * Create object for gap in page and return
+       * @param {Number} pageIndex
+       * @returns {Object}
+       */
+      createGap(pageIndex) {
+        return {
+          key: pageIndex,
+          isGap: true,
+        };
       },
 
-      nextPage() {
-        if (this.selected >= this.pageCount) return;
-        this.handlePageSelected(this.selected + 1);
-      },
-
+      /**
+       * Returns boolean if first page
+       * @returns {Boolean}
+       */
       firstPageSelected() {
-        return this.selected === 1;
+        return this.internalPage === 1;
       },
 
+      /**
+       * Returns boolean if last page
+       * @returns {Boolean}
+       */
       lastPageSelected() {
-        return this.selected === this.pageCount || this.pageCount === 0;
+        return this.internalPage === this.totalPages || this.totalPages === 0;
+      },
+
+      /**
+       * click handler for left and right arrows
+       * @param {Boolean} isNext
+       */
+      moveToPage(isNext) {
+        if (isNext && this.internalPage !== this.totalPages) {
+          this.setPage(this.internalPage + 1);
+        }
+        if (!isNext && this.internalPage !== 1) {
+          this.setPage(this.internalPage - 1);
+        }
+      },
+
+      /**
+       * Emit page on change
+       * @params {Number}
+       */
+      setPage(page) {
+        this.internalPage = page;
+        this.$emit('change', page);
       },
     },
   };
@@ -245,7 +261,7 @@
     --page-bg-color: #f0f5fb;
     --page-color: #68737d;
     --page-active-color: #2f3941;
-    --page-disabled-color: #cacaca;
+    --page-disabled-color: #d8d8d8;
     padding: 10px 0;
     display: flex;
     align-items: center;
@@ -279,7 +295,7 @@
         }
       }
 
-      &.active a {
+      &#{$el}--active a {
         color: var(--page-active-color);
         background-color: var(--page-bg-color);
         font-weight: 600;
@@ -287,19 +303,25 @@
         z-index: 1;
       }
 
-      &.disabled > a {
+      &#{$el}--disabled > a {
         color: var(--page-disabled-color);
-        cursor: not-allowed;
         user-select: none;
-
+        cursor: default;
         &:hover {
           background: transparent;
         }
       }
 
-      &.disabled > a.break-view {
+      &#{$el}--disabled#{$el}--no-cursor a {
+        cursor: not-allowed;
+      }
+
+      &#{$el}--gap a {
         cursor: default;
         color: var(--page-color);
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }

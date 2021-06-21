@@ -1,9 +1,9 @@
 <template>
   <div>
     <!--Pagination-->
-    <vs-pagination :page-count="5" @change="changePage"></vs-pagination>
-    <!--Pagination-->
-    <vs-pagination :page-count="20" v-model="currentPage" @change="changePage"> </vs-pagination>
+    <vs-pagination :total-pages="5"></vs-pagination>
+    <vs-pagination :total-pages="20" :page-padding="1" :current-page="currentPage" @change="changePage"></vs-pagination>
+    <vs-pagination :total-pages="20" :current-page="currentPage" @change="changePage"></vs-pagination>
   </div>
 </template>
 
@@ -26,6 +26,7 @@
     methods: {
       changePage(page) {
         console.log(page);
+        this.currentPage = page;
       },
     },
   };
