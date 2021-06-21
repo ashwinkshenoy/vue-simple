@@ -374,7 +374,6 @@
     &--compact {
       #{$el}__select-wrapper {
         min-height: 32px;
-        max-height: 32px;
 
         span {
           padding: 7px 37px 7px 11px;

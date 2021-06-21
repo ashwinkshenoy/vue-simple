@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <datepicker-demo />
+    <demo-datepicker />
 
     <br /><br />
     <hr />
 
-    <select-demo></select-demo>
+    <demo-select></demo-select>
 
     <br /><br />
     <hr />
@@ -135,6 +135,13 @@
     <strong>Buttons</strong>
     <br /><br />
     <demo-button></demo-button>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Pagination</strong>
+    <br /><br />
+    <demo-pagination></demo-pagination>
   </div>
 </template>
 
@@ -142,19 +149,21 @@
   import VsAlert from '../packages/vs-alert/src/vs-alert';
   import VsTag from '../packages/vs-tag/src/vs-tag';
   import Modal from './DemoComponents/Modal';
-  import DatepickerDemo from './DemoComponents/Datepicker';
-  import SelectDemo from './DemoComponents/Select';
+  import DemoDatepicker from './DemoComponents/Datepicker';
+  import DemoSelect from './DemoComponents/Select';
   import DemoButton from './DemoComponents/Button';
+  import DemoPagination from './DemoComponents/Pagination';
 
   export default {
     name: 'App',
     components: {
       VsAlert,
       Modal,
-      DatepickerDemo,
-      SelectDemo,
       VsTag,
+      DemoDatepicker,
+      DemoSelect,
       DemoButton,
+      DemoPagination,
     },
 
     data() {

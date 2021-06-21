@@ -18,6 +18,15 @@
     <vs-button variant="warning" fill>Warning</vs-button>
     <vs-button variant="danger" fill>Danger</vs-button>
     <vs-button variant="success" fill is-round>Round</vs-button>
+    <br /><br />
+    <br />
+    <vs-button>Default</vs-button>
+    <vs-button variant="primary">Primary</vs-button>
+    <vs-button variant="secondary">Secondary</vs-button>
+    <vs-button variant="success">Success</vs-button>
+    <vs-button variant="warning">Warning</vs-button>
+    <vs-button variant="danger">Danger</vs-button>
+    <vs-button variant="success" is-round>Round</vs-button>
 
     <br /><br />
     <small>Types of Links</small>

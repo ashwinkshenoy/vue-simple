@@ -123,3 +123,4 @@ You can define own item markup via slots:
 | --------- | --------------------------------------------- |
 | (default) | Holds the alert content and can contain HTML. |
 | icon      | Slot to add custom icon for type              |
+| title     | Slot to add custom title                      |

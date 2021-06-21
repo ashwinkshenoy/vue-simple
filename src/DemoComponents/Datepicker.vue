@@ -64,6 +64,18 @@
         ></vs-datepicker>
         <small>v-model: {{ form.langDate }}</small>
       </div>
+      <div>
+        <vs-datepicker
+          label="Compact"
+          v-model="form.compact"
+          :max="maxDate"
+          placeholder="DD MMM YYYY"
+          format="DD MMM YYYY"
+          @change="log"
+          is-compact
+        ></vs-datepicker>
+        <small>v-model: {{ form.langDate }}</small>
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +98,7 @@
           time: '',
           customdate: '',
           langDate: '',
+          compact: '',
         },
         maxDate: new Date().toISOString().substring(0, 10), // Max date -> Today
 

@@ -403,6 +403,7 @@
       text-align: right;
       margin: 0;
       padding: 0;
+      cursor: pointer;
 
       img {
         width: 12px;

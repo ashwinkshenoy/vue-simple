@@ -1,5 +1,5 @@
 <template>
-  <div class="vs-datepicker">
+  <div :class="['vs-datepicker', { 'vs-datepicker--compact': isCompact }]">
     <label class="vs-datepicker__label">
       <span>{{ label }}</span>
       <span class="vs-datepicker--required" v-if="required"> *</span>
@@ -39,6 +39,10 @@
       isError: {
         type: Boolean,
       },
+      isCompact: {
+        type: Boolean,
+        default: false,
+      },
       required: {
         type: Boolean,
       },
@@ -61,7 +65,6 @@
       },
       id: {
         type: String,
-        default: '',
       },
       format: {
         type: String,
@@ -199,8 +202,15 @@
       color: #cc3340;
     }
 
+    &--compact {
+      #{$el}__input {
+        min-height: 32px;
+        max-height: 32px;
+      }
+    }
+
     .disabled {
-      .vs-datepicker__input {
+      #{$el}__input {
         background: #f8f9f9;
         color: #c2c8cc;
         cursor: no-drop;
