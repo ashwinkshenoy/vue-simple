@@ -57,8 +57,8 @@ yarn add @vuesimple/vs-pagination
 
 ### 🌎 CDN
 
-```javascript
-<script src='https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js'></script>
+```html
+<script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js"></script>
 ```
 
 ```html

@@ -44,8 +44,8 @@ yarn add @vuesimple/vs-pagination
 
 ## CDN
 
-```javascript
-<script src='https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js'></script>
+```html
+<script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js"></script>
 ```
 
 ```html
@@ -56,9 +56,7 @@ yarn add @vuesimple/vs-pagination
 
 <br />
 
-<h2> 
-  <img src="https://nuxtjs.org/favicon.ico" width="20px"> Nuxt.js
-</h2>
+## Nuxt.js
 
 Nuxt Code Snippet
 

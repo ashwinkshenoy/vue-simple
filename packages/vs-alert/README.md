@@ -61,8 +61,8 @@ yarn add @vuesimple/vs-alert
 
 ### 🌎 CDN
 
-```javascript
-<script src='https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js'></script>
+```html
+<script src="https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js"></script>
 ```
 
 ```html

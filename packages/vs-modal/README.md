@@ -77,8 +77,8 @@ yarn add @vuesimple/vs-modal
 
 ### 🌎 CDN
 
-```javascript
-<script src='https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js'></script>
+```html
+<script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js"></script>
 ```
 
 ```html

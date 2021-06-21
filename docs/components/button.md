@@ -58,9 +58,7 @@ yarn add @vuesimple/vs-button
 
 <br />
 
-<h3> 
-  <img src="https://nuxtjs.org/favicon.ico" width="20px"> Nuxt.js
-</h3>
+## Nuxt.js
 
 Nuxt Code Snippet
 

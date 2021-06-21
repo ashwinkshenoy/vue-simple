@@ -59,8 +59,8 @@ yarn add @vuesimple/vs-tag
 
 ### 🌎 CDN
 
-```javascript
-<script src='https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js'></script>
+```html
+<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
 ```
 
 ```html
