@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <nav role="navigation" aria-label="Pagination Navigation">
     <ul class="vs-pagination u-mt justify-content-center">
       <li
         :class="[
@@ -8,7 +8,12 @@
           { 'vs-pagination--no-cursor': !hidePrevNext && firstPageSelected() },
         ]"
       >
-        <a @click="moveToPage(false)">
+        <a
+          @click="moveToPage(false)"
+          @keyup.enter="moveToPage(false)"
+          :tabindex="!hidePrevNext && firstPageSelected() ? -1 : 0"
+          aria-label="Previous Page"
+        >
           <slot name="leftIcon" v-if="!(hidePrevNext && firstPageSelected())">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +40,10 @@
           <li :key="page.key" :class="{ 'vs-pagination--active': page.current }">
             <a
               @click="setPage(page.value)"
+              @keyup.enter="setPage(page.value)"
               tabindex="0"
               :aria-current="page.current ? 'true' : 'false'"
-              :aria-label="page.current ? `Current page, Page ${page.value}` : `Page ${page.value}`"
+              :aria-label="page.current ? `Current page, Page ${page.value}` : `Goto Page ${page.value}`"
               >{{ page.value }}</a
             >
           </li>
@@ -50,7 +56,12 @@
           { 'vs-pagination--no-cursor': !hidePrevNext && lastPageSelected() },
         ]"
       >
-        <a @click="moveToPage(true)">
+        <a
+          @click="moveToPage(true)"
+          @keyup.enter="moveToPage(true)"
+          :tabindex="!hidePrevNext && lastPageSelected() ? -1 : 0"
+          aria-label="Next Page"
+        >
           <slot name="rightIcon" v-if="!(hidePrevNext && lastPageSelected())">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +80,7 @@
         </a>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -292,6 +303,7 @@
         }
         &:focus-visible {
           box-shadow: 0 0 0 2px rgb(31 115 183 / 35%);
+          outline: none;
         }
       }
 
