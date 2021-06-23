@@ -4,6 +4,7 @@ node_modules
 # Package specific
 packages/**/dist
 docs/**/dist
+dist
 
 # local env files
 .env.local
