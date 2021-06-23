@@ -1,6 +1,20 @@
 <template>
   <span :class="['vs-tag', classList]" :style="isCssVars">
-    <slot></slot>
+    <span><slot></slot></span>
+    <slot name="close" v-if="isClose">
+      <button class="vs-tag__button" @click="$emit('close', true)">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          focusable="false"
+          role="presentation"
+        >
+          <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3"></path>
+        </svg>
+      </button>
+    </slot>
   </span>
 </template>
 
@@ -35,6 +49,10 @@
       },
       textColor: {
         type: String,
+      },
+      isClose: {
+        type: Boolean,
+        default: false,
       },
     },
 
@@ -79,10 +97,28 @@
     background-color: var(--vs-tag-bg-color);
     color: var(--vs-tag-text-color);
     max-width: 100%;
-    display: inline-block;
+    display: inline-flex;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: center;
+    justify-content: center;
+
+    &__button {
+      display: inline-flex;
+      margin-left: 5px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: inherit;
+      background: transparent;
+      opacity: 0.85;
+      margin-right: -3px;
+      &:focus-visible {
+        box-shadow: 0 0 0 2px rgb(31 115 183 / 35%);
+        outline: none;
+      }
+    }
 
     &__primary {
       background: var(--vs-tag-primary);

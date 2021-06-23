@@ -2,6 +2,9 @@
   "name": "vuesimple",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build --stream",

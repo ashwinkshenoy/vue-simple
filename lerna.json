@@ -1,19 +1,9 @@
 {
   "version": "1.3.20",
+  "useWorkspaces": true,
   "packages": [
     "packages/*"
   ],
-  "changelog": {
-    "repo": "ashwinkshenoy/vue-simple",
-    "cacheDir": ".changelog",
-    "labels": {
-      "PR: Breaking Change :boom:": ":boom: Breaking Change",
-      "PR: New Feature :rocket:": ":rocket: New Feature",
-      "PR: Bug Fix :bug:": ":bug: Bug Fix",
-      "PR: Docs :memo:": ":memo: Documentation",
-      "PR: Internal :seedling:": ":seedling: Internal"
-    }
-  },
   "ignoreChanges": [
     "**/*.md"
   ],
