@@ -130,6 +130,15 @@ After installation,
 | is-round   | Boolean | `medium` | Applies styles to round the tag                                        |
 | bg-color   | String  | -        | Applies hex/rgb/text color to tags background color                    |
 | text-color | String  | -        | Applies hex/rgb/text color to tags text color                          |
+| is-close   | Boolean | `false`  | Show close button                                                      |
+
+<br />
+
+### 🔥 Events
+
+| Name  | Description                                              |
+| ----- | -------------------------------------------------------- |
+| close | On close button click (only available if `is-close` set) |
 
 <br />
 
