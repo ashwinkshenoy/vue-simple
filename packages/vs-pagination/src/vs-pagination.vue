@@ -98,6 +98,9 @@
       currentPage: {
         type: Number,
         default: 1,
+        validator: value => {
+          return value > 0;
+        },
       },
       /**
        * Sets the number of pages that appear before and after active page
@@ -106,6 +109,9 @@
       pagePadding: {
         type: Number,
         default: 2,
+        validator: value => {
+          return value > 0;
+        },
       },
       /**
        * Positions the leading and trailing gap indicator, based on
@@ -114,6 +120,9 @@
       pageGap: {
         type: Number,
         default: 2,
+        validator: value => {
+          return value > 0;
+        },
       },
       /**
        * Hide prev and next button on reaching first or last page
