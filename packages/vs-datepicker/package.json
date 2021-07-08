@@ -15,7 +15,7 @@
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vs-datepicker.min.js"
   },
   "dependencies": {
-    "vue2-datepicker": "^3.9.0"
+    "vue2-datepicker": "^3.9.1"
   },
   "devDependencies": {
     "@rollup/plugin-image": "2.0.5",

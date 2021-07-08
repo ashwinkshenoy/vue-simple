@@ -91,43 +91,14 @@
     <br /><br />
     <strong>Modals</strong>
     <br /><br />
-    <modal></modal>
+    <demo-modal></demo-modal>
 
     <br /><br />
     <hr />
     <br /><br />
     <strong>Tags</strong>
     <br /><br />
-
-    <small>Sizes</small>
-    <br />
-    <vs-tag size="small" class="mr-10">Small</vs-tag>
-    <vs-tag class="mr-10">Medium</vs-tag>
-    <vs-tag size="large" class="mr-10">Large</vs-tag>
-    <br /><br />
-
-    <small>Types</small>
-    <br />
-    <vs-tag type="primary" class="mr-10">Primary</vs-tag>
-    <vs-tag type="success" class="mr-10">Success</vs-tag>
-    <vs-tag type="danger" class="mr-10">Danger</vs-tag>
-    <vs-tag type="warning" class="mr-10">Warning</vs-tag>
-    <vs-tag type="secondary" class="mr-10">Secondary</vs-tag>
-    <br /><br />
-
-    <small>Shapes</small>
-    <br />
-    <vs-tag class="mr-10">Completed</vs-tag>
-    <vs-tag is-pill class="mr-10">Completed</vs-tag>
-    <vs-tag is-round class="mr-10">8</vs-tag>
-    <br /><br />
-
-    <small>Custom Color</small>
-    <br />
-    <vs-tag bg-color="#1dbdbc" text-color="#083a39" class="mr-10">Teal</vs-tag>
-    <vs-tag bg-color="#00a656" text-color="#fff" class="mr-10">Green</vs-tag>
-    <vs-tag bg-color="#ff6224" text-color="#fff" class="mr-10">Orange</vs-tag>
-    <vs-tag bg-color="#ffd424" text-color="#796510" class="mr-10">Lemon</vs-tag>
+    <demo-tag></demo-tag>
 
     <br /><br />
     <hr />
@@ -147,10 +118,10 @@
 
 <script>
   import VsAlert from '../packages/vs-alert/src/vs-alert';
-  import VsTag from '../packages/vs-tag/src/vs-tag';
-  import Modal from './DemoComponents/Modal';
+  import DemoModal from './DemoComponents/Modal';
   import DemoDatepicker from './DemoComponents/Datepicker';
   import DemoSelect from './DemoComponents/Select';
+  import DemoTag from './DemoComponents/Tag';
   import DemoButton from './DemoComponents/Button';
   import DemoPagination from './DemoComponents/Pagination';
 
@@ -158,10 +129,10 @@
     name: 'App',
     components: {
       VsAlert,
-      Modal,
-      VsTag,
+      DemoModal,
       DemoDatepicker,
       DemoSelect,
+      DemoTag,
       DemoButton,
       DemoPagination,
     },
