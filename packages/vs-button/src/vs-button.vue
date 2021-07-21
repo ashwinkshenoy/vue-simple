@@ -10,9 +10,7 @@
     :class="['vs-button', classList]"
     @click="emitClick"
   >
-    <slot name="loader" v-if="isLoading">
-      <vs-loader :size="loaderSize" :color="loaderColor"></vs-loader>
-    </slot>
+    <vs-loader :size="loaderSize" :color="loaderColor" v-if="isLoading"></vs-loader>
     <slot v-else></slot>
   </component>
 </template>
