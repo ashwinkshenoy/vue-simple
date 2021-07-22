@@ -1,11 +1,9 @@
 <template>
   <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]">
-    <slot>
-      <label class="vs-multiselect__label">
-        <span>{{ label }}</span>
-        <span class="vs-multiselect--required" v-if="required"> *</span>
-      </label>
-    </slot>
+    <label class="vs-multiselect__label">
+      <span>{{ label }}</span>
+      <span class="vs-multiselect--required" v-if="required"> *</span>
+    </label>
 
     <div
       class="vs-multiselect__select-wrapper"
@@ -46,53 +44,45 @@
           { 'vs-multiselect__no-search': !isSearch },
         ]"
       >
-        <slot
-          name="options"
-          :options="selectOptions"
-          :selected="selected"
-          :selectedObject="selectedArrayObject"
-          :onSelectedItem="onSelectedItem"
+        <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
+          -
+        </li>
+        <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch" role="menuitem">
+          <input
+            ref="vs-multiselect-box"
+            class="vs-multiselect__input"
+            :disabled="disabled"
+            v-model="inputValue"
+            placeholder="Search..."
+          />
+        </li>
+        <li
+          v-for="(option, index) in selectOptions"
+          :key="'vs-selected-' + index"
+          class="vs-multiselect__menu-item"
+          :class="[
+            { 'vs-multiselect__menu--is-checked': setSelected(option) },
+            { 'vs-multiselect__menu-item--is-disabled': option.disabled },
+          ]"
+          @click="!option.disabled ? onSelectedItem(option, index) : null"
+          @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
+          @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
+          @keyup.esc="!disabled ? (isMenuHidden = true) : null"
+          @blur="index === selectOptions.length - 1 ? (isMenuHidden = true) : null"
+          :aria-selected="setSelected(option)"
+          role="menuitem"
+          tabIndex="0"
         >
-          <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
-            -
-          </li>
-          <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch" role="menuitem">
-            <input
-              ref="vs-multiselect-box"
-              class="vs-multiselect__input"
-              :disabled="disabled"
-              v-model="inputValue"
-              placeholder="Search..."
-            />
-          </li>
-          <li
-            v-for="(option, index) in selectOptions"
-            :key="'vs-selected-' + index"
-            class="vs-multiselect__menu-item"
-            :class="[
-              { 'vs-multiselect__menu--is-checked': setSelected(option) },
-              { 'vs-multiselect__menu-item--is-disabled': option.disabled },
-            ]"
-            @click="!option.disabled ? onSelectedItem(option, index) : null"
-            @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
-            @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
-            @keyup.esc="!disabled ? (isMenuHidden = true) : null"
-            @blur="index === selectOptions.length - 1 ? (isMenuHidden = true) : null"
-            :aria-selected="setSelected(option)"
-            role="menuitem"
-            tabIndex="0"
-          >
-            <span v-if="isObject">{{ option.label }}</span>
-            <span v-else>{{ option }}</span>
-          </li>
-          <li
-            v-if="!selectOptions.length"
-            class="vs-multiselect__menu-item vs-multiselect__menu--no-item"
-            role="menuitem"
-          >
-            {{ emptyItemsText }}
-          </li>
-        </slot>
+          <span v-if="isObject">{{ option.label }}</span>
+          <span v-else>{{ option }}</span>
+        </li>
+        <li
+          v-if="!selectOptions.length"
+          class="vs-multiselect__menu-item vs-multiselect__menu--no-item"
+          role="menuitem"
+        >
+          {{ emptyItemsText }}
+        </li>
       </ul>
     </div>
   </div>
@@ -298,7 +288,9 @@
       },
 
       handleScroll() {
-        if (window.innerHeight - this.$refs['vs-multiselect'].getBoundingClientRect().bottom < 250) {
+        const selectBox =
+          (this.$refs['vs-multiselect'] && this.$refs['vs-multiselect'].getBoundingClientRect().bottom) || 0;
+        if (window.innerHeight - selectBox < 250) {
           this.isMenuTop = true;
         } else {
           this.isMenuTop = false;

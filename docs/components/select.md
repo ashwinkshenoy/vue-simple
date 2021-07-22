@@ -102,24 +102,6 @@ After installation,
   </template>
   ```
 
-## Customizable
-
-```html
-<vs-select :options="options1" is-search>
-  <template v-slot:options="{ options, selected, onSelectedItem }">
-    <li
-      v-for="(option, index) in options"
-      :key="'selected-' + index"
-      class="menu-item"
-      :class="[{ 'menu-item--is-checked': selected === option }]"
-      @click="onSelectedItem(option, index)"
-    >
-      <span>{{ option }}</span>
-    </li>
-  </template>
-</vs-select>
-```
-
 ## Props
 
 | Name           | Type    | Default             | Description                                                                                       |
@@ -167,14 +149,6 @@ You can also pass `disable: true` in array of objects to disable particular item
 | -------- | ---------------------------------- |
 | v-model  | Emitted when the item is selected. |
 | onSelect | Emitted when the item is selected. |
-
-## Slots
-
-You can define own item markup via slots:
-
-| Name    | Description                                                                                                                                   |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | Holds the select option content and can contain HTML. Slot data `options, selected (Array), selectedObject(Array of Objects), onSelectedItem` |
 
 ::: tip
 

@@ -1,11 +1,9 @@
 <template>
   <div :class="['vs-select', { 'vs-select--compact': isCompact }]" ref="vs-select">
-    <slot>
-      <label class="vs-select__label">
-        <span>{{ label }}</span>
-        <span class="vs-select--required" v-if="required"> *</span>
-      </label>
-    </slot>
+    <label class="vs-select__label">
+      <span>{{ label }}</span>
+      <span class="vs-select--required" v-if="required"> *</span>
+    </label>
     <div
       class="vs-select__input-wrapper"
       :class="[
@@ -44,43 +42,35 @@
         :class="['vs-select__menu', { 'vs-select__menu--top': isMenuTop }]"
         :aria-hidden="!disabled ? isMenuHidden : true"
       >
-        <slot
-          name="options"
-          :options="selectOptions"
-          :selected="selected"
-          :selectedObject="selectedObject"
-          :onSelectedItem="onSelectedItem"
+        <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
+          -
+        </li>
+        <li
+          v-for="(option, index) in selectOptions"
+          :key="'vs-selected-' + index"
+          :class="[
+            'vs-select__menu-item',
+            { 'vs-select__menu--is-checked': !isMenu && selected === option },
+            {
+              'vs-select__menu--is-checked': !isMenu && isObject && selectedObject.value === option.value,
+            },
+            { 'vs-select__menu-item--is-disabled': option.disabled },
+          ]"
+          :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
+          @click="!option.disabled ? onSelectedItem(option, index) : null"
+          @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
+          @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
+          @keyup.esc="isMenuHidden = true"
+          @blur="index === selectOptions.length - 1 ? setSelectClose() : null"
+          role="menuitem"
+          tabIndex="0"
         >
-          <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
-            -
-          </li>
-          <li
-            v-for="(option, index) in selectOptions"
-            :key="'vs-selected-' + index"
-            :class="[
-              'vs-select__menu-item',
-              { 'vs-select__menu--is-checked': !isMenu && selected === option },
-              {
-                'vs-select__menu--is-checked': !isMenu && isObject && selectedObject.value === option.value,
-              },
-              { 'vs-select__menu-item--is-disabled': option.disabled },
-            ]"
-            :aria-selected="(isObject && selectedObject.value === option.value) || selected === option"
-            @click="!option.disabled ? onSelectedItem(option, index) : null"
-            @keydown.space.prevent="!option.disabled ? onSelectedItem(option, index) : null"
-            @keyup.enter="!option.disabled ? onSelectedItem(option, index) : null"
-            @keyup.esc="isMenuHidden = true"
-            @blur="index === selectOptions.length - 1 ? setSelectClose() : null"
-            role="menuitem"
-            tabIndex="0"
-          >
-            <span v-if="isObject">{{ option.label }}</span>
-            <span v-else>{{ option }}</span>
-          </li>
-          <li v-if="!selectOptions.length" class="vs-select__menu-item vs-select__menu--no-item" role="menuitem">
-            {{ emptyItemsText }}
-          </li>
-        </slot>
+          <span v-if="isObject">{{ option.label }}</span>
+          <span v-else>{{ option }}</span>
+        </li>
+        <li v-if="!selectOptions.length" class="vs-select__menu-item vs-select__menu--no-item" role="menuitem">
+          {{ emptyItemsText }}
+        </li>
       </ul>
     </div>
   </div>
@@ -289,7 +279,9 @@
       },
 
       handleScroll() {
-        if (window.innerHeight - this.$refs['vs-select-box'].getBoundingClientRect().bottom < 250) {
+        const selectBox =
+          (this.$refs['vs-select-box'] && this.$refs['vs-select-box'].getBoundingClientRect().bottom) || 0;
+        if (window.innerHeight - selectBox < 250) {
           this.isMenuTop = true;
         } else {
           this.isMenuTop = false;
@@ -310,7 +302,6 @@
 
       setSelectClose() {
         this.isMenuHidden = true;
-        // this.$refs['vs-select-box'].blur();
         if (this.selected && !this.isObject) {
           this.inputValue = this.selected;
         }
@@ -409,11 +400,15 @@
 
       #{$el}__icon {
         position: absolute;
-        top: 58%;
-        right: 14px;
+        top: 0;
+        bottom: 0;
+        right: 0;
         cursor: pointer;
-        transform: translateY(-50%);
         color: var(--vs-select-icon);
+        background: white;
+        display: flex;
+        align-items: center;
+        padding: 12px;
         svg {
           transition: 0.17s all linear;
           width: 12px;
@@ -459,7 +454,7 @@
 
     &__input {
       color: #2f3941;
-      width: 77%;
+      width: 100%;
       border: none !important;
       padding: 10px 37px 10px 15px;
       box-shadow: none !important;
