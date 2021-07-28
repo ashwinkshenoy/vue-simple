@@ -35,8 +35,9 @@
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
+    "vue-server-renderer": "2.6.12",
     "vue-template-compiler": "2.6.12",
-    "vuepress": "^1.8.2",
+    "vuepress": "1.8.2",
     "vuepress-plugin-clean-urls": "^1.1.2"
   },
   "eslintConfig": {
