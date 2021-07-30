@@ -13,8 +13,8 @@
       :id="id"
       :disabled="disabled"
       :disabled-date="disabledDates"
-      :editable="false"
-      :clearable="false"
+      :editable="editable"
+      :clearable="clearable"
       prefix-class="vs"
       :range="range"
       :placeholder="placeholder"
@@ -38,6 +38,14 @@
     props: {
       isError: {
         type: Boolean,
+      },
+      editable: {
+        type: Boolean,
+        default: false,
+      },
+      clearable: {
+        type: Boolean,
+        default: false,
       },
       isCompact: {
         type: Boolean,

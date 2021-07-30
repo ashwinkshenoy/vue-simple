@@ -11,6 +11,7 @@
           placeholder="DD-MM-YYYY"
           format="DD-MM-YYYY"
           value-type="format"
+          :editable="true"
           @change="log"
         ></vs-datepicker>
         <small>v-model: {{ form.date }}</small>

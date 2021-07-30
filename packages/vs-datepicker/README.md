@@ -149,6 +149,8 @@ After installation,
 | id          | String                               | -            | Id added to datepicker component             |
 | placeholder | String                               | -            | Placeholder to datepicker input box          |
 | lang        | Object                               | -            | Override the default locale                  |
+| editable    | Boolean                              | false        | Whether the input is editable                |
+| clearable   | Boolean                              | false        | If false, don't show the clear icon          |
 
 <br />
 

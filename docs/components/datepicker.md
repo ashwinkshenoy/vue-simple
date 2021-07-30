@@ -117,6 +117,7 @@ After installation,
 | ----------- | ------------------------------------ | ------------ | -------------------------------------------- |
 | type        | `date|datetime|year|month|time|week` | `date`       | Select the type of picker                    |
 | format      | [Token](#token)                      | `MM-DD-YYYY` | To set the date format. similar to moment.js |
+| value-type  | [Value-Type](#value-type)            | 'date'       | Data type of the binding value/v-model.      |
 | range       | Boolean                              | false        | If true, pick the range date                 |
 | label       | String                               | Date         | Label to datepicker                          |
 | isError     | Boolean                              | -            | Highlight input box with red if error        |
@@ -126,6 +127,9 @@ After installation,
 | min         | String                               | -            | Min date allowed                             |
 | id          | String                               | -            | Id added to datepicker component             |
 | placeholder | String                               | -            | Placeholder to datepicker input box          |
+| lang        | Object                               | -            | Override the default locale                  |
+| editable    | Boolean                              | false        | Whether the input is editable                |
+| clearable   | Boolean                              | false        | If false, don't show the clear icon          |
 
 <br />
 
@@ -192,6 +196,19 @@ Example for `maxdate`
 |                            | ww    | 01 02 ... 52 53                        |
 | Unix Timestamp             | X     | 1360013296                             |
 | Unix Millisecond Timestamp | x     | 1360013296123                          |
+
+<br />
+
+## Value Type
+
+| Value             | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| 'date'            | Returns a Date object                              |
+| 'timestamp'       | Returns a timestamp number                         |
+| 'format'          | Returns a string formatted using pattern of format |
+| token(MM/DD/YYYY) | Returns a string formatted using this pattern      |
+
+<br />
 
 ## Events
 
