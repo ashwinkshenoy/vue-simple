@@ -9,6 +9,7 @@
 <script>
   export default {
     name: 'VsLoader',
+
     props: {
       color: {
         type: String,
@@ -16,7 +17,7 @@
       },
       size: {
         type: String,
-        default: '40px',
+        default: '10px',
       },
       margin: {
         type: String,
@@ -27,6 +28,7 @@
         default: '100%',
       },
     },
+
     data() {
       return {
         spinnerStyle: {
@@ -58,6 +60,8 @@
 
 <style lang="scss">
   .vs-loader {
+    display: flex;
+
     @-webkit-keyframes v-pulseStretchDelay {
       0%,
       80% {

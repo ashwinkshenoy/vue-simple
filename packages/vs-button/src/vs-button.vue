@@ -127,6 +127,12 @@
     white-space: nowrap;
     position: relative;
 
+    .vs-loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &#{$el}--small {
       height: 32px;
       line-height: 30px;

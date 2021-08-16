@@ -45,7 +45,7 @@ yarn add @vuesimple/vs-pagination
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-pagination/dist/vs-pagination.min.js"></script>
 ```
 
 ```html

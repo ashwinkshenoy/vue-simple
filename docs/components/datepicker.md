@@ -47,7 +47,7 @@ yarn add @vuesimple/vs-datepicker
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-datepicker/dist/vs-datepicker.min.js"></script>
 ```
 
 ```html
@@ -130,6 +130,7 @@ After installation,
 | lang        | Object                               | -            | Override the default locale                  |
 | editable    | Boolean                              | false        | Whether the input is editable                |
 | clearable   | Boolean                              | false        | If false, don't show the clear icon          |
+| is-compact  | Boolean                              | false        | Applies compact style to datepicker          |
 
 <br />
 

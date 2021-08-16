@@ -44,7 +44,7 @@ yarn add @vuesimple/vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-alert/dist/vs-alert.min.js"></script>
 ```
 
 ```html

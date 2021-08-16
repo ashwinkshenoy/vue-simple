@@ -295,6 +295,7 @@
       color: var(--vs-datepicker-black);
       font-size: 14px;
       font-weight: 600;
+      height: 30px;
     }
   }
 </style>

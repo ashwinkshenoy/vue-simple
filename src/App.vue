@@ -1,5 +1,10 @@
 <template>
   <div class="app">
+    <div class="text-center">
+      <img src="/vue-simple.svg" alt="vue-simple" />
+    </div>
+    <br /><br />
+
     <demo-datepicker />
 
     <br /><br />
@@ -113,6 +118,13 @@
     <strong>Pagination</strong>
     <br /><br />
     <demo-pagination></demo-pagination>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Loader</strong>
+    <br /><br />
+    <demo-loader></demo-loader>
   </div>
 </template>
 
@@ -124,6 +136,7 @@
   import DemoTag from './DemoComponents/Tag';
   import DemoButton from './DemoComponents/Button';
   import DemoPagination from './DemoComponents/Pagination';
+  import DemoLoader from './DemoComponents/Loader';
 
   export default {
     name: 'App',
@@ -135,6 +148,7 @@
       DemoTag,
       DemoButton,
       DemoPagination,
+      DemoLoader,
     },
 
     data() {
@@ -153,9 +167,12 @@
   .app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     color: #2c3e50;
-    margin-top: 60px;
     max-width: 1170px;
-    margin: 100px auto;
+    margin: 40px auto 100px auto;
+
+    .text-center {
+      text-align: center;
+    }
   }
 
   .grid {

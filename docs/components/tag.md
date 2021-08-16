@@ -47,7 +47,7 @@ yarn add @vuesimple/vs-tag
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-tag/dist/vs-tag.min.js"></script>
 ```
 
 ```html

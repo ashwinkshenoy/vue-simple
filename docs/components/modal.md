@@ -59,7 +59,7 @@ yarn add @vuesimple/vs-modal
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-modal/dist/vs-modal.min.js"></script>
 ```
 
 ```html

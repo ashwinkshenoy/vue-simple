@@ -151,6 +151,7 @@ After installation,
 | lang        | Object                               | -            | Override the default locale                  |
 | editable    | Boolean                              | false        | Whether the input is editable                |
 | clearable   | Boolean                              | false        | If false, don't show the clear icon          |
+| is-compact  | Boolean                              | false        | Applies compact style to datepicker          |
 
 <br />
 
