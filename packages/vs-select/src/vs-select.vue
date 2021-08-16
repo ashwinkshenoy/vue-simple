@@ -484,7 +484,7 @@
       background-color: #fff;
       cursor: default;
       padding: 0;
-      min-width: 180px;
+      min-width: 120px;
       text-align: left;
       white-space: normal;
       font-size: 14px;
