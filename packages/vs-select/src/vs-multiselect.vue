@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]">
+  <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]" ref="vs-multiselect-wrapper">
     <label class="vs-multiselect__label">
       <span>{{ label }}</span>
       <span class="vs-multiselect--required" v-if="required"> *</span>
@@ -19,7 +19,6 @@
       ref="vs-multiselect"
       aria-haspopup="true"
       tabindex="0"
-      autofocus="true"
       :aria-expanded="!isMenuHidden"
     >
       <span>
@@ -43,6 +42,7 @@
           { 'vs-multiselect__menu--top': isMenuTop },
           { 'vs-multiselect__no-search': !isSearch },
         ]"
+        ref="vs-multiselect-dropdown"
       >
         <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
           -
@@ -207,7 +207,6 @@
             this.isMenuHidden = true;
           }
         });
-        this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
       }
     },
@@ -288,9 +287,12 @@
       },
 
       handleScroll() {
-        const selectBox =
-          (this.$refs['vs-multiselect'] && this.$refs['vs-multiselect'].getBoundingClientRect().bottom) || 0;
-        if (window.innerHeight - selectBox < 250) {
+        const selectBox = this.$refs['vs-multiselect-wrapper'];
+        const selectDropdown = this.$refs['vs-multiselect-dropdown'];
+        if (
+          selectBox.offsetTop + ((selectDropdown && selectDropdown.offsetHeight) || 0) + 100 >
+          window.innerHeight + window.pageYOffset
+        ) {
           this.isMenuTop = true;
         } else {
           this.isMenuTop = false;
@@ -298,6 +300,7 @@
       },
 
       setSelectEnv() {
+        this.handleScroll();
         if (!this.isMenuHidden) {
           this.isMenuHidden = true;
           this.$refs['vs-multiselect-box'].blur();
@@ -310,16 +313,16 @@
         }
       },
 
-      setSelectClose() {
-        this.isMenuHidden = true;
-        this.$refs['vs-multiselect-box'].blur();
-        if (this.selectedArrayObject.length > 0) {
-          this.inputValue = this.selectedArrayObject;
-        }
-        if (!this.selectedArrayObject <= 0) {
-          this.inputValue = this.label;
-        }
-      },
+      // setSelectClose() {
+      //   this.isMenuHidden = true;
+      //   this.$refs['vs-multiselect-box'].blur();
+      //   if (this.selectedArrayObject.length > 0) {
+      //     this.inputValue = this.selectedArrayObject;
+      //   }
+      //   if (!this.selectedArrayObject <= 0) {
+      //     this.inputValue = this.label;
+      //   }
+      // },
     },
   };
 </script>
@@ -369,6 +372,7 @@
 
         span {
           padding: 7px 37px 7px 11px;
+          line-height: 16px;
         }
       }
       #{$el}__menu--top {
@@ -420,7 +424,7 @@
 
       #{$el}__icon {
         position: absolute;
-        top: 58%;
+        top: 56%;
         right: 14px;
         cursor: pointer;
         transform: translateY(-50%);
@@ -439,8 +443,8 @@
       &#{$el}--is-open {
         border-color: var(--vs-select-border-hover);
         box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
-        &:before {
-          transform: rotate(180deg) translateY(-1px);
+        #{$el}__icon svg {
+          transform: rotate(180deg);
         }
       }
 
@@ -455,6 +459,7 @@
         }
         #{$el}__input,
         #{$el}__icon {
+          background: transparent;
           cursor: no-drop;
           user-select: none;
           color: #c2c8cc;

@@ -41,6 +41,7 @@
       <ul
         :class="['vs-select__menu', { 'vs-select__menu--top': isMenuTop }]"
         :aria-hidden="!disabled ? isMenuHidden : true"
+        ref="vs-select-dropdown"
       >
         <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
           -
@@ -279,9 +280,12 @@
       },
 
       handleScroll() {
-        const selectBox =
-          (this.$refs['vs-select-box'] && this.$refs['vs-select-box'].getBoundingClientRect().bottom) || 0;
-        if (window.innerHeight - selectBox < 250) {
+        const selectBox = this.$refs['vs-select'];
+        const selectDropdown = this.$refs['vs-select-dropdown'];
+        if (
+          selectBox.offsetTop + ((selectDropdown && selectDropdown.offsetHeight) || 0) + 100 >
+          window.innerHeight + window.pageYOffset
+        ) {
           this.isMenuTop = true;
         } else {
           this.isMenuTop = false;
@@ -289,6 +293,7 @@
       },
 
       setSelectEnv() {
+        this.handleScroll();
         if (!this.isMenuHidden && !this.searchTerm) {
           this.setSelectClose();
           return;
@@ -408,7 +413,7 @@
         background: white;
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 0 12px;
         svg {
           transition: 0.17s all linear;
           width: 12px;
@@ -448,6 +453,7 @@
           cursor: no-drop;
           user-select: none;
           color: #c2c8cc;
+          background: transparent;
         }
       }
     }
@@ -463,6 +469,7 @@
       background: transparent;
       position: relative;
       z-index: 50;
+      line-height: 16px;
       &:read-only {
         cursor: pointer;
         user-select: none;
