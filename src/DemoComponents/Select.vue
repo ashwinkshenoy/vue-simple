@@ -4,7 +4,7 @@
     <strong>Select</strong>
     <br /><br />
     <div class="grid">
-      <div>
+      <!-- <div>
         <vs-select label="No Search" :options="options1" v-model="form.select1" required></vs-select>
         <small>v-model: {{ form.select1 }}</small>
       </div>
@@ -64,6 +64,9 @@
       </div>
       <div>
         <vs-select label="Menu (Object)" :options="menu" @on-select="log" is-menu is-search></vs-select>
+      </div> -->
+      <div>
+        <vs-select label="Boolean" :options="booleanOptions" v-model="form.boolSelect" @on-select="log"></vs-select>
       </div>
     </div>
 
@@ -155,7 +158,18 @@
           select10: '',
           select11: '',
           select12: '',
+          boolSelect: false,
         },
+        booleanOptions: [
+          {
+            label: 'True',
+            value: true,
+          },
+          {
+            label: 'False',
+            value: false,
+          },
+        ],
       };
     },
 

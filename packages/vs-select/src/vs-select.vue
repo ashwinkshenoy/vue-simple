@@ -93,14 +93,8 @@
         default: 'Select',
       },
       // For array of object - pass value
-      preselected: {
-        type: String,
-        required: false,
-      },
-      value: {
-        type: String,
-        required: false,
-      },
+      preselected: {},
+      value: {},
       // Array or array of object
       // 1) [1,2,3]
       // 2) [{label: 'Jack', value: '1'}, {label: 'Bill', value: '2'}]
@@ -219,8 +213,8 @@
           })
         ) {
           this.isObject = true;
-          if (this.preselected) {
-            const selectedFilter = this.options.filter(item => item.value === this.preselected);
+          if (typeof this.preselected !== 'undefined') {
+            const selectedFilter = this.options.filter(item => item.value == this.preselected);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -228,7 +222,7 @@
               return;
             }
           }
-          if (this.value) {
+          if (typeof this.value !== 'undefined') {
             const selectedFilter = this.options.filter(item => item.value === this.value);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
