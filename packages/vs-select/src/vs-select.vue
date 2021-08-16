@@ -213,7 +213,7 @@
           })
         ) {
           this.isObject = true;
-          if (typeof this.preselected !== 'undefined') {
+          if (this.preselected) {
             const selectedFilter = this.options.filter(item => item.value == this.preselected);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
@@ -307,7 +307,7 @@
         if (this.selected && this.isObject) {
           this.inputValue = this.selectedObject.label;
         }
-        if (!this.selected) {
+        if (!this.selected && typeof this.selected !== 'boolean') {
           this.inputValue = this.placeholder;
         }
       },
