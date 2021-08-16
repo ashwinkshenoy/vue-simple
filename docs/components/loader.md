@@ -91,14 +91,15 @@ After installation,
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
-  `import VsAlert from '@vuesimple/vs-alert'`
-  & add in `component:{VsAlert}` and use it within component, without globally installing in plugin folder.
+  `import VsLoader from '@vuesimple/vs-loader'`
+  & add in `component:{VsLoader}` and use it within component, without globally installing in plugin folder.
 
 <br />
 
 ## Props
 
-| Name  | Type   | Default   | Description  |
-| ----- | ------ | --------- | ------------ |
-| color | String | `#1f73b7` | Loader color |
-| size  | String | `10px`    | Loader size  |
+| Name    | Type   | Default   | Description               |
+| ------- | ------ | --------- | ------------------------- |
+| variant | String | `pulse`   | Variants: `pulse`, `dots` |
+| color   | String | `#1f73b7` | Loader color              |
+| size    | String | `10px`    | Loader size               |

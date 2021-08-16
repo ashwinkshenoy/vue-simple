@@ -1,5 +1,5 @@
 <template>
-  <component :is="variant" :size="size" :margin="margin"></component>
+  <component :is="variant" :color="color" :size="size" :margin="margin"></component>
 </template>
 
 <script>
@@ -18,6 +18,9 @@
       variant: {
         type: String,
         default: 'Pulse',
+      },
+      color: {
+        type: String,
       },
       size: {
         type: String,
