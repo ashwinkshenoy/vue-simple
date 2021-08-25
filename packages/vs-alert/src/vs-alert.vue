@@ -3,13 +3,13 @@
     <!-- Alert icon -->
     <span class="vs-alert-icon__wrapper">
       <slot name="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'success'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'success'">
           <g fill="none" stroke="var(--vs-alert-success-icon)">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 9l2.5 2.5 5-5" />
             <circle cx="7.5" cy="8.5" r="7" />
           </g>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'warning'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'warning'">
           <path
             fill="none"
             stroke="var(--vs-alert-warning-icon)"
@@ -18,21 +18,27 @@
           />
           <circle cx="7.5" cy="12" r="1" fill="#ad5918" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'error'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'error'">
           <g fill="none" stroke="var(--vs-alert-error-icon)">
             <circle cx="7.5" cy="8.5" r="7" />
             <path stroke-linecap="round" d="M7.5 4.5V9" />
           </g>
           <circle cx="7.5" cy="12" r="1" fill="var(--vs-alert-error-icon)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'info'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'info'">
           <g stroke="var(--vs-alert-info-icon)">
             <circle cx="7.5" cy="8.5" r="7" fill="none" />
             <path stroke-linecap="round" d="M7.5 12.5V8" />
           </g>
           <circle cx="7.5" cy="5" r="1" fill="var(--vs-alert-info-icon)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="type === 'secondary'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          v-if="variant === 'secondary'"
+        >
           <g stroke="var(--vs-alert-secondary-icon)">
             <circle cx="7.5" cy="8.5" r="7" fill="none" />
             <path stroke-linecap="round" d="M7.5 12.5V8" />
@@ -51,7 +57,7 @@
     <slot></slot>
 
     <!-- Right close icon/button -->
-    <button v-if="showClose" :class="['vs-alert-button', type]" @click="$emit('close', true)">
+    <button v-if="showClose" :class="['vs-alert-button', variant]" @click="$emit('close', true)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
@@ -71,8 +77,8 @@
     name: 'VsAlert',
 
     props: {
-      // Types: success, warning, error, info, secondary
-      type: {
+      // Variants: success, warning, error, info, secondary
+      variant: {
         type: String,
         required: true,
       },
@@ -95,7 +101,7 @@
 
     computed: {
       classList() {
-        return [`vs-alert-${this.type}`, { 'vs-alert--no-bg': this.noBg }, { 'vs-alert--small': this.small }];
+        return [`vs-alert-${this.variant}`, { 'vs-alert--no-bg': this.noBg }, { 'vs-alert--small': this.small }];
       },
     },
   };

@@ -354,8 +354,8 @@
       cursor: pointer;
     }
 
-    &--error #{$el}__input-wrapper {
-      border-color: var(--vs-select-error);
+    &--error#{$el}__input-wrapper {
+      border-color: var(--vs-select-error) !important;
     }
 
     &--compact {
@@ -463,7 +463,7 @@
       background: transparent;
       position: relative;
       z-index: 50;
-      line-height: 16px;
+      line-height: 18px;
       &:read-only {
         cursor: pointer;
         user-select: none;

@@ -103,7 +103,7 @@ After installation,
 
 | Name      | Type    | Default | Description                                                 |
 | --------- | ------- | ------- | ----------------------------------------------------------- |
-| type      | String  | -       | Type of alert to be shown. (success, warning, error, info)  |
+| variant   | String  | -       | Type of alert to be shown. (success, warning, error, info)  |
 | title     | String  | -       | The alert title (text only). For HTML, use the header slot. |
 | showClose | Boolean | false   | Show alert close icon                                       |
 | small     | Boolean | false   | Applies reduced padding                                     |

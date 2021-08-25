@@ -18,32 +18,32 @@
     <strong>Alerts</strong>
     <br /><br />
 
-    <vs-alert type="success" title="Success Heading" show-close>
+    <vs-alert variant="success" title="Success Heading" show-close>
       Success Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="warning" title="Warning Heading" show-close>
+    <vs-alert variant="warning" title="Warning Heading" show-close>
       Warning Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="error" title="Error Heading" show-close>
+    <vs-alert variant="error" title="Error Heading" show-close>
       Error Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="info" title="Information Heading" show-close>
+    <vs-alert variant="info" title="Information Heading" show-close>
       Information Message
       <template slot="close">close</template>
     </vs-alert>
 
     <br />
 
-    <vs-alert type="secondary" title="Secondary Heading" show-close>
+    <vs-alert variant="secondary" title="Secondary Heading" show-close>
       Secondary Message
       <template slot="close">close</template>
     </vs-alert>
@@ -51,43 +51,43 @@
     <br /><br />
 
     <small>Small</small><br /><br />
-    <vs-alert type="success" small show-close>
+    <vs-alert variant="success" small show-close>
       Success Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="warning" small show-close>
+    <vs-alert variant="warning" small show-close>
       Warning Message
     </vs-alert>
 
     <br /><br />
 
-    <vs-alert type="success" no-bg>
+    <vs-alert variant="success" no-bg>
       Success Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="warning" no-bg>
+    <vs-alert variant="warning" no-bg>
       Warning Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="error" no-bg>
+    <vs-alert variant="error" no-bg>
       Error Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="info" no-bg>
+    <vs-alert variant="info" no-bg>
       Information Message
     </vs-alert>
 
     <br />
 
-    <vs-alert type="secondary" no-bg>
+    <vs-alert variant="secondary" no-bg>
       Secondary Message
     </vs-alert>
 

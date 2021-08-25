@@ -5,7 +5,7 @@
     <br /><br />
     <div class="grid">
       <div>
-        <vs-select label="No Search" :options="options1" v-model="form.select1" required></vs-select>
+        <vs-select label="No Search" :options="options1" v-model="form.select1"></vs-select>
         <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
@@ -73,6 +73,10 @@
           @on-select="log"
         ></vs-select>
         <small>v-model: {{ form.boolSelect }}</small>
+      </div>
+      <div>
+        <vs-select label="Error" :options="options1" v-model="form.select1" required is-error></vs-select>
+        <small>v-model: {{ form.select1 }}</small>
       </div>
     </div>
 
