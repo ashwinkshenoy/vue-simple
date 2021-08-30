@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-loader",
-  "version": "1.3.35",
+  "version": "1.3.36",
   "description": "A simple vue loader. Perfect for all your loader scenarios.",
   "main": "dist/vs-loader.umd.js",
   "module": "dist/vs-loader.esm.js",
