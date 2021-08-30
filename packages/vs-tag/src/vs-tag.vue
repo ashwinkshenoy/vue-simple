@@ -2,7 +2,7 @@
   <span :class="['vs-tag', classList]" :style="isCssVars">
     <span><slot></slot></span>
     <slot name="close" v-if="isClose">
-      <button class="vs-tag__button" @click="$emit('close', true)">
+      <button class="vs-tag__button" @click="$emit('click', true)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -24,7 +24,7 @@
 
     props: {
       // `primary`, `secondary`, `warning`, `danger`
-      type: {
+      variant: {
         type: String,
       },
       // `small`. `medium`, `large`
@@ -59,7 +59,7 @@
     computed: {
       classList() {
         return [
-          this.type ? `vs-tag__${this.type}` : '',
+          this.variant ? `vs-tag__${this.variant}` : '',
           `vs-tag__size-${this.size}`,
           { 'vs-tag--bold': this.isBold },
           { 'vs-tag--pill': this.isPill },

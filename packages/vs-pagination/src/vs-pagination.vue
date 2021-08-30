@@ -325,7 +325,7 @@
       }
 
       &#{$el}--disabled > a {
-        color: var(--page-disabled-color);
+        color: var(--page-disabled-color) !important;
         user-select: none;
         cursor: default;
         &:hover {

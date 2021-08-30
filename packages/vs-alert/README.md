@@ -41,7 +41,7 @@ yarn add @vuesimple/vs-alert
 
 ```html
 <template>
-  <vs-alert type="success">
+  <vs-alert variant="success">
     Success
   </vs-alert>
 </template>
@@ -67,7 +67,7 @@ yarn add @vuesimple/vs-alert
 
 ```html
 <template>
-  <vs-alert type="success">
+  <vs-alert variant="success">
     Success
   </vs-alert>
 </template>
@@ -106,7 +106,7 @@ After installation,
 
   ```html
   <template>
-    <vs-alert type="success">
+    <vs-alert variant="success">
       Success
     </vs-alert>
   </template>

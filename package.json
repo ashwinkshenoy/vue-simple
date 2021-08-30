@@ -10,6 +10,7 @@
     "serve": "vue-cli-service serve",
     "build:vue": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "vue-cli-service test:unit",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
@@ -38,7 +39,9 @@
     "vue-server-renderer": "2.6.12",
     "vue-template-compiler": "2.6.12",
     "vuepress": "1.8.2",
-    "vuepress-plugin-clean-urls": "^1.1.2"
+    "vuepress-plugin-clean-urls": "^1.1.2",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/test-utils": "^1.0.3"
   },
   "eslintConfig": {
     "root": true,

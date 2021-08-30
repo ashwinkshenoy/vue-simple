@@ -55,8 +55,14 @@ yarn add @vuesimple/vs-select
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-select/dist/vs-select.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-select@<version>/dist/vs-select.min.js"></script>
 ```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
 
 ```html
 <template>

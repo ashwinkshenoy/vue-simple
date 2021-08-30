@@ -213,6 +213,7 @@
           })
         ) {
           this.isObject = true;
+          this.selected = '';
           if (this.preselected) {
             const selectedFilter = this.options.filter(item => item.value == this.preselected);
             if (selectedFilter.length > 0) {

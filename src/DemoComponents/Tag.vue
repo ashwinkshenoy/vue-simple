@@ -9,11 +9,11 @@
 
     <small>Types</small>
     <br />
-    <vs-tag type="primary" class="mr-10">Primary</vs-tag>
-    <vs-tag type="success" class="mr-10">Success</vs-tag>
-    <vs-tag type="danger" class="mr-10">Danger</vs-tag>
-    <vs-tag type="warning" class="mr-10">Warning</vs-tag>
-    <vs-tag type="secondary" class="mr-10">Secondary</vs-tag>
+    <vs-tag variant="primary" class="mr-10">Primary</vs-tag>
+    <vs-tag variant="success" class="mr-10">Success</vs-tag>
+    <vs-tag variant="danger" class="mr-10">Danger</vs-tag>
+    <vs-tag variant="warning" class="mr-10">Warning</vs-tag>
+    <vs-tag variant="secondary" class="mr-10">Secondary</vs-tag>
     <br /><br />
 
     <small>Shapes</small>
@@ -33,11 +33,11 @@
 
     <small>With Close</small>
     <br />
-    <vs-tag is-close @close="closeTag" class="mr-10">Secondary</vs-tag>
-    <vs-tag type="primary" is-close @close="closeTag" class="mr-10">Primary</vs-tag>
-    <vs-tag type="success" is-close @close="closeTag" class="mr-10">Success</vs-tag>
-    <vs-tag type="danger" is-close @close="closeTag" class="mr-10">Danger</vs-tag>
-    <vs-tag type="warning" is-close @close="closeTag" class="mr-10">Warning</vs-tag>
+    <vs-tag is-close @click="closeTag" class="mr-10">Secondary</vs-tag>
+    <vs-tag variant="primary" is-close @click="closeTag" class="mr-10">Primary</vs-tag>
+    <vs-tag variant="success" is-close @click="closeTag" class="mr-10">Success</vs-tag>
+    <vs-tag variant="danger" is-close @click="closeTag" class="mr-10">Danger</vs-tag>
+    <vs-tag variant="warning" is-close @click="closeTag" class="mr-10">Warning</vs-tag>
   </div>
 </template>
 

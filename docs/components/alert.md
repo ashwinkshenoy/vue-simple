@@ -25,7 +25,7 @@ yarn add @vuesimple/vs-alert
 
 ```html
 <template>
-  <vs-alert type="success">
+  <vs-alert variant="success">
     Success
   </vs-alert>
 </template>
@@ -44,12 +44,18 @@ yarn add @vuesimple/vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-alert/dist/vs-alert.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-alert/dist@<version>/vs-alert.min.js"></script>
 ```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
 
 ```html
 <template>
-  <vs-alert type="success">
+  <vs-alert variant="success">
     Success
   </vs-alert>
 </template>
@@ -84,7 +90,7 @@ After installation,
 
   ```html
   <template>
-    <vs-alert type="success">
+    <vs-alert variant="success">
       Success
     </vs-alert>
   </template>

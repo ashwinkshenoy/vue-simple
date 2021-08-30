@@ -1,19 +1,20 @@
 <template>
-  <svg
-    :color="color"
-    :font-size="size"
-    xmlns="http://www.w3.org/2000/svg"
-    focusable="false"
-    viewBox="0 0 80 72"
-    role="progressbar"
-    class="vs-dots"
-  >
-    <g fill="currentColor">
-      <circle cy="36" r="9" cx="9" class="circle-one"></circle>
-      <circle cy="36" r="9" cx="40" class="circle-two"></circle>
-      <circle cy="36" r="9" cx="71" class="circle-three"></circle>
-    </g>
-  </svg>
+  <div class="vs-dots">
+    <svg
+      :color="color"
+      :font-size="size"
+      xmlns="http://www.w3.org/2000/svg"
+      focusable="false"
+      viewBox="0 0 80 72"
+      role="progressbar"
+    >
+      <g fill="currentColor">
+        <circle cy="36" r="9" cx="9" class="circle-one"></circle>
+        <circle cy="36" r="9" cx="40" class="circle-two"></circle>
+        <circle cy="36" r="9" cx="71" class="circle-three"></circle>
+      </g>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -34,10 +35,7 @@
 </script>
 
 <style lang="scss">
-  .vs-dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .vs-dots svg {
     width: 4.5em;
     margin: 3px;
 

@@ -45,8 +45,14 @@ yarn add @vuesimple/vs-loader
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-loader/dist/vs-loader.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-loader@<version>/dist/vs-loader.min.js"></script>
 ```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
 
 ```html
 <template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="vs-loader">
+  <div class="vs-pulse">
     <div :style="[spinnerStyle, spinnerDelay1]"></div>
     <div :style="[spinnerStyle, spinnerDelay2]"></div>
     <div :style="[spinnerStyle, spinnerDelay3]"></div>
@@ -59,9 +59,7 @@
 </script>
 
 <style lang="scss">
-  .vs-loader {
-    display: flex;
-
+  .vs-pulse {
     @-webkit-keyframes v-pulseStretchDelay {
       0%,
       80% {

@@ -26,7 +26,7 @@ yarn add @vuesimple/vs-tag
 
 ```html
 <template>
-  <vs-tag type="primary">
+  <vs-tag variant="primary">
     Primary
   </vs-tag>
 </template>
@@ -47,12 +47,18 @@ yarn add @vuesimple/vs-tag
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-tag/dist/vs-tag.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
 ```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
 
 ```html
 <template>
-  <vs-tag type="primary">
+  <vs-tag variant="primary">
     Primary
   </vs-tag>
 </template>
@@ -87,7 +93,7 @@ After installation,
 
   ```html
   <template>
-    <vs-tag type="primary">
+    <vs-tag variant="primary">
       Primary
     </vs-tag>
   </template>
@@ -108,7 +114,7 @@ After installation,
 
 | Name     | Type    | Default  | Description                                                            |
 | -------- | ------- | -------- | ---------------------------------------------------------------------- |
-| type     | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
+| variant  | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
 | size     | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
 | is-bold  | Boolean | `true`   | Bold text for tag.                                                     |
 | is-pill  | Boolean | `medium` | Applies pill styling                                                   |
@@ -122,7 +128,7 @@ After installation,
 
 | Name  | Description                                              |
 | ----- | -------------------------------------------------------- |
-| close | On close button click (only available if `is-close` set) |
+| click | On close button click (only available if `is-close` set) |
 
 <br />
 

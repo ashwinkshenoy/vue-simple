@@ -47,8 +47,14 @@ yarn add @vuesimple/vs-datepicker
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-datepicker/dist/vs-datepicker.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
 ```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
 
 ```html
 <template>
