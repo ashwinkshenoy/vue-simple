@@ -248,7 +248,7 @@
         this.inputValue = '';
         this.isMenuHidden = false;
         // If Array of Object
-        // 2 diff emits of input/on-select are required
+        // 2 diff emits of input/change are required
         if (this.isObject) {
           const isContains = this.containsObject(this.selectedArrayObject, option);
           if (!isContains) {
@@ -265,7 +265,7 @@
           }
         }
         this.$emit('input', this.selectedArrayObject);
-        this.$emit('on-select', this.selectedArrayObject);
+        this.$emit('change', this.selectedArrayObject);
         this.searchTerm = '';
         this.inputValue = this.selected;
       },

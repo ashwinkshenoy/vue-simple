@@ -249,18 +249,18 @@
         this.inputValue = '';
         this.isMenuHidden = true;
         // If Array of Object
-        // 2 diff emits of input/on-select are required
+        // 2 diff emits of input/change are required
         if (this.isObject) {
           this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
           // this.inputValue = this.selected;
           this.$emit('input', this.selectedObject.value);
-          this.$emit('on-select', this.selectedObject.value);
+          this.$emit('change', this.selectedObject.value);
         } else {
           this.selected = this.options.filter(i => i === option)[0];
           // this.inputValue = this.selected;
           this.$emit('input', this.selected);
-          this.$emit('on-select', this.options.indexOf(this.selected), this.selected);
+          this.$emit('change', this.options.indexOf(this.selected), this.selected);
         }
         this.searchTerm = '';
         this.setSelectClose();

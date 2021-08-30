@@ -169,10 +169,10 @@ You can also pass `disable: true` in array of objects to disable particular item
 
 ### 🔥 Events
 
-| Name     | Description                        |
-| -------- | ---------------------------------- |
-| v-model  | Emitted when the item is selected. |
-| onSelect | Emitted when the item is selected. |
+| Name    | Description                        |
+| ------- | ---------------------------------- |
+| v-model | Emitted when the item is selected. |
+| @change | Emitted when the item is selected. |
 
 <br />
 

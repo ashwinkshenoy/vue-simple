@@ -63,14 +63,14 @@
         <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
-        <vs-select label="Menu (Object)" :options="menu" @on-select="log" is-menu is-search></vs-select>
+        <vs-select label="Menu (Object)" :options="menu" @change="log" is-menu is-search></vs-select>
       </div>
       <div>
         <vs-select
           label="Boolean (Object)"
           :options="booleanOptions"
           v-model="form.boolSelect"
-          @on-select="log"
+          @change="log"
         ></vs-select>
         <small>v-model: {{ form.boolSelect }}</small>
       </div>
