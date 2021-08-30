@@ -1,8 +1,10 @@
 <template>
-  <div class="vs-pulse">
-    <div :style="[spinnerStyle, spinnerDelay1]"></div>
-    <div :style="[spinnerStyle, spinnerDelay2]"></div>
-    <div :style="[spinnerStyle, spinnerDelay3]"></div>
+  <div>
+    <div class="vs-pulse">
+      <div :style="[spinnerStyle, spinnerDelay1]"></div>
+      <div :style="[spinnerStyle, spinnerDelay2]"></div>
+      <div :style="[spinnerStyle, spinnerDelay3]"></div>
+    </div>
   </div>
 </template>
 
@@ -43,6 +45,7 @@
           animationIterationCount: 'infinite',
           animationTimingFunction: 'cubic-bezier(.2,.68,.18,1.08)',
           animationFillMode: 'both',
+          float: 'left',
         },
         spinnerDelay1: {
           animationDelay: '0.12s',
@@ -60,6 +63,7 @@
 
 <style lang="scss">
   .vs-pulse {
+    clear: both;
     @-webkit-keyframes v-pulseStretchDelay {
       0%,
       80% {
