@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="vs-pulse">
+    <div :class="['vs-pulse', { 'vs-loader--center': center }]">
       <div :style="[spinnerStyle, spinnerDelay1]"></div>
       <div :style="[spinnerStyle, spinnerDelay2]"></div>
       <div :style="[spinnerStyle, spinnerDelay3]"></div>
@@ -29,6 +29,9 @@
         type: String,
         default: '100%',
       },
+      center: {
+        type: Boolean,
+      },
     },
 
     data() {
@@ -45,7 +48,6 @@
           animationIterationCount: 'infinite',
           animationTimingFunction: 'cubic-bezier(.2,.68,.18,1.08)',
           animationFillMode: 'both',
-          float: 'left',
         },
         spinnerDelay1: {
           animationDelay: '0.12s',
@@ -63,7 +65,13 @@
 
 <style lang="scss">
   .vs-pulse {
-    clear: both;
+    display: flex;
+
+    &.vs-loader--center {
+      align-items: center;
+      justify-content: center;
+    }
+
     @-webkit-keyframes v-pulseStretchDelay {
       0%,
       80% {

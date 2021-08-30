@@ -1,5 +1,5 @@
 <template>
-  <component :is="variant" :color="color" :size="size" :margin="margin"></component>
+  <component :is="variant" :color="color" :size="size" :margin="margin" :center="center"></component>
 </template>
 
 <script>
@@ -27,6 +27,9 @@
       },
       margin: {
         type: String,
+      },
+      center: {
+        type: Boolean,
       },
     },
   };

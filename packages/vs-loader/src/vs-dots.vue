@@ -1,5 +1,5 @@
 <template>
-  <div class="vs-dots">
+  <div :class="['vs-dots', { 'vs-loader--center': center }]">
     <svg
       :color="color"
       :font-size="size"
@@ -30,14 +30,25 @@
         type: String,
         default: '10px',
       },
+      center: {
+        type: Boolean,
+      },
     },
   };
 </script>
 
 <style lang="scss">
-  .vs-dots svg {
-    width: 4.5em;
-    margin: 3px;
+  .vs-dots {
+    &.vs-loader--center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      width: 4.5em;
+      margin: 3px;
+    }
 
     .circle-one {
       animation: 1250ms ease-in-out 0s infinite normal none running circleOneKeyframe;
