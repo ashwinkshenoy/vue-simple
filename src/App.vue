@@ -18,7 +18,8 @@
     <strong>Alerts</strong>
     <br /><br />
 
-    <vs-alert variant="success" title="Success Heading" show-close>
+    <vs-alert variant="success" show-close>
+      <template v-slot:title>Success Heading</template>
       Success Message
     </vs-alert>
 
@@ -76,7 +77,7 @@
     <br />
 
     <vs-alert variant="error" no-bg>
-      Error Message
+      Danger Message
     </vs-alert>
 
     <br />

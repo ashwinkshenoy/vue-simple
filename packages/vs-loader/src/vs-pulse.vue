@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div :class="['vs-pulse', { 'vs-loader--center': center }]">
-      <div :style="[spinnerStyle, spinnerDelay1]"></div>
-      <div :style="[spinnerStyle, spinnerDelay2]"></div>
-      <div :style="[spinnerStyle, spinnerDelay3]"></div>
-    </div>
+  <div :class="['vs-pulse', { 'vs-loader--center': center }]">
+    <div :style="[spinnerStyle, spinnerDelay1]"></div>
+    <div :style="[spinnerStyle, spinnerDelay2]"></div>
+    <div :style="[spinnerStyle, spinnerDelay3]"></div>
   </div>
 </template>
 

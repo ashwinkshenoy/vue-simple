@@ -108,7 +108,7 @@
        */
       pagePadding: {
         type: Number,
-        default: 2,
+        default: 1,
         validator: value => {
           return value > 0;
         },
@@ -294,8 +294,8 @@
       }
 
       & > a {
-        min-width: 32px;
-        height: 32px;
+        min-width: 30px;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -304,7 +304,8 @@
         border-radius: 4px;
         color: var(--page-color);
         font-size: 14px;
-        margin-left: 4px;
+        margin-left: 2px;
+        margin-right: 2px;
         user-select: none;
         &:hover {
           background-color: var(--page-bg-color);

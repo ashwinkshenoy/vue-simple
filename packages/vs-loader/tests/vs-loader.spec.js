@@ -16,6 +16,22 @@ describe('VsLoader', () => {
     expect(wrapper.vm.$props.size).toBe('10px');
   });
 
+  it('Check pulse loader has center aligned class', () => {
+    const wrapper = mount(VsLoader, {
+      propsData: {
+        variant: 'Pulse',
+        color: '#1f73b7',
+        size: '10px',
+        center: true,
+      },
+    });
+    expect(wrapper.vm.$options.name).toMatch('VsLoader');
+    expect(wrapper.classes()).toContain('vs-pulse');
+    expect(wrapper.classes()).toContain('vs-loader--center');
+    expect(wrapper.props().color).toBe('#1f73b7');
+    expect(wrapper.vm.$props.size).toBe('10px');
+  });
+
   it('Check dots loader', () => {
     const wrapper = mount(VsLoader, {
       propsData: {

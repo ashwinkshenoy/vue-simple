@@ -3,13 +3,29 @@
     <!-- Alert icon -->
     <span class="vs-alert-icon__wrapper">
       <slot name="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'success'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          role="presentation"
+          focussable="false"
+          v-if="variant === 'success'"
+        >
           <g fill="none" stroke="var(--vs-alert-success-icon)">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 9l2.5 2.5 5-5" />
             <circle cx="7.5" cy="8.5" r="7" />
           </g>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'warning'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          role="presentation"
+          focussable="false"
+          v-if="variant === 'warning'"
+        >
           <path
             fill="none"
             stroke="var(--vs-alert-warning-icon)"
@@ -18,14 +34,30 @@
           />
           <circle cx="7.5" cy="12" r="1" fill="#ad5918" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'error'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          role="presentation"
+          focussable="false"
+          v-if="variant === 'error'"
+        >
           <g fill="none" stroke="var(--vs-alert-error-icon)">
             <circle cx="7.5" cy="8.5" r="7" />
             <path stroke-linecap="round" d="M7.5 4.5V9" />
           </g>
           <circle cx="7.5" cy="12" r="1" fill="var(--vs-alert-error-icon)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" v-if="variant === 'info'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          role="presentation"
+          focussable="false"
+          v-if="variant === 'info'"
+        >
           <g stroke="var(--vs-alert-info-icon)">
             <circle cx="7.5" cy="8.5" r="7" fill="none" />
             <path stroke-linecap="round" d="M7.5 12.5V8" />
@@ -37,6 +69,8 @@
           width="16"
           height="16"
           viewBox="0 0 16 16"
+          role="presentation"
+          focussable="false"
           v-if="variant === 'secondary'"
         >
           <g stroke="var(--vs-alert-secondary-icon)">
@@ -49,22 +83,29 @@
     </span>
 
     <!-- Alert Heading -->
-    <slot name="title">
-      <div v-if="title" class="vs-alert__heading">{{ title }}</div>
-    </slot>
+    <div class="vs-alert__heading">
+      <slot name="title">
+        <div v-if="title">{{ title }}</div>
+      </slot>
+    </div>
 
     <!-- Default Slot -->
     <slot></slot>
 
     <!-- Right close icon/button -->
-    <button v-if="showClose" :class="['vs-alert-button', variant]" @click="$emit('close', true)">
+    <button
+      v-if="showClose"
+      :class="['vs-alert-button', variant]"
+      @click="$emit('close', true)"
+      aria-label="Close Alert"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
         height="12"
         viewBox="0 0 12 12"
-        focusable="false"
         role="presentation"
+        focusable="false"
       >
         <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3"></path>
       </svg>

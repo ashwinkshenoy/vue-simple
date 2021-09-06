@@ -103,7 +103,7 @@
     text-overflow: ellipsis;
     align-items: center;
     justify-content: center;
-    line-height: 16px;
+    line-height: 19px;
 
     &__button {
       display: inline-flex;
