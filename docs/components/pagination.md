@@ -110,7 +110,7 @@ After installation,
 | -------------- | ------- | ------- | ---------------------------------------------------------------------------------------- |
 | total-pages    | Number  | -       | Total count of pages. **required**                                                       |
 | current-page   | Number  | 1       | Sets the current page.                                                                   |
-| page-padding   | Number  | 2       | Sets the number of pages that appear before and after active page between gap indicator. |
+| page-padding   | Number  | 1       | Sets the number of pages that appear before and after active page between gap indicator. |
 | page-gap       | Number  | 2       | Positions the leading and trailing gap indicator, based on the current and total pages.  |
 | hide-prev-next | Boolean | `false` | Hide prev and next button on reaching first or last page.                                |
 

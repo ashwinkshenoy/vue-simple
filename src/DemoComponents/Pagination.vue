@@ -2,8 +2,8 @@
   <div>
     <!--Pagination-->
     <vs-pagination :total-pages="5"></vs-pagination>
-    <vs-pagination :total-pages="20" :page-padding="1" :current-page="currentPage" @change="changePage"></vs-pagination>
     <vs-pagination :total-pages="20" :current-page="currentPage" @change="changePage"></vs-pagination>
+    <vs-pagination :total-pages="20" :page-padding="2" :current-page="currentPage" @change="changePage"></vs-pagination>
   </div>
 </template>
 
