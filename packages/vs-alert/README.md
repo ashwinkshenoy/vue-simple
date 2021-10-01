@@ -129,6 +129,7 @@ After installation,
 | title     | String  | -       | The alert title (text only). For HTML, use the header slot.           |
 | showClose | Boolean | false   | Show alert close icon                                                 |
 | small     | Boolean | false   | Applies reduced padding                                               |
+| toast     | Boolean | false   | Applies toast design                                                  |
 | noBg      | Boolean | false   | Remove background color                                               |
 
 <br />

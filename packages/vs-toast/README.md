@@ -93,7 +93,7 @@ After installation,
   import Vue from 'vue';
   import VsToast from '@vuesimple/vs-toast';
 
-  Vue.component('vs-toast', VsAlert);
+  Vue.component('vs-toast', VsToast);
   ```
 
 - Update `nuxt.config.js`
