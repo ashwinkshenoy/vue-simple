@@ -138,11 +138,20 @@
         type: Boolean,
         default: false,
       },
+      toast: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
       classList() {
-        return [`vs-alert-${this.variant}`, { 'vs-alert--no-bg': this.noBg }, { 'vs-alert--small': this.small }];
+        return [
+          `vs-alert-${this.variant}`,
+          { 'vs-alert--no-bg': this.noBg },
+          { 'vs-alert--small': this.small },
+          { 'vs-alert--toast': this.toast },
+        ];
       },
     },
   };
@@ -270,21 +279,32 @@
         left: 0;
         margin-top: 0;
       }
+    }
 
-      &#{$el}-success {
+    &--toast {
+      background-color: transparent;
+      border: solid 1px #d8dcde;
+      color: #2f3941;
+      box-shadow: rgb(23 73 77 / 15%) 0px 20px 28px 0px;
+      padding: 15px 40px;
+      &#{$el}-success #{$el}__heading {
         color: var(--vs-alert-success-icon);
       }
-      &#{$el}-warning {
+      &#{$el}-warning #{$el}__heading {
         color: var(--vs-alert-warning-icon);
       }
-      &#{$el}-error {
+      &#{$el}-error #{$el}__heading {
         color: var(--vs-alert-error-icon);
       }
-      &#{$el}-info {
+      &#{$el}-info #{$el}__heading {
         color: var(--vs-alert-info-icon);
       }
-      &#{$el}-secondary {
+      &#{$el}-secondary #{$el}__heading {
         color: var(--vs-alert-secondary-icon);
+      }
+      #{$el}-button {
+        color: #68737d;
+        top: 10px;
       }
     }
   }

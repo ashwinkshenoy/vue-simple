@@ -1,5 +1,5 @@
 <template>
-  <component :is="variant" :color="color" :size="size" :margin="margin" :center="center"></component>
+  <component :is="variant" v-bind="$props"></component>
 </template>
 
 <script>

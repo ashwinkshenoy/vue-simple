@@ -51,6 +51,41 @@
 
     <br /><br />
 
+    <small>Toast Style</small> <br /><br />
+
+    <vs-alert variant="success" show-close toast>
+      <template v-slot:title>Success Heading</template>
+      Success Message
+    </vs-alert>
+
+    <br />
+
+    <vs-alert variant="warning" title="Warning Heading" show-close toast>
+      Warning Message
+    </vs-alert>
+
+    <br />
+
+    <vs-alert variant="error" title="Error Heading" show-close toast>
+      Error Message
+    </vs-alert>
+
+    <br />
+
+    <vs-alert variant="info" title="Information Heading" show-close toast>
+      Information Message
+      <template slot="close">close</template>
+    </vs-alert>
+
+    <br />
+
+    <vs-alert variant="secondary" title="Secondary Heading" show-close toast>
+      Secondary Message
+      <template slot="close">close</template>
+    </vs-alert>
+
+    <br /><br />
+
     <small>Small</small><br /><br />
     <vs-alert variant="success" small show-close>
       Success Message
@@ -126,6 +161,13 @@
     <strong>Loader</strong>
     <br /><br />
     <demo-loader></demo-loader>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Toast</strong>
+    <br /><br />
+    <demo-toast></demo-toast>
   </div>
 </template>
 
@@ -138,6 +180,7 @@
   import DemoButton from './DemoComponents/Button';
   import DemoPagination from './DemoComponents/Pagination';
   import DemoLoader from './DemoComponents/Loader';
+  import DemoToast from './DemoComponents/Toast';
 
   export default {
     name: 'App',
@@ -150,6 +193,7 @@
       DemoButton,
       DemoPagination,
       DemoLoader,
+      DemoToast,
     },
 
     data() {
@@ -165,7 +209,7 @@
 </script>
 
 <style lang="scss">
-  .app {
+  body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     color: #2c3e50;
     max-width: 1170px;

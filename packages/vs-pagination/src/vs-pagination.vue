@@ -292,6 +292,9 @@
       &:first-child a {
         margin-left: 0;
       }
+      &:last-child a {
+        margin-right: 0;
+      }
 
       & > a {
         min-width: 30px;
