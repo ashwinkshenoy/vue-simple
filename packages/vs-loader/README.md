@@ -115,8 +115,8 @@ After installation,
 
 ### ⚙ Props
 
-| Name    | Type   | Default   | Description               |
-| ------- | ------ | --------- | ------------------------- |
-| variant | String | `pulse`   | Variants: `pulse`, `dots` |
-| color   | String | `#1f73b7` | Loader color              |
-| size    | String | `10px`    | Loader size               |
+| Name    | Type   | Default   | Description                         |
+| ------- | ------ | --------- | ----------------------------------- |
+| variant | String | `pulse`   | Variants: `pulse`, `dots`, `inline` |
+| color   | String | `#1f73b7` | Loader color                        |
+| size    | Number | `10`      | Loader size                         |

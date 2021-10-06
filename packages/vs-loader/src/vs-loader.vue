@@ -5,6 +5,7 @@
 <script>
   import Pulse from './vs-pulse.vue';
   import Dots from './vs-dots.vue';
+  import Inline from './vs-inline.vue';
 
   export default {
     name: 'VsLoader',
@@ -12,6 +13,7 @@
     components: {
       Pulse,
       Dots,
+      Inline,
     },
 
     props: {
@@ -23,7 +25,7 @@
         type: String,
       },
       size: {
-        type: String,
+        type: [Number, String],
       },
       margin: {
         type: String,

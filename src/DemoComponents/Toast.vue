@@ -4,11 +4,13 @@
     <vs-button variant="success" size="small" fill @click="toastSuccess">Success</vs-button>
     <vs-button variant="danger" size="small" fill @click="toastError">Error</vs-button>
     <vs-button variant="warning" size="small" fill @click="toastWarning">Warning</vs-button>
+    <br /><br />
+    <vs-button variant="secondary" size="small" @click="hide">Hide</vs-button>
   </div>
 </template>
 
 <script>
-  import VsToastApi from '../../packages/vs-toast/src/index.js';
+  import VsToast from '../../packages/vs-toast/src/index.js';
   import VsButton from '../../packages/vs-button/src/vs-button';
 
   export default {
@@ -16,13 +18,6 @@
 
     components: {
       VsButton,
-    },
-
-    data() {
-      return {
-        variant1: '',
-        toastMessage1: '',
-      };
     },
 
     methods: {
@@ -36,28 +31,35 @@
 
       // Default Toasts
       toastSuccess() {
-        VsToastApi.show({
+        VsToast.show({
           title: 'Success Title',
           message: 'Toast message',
           variant: 'success',
           isSticky: true,
+          position: 'top-left',
         });
       },
+
       toastError() {
-        VsToastApi.show({
+        VsToast.show({
           title: 'Error Title',
           message: 'Toast message',
           variant: 'error',
-          showClose: false,
         });
       },
+
       toastWarning() {
-        VsToastApi.show({
+        VsToast.show({
           title: 'Warning Title',
           message: 'Toast message',
           variant: 'warning',
           type: 'alert',
+          position: 'top-right',
         });
+      },
+
+      hide() {
+        VsToast.close();
       },
     },
   };

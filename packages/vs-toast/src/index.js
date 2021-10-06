@@ -1,16 +1,17 @@
 import Vue from 'vue';
 import VsToast from './vs-toast.vue';
 
-const variant = ['success', 'warning', 'error'];
+const variant = ['success', 'warning', 'error', 'info', 'secondary'];
 
 const defaultOptions = {
   title: '',
   message: '',
   variant: 'success',
-  timeout: 5000,
-  type: 'toast',
-  showClose: true,
   position: 'top-center',
+  type: 'toast',
+  timeout: 5000,
+  showClose: true,
+  isSticky: false,
 };
 
 let toastCmp = null;

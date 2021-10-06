@@ -2,10 +2,10 @@
   <div class="component-grid">
     <div class="component-badge">
       <a :href="`https://www.npmjs.com/package/${packageName}`">
-        <img :src="`https://img.shields.io/npm/v/${packageName}.svg`" />
+        <img :src="`https://img.shields.io/npm/v/${packageName}.svg?style=flat-square`" />
       </a>
       <a :href="`https://www.npmjs.com/package/${packageName}`">
-        <img :src="`https://img.shields.io/npm/dt/${packageName}.svg`" />
+        <img :src="`https://img.shields.io/npm/dt/${packageName}.svg?style=flat-square`" />
       </a>
     </div>
     <div class="component-links">

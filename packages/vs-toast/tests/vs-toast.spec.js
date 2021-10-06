@@ -8,17 +8,18 @@ describe('VsToast', () => {
       propsData: {
         variant: 'success',
       },
-      slots: {
-        default: defaultToastText,
-      },
     });
-    expect(wrapper.find('div').exists()).toBe(true);
-    expect(wrapper.text()).toMatch(defaultToastText);
-    const mainWraper = wrapper.find('.vs-toast');
-    expect(mainWraper.classes()).toContain('vs-toast--success');
-    expect(mainWraper.classes()).toContain('vs-toast--top-center');
-    const icon = wrapper.find('.vs-toast-icon');
-    expect(icon.classes()).toContain('vs-toast-icon');
+    expect(wrapper.find('div').exists()).toBe(false);
+    wrapper.vm.open();
+    setTimeout(() => {
+      expect(wrapper.find('div').exists()).toBe(true);
+      expect(wrapper.text()).toMatch(defaultToastText);
+      const mainWraper = wrapper.find('.vs-toast');
+      expect(mainWraper.classes()).toContain('vs-toast--success');
+      expect(mainWraper.classes()).toContain('vs-toast--top-center');
+      const icon = wrapper.find('.vs-toast-icon');
+      expect(icon.classes()).toContain('vs-toast-icon');
+    }, 1000);
   });
 
   it('Check toast error', () => {
@@ -29,14 +30,14 @@ describe('VsToast', () => {
         position: 'top-right',
         showClose: false,
       },
-      slots: {
-        default: defaultToastText,
-      },
     });
-    expect(wrapper.find('div').exists()).toBe(true);
-    expect(wrapper.text()).toMatch(defaultToastText);
-    const mainWraper = wrapper.find('.vs-toast');
-    expect(mainWraper.classes()).toContain('vs-toast--error');
-    expect(mainWraper.classes()).toContain('vs-toast--top-right');
+    wrapper.vm.open();
+    setTimeout(() => {
+      expect(wrapper.find('div').exists()).toBe(true);
+      expect(wrapper.text()).toMatch(defaultToastText);
+      const mainWraper = wrapper.find('.vs-toast');
+      expect(mainWraper.classes()).toContain('vs-toast--error');
+      expect(mainWraper.classes()).toContain('vs-toast--top-right');
+    }, 1000);
   });
 });

@@ -27,8 +27,8 @@
         default: '#1f73b7',
       },
       size: {
-        type: String,
-        default: '10px',
+        type: [Number, String],
+        default: 10,
       },
       center: {
         type: Boolean,

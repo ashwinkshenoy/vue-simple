@@ -2,8 +2,8 @@
   <transition :name="toggleTransition" @after-enter="onEnter" @after-leave="onLeave">
     <div
       :class="['vs-toast', classList]"
+      role="status"
       v-if="isOpen"
-      :aria-hidden="isOpen ? 'false' : 'true'"
       @mouseover="mouseHover(true)"
       @mouseleave="mouseHover(false)"
     >
@@ -23,7 +23,6 @@
     name: 'VsToast',
 
     props: {
-      // value: {},
       type: {
         type: String,
         default: 'toast',
@@ -41,8 +40,8 @@
         type: String,
       },
       /**
-       * Toast Variants
-       * Variants: success, warning, error
+       * Toast Variants (same as vs-alert)
+       * Variants: success, warning, error, info, secondary
        */
       variant: {
         type: String,
@@ -61,6 +60,10 @@
       position: {
         type: String,
         default: 'top-center',
+        validator: value =>
+          ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'].includes(
+            value.toLowerCase(),
+          ),
       },
       /**
        * Animation name:
@@ -104,7 +107,7 @@
        * @returns {String} class
        */
       classList() {
-        return [`vs-toast--${this.variant}`, `vs-toast--${this.position}`];
+        return [`vs-toast--${this.position}`];
       },
 
       /**
@@ -207,6 +210,7 @@
   #{$el} {
     position: fixed;
     width: 350px;
+    max-width: 350px;
     background-color: #ffffff;
     z-index: 9999;
     font-family: inherit;
@@ -222,7 +226,7 @@
 
     // Top alignemnts
     &--top-center {
-      left: calc(50% - 150px);
+      left: calc(50% - 175px);
       top: 5px;
     }
 
@@ -238,7 +242,7 @@
 
     // Bottom alignments
     &--bottom-center {
-      left: calc(50% - 150px);
+      left: calc(50% - 175px);
       bottom: 5px;
     }
 

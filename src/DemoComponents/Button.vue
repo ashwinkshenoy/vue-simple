@@ -1,6 +1,5 @@
 <template>
   <div>
-    <br /><br />
     <small>Different Sizes</small>
     <br />
     <vs-button size="small">Small</vs-button>

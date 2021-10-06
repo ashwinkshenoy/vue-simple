@@ -44,7 +44,7 @@
     <h2>Licence 📜</h2>
     <div class="home-page__description">
       <p class="small">
-        Copyright 2019 Licensed under the
+        &copy; Copyright 2018 -
         <a
           href="https://github.com/ashwinkshenoy/vue-simple/blob/master/LICENSE"
           target="_blank"

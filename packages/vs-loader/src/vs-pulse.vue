@@ -16,8 +16,8 @@
         default: '#1f73b7',
       },
       size: {
-        type: String,
-        default: '10px',
+        type: [Number, String],
+        default: 10,
       },
       margin: {
         type: String,
@@ -36,8 +36,8 @@
       return {
         spinnerStyle: {
           backgroundColor: this.color,
-          width: this.size,
-          height: this.size,
+          width: this.size + 'px',
+          height: this.size + 'px',
           margin: this.margin,
           borderRadius: this.radius,
           display: 'inline-block',

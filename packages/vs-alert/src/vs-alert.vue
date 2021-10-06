@@ -85,7 +85,7 @@
     <!-- Alert Heading -->
     <div class="vs-alert__heading">
       <slot name="title">
-        <div v-if="title">{{ title }}</div>
+        <template v-if="title">{{ title }}</template>
       </slot>
     </div>
 
@@ -93,12 +93,7 @@
     <slot></slot>
 
     <!-- Right close icon/button -->
-    <button
-      v-if="showClose"
-      :class="['vs-alert-button', variant]"
-      @click="$emit('close', true)"
-      aria-label="Close Alert"
-    >
+    <button v-if="showClose" :class="['vs-alert-button', variant]" @click="$emit('close', true)" aria-label="Close">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
@@ -122,6 +117,7 @@
       variant: {
         type: String,
         required: true,
+        validator: value => ['success', 'error', 'info', 'warning', 'secondary'].includes(value.toLowerCase()),
       },
       showClose: {
         type: Boolean,
@@ -200,6 +196,7 @@
 
     &__heading {
       font-weight: 600;
+      filter: brightness(85%);
     }
 
     &-button {
@@ -279,6 +276,13 @@
         left: 0;
         margin-top: 0;
       }
+
+      &#{$el}-warning {
+        color: var(--vs-alert-warning-icon);
+      }
+      &#{$el}-error {
+        color: var(--vs-alert-error-icon);
+      }
     }
 
     &--toast {
@@ -287,6 +291,9 @@
       color: #2f3941;
       box-shadow: rgb(23 73 77 / 15%) 0px 20px 28px 0px;
       padding: 15px 40px;
+      #{$el}__heading {
+        filter: brightness(100%);
+      }
       &#{$el}-success #{$el}__heading {
         color: var(--vs-alert-success-icon);
       }
