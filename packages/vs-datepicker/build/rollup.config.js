@@ -1,10 +1,9 @@
-// rollup.config.js
-import vue from 'rollup-plugin-vue';
-import buble from 'rollup-plugin-buble';
-import image from '@rollup/plugin-image';
 import { terser } from 'rollup-plugin-terser';
+import buble from '@rollup/plugin-buble';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import image from '@rollup/plugin-image';
+import vue from 'rollup-plugin-vue';
 import minimist from 'minimist';
-import nodeResolve from 'rollup-plugin-node-resolve';
 
 const argv = minimist(process.argv.slice(2));
 
