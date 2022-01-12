@@ -40,7 +40,7 @@ yarn add @vuesimple/vs-accordion
 ```html
 <template>
   <vs-accordion :is-box="true" is-compact>
-    <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
+    <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
       <!-- This slot will handle the title of the accordion and is the part you click on -->
       <template slot="accordion-trigger">
         <h4>Item {{ n }}</h4>
@@ -79,7 +79,7 @@ yarn add @vuesimple/vs-accordion
 ```html
 <template>
   <vs-accordion :is-box="true" is-compact>
-    <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
+    <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
       <!-- This slot will handle the title of the accordion and is the part you click on -->
       <template slot="accordion-trigger">
         <h4>Item {{ n }}</h4>
@@ -130,7 +130,7 @@ After installation,
   ```html
   <template>
     <vs-accordion :is-box="true" is-compact>
-      <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
+      <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
         <!-- This slot will handle the title of the accordion and is the part you click on -->
         <template slot="accordion-trigger">
           <h4>Item {{ n }}</h4>
