@@ -107,7 +107,7 @@ yarn add @vuesimple/vs-modal
 <br />
 
 <h3> 
-  <img src="https://nuxtjs.org/favicon.ico" width="20px"> Nuxt.js
+  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
 </h3>
 
 Nuxt Demo - Code Sandbox: [Link](https://codesandbox.io/s/vs-modal-nuxt-w35gj)

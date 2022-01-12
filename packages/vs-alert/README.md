@@ -76,7 +76,7 @@ yarn add @vuesimple/vs-alert
 <br />
 
 <h3> 
-  <img src="https://nuxtjs.org/favicon.ico" width="20px"> Nuxt.js
+  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
 </h3>
 
 Nuxt Code Snippet

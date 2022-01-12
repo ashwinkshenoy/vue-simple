@@ -190,3 +190,33 @@
     },
   };
 </script>
+
+<style lang="scss">
+  .menu-item {
+    padding: 10px 15px;
+    position: relative;
+    cursor: pointer;
+    &:first-child {
+      margin-top: 8px;
+    }
+    &:last-child {
+      margin-bottom: 8px;
+    }
+    &:after {
+      position: absolute;
+      top: -2px;
+      right: 2px;
+      -webkit-transition: opacity 0.1s ease-in-out;
+      transition: opacity 0.1s ease-in-out;
+      opacity: 0;
+      background: no-repeat 50%/16px
+        url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%231f73b7'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M1 9l4 4L15 3'/%3E%3C/svg%3E");
+      width: 32px;
+      height: 40px;
+      content: '';
+    }
+    &--is-checked:after {
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 <template>
   <nav role="navigation" aria-label="Pagination Navigation">
-    <ul class="vs-pagination u-mt justify-content-center">
+    <ul class="vs-pagination">
       <li
         :class="[
           { 'vs-pagination--disabled': firstPageSelected() },
@@ -286,6 +286,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0;
 
     & > li {
       list-style: none;
