@@ -115,8 +115,9 @@ After installation,
 
 ### ⚙ Props
 
-| Name    | Type   | Default   | Description                         |
-| ------- | ------ | --------- | ----------------------------------- |
-| variant | String | `pulse`   | Variants: `pulse`, `dots`, `inline` |
-| color   | String | `#1f73b7` | Loader color                        |
-| size    | Number | `10`      | Loader size                         |
+| Name    | Type    | Default   | Description                                  |
+| ------- | ------- | --------- | -------------------------------------------- |
+| variant | String  | `pulse`   | Variants: `pulse`, `dots`, `inline`.         |
+| color   | String  | `#1f73b7` | Loader color.                                |
+| size    | Number  | `10`      | Loader size.                                 |
+| center  | Boolean | -         | Center aligns the loader wrt the parent div. |
