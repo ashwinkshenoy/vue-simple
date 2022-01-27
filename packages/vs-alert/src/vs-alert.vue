@@ -147,6 +147,7 @@
           { 'vs-alert--no-bg': this.noBg },
           { 'vs-alert--small': this.small },
           { 'vs-alert--toast': this.toast },
+          { 'vs-alert--is-close': this.showClose },
         ];
       },
     },
@@ -184,7 +185,7 @@
 
     position: relative;
     border-radius: 4px;
-    padding: 20px 40px;
+    padding: 20px 20px 20px 40px;
     line-height: 1.42857;
     font-size: 14px;
 
@@ -258,11 +259,21 @@
       color: var(--vs-alert-secondary-color);
     }
 
-    &--small {
-      padding: 12px 40px;
+    &#{$el}--small:not(#{$el}--is-close) {
+      padding: 12px 20px 12px 40px;
+    }
 
-      #{$el}-button {
-        top: 8px;
+    &#{$el}--is-close:not(#{$el}--small) {
+      padding: 20px 40px;
+    }
+
+    &#{$el}--is-close {
+      &#{$el}--small {
+        padding: 12px 40px;
+
+        #{$el}-button {
+          top: 8px;
+        }
       }
     }
 

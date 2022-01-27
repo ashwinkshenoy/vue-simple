@@ -1,12 +1,13 @@
 <template>
-  <li class="vs-accordion__item" :class="[{ 'vs-accordion--box': isBox }, { 'vs-accordion--compact': isCompact }]">
-    <div
-      class="vs-accordion__trigger"
-      :class="[{ 'vs-accordion__trigger_active': isExpandable ? isExpandableToggle : visible }]"
-      role="heading"
-      :aria-level="level"
-      @click="open"
-    >
+  <li
+    class="vs-accordion__item"
+    :class="[
+      { 'vs-accordion--box': isBox },
+      { 'vs-accordion--compact': isCompact },
+      { 'vs-accordion__active': isExpandable ? isExpandableToggle : visible },
+    ]"
+  >
+    <div class="vs-accordion__trigger" :class="[]" role="heading" :aria-level="level" @click="open">
       <!-- Slot for title/header of the accordion and is the part you click on -->
       <button
         class="vs-accordion__button"
@@ -36,7 +37,7 @@
       </slot>
     </div>
 
-    <transition name="vs-accordion" @enter="start" @after-enter="end" @before-leave="start" @after-leave="end">
+    <transition name="vs-accordion" @enter="start" @after-enter="onEnter" @before-leave="start" @after-leave="onLeave">
       <div
         class="vs-accordion__content"
         v-show="isExpandable ? isExpandableToggle : visible"
@@ -104,7 +105,13 @@
         el.style.height = el.scrollHeight + 'px';
       },
 
-      end(el) {
+      onEnter(el) {
+        this.$emit('open');
+        el.style.height = '';
+      },
+
+      onLeave(el) {
+        this.$emit('hide');
         el.style.height = '';
       },
     },
@@ -150,7 +157,7 @@
       }
     }
 
-    &__trigger_active #{$el}--icon {
+    &__active #{$el}--icon {
       transform: rotate(180deg);
     }
 

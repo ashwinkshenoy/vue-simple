@@ -160,9 +160,11 @@ After installation,
 
 ### VsAccordionItem
 
-| Name   | Description                                                        |
-| ------ | ------------------------------------------------------------------ |
-| change | Triggered accordion open/close click `{ index: 0, visible: true }` |
+| Name   | Description                                                                         |
+| ------ | ----------------------------------------------------------------------------------- |
+| change | Triggered accordion open/close click `{ index: 0, visible: true }`                  |
+| open   | Emitted when the accordion starts to open. Listen for it using `@open`.             |
+| hide   | Emitted when the accordion close transition completes. Listen for it using `@hide`. |
 
 <br />
 

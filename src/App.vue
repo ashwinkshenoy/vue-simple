@@ -44,7 +44,7 @@
 
     <br />
 
-    <vs-alert variant="secondary" title="Secondary Heading" show-close>
+    <vs-alert variant="secondary" title="Secondary Heading">
       Secondary Message
       <template slot="close">close</template>
     </vs-alert>
@@ -87,7 +87,7 @@
     <br /><br />
 
     <small>Small</small><br /><br />
-    <vs-alert variant="success" small show-close>
+    <vs-alert variant="success" small>
       Success Message
     </vs-alert>
 

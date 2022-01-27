@@ -10,7 +10,13 @@
     <br />
 
     <vs-accordion :active="currentIndex" :is-box="true" :level="4" is-compact>
-      <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
+      <vs-accordion-item
+        @change="log"
+        v-for="(n, index) in [1, 2, 3]"
+        :key="index"
+        @open="log('open')"
+        @hide="log('hide')"
+      >
         <!-- This slot will handle the title of the accordion and is the part you click on -->
         <template slot="accordion-trigger">
           <h4>Item {{ n }}</h4>
