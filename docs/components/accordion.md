@@ -174,9 +174,10 @@ After installation,
 
 You can define own item markup via slots:
 
-| Name      | Description                               |
-| --------- | ----------------------------------------- |
-| (default) | Default wrapper content for vs-accordion. |
+| Name                    | Description                               |
+| ----------------------- | ----------------------------------------- |
+| (default)               | Default wrapper content for vs-accordion. |
+| accordion-non-clickable | Non-Clickable content inside header       |
 
 ### VsAccordionItem
 

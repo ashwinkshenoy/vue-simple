@@ -22,12 +22,16 @@
           <h4>Item {{ n }}</h4>
         </template>
 
+        <template slot="accordion-non-clickable">
+          <button>Non-clickable</button>
+        </template>
+
         <!-- Default content -->
-        <div>
+        <template>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
-        </div>
+        </template>
       </vs-accordion-item>
     </vs-accordion>
 

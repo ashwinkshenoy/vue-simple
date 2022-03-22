@@ -7,7 +7,7 @@
       { 'vs-accordion__active': isExpandable ? isExpandableToggle : visible },
     ]"
   >
-    <div class="vs-accordion__trigger" :class="[]" role="heading" :aria-level="level" @click="open">
+    <div class="vs-accordion__trigger" role="heading" :aria-level="level" @click="open">
       <!-- Slot for title/header of the accordion and is the part you click on -->
       <button
         class="vs-accordion__button"
@@ -35,6 +35,11 @@
           ></path>
         </svg>
       </slot>
+    </div>
+
+    <!-- Non-clickable area -->
+    <div class="vs-accordion__non-clickable" v-if="hasNonClickableContent">
+      <slot name="accordion-non-clickable"></slot>
     </div>
 
     <transition name="vs-accordion" @enter="start" @after-enter="onEnter" @before-leave="start" @after-leave="onLeave">
@@ -66,6 +71,7 @@
         isExpandable: false,
         isExpandableToggle: false,
         level: null,
+        hasNonClickableContent: this.$slots['accordion-non-clickable'],
       };
     },
 
@@ -147,9 +153,18 @@
       transition: all 0.25s ease-in-out 0s;
     }
 
+    &__non-clickable {
+      padding: 0 var(--vs-accordion-padding) var(--vs-accordion-padding) var(--vs-accordion-padding);
+    }
+
     &--compact {
       #{$el}__trigger {
         padding: var(--vs-accordion-compact-padding);
+      }
+
+      #{$el}__non-clickable {
+        padding: 0 var(--vs-accordion-compact-padding) var(--vs-accordion-compact-padding)
+          var(--vs-accordion-compact-padding);
       }
 
       #{$el}__content-wrapper {
