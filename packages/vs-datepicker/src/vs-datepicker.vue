@@ -19,8 +19,13 @@
       :range="range"
       :placeholder="placeholder"
       :lang="lang"
+      v-bind="$attrs"
+      v-on="$listeners"
       @change="emitChange"
     >
+      <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
+        <slot :name="name" v-bind="slotData" />
+      </template>
     </date-picker>
   </div>
 </template>

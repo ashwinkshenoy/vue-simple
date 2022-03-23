@@ -16,6 +16,7 @@
         ></vs-datepicker>
         <small>v-model: {{ form.date }}</small>
       </div>
+
       <div>
         <vs-datepicker
           label="Range Date"
@@ -29,6 +30,7 @@
         ></vs-datepicker>
         <small>v-model: {{ form.dateRange }}</small>
       </div>
+
       <div>
         <vs-datepicker
           label="Time"
@@ -42,6 +44,7 @@
         ></vs-datepicker>
         <small>v-model: {{ form.time }}</small>
       </div>
+
       <div>
         <vs-datepicker
           label="Custom Format Date"
@@ -53,6 +56,7 @@
         ></vs-datepicker>
         <small>v-model: {{ form.customdate }}</small>
       </div>
+
       <div>
         <vs-datepicker
           label="Lang Support"
@@ -65,6 +69,7 @@
         ></vs-datepicker>
         <small>v-model: {{ form.langDate }}</small>
       </div>
+
       <div>
         <vs-datepicker
           label="Compact"
@@ -76,6 +81,18 @@
           is-compact
         ></vs-datepicker>
         <small>v-model: {{ form.langDate }}</small>
+      </div>
+
+      <div>
+        <vs-datepicker
+          label="Shortcuts"
+          v-model="form.shortcut"
+          placeholder="Select date"
+          format="DD-MM-YYYY"
+          value-type="format"
+          :shortcuts="shortcuts"
+        ></vs-datepicker>
+        <small>v-model: {{ form.shortcut }}</small>
       </div>
     </div>
   </div>
@@ -100,7 +117,28 @@
           customdate: '',
           langDate: '',
           compact: '',
+          shortcut: '',
         },
+
+        shortcuts: [
+          {
+            text: 'Today',
+            onClick() {
+              const date = new Date();
+              // return a Date
+              return date;
+            },
+          },
+          {
+            text: 'Yesterday',
+            onClick() {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24);
+              return date;
+            },
+          },
+        ],
+
         maxDate: new Date().toISOString().substring(0, 10), // Max date -> Today
 
         lang: {
