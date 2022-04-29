@@ -255,7 +255,7 @@
           this.selected = this.selectedObject.label;
           // this.inputValue = this.selected;
           this.$emit('input', this.selectedObject.value);
-          this.$emit('change', this.selectedObject.value);
+          this.$emit('change', this.selectedObject.value, this.selectedObject);
         } else {
           this.selected = this.options.filter(i => i === option)[0];
           // this.inputValue = this.selected;
@@ -365,7 +365,7 @@
         max-height: 32px;
       }
       #{$el}__input {
-        padding: 7px 37px 7px 11px;
+        padding: 6px 37px 6px 11px;
       }
       #{$el}__menu--top {
         bottom: 32px;

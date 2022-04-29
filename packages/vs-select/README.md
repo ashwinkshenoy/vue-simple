@@ -131,7 +131,8 @@ After installation,
 | -------------- | ------- | ------------------- | ------------------------------------------------------------------------------------------------- |
 | options        | Array   | -                   | This can be array or array of objects. `['Tony', 'Bruce']` or `[{ label: 'Derek', value: 'D' }]`, |
 | isSearch       | Boolean | false               | Searchable select                                                                                 |
-| label          | String  | 'Select'            | Placeholder text                                                                                  |
+| label          | String  | -                   | Label text                                                                                        |
+| placeholder    | String  | 'Select'            | Placeholder text                                                                                  |
 | preselected    | Array   | -                   | Preselected items. For array of objects, pass `value` as array items ex: `['D', 'BB']`            |
 | disabled       | Boolean | false               | To disable select box                                                                             |
 | isError        | Boolean | false               | To show error in select box                                                                       |
@@ -169,10 +170,10 @@ You can also pass `disable: true` in array of objects to disable particular item
 
 ### 🔥 Events
 
-| Name    | Description                        |
-| ------- | ---------------------------------- |
-| v-model | Emitted when the item is selected. |
-| @change | Emitted when the item is selected. |
+| Name    | Description                                                               |
+| ------- | ------------------------------------------------------------------------- |
+| v-model | Emitted when the item is selected.                                        |
+| @change | Emitted when the item is selected.<br />(arg1: value, arg2: object/value) |
 
 <br />
 

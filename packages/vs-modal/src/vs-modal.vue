@@ -13,11 +13,11 @@
           tabindex="-1"
           @keydown.native.stop.esc="onEsc"
         >
-          <slot name="header">
-            <div v-if="!removeHeader" class="vs-modal__header">
+          <div v-if="!removeHeader" class="vs-modal__header">
+            <slot name="header">
               <h2 class="vs-modal__header-text">{{ title }}</h2>
-            </div>
-          </slot>
+            </slot>
+          </div>
 
           <div class="vs-modal__close-button">
             <slot name="close">
@@ -380,7 +380,7 @@
       position: relative;
       z-index: 1;
       align-items: center;
-      height: $modal-header-height;
+      min-height: $modal-header-height;
       padding: 0 $c-space-inset-xl;
     }
 

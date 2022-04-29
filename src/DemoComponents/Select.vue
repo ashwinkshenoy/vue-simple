@@ -5,7 +5,7 @@
     <br /><br />
     <div class="grid">
       <div>
-        <vs-select label="No Search" :options="options1" v-model="form.select1"></vs-select>
+        <vs-select label="No Search" :options="options1" v-model="form.select1" @change="log"></vs-select>
         <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
@@ -152,7 +152,7 @@
         menu: [
           { label: 'Google', value: 'https://google.com' },
           { label: 'Twitter', value: 'https://twitter.com' },
-          { label: 'Facebook', value: 'https://youtube.com', disabled: true },
+          { label: 'Facebook', value: 'https://facebook.com', disabled: true },
           { label: 'Youtube', value: 'https://youtube.com' },
         ],
         form: {
@@ -184,8 +184,8 @@
     },
 
     methods: {
-      log(a) {
-        console.log('DemoLog: ', a);
+      log(a, b) {
+        console.log('DemoLog: ', a, b);
       },
     },
   };
