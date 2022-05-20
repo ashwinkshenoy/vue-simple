@@ -227,19 +227,35 @@
         ) {
           this.isObject = true;
           // Set preselected
-          this.selectedArrayObject = this.options.filter(
-            ({ value: id1 }) => this.preselected && this.preselected.some(id2 => id2 === id1),
-          );
+          if (this.preselected) {
+            this.selectedArrayObject = this.options.filter(
+              ({ value: id1 }) => this.preselected && this.preselected.some(id2 => id2 === id1),
+            );
+            return;
+          }
+          if (this.value) {
+            this.selectedArrayObject = this.options.filter(
+              ({ value: id1 }) => this.value && this.value.some(id2 => id2.value === id1),
+            );
+          }
         } else {
           this.isObject = false;
-          this.selected = this.preselected;
+          if (this.preselected) {
+            this.selectedArrayObject = this.preselected;
+            return;
+          }
+          if (this.value) {
+            this.selectedArrayObject = this.value;
+          }
         }
       },
 
       setSelected(option) {
+        console.log(option);
         if (this.isObject) {
           return this.selectedArrayObject.filter(list => list.value === option.value).length > 0;
         }
+        console.log(this.selectedArrayObject.filter(list => list === option).length > 0);
         return this.selectedArrayObject.filter(list => list === option).length > 0;
       },
 

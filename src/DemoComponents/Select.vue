@@ -100,13 +100,7 @@
         <small>v-model: {{ form.select10 }}</small>
       </div>
       <div>
-        <vs-multiselect
-          label="Search (Object)"
-          :options="options2"
-          is-search
-          :preselected="preselected2"
-          v-model="form.select11"
-        ></vs-multiselect>
+        <vs-multiselect label="Search (Object)" :options="options2" is-search v-model="form.select11"></vs-multiselect>
         <small>v-model: {{ form.select11 }}</small>
       </div>
       <div>
@@ -163,10 +157,13 @@
           select5: '',
           select6: '',
           select7: 'Tony',
-          select8: '',
+          select8: ['Derek', 'Ryan'],
           select9: '',
           select10: '',
-          select11: '',
+          select11: [
+            { label: 'Iron Man', value: 'Tony' },
+            { label: 'Hulk', value: 'Bruce Banner' },
+          ],
           select12: '',
           boolSelect: false,
         },
