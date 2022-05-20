@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-accordion",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A simple vue accordion.",
   "main": "dist/vs-accordion.umd.js",
   "module": "dist/vs-accordion.esm.js",
