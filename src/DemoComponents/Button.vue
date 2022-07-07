@@ -47,7 +47,7 @@
 </template>
 
 <script>
-  import VsButton from '../../packages/vs-button/src/vs-button';
+  import VsButton from '../../packages/vs-button/src/vs-button.vue';
 
   export default {
     components: {

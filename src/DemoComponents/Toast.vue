@@ -11,7 +11,7 @@
 
 <script>
   import VsToast from '../../packages/vs-toast/src/index.js';
-  import VsButton from '../../packages/vs-button/src/vs-button';
+  import VsButton from '../../packages/vs-button/src/vs-button.vue';
 
   export default {
     name: 'DemoToast',

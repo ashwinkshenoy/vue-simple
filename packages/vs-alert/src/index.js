@@ -2,11 +2,20 @@
 import VsAlert from './vs-alert.vue';
 
 // Declare install function executed by Vue.use()
-export function install(Vue) {
-  if (install.installed) return;
-  install.installed = true;
-  Vue.component('VsAlert', VsAlert);
-}
+// export function install(Vue) {
+//   if (install.installed) return;
+//   install.installed = true;
+//   Vue.component('VsAlert', VsAlert);
+// }
+
+const install = {
+  install(app, options) {
+    if (!options) {
+      options = {};
+    }
+    app.component('VsAlert', VsAlert);
+  },
+};
 
 // Create module definition for Vue.use()
 const plugin = {

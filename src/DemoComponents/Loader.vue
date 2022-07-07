@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import VsLoader from '../../packages/vs-loader/src/vs-loader';
+  import VsLoader from '../../packages/vs-loader/src/vs-loader.vue';
   export default {
     name: 'DemoLoader',
 

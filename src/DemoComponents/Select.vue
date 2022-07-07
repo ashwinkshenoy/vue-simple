@@ -119,8 +119,8 @@
 </template>
 
 <script>
-  import VsSelect from '../../packages/vs-select/src/vs-select';
-  import VsMultiselect from '../../packages/vs-select/src/vs-multiselect';
+  import VsSelect from '../../packages/vs-select/src/vs-select.vue';
+  import VsMultiselect from '../../packages/vs-select/src/vs-multiselect.vue';
 
   export default {
     name: 'SelectDemo',

@@ -25,15 +25,11 @@
 
     <br />
 
-    <vs-alert variant="warning" title="Warning Heading" show-close>
-      Warning Message
-    </vs-alert>
+    <vs-alert variant="warning" title="Warning Heading" show-close> Warning Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="error" title="Error Heading" show-close>
-      Error Message
-    </vs-alert>
+    <vs-alert variant="error" title="Error Heading" show-close> Error Message </vs-alert>
 
     <br />
 
@@ -60,15 +56,11 @@
 
     <br />
 
-    <vs-alert variant="warning" title="Warning Heading" show-close toast>
-      Warning Message
-    </vs-alert>
+    <vs-alert variant="warning" title="Warning Heading" show-close toast> Warning Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="error" title="Error Heading" show-close toast>
-      Error Message
-    </vs-alert>
+    <vs-alert variant="error" title="Error Heading" show-close toast> Error Message </vs-alert>
 
     <br />
 
@@ -87,45 +79,31 @@
     <br /><br />
 
     <small>Small</small><br /><br />
-    <vs-alert variant="success" small>
-      Success Message
-    </vs-alert>
+    <vs-alert variant="success" small> Success Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="warning" small show-close>
-      Warning Message
-    </vs-alert>
+    <vs-alert variant="warning" small show-close> Warning Message </vs-alert>
 
     <br /><br />
 
-    <vs-alert variant="success" no-bg>
-      Success Message
-    </vs-alert>
+    <vs-alert variant="success" no-bg> Success Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="warning" no-bg>
-      Warning Message
-    </vs-alert>
+    <vs-alert variant="warning" no-bg> Warning Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="error" no-bg>
-      Danger Message
-    </vs-alert>
+    <vs-alert variant="error" no-bg> Danger Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="info" no-bg>
-      Information Message
-    </vs-alert>
+    <vs-alert variant="info" no-bg> Information Message </vs-alert>
 
     <br />
 
-    <vs-alert variant="secondary" no-bg>
-      Secondary Message
-    </vs-alert>
+    <vs-alert variant="secondary" no-bg> Secondary Message </vs-alert>
 
     <br /><br />
     <hr />
@@ -179,16 +157,16 @@
 </template>
 
 <script>
-  import VsAlert from '../packages/vs-alert/src/vs-alert';
-  import DemoModal from './DemoComponents/Modal';
-  import DemoDatepicker from './DemoComponents/Datepicker';
-  import DemoSelect from './DemoComponents/Select';
-  import DemoTag from './DemoComponents/Tag';
-  import DemoButton from './DemoComponents/Button';
-  import DemoPagination from './DemoComponents/Pagination';
-  import DemoLoader from './DemoComponents/Loader';
-  import DemoToast from './DemoComponents/Toast';
-  import DemoAccordion from './DemoComponents/Accordion';
+  import VsAlert from '../packages/vs-alert/src/vs-alert.vue';
+  import DemoModal from './DemoComponents/Modal.vue';
+  import DemoDatepicker from './DemoComponents/Datepicker.vue';
+  import DemoSelect from './DemoComponents/Select.vue';
+  import DemoTag from './DemoComponents/Tag.vue';
+  import DemoButton from './DemoComponents/Button.vue';
+  import DemoPagination from './DemoComponents/Pagination.vue';
+  import DemoLoader from './DemoComponents/Loader.vue';
+  import DemoToast from './DemoComponents/Toast.vue';
+  import DemoAccordion from './DemoComponents/Accordion.vue';
 
   export default {
     name: 'App',

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import VsTag from '../../packages/vs-tag/src/vs-tag';
+  import VsTag from '../../packages/vs-tag/src/vs-tag.vue';
 
   export default {
     name: 'TagDemo',

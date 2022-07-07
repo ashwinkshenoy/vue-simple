@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import VsPagination from '../../packages/vs-pagination/src/vs-pagination';
+  import VsPagination from '../../packages/vs-pagination/src/vs-pagination.vue';
 
   export default {
     name: 'DemoPagination',
