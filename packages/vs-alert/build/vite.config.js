@@ -5,7 +5,7 @@ export default {
   plugins: [vue(), VitePluginStyleInject()],
   build: {
     // separate css file or not
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     lib: {
       entry: './src/index.js',
       formats: ['es', 'umd', 'iife'],
