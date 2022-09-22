@@ -7,11 +7,11 @@
         <vs-datepicker
           label="Date"
           v-model="form.date"
-          :max="maxDate"
           placeholder="DD-MM-YYYY"
           format="DD-MM-YYYY"
           value-type="format"
           :editable="true"
+          :disabled-date="disableWeekends"
           @change="log"
         ></vs-datepicker>
         <small>v-model: {{ form.date }}</small>
@@ -120,6 +120,10 @@
           shortcut: '',
         },
 
+        disabledDates: {
+          weekdays: [1, 7],
+        },
+
         shortcuts: [
           {
             text: 'Today',
@@ -184,6 +188,10 @@
     methods: {
       log(e) {
         console.log(e);
+      },
+      disableWeekends(date) {
+        const day = new Date(date).getDay();
+        return day === 0 || day === 6;
       },
     },
   };

@@ -11,7 +11,7 @@
     <div class="component-links">
       <a :href="codesandbox" target="_blank" rel="noreferrer noopener" v-if="codesandbox">
         <img src="/logos/codesandbox.png" alt="codesandbox" />
-        <span>Code Sandbox</span>
+        <span>Demo</span>
         <img src="/logos/link.png" alt="link" />
       </a>
       <a :href="github" target="_blank" rel="noreferrer noopener" v-if="github">

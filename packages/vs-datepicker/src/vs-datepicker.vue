@@ -12,7 +12,6 @@
       :format="format"
       :id="id"
       :disabled="disabled"
-      :disabled-date="disabledDates"
       :editable="editable"
       :clearable="clearable"
       prefix-class="vs"
