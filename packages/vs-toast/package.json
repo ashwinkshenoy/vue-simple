@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-toast",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "A simple vue toast.",
   "main": "dist/vs-toast.umd.js",
   "module": "dist/vs-toast.esm.js",
