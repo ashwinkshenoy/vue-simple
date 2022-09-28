@@ -66,5 +66,14 @@ Copyright 2021.
 Licensed under the [`MIT License`](LICENSE).
 
 <br />
-Built with ❤️ by
-<a href="https://twitter.com/ashwinkshenoy">Ashwin Shenoy</a>
+
+<p>
+  Built with ❤️ by
+  <a href="https://twitter.com/ashwinkshenoy">Ashwin Shenoy</a>
+</p>
+
+<p>
+  <a href="https://www.buymeacoffee.com/ashwinshenoy?utm_source=zd_custom_object" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="margin-top: 20px;width: 140px">
+  </a>
+</p>
