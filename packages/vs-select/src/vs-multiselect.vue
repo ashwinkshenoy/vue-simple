@@ -251,7 +251,6 @@
       },
 
       setSelected(option) {
-        console.log(option);
         if (this.isObject) {
           return this.selectedArrayObject.filter(list => list.value === option.value).length > 0;
         }
