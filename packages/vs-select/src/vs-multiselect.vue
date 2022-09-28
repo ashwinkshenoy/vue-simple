@@ -272,8 +272,6 @@
           }
         } else {
           const isContains = this.selectedArrayObject.includes(option);
-          console.log('isContains', isContains);
-          console.log(!isContains);
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {
