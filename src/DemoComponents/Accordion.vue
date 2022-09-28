@@ -43,7 +43,7 @@
     <br />
     <br />
 
-    <vs-accordion is-expandable>
+    <vs-accordion is-expandable disable-animate>
       <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
         <!-- This slot will handle the title of the accordion and is the part you click on -->
         <template slot="accordion-trigger">

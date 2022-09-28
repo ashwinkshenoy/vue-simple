@@ -146,13 +146,14 @@ After installation,
 
 ### VsAccordion
 
-| Name          | Type    | Default | Description                                                        |
-| ------------- | ------- | ------- | ------------------------------------------------------------------ |
-| active        | Number  | -       | Index of the accordion to be made active/visible. Starts from `0`. |
-| is-box        | String  | -       | Box syle applied.                                                  |
-| is-expandable | Boolean | -       | Enables simultaneous expansion of accordion sections.              |
-| level         | Boolean | -       | Sets aria-level heading rank in the document structure.            |
-| is-compact    | Boolean | -       | Applies compact styling.                                           |
+| Name            | Type    | Default | Description                                                        |
+| --------------- | ------- | ------- | ------------------------------------------------------------------ |
+| active          | Number  | -       | Index of the accordion to be made active/visible. Starts from `0`. |
+| is-box          | String  | -       | Box syle applied.                                                  |
+| is-expandable   | Boolean | -       | Enables simultaneous expansion of accordion sections.              |
+| level           | Boolean | -       | Sets aria-level heading rank in the document structure.            |
+| is-compact      | Boolean | -       | Applies compact styling.                                           |
+| disable-animate | Boolean | -       | Disable toggle animation.                                          |
 
 <br />
 

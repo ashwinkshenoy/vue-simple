@@ -1,6 +1,6 @@
 <template>
   <div :class="['vs-select', { 'vs-select--compact': isCompact }]" ref="vs-select">
-    <label class="vs-select__label">
+    <label class="vs-select__label" v-if="label">
       <span>{{ label }}</span>
       <span class="vs-select--required" v-if="required"> *</span>
     </label>

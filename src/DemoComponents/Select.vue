@@ -92,7 +92,7 @@
         <small>v-model: {{ form.select8 }}</small>
       </div>
       <div>
-        <vs-multiselect label="Search (Array)" :options="options1" is-search v-model="form.select9"></vs-multiselect>
+        <vs-multiselect label="Search (Array)" :options="options3" is-search v-model="form.select9"></vs-multiselect>
         <small>v-model: {{ form.select9 }}</small>
       </div>
       <div>
@@ -141,6 +141,8 @@
           { label: 'Star Lord', value: 'Peter Quill' },
           { label: 'Thor', value: 'thor', disabled: true },
         ],
+        options3: ['group', 'sub_group', 'subject'],
+
         preselected2: ['Wanda', 'Bruce Banner'],
         preselected: 'Wanda',
         menu: [

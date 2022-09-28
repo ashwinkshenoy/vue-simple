@@ -197,19 +197,23 @@
       transition: all 0.25s ease-in-out 0s;
     }
 
+    &#{$el}--disable-animate &--icon {
+      transition: none;
+    }
+
     &__content-wrapper {
       padding: 0 var(--vs-accordion-padding) var(--vs-accordion-padding);
     }
 
-    &-enter-active,
-    &-leave-active {
+    &:not(#{$el}--disable-animate) &-enter-active,
+    &:not(#{$el}--disable-animate) &-leave-active {
       will-change: height, opacity;
       transition: height 0.3s ease, opacity 0.3s ease;
       overflow: hidden;
     }
 
-    &-enter,
-    &-leave-to {
+    &:not(#{$el}--disable-animate) &-enter,
+    &:not(#{$el}--disable-animate) &-leave-to {
       height: 0 !important;
       opacity: 0;
     }

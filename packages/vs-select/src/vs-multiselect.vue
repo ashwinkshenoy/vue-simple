@@ -1,6 +1,6 @@
 <template>
   <div :class="['vs-multiselect', { 'vs-multiselect--compact': isCompact }]" ref="vs-multiselect-wrapper">
-    <label class="vs-multiselect__label">
+    <label class="vs-multiselect__label" v-if="label">
       <span>{{ label }}</span>
       <span class="vs-multiselect--required" v-if="required"> *</span>
     </label>
@@ -251,6 +251,7 @@
       },
 
       setSelected(option) {
+        console.log(option);
         if (this.isObject) {
           return this.selectedArrayObject.filter(list => list.value === option.value).length > 0;
         }
@@ -271,7 +272,9 @@
             this.selectedArrayObject = this.selectedArrayObject.filter(i => i.value !== option.value);
           }
         } else {
-          const isContains = this.selectedArrayObject.filter(i => option.includes(i)).length > 0;
+          const isContains = this.selectedArrayObject.includes(option);
+          console.log('isContains', isContains);
+          console.log(!isContains);
           if (!isContains) {
             this.selectedArrayObject.push(option);
           } else {

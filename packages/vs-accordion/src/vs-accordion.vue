@@ -1,5 +1,5 @@
 <template>
-  <ul class="vs-accordion">
+  <ul :class="['vs-accordion', { 'vs-accordion--disable-animate': disableAnimate }]">
     <slot></slot>
   </ul>
 </template>
@@ -24,6 +24,11 @@
       },
 
       isCompact: {
+        type: Boolean,
+        default: false,
+      },
+
+      disableAnimate: {
         type: Boolean,
         default: false,
       },
