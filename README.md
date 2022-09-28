@@ -73,7 +73,7 @@ Licensed under the [`MIT License`](LICENSE).
 </p>
 
 <p>
-  <a href="https://www.buymeacoffee.com/ashwinshenoy?utm_source=zd_custom_object" target="_blank">
+  <a href="https://www.buymeacoffee.com/ashwinshenoy?utm_source=vue_simple" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="margin-top: 20px;width: 140px">
   </a>
 </p>
