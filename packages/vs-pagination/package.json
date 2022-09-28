@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-pagination",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "A simple vue pagination",
   "main": "dist/vs-pagination.umd.js",
   "module": "dist/vs-pagination.esm.js",

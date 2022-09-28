@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-tag",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "A simple vue tag. Perfect for all your tag scenarios.",
   "main": "dist/vs-tag.umd.js",
   "module": "dist/vs-tag.esm.js",
