@@ -130,8 +130,6 @@ After installation,
 | required      | Boolean                              | -            | show `*` with label                          |
 | disabled      | Boolean                              | -            | Disable datepicker                           |
 | disabled-date | Function                             | -            | Disable dates in datepicker                  |
-| max           | String                               | -            | Max date allowed.                            |
-| min           | String                               | -            | Min date allowed                             |
 | id            | String                               | -            | Id added to datepicker component             |
 | placeholder   | String                               | -            | Placeholder to datepicker input box          |
 | lang          | Object                               | -            | Override the default locale                  |
