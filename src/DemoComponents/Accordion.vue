@@ -55,6 +55,21 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
+          <vs-accordion is-expandable disable-animate>
+            <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
+              <!-- This slot will handle the title of the accordion and is the part you click on -->
+              <template slot="accordion-trigger">
+                <h4>Item {{ n }}</h4>
+              </template>
+
+              <!-- Default content -->
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.
+              </div>
+            </vs-accordion-item>
+          </vs-accordion>
         </div>
       </vs-accordion-item>
     </vs-accordion>

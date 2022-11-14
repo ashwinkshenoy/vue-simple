@@ -27,7 +27,7 @@
           viewBox="0 0 16 16"
           focusable="false"
           role="presentation"
-          class="vs-accordion--icon"
+          :class="['vs-accordion--icon', { 'vs-accordion--icon-active': isExpandable ? isExpandableToggle : visible }]"
         >
           <path
             fill="currentColor"
@@ -172,7 +172,7 @@
       }
     }
 
-    &__active #{$el}--icon {
+    &--icon-active {
       transform: rotate(180deg);
     }
 
