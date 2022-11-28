@@ -1,16 +1,30 @@
----
-title: Datepicker
----
+# Vue Simple Datepicker
 
-<masthead title="Datepicker" description="A light weight vue datepicker. Perfect for all your datepicker scenarios.">
-  <component-links
-    codesandbox="https://codesandbox.io/s/vs-datepicker-4vcnu"
-    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-datepicker"
-    packageName="@vuesimple/vs-datepicker">
-  </component-links>
-</masthead>
+#### 🗃 A simple vue detepicker. Perfect for all your datepicker scenarios.
 
-## Install
+A light weight vue datepicker plugin.
+
+[![npm](https://img.shields.io/npm/v/@vuesimple/vs-datepicker.svg)](https://www.npmjs.com/package/@vuesimple/vs-datepicker)
+[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)
+<br />
+
+![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
+![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
+![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)
+![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)
+![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
+
+<br />
+
+### 📺 Live Demo
+
+Code Sandbox Demo: [Link](https://4vcnu.csb.app/)
+Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
+
+<br />
+
+### 🛠 Install
 
 ```bash
 npm i @vuesimple/vs-datepicker
@@ -20,7 +34,9 @@ npm i @vuesimple/vs-datepicker
 yarn add @vuesimple/vs-datepicker
 ```
 
-## Usage
+<br />
+
+### 🚀 Usage
 
 ```html
 <template>
@@ -44,17 +60,13 @@ yarn add @vuesimple/vs-datepicker
 </script>
 ```
 
-## CDN
+<br />
+
+### 🌎 CDN
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
 ```
-
-::: tip
-
-Replace `<version>` with a version number in the above url.
-
-:::
 
 ```html
 <template>
@@ -68,7 +80,11 @@ Replace `<version>` with a version number in the above url.
 </template>
 ```
 
-## Nuxt.js
+<br />
+
+<h3> 
+  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
+</h3>
 
 Nuxt Code Snippet
 
@@ -107,17 +123,16 @@ After installation,
   </template>
   ```
 
-  <br />
-
-::: tip
+**Note**
 
 - For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
 - You can also do
   `import VsDatepicker from '@vuesimple/vs-datepicker'`
   & add in `component:{VsDatepicker}` and use it within component, without globally installing in plugin folder.
-  :::
 
-## Props
+<br />
+
+### ⚙ Props
 
 | Name          | Type                                 | Default      | Description                                  |
 | ------------- | ------------------------------------ | ------------ | -------------------------------------------- |
@@ -139,8 +154,7 @@ After installation,
 
 <br />
 
-::: tip
-
+**NOTE**
 Example for `maxdate`
 
 ```html
@@ -150,23 +164,34 @@ Example for `maxdate`
   v-model="form.date"
   placeholder="DD-MM-YYYY"
   format="DD-MM-YYYY"
-  :max="maxDate"
+  :disabled-date="disabledDate"
 ></vs-datepicker>
 
 <script>
   export default {
-    date() {
-      return {
-        maxDate: new Date().toISOString().substring(0, 10), // Max date -> Today
-      };
+    methods: {
+      disabledDates(date) {
+        return date < new Date('Your Min Date') || date > new Date('Your Max Date');
+      },
     },
   };
 </script>
 ```
 
-:::
+<br />
 
-## Token
+### 🔥 Events
+
+| Name    | Description                            |
+| ------- | -------------------------------------- |
+| v-model | When the value changes                 |
+| change  | When the value change(same as v-model) |
+| open    | When panel opening                     |
+| close   | When panel closing                     |
+
+<br />
+
+### Token
 
 | Unit                       | Token | Output                                 |
 | -------------------------- | ----- | -------------------------------------- |
@@ -205,7 +230,7 @@ Example for `maxdate`
 
 <br />
 
-## Value Type
+### Value Type
 
 | Value             | Description                                        |
 | ----------------- | -------------------------------------------------- |
@@ -216,14 +241,29 @@ Example for `maxdate`
 
 <br />
 
-## Events
+### Full lang config
 
-| Name    | Description                            |
-| ------- | -------------------------------------- |
-| v-model | When the value changes                 |
-| change  | When the value change(same as v-model) |
-| open    | When panel opening                     |
-| close   | When panel closing                     |
+```javascript
+{
+  // the locale of formatting and parsing function
+  formatLocale: {
+    // MMMM
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    // MMM
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    // dddd
+    weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    // ddd
+    weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    // dd
+    weekdaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    // first day of week
+    firstDayOfWeek: 0,
+    // first week contains January 1st.
+    firstWeekContainsDate: 1,
+  },
+}
+```
 
 <br />
 

@@ -14,13 +14,12 @@
       :disabled="disabled"
       :editable="editable"
       :clearable="clearable"
-      prefix-class="vs"
       :range="range"
       :placeholder="placeholder"
       :lang="lang"
+      prefix-class="vs"
       v-bind="$attrs"
       v-on="$listeners"
-      @change="emitChange"
     >
       <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
         <slot :name="name" v-bind="slotData" />
@@ -130,17 +129,17 @@
         return date < new Date(this.min) || date > new Date(this.max);
       },
 
-      emitChange(value) {
-        this.$emit('change', value);
-      },
+      // emitChange(value) {
+      //   this.$emit('change', value);
+      // },
 
-      emitOpen(value) {
-        this.$emit('open', value);
-      },
+      // emitOpen(value) {
+      //   this.$emit('open', value);
+      // },
 
-      emitClose(value) {
-        this.$emit('close', value);
-      },
+      // emitClose(value) {
+      //   this.$emit('close', value);
+      // },
     },
   };
 </script>

@@ -164,15 +164,15 @@ Example for `maxdate`
   v-model="form.date"
   placeholder="DD-MM-YYYY"
   format="DD-MM-YYYY"
-  :max="maxDate"
+  :disabled-date="disabledDate"
 ></vs-datepicker>
 
 <script>
   export default {
-    date() {
-      return {
-        maxDate: new Date().toISOString().substring(0, 10), // Max date -> Today
-      };
+    methods: {
+      disabledDates(date) {
+        return date < new Date('Your Min Date') || date > new Date('Your Max Date');
+      },
     },
   };
 </script>
