@@ -56,11 +56,7 @@
       <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
         <!-- This slot will handle the title of the accordion and is the part you click on -->
 
-<<<<<<< HEAD
-        <template slot="accordion-trigger">
-=======
         <template #accordion-trigger>
->>>>>>> 91d8907 (migrate local build to vue3)
           <h4>Item {{ n }}</h4>
         </template>
 
@@ -73,7 +69,7 @@
           <vs-accordion is-expandable disable-animate>
             <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
               <!-- This slot will handle the title of the accordion and is the part you click on -->
-              <template slot="accordion-trigger">
+              <template #accordion-trigger>
                 <h4>Item {{ n }}</h4>
               </template>
 
