@@ -1,31 +1,14 @@
-// Import vue component
-import VsAccordion from './vs-accordion.vue';
-import VsAccordionItem from './vs-accordion-item.vue';
+import components from './components';
 
-// Declare install function executed by Vue.use()
-export function install(Vue) {
-  if (install.installed) return;
-  install.installed = true;
-  Vue.component('VsAccordion', VsAccordion);
-  Vue.component('VsAccordionItem', VsAccordionItem);
-}
-
-// Create module definition for Vue.use()
 const plugin = {
-  install,
+  install(Vue) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop];
+        Vue.component(component.name, component);
+      }
+    }
+  },
 };
 
-// Auto-install when vue is found (eg. in browser via <script> tag)
-let GlobalVue = null;
-if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
-} else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
-}
-if (GlobalVue) {
-  GlobalVue.use(plugin);
-}
-
-// To allow use as module (npm/webpack/etc.) export component
-export default VsAccordion;
-export { VsAccordion, VsAccordionItem };
+export default plugin;

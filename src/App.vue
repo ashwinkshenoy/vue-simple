@@ -5,7 +5,7 @@
     </div>
     <br /><br />
 
-    <demo-datepicker />
+    <!-- <demo-datepicker /> -->
 
     <br /><br />
     <hr />
@@ -145,7 +145,7 @@
     <br /><br />
     <strong>Toast</strong>
     <br /><br />
-    <demo-toast></demo-toast>
+    <!-- <demo-toast></demo-toast> -->
 
     <br /><br />
     <hr />
@@ -159,13 +159,13 @@
 <script>
   import VsAlert from '../packages/vs-alert/src/vs-alert.vue';
   import DemoModal from './DemoComponents/Modal.vue';
-  import DemoDatepicker from './DemoComponents/Datepicker.vue';
+  // import DemoDatepicker from './DemoComponents/Datepicker.vue';
   import DemoSelect from './DemoComponents/Select.vue';
   import DemoTag from './DemoComponents/Tag.vue';
   import DemoButton from './DemoComponents/Button.vue';
   import DemoPagination from './DemoComponents/Pagination.vue';
   import DemoLoader from './DemoComponents/Loader.vue';
-  import DemoToast from './DemoComponents/Toast.vue';
+  // import DemoToast from './DemoComponents/Toast.vue';
   import DemoAccordion from './DemoComponents/Accordion.vue';
 
   export default {
@@ -173,13 +173,13 @@
     components: {
       VsAlert,
       DemoModal,
-      DemoDatepicker,
+      // DemoDatepicker,
       DemoSelect,
       DemoTag,
       DemoButton,
       DemoPagination,
       DemoLoader,
-      DemoToast,
+      // DemoToast,
       DemoAccordion,
     },
 

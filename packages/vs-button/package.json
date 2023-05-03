@@ -9,21 +9,14 @@
     "./sfc": "src/vs-button.vue"
   },
   "scripts": {
-    "build": "rm -rfv dist && npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vs-button.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vs-button.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vs-button.min.js"
+    "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },
   "devDependencies": {
-    "@rollup/plugin-buble": "0.21.3",
-    "@rollup/plugin-image": "2.0.5",
-    "@rollup/plugin-node-resolve": "13.0.5",
-    "minimist": "1.2.5",
-    "rollup": "1.32.0",
-    "rollup-plugin-terser": "6.1.0",
-    "rollup-plugin-vue": "5.1.9",
-    "vue": "2.6.10",
-    "vue-template-compiler": "2.6.10"
+    "@vitejs/plugin-vue": "^3.0.1",
+    "sass": "^1.54.4",
+    "vite": "^3.0.5",
+    "vite-plugin-style-inject": "0.0.1",
+    "vue": "^3.2.37"
   },
   "repository": {
     "type": "git",

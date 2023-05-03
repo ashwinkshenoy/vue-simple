@@ -22,17 +22,17 @@
       >
         <!-- This slot will handle the title of the accordion and is the part you click on -->
 
-        <template slot="accordion-trigger">
+        <template #accordion-trigger>
           <h4>Item {{ n }}</h4>
         </template>
 
-        <template slot="accordion-non-clickable">
+        <template #accordion-non-clickable>
           <button>Non-clickable</button>
         </template>
 
         <!-- Default content -->
 
-        <template>
+        <template #default>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
@@ -56,7 +56,11 @@
       <vs-accordion-item @change="log" v-for="(n, index) in [1, 2, 3]" :key="index">
         <!-- This slot will handle the title of the accordion and is the part you click on -->
 
+<<<<<<< HEAD
         <template slot="accordion-trigger">
+=======
+        <template #accordion-trigger>
+>>>>>>> 91d8907 (migrate local build to vue3)
           <h4>Item {{ n }}</h4>
         </template>
 

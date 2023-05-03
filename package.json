@@ -16,8 +16,8 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "vue": "2.6.12",
-    "vue2-datepicker": "^3.9.1"
+    "vue": "^3.2.47",
+    "@vue/compat": "^3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.1",
@@ -38,8 +38,7 @@
     "vuepress-plugin-clean-urls": "^1.1.2",
     "vite": "^2.5.4",
     "vite-plugin-vue2": "^1.9.0",
-    "vue-server-renderer": "2.6.12",
-    "vue-template-compiler": "2.6.12"
+    "vue-server-renderer": "2.6.12"
   },
   "eslintConfig": {
     "root": true,

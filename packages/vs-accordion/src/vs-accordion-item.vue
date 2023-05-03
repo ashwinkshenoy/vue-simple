@@ -212,8 +212,8 @@
       overflow: hidden;
     }
 
-    &:not(#{$el}--disable-animate) &-enter,
-    &:not(#{$el}--disable-animate) &-leave-to {
+    &-enter-from,
+    &-leave-to {
       height: 0 !important;
       opacity: 0;
     }
