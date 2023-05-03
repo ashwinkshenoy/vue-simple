@@ -24,3 +24,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 .npmrc
+
+.cache/
+.temp/

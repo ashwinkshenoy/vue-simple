@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="color-grid">
     <slot></slot>
   </div>

@@ -16,16 +16,16 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "vue": "^3.2.47",
-    "@vue/compat": "^3"
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.1",
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-google-analytics": "^1.8.2",
-    "@vuepress/plugin-pwa": "^1.2.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
+    "@vuepress/plugin-back-to-top": "^2.0.0-beta.61",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.61",
+    "@vuepress/plugin-pwa": "^2.0.0-beta.61",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.61",
     "add": "^2.0.6",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.0",
@@ -34,11 +34,10 @@
     "lerna": "^4.0.0",
     "sass": "^1.32.8",
     "style-loader": "^2.0.0",
-    "vuepress": "1.8.2",
-    "vuepress-plugin-clean-urls": "^1.1.2",
     "vite": "^2.5.4",
     "vite-plugin-vue2": "^1.9.0",
-    "vue-server-renderer": "2.6.12"
+    "vue-server-renderer": "2.6.12",
+    "vuepress": "^2.0.0-beta.61"
   },
   "eslintConfig": {
     "root": true,

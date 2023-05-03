@@ -457,12 +457,12 @@
     }
 
     // Transitions
-    &--transition-fade-enter,
+    &--transition-fade-enter-from,
     &--transition-fade-leave-active {
       opacity: 0;
     }
 
-    &--transition-slide-up-enter,
+    &--transition-slide-up-enter-from,
     &--transition-slide-up-leave-active {
       opacity: 0;
 
@@ -471,7 +471,7 @@
       }
     }
 
-    &--transition-slide-down-enter,
+    &--transition-slide-down-enter-from,
     &--transition-slide-down-leave-active {
       opacity: 0;
 

@@ -1,22 +1,36 @@
+import { backToTopPlugin } from '@vuepress/plugin-back-to-top';
+import { pwaPlugin } from '@vuepress/plugin-pwa';
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+import { docsearchPlugin } from '@vuepress/plugin-docsearch';
+import { getDirname, path } from '@vuepress/utils';
+import { defaultTheme } from 'vuepress';
+
 const getPages = require('./utilities');
 
 module.exports = {
   base: '/',
   plugins: [
-    [
-      '@vuepress/pwa',
-      {
-        serviceWorker: true,
-        updatePopup: true,
-      },
-    ],
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './components'),
+    }),
+    pwaPlugin({
+      serviceWorker: true,
+      updatePopup: true,
+    }),
+    backToTopPlugin(),
+    docsearchPlugin({
+      // options
+      appId: 'BH4D9OD16A',
+      apiKey: '6d990b86d8298fb9ab5f36102aecf449',
+      indexName: 'vuesimple',
+      rateLimit: 6,
+    }),
     // [
     //   '@vuepress/search',
     //   {
     //     searchMaxSuggestions: 10,
     //   },
     // ],
-    ['@vuepress/back-to-top'],
   ],
   head: [
     ['link', { rel: 'icon', href: `/favicon.png` }],
@@ -49,7 +63,7 @@ module.exports = {
       github: 'https://github.com/ashwinkshenoy/vue-simple',
     },
   },
-  themeConfig: {
+  theme: defaultTheme({
     logo: '/logos/vue-simple.svg',
     repo: 'https://github.com/ashwinkshenoy/vue-simple',
     docsDir: 'docs',
@@ -57,30 +71,31 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page!',
     smoothScroll: true,
-    algolia: {
-      apiKey: '6d990b86d8298fb9ab5f36102aecf449',
-      indexName: 'vuesimple',
-      algoliaOptions: {
-        hitsPerPage: 6,
+    colorModeSwitch: false,
+    navbar: [
+      // NavbarItem
+      {
+        text: 'Buy Me A Coffee',
+        link: '/foo/',
       },
-    },
-    searchPlaceholder: 'Search...',
+    ],
     sidebar: [
       {
-        title: 'Components',
-        collapsable: true,
+        text: 'Components',
+        collapsible: true,
         children: getPages('./docs/components/'),
       },
       {
-        title: 'Grid',
-        collapsable: true,
+        text: 'Grid',
+        collapsible: true,
         children: getPages('./docs/grid/'),
       },
       {
-        title: 'Utilities',
-        collapsable: true,
+        text: 'Utilities',
+        collapsible: true,
         children: getPages('./docs/utilities/'),
       },
     ],
-  },
+    sidebarDepth: 1,
+  }),
 };
