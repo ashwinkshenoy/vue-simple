@@ -6,6 +6,8 @@
 
 <script>
   export default {
+    name: 'VsAccordion',
+
     props: {
       active: {
         type: Number,

@@ -1,31 +1,19 @@
-import { terser } from 'rollup-plugin-terser';
-import buble from '@rollup/plugin-buble';
-import image from '@rollup/plugin-image';
 import vue from 'rollup-plugin-vue';
-import minimist from 'minimist';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
-const argv = minimist(process.argv.slice(2));
-
-const config = {
-  input: 'src/index.js',
-  output: {
-    name: 'VsAccordion',
-    exports: 'named',
+export default [
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        format: 'esm',
+        file: 'dist/index.mjs',
+      },
+      {
+        format: 'cjs',
+        file: 'dist/index.js',
+      },
+    ],
+    plugins: [vue(), peerDepsExternal()],
   },
-  plugins: [
-    vue({
-      css: true,
-      compileTemplate: true,
-      needMap: false,
-    }),
-    buble(),
-    image(),
-  ],
-};
-
-// Only minify browser (iife) version
-if (argv.format === 'iife') {
-  config.plugins.push(terser());
-}
-
-export default config;
+];

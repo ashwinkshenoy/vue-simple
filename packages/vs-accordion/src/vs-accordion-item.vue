@@ -60,6 +60,8 @@
 
 <script>
   export default {
+    name: 'VsAccordionItem',
+
     props: {},
 
     inject: ['Accordion'],

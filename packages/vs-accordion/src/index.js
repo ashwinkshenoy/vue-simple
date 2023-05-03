@@ -1,13 +1,10 @@
-import components from './components';
+import VsAccordion from './vs-accordion.vue';
+import VsAccordionItem from './vs-accordion-item.vue';
 
 const plugin = {
   install(Vue) {
-    for (const prop in components) {
-      if (components.hasOwnProperty(prop)) {
-        const component = components[prop];
-        Vue.component(component.name, component);
-      }
-    }
+    Vue.component('VsAccordion', VsAccordion);
+    Vue.component('VsAccordionItem', VsAccordionItem);
   },
 };
 

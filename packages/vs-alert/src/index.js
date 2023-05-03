@@ -1,13 +1,8 @@
-import components from './components';
+import VsAlert from './vs-alert.vue';
 
 const plugin = {
   install(Vue) {
-    for (const prop in components) {
-      if (components.hasOwnProperty(prop)) {
-        const component = components[prop];
-        Vue.component(component.name, component);
-      }
-    }
+    Vue.component('VsAlert', VsAlert);
   },
 };
 
