@@ -76,7 +76,7 @@ module.exports = {
       // NavbarItem
       {
         text: 'Buy Me A Coffee',
-        link: '/foo/',
+        link: 'https://www.buymeacoffee.com/ashwinshenoy?utm_source=vue_simple',
       },
     ],
     sidebar: [
