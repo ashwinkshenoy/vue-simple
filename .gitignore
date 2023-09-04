@@ -25,5 +25,5 @@ pnpm-debug.log*
 *.sw?
 .npmrc
 
-.cache/
-.temp/
+*.cache/
+*.temp/
