@@ -13,7 +13,7 @@
         <small>v-model: {{ form.select2 }}</small>
       </div>
       <div>
-        <vs-select label="No Search (Object)" :options="options2" v-model="form.select3"></vs-select>
+        <vs-select label="No Search (Object)" :options="options2" v-model="form.select3" @change="log"></vs-select>
         <small>v-model: {{ form.select3 }}</small>
       </div>
       <div>

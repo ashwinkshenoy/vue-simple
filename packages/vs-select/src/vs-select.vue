@@ -43,9 +43,7 @@
         :aria-hidden="!disabled ? isMenuHidden : true"
         ref="vs-select-dropdown"
       >
-        <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">
-          -
-        </li>
+        <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">-</li>
         <li
           v-for="(option, index) in selectOptions"
           :key="'vs-selected-' + index"
@@ -94,7 +92,7 @@
       },
       // For array of object - pass value
       preselected: {},
-      value: {},
+      modelValue: {},
       // Array or array of object
       // 1) [1,2,3]
       // 2) [{label: 'Jack', value: '1'}, {label: 'Bill', value: '2'}]
@@ -172,7 +170,7 @@
         this.selected = this.preselected;
       },
 
-      value() {
+      modelValue() {
         this.initOptions();
       },
 
@@ -223,8 +221,8 @@
               return;
             }
           }
-          if (typeof this.value !== 'undefined') {
-            const selectedFilter = this.options.filter(item => item.value === this.value);
+          if (typeof this.modelValue !== 'undefined') {
+            const selectedFilter = this.options.filter(item => item.value === this.modelValue);
             if (selectedFilter.length > 0) {
               this.selectedObject = selectedFilter[0];
               this.selected = this.selectedObject.value;
@@ -238,8 +236,8 @@
             this.selected = this.inputValue = this.preselected;
             return;
           }
-          if (this.value) {
-            this.selected = this.inputValue = this.value;
+          if (this.modelValue) {
+            this.selected = this.inputValue = this.modelValue;
           }
         }
       },
@@ -254,12 +252,12 @@
           this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
           // this.inputValue = this.selected;
-          this.$emit('input', this.selectedObject.value);
+          this.$emit('update:modelValue', this.selectedObject.value);
           this.$emit('change', this.selectedObject.value, this.selectedObject);
         } else {
           this.selected = this.options.filter(i => i === option)[0];
           // this.inputValue = this.selected;
-          this.$emit('input', this.selected);
+          this.$emit('update:modelValue', this.selected);
           this.$emit('change', this.options.indexOf(this.selected), this.selected);
         }
         this.searchTerm = '';

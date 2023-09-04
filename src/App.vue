@@ -18,7 +18,7 @@
     <strong>Alerts</strong>
     <br /><br />
 
-    <vs-alert variant="success" show-close>
+    <vs-alert variant="success" show-close @close="log">
       <template v-slot:title>Success Heading</template>
       Success Message
     </vs-alert>

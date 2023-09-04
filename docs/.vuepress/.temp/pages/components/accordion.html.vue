@@ -151,6 +151,12 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <td>-</td>
 <td>Applies compact styling.</td>
 </tr>
+<tr>
+<td>disable-animate</td>
+<td>Boolean</td>
+<td>-</td>
+<td>Disable toggle animation.</td>
+</tr>
 </tbody>
 </table>
 <br />

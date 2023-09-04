@@ -1,14 +1,25 @@
-<template><div><masthead title="Datepicker" description="A light weight vue datepicker. Perfect for all your datepicker scenarios.">
-  <component-links
-    codesandbox="https://codesandbox.io/s/vs-datepicker-4vcnu"
-    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-datepicker"
-    packageName="@vuesimple/vs-datepicker">
-  </component-links>
-</masthead>
-<h2 id="install" tabindex="-1"><a class="header-anchor" href="#install" aria-hidden="true">#</a> Install</h2>
+<template><div><h1 id="vue-simple-datepicker" tabindex="-1"><a class="header-anchor" href="#vue-simple-datepicker" aria-hidden="true">#</a> Vue Simple Datepicker</h1>
+<h4 id="🗃-a-simple-vue-detepicker-perfect-for-all-your-datepicker-scenarios" tabindex="-1"><a class="header-anchor" href="#🗃-a-simple-vue-detepicker-perfect-for-all-your-datepicker-scenarios" aria-hidden="true">#</a> 🗃 A simple vue detepicker. Perfect for all your datepicker scenarios.</h4>
+<p>A light weight vue datepicker plugin.</p>
+<p><a href="https://www.npmjs.com/package/@vuesimple/vs-datepicker" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/@vuesimple/vs-datepicker.svg" alt="npm"><ExternalLinkIcon/></a>
+<a href="https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg" alt="npm"><ExternalLinkIcon/></a>
+<br /></p>
+<p><img src="https://forthebadge.com/images/badges/made-with-vue.svg" alt="forthebadge">
+<img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="forthebadge">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="forthebadge">
+<img src="https://forthebadge.com/images/badges/built-with-swag.svg" alt="forthebadge">
+<img src="https://forthebadge.com/images/badges/check-it-out.svg" alt="forthebadge">
+<img src="https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg" alt="forthebadge"></p>
+<br />
+<h3 id="📺-live-demo" tabindex="-1"><a class="header-anchor" href="#📺-live-demo" aria-hidden="true">#</a> 📺 Live Demo</h3>
+<p>Code Sandbox Demo: <a href="https://4vcnu.csb.app/" target="_blank" rel="noopener noreferrer">Link<ExternalLinkIcon/></a>
+Code Sandbox: <a href="https://codesandbox.io/s/vs-datepicker-4vcnu" target="_blank" rel="noopener noreferrer">Link<ExternalLinkIcon/></a></p>
+<br />
+<h3 id="🛠-install" tabindex="-1"><a class="header-anchor" href="#🛠-install" aria-hidden="true">#</a> 🛠 Install</h3>
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">npm</span> i @vuesimple/vs-datepicker
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> @vuesimple/vs-datepicker
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="usage" tabindex="-1"><a class="header-anchor" href="#usage" aria-hidden="true">#</a> Usage</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><br />
+<h3 id="🚀-usage" tabindex="-1"><a class="header-anchor" href="#🚀-usage" aria-hidden="true">#</a> 🚀 Usage</h3>
 <div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vs-datepicker</span>
     <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Date<span class="token punctuation">"</span></span>
@@ -28,12 +39,10 @@
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="cdn" tabindex="-1"><a class="header-anchor" href="#cdn" aria-hidden="true">#</a> CDN</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><br />
+<h3 id="🌎-cdn" tabindex="-1"><a class="header-anchor" href="#🌎-cdn" aria-hidden="true">#</a> 🌎 CDN</h3>
 <div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/@vuesimple/vs-datepicker@&lt;version>/dist/vs-datepicker.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="custom-container tip"><p class="custom-container-title">TIP</p>
-<p>Replace <code v-pre>&lt;version&gt;</code> with a version number in the above url.</p>
-</div>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vs-datepicker</span>
     <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Date<span class="token punctuation">"</span></span>
     <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>deliveryDate<span class="token punctuation">"</span></span>
@@ -42,7 +51,10 @@
     <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DD-MM-YYYY<span class="token punctuation">"</span></span>
   <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>vs-datepicker</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="nuxt-js" tabindex="-1"><a class="header-anchor" href="#nuxt-js" aria-hidden="true">#</a> Nuxt.js</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><br />
+<h3> 
+  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
+</h3>
 <p>Nuxt Code Snippet</p>
 <p>After installation,</p>
 <ul>
@@ -74,18 +86,17 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
     <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DD-MM-YYYY<span class="token punctuation">"</span></span>
   <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>vs-datepicker</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><br />
-</li>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
 </ul>
-<div class="custom-container tip"><p class="custom-container-title">TIP</p>
+<p><strong>Note</strong></p>
 <ul>
 <li>For older Nuxt versions, use <code v-pre>&lt;no-ssr&gt;...&lt;/no-ssr&gt;</code> tag.</li>
 <li>You can also do
 <code v-pre>import VsDatepicker from '@vuesimple/vs-datepicker'</code>
 &amp; add in <code v-pre>component:{VsDatepicker}</code> and use it within component, without globally installing in plugin folder.</li>
 </ul>
-</div>
-<h2 id="props" tabindex="-1"><a class="header-anchor" href="#props" aria-hidden="true">#</a> Props</h2>
+<br />
+<h3 id="⚙-props" tabindex="-1"><a class="header-anchor" href="#⚙-props" aria-hidden="true">#</a> ⚙ Props</h3>
 <table>
 <thead>
 <tr>
@@ -145,16 +156,10 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <td>Disable datepicker</td>
 </tr>
 <tr>
-<td>max</td>
-<td>String</td>
+<td>disabled-date</td>
+<td>Function</td>
 <td>-</td>
-<td>Max date allowed.</td>
-</tr>
-<tr>
-<td>min</td>
-<td>String</td>
-<td>-</td>
-<td>Min date allowed</td>
+<td>Disable dates in datepicker</td>
 </tr>
 <tr>
 <td>id</td>
@@ -195,28 +200,56 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 </tbody>
 </table>
 <br />
-<div class="custom-container tip"><p class="custom-container-title">TIP</p>
-<p>Example for <code v-pre>maxdate</code></p>
+<p><strong>NOTE</strong>
+Example for <code v-pre>maxdate</code></p>
 <div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vs-datepicker</span>
   <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Date<span class="token punctuation">"</span></span>
   <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>deliveryDate<span class="token punctuation">"</span></span>
   <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form.date<span class="token punctuation">"</span></span>
   <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DD-MM-YYYY<span class="token punctuation">"</span></span>
   <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DD-MM-YYYY<span class="token punctuation">"</span></span>
-  <span class="token attr-name">:max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxDate<span class="token punctuation">"</span></span>
+  <span class="token attr-name">:disabled-date</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabledDate<span class="token punctuation">"</span></span>
 <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>vs-datepicker</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    <span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        <span class="token literal-property property">maxDate</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// Max date -> Today</span>
-      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">disabledDates</span><span class="token punctuation">(</span><span class="token parameter">date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> date <span class="token operator">&lt;</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'Your Min Date'</span><span class="token punctuation">)</span> <span class="token operator">||</span> date <span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'Your Max Date'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div>
-<h2 id="token" tabindex="-1"><a class="header-anchor" href="#token" aria-hidden="true">#</a> Token</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><br />
+<h3 id="🔥-events" tabindex="-1"><a class="header-anchor" href="#🔥-events" aria-hidden="true">#</a> 🔥 Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v-model</td>
+<td>When the value changes</td>
+</tr>
+<tr>
+<td>change</td>
+<td>When the value change(same as v-model)</td>
+</tr>
+<tr>
+<td>open</td>
+<td>When panel opening</td>
+</tr>
+<tr>
+<td>close</td>
+<td>When panel closing</td>
+</tr>
+</tbody>
+</table>
+<br />
+<h3 id="token" tabindex="-1"><a class="header-anchor" href="#token" aria-hidden="true">#</a> Token</h3>
 <table>
 <thead>
 <tr>
@@ -389,7 +422,7 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 </tbody>
 </table>
 <br />
-<h2 id="value-type" tabindex="-1"><a class="header-anchor" href="#value-type" aria-hidden="true">#</a> Value Type</h2>
+<h3 id="value-type" tabindex="-1"><a class="header-anchor" href="#value-type" aria-hidden="true">#</a> Value Type</h3>
 <table>
 <thead>
 <tr>
@@ -417,34 +450,27 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 </tbody>
 </table>
 <br />
-<h2 id="events" tabindex="-1"><a class="header-anchor" href="#events" aria-hidden="true">#</a> Events</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v-model</td>
-<td>When the value changes</td>
-</tr>
-<tr>
-<td>change</td>
-<td>When the value change(same as v-model)</td>
-</tr>
-<tr>
-<td>open</td>
-<td>When panel opening</td>
-</tr>
-<tr>
-<td>close</td>
-<td>When panel closing</td>
-</tr>
-</tbody>
-</table>
-<br />
+<h3 id="full-lang-config" tabindex="-1"><a class="header-anchor" href="#full-lang-config" aria-hidden="true">#</a> Full lang config</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token punctuation">{</span>
+  <span class="token comment">// the locale of formatting and parsing function</span>
+  <span class="token literal-property property">formatLocale</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// MMMM</span>
+    <span class="token literal-property property">months</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'January'</span><span class="token punctuation">,</span> <span class="token string">'February'</span><span class="token punctuation">,</span> <span class="token string">'March'</span><span class="token punctuation">,</span> <span class="token string">'April'</span><span class="token punctuation">,</span> <span class="token string">'May'</span><span class="token punctuation">,</span> <span class="token string">'June'</span><span class="token punctuation">,</span> <span class="token string">'July'</span><span class="token punctuation">,</span> <span class="token string">'August'</span><span class="token punctuation">,</span> <span class="token string">'September'</span><span class="token punctuation">,</span> <span class="token string">'October'</span><span class="token punctuation">,</span> <span class="token string">'November'</span><span class="token punctuation">,</span> <span class="token string">'December'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// MMM</span>
+    <span class="token literal-property property">monthsShort</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Jan'</span><span class="token punctuation">,</span> <span class="token string">'Feb'</span><span class="token punctuation">,</span> <span class="token string">'Mar'</span><span class="token punctuation">,</span> <span class="token string">'Apr'</span><span class="token punctuation">,</span> <span class="token string">'May'</span><span class="token punctuation">,</span> <span class="token string">'Jun'</span><span class="token punctuation">,</span> <span class="token string">'Jul'</span><span class="token punctuation">,</span> <span class="token string">'Aug'</span><span class="token punctuation">,</span> <span class="token string">'Sep'</span><span class="token punctuation">,</span> <span class="token string">'Oct'</span><span class="token punctuation">,</span> <span class="token string">'Nov'</span><span class="token punctuation">,</span> <span class="token string">'Dec'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// dddd</span>
+    <span class="token literal-property property">weekdays</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Sunday'</span><span class="token punctuation">,</span> <span class="token string">'Monday'</span><span class="token punctuation">,</span> <span class="token string">'Tuesday'</span><span class="token punctuation">,</span> <span class="token string">'Wednesday'</span><span class="token punctuation">,</span> <span class="token string">'Thursday'</span><span class="token punctuation">,</span> <span class="token string">'Friday'</span><span class="token punctuation">,</span> <span class="token string">'Saturday'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// ddd</span>
+    <span class="token literal-property property">weekdaysShort</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Sun'</span><span class="token punctuation">,</span> <span class="token string">'Mon'</span><span class="token punctuation">,</span> <span class="token string">'Tue'</span><span class="token punctuation">,</span> <span class="token string">'Wed'</span><span class="token punctuation">,</span> <span class="token string">'Thu'</span><span class="token punctuation">,</span> <span class="token string">'Fri'</span><span class="token punctuation">,</span> <span class="token string">'Sat'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// dd</span>
+    <span class="token literal-property property">weekdaysMin</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Su'</span><span class="token punctuation">,</span> <span class="token string">'Mo'</span><span class="token punctuation">,</span> <span class="token string">'Tu'</span><span class="token punctuation">,</span> <span class="token string">'We'</span><span class="token punctuation">,</span> <span class="token string">'Th'</span><span class="token punctuation">,</span> <span class="token string">'Fr'</span><span class="token punctuation">,</span> <span class="token string">'Sa'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// first day of week</span>
+    <span class="token literal-property property">firstDayOfWeek</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token comment">// first week contains January 1st.</span>
+    <span class="token literal-property property">firstWeekContainsDate</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><br />
 <p>Original credits to <a href="https://github.com/mengxiong10/vue2-datepicker" target="_blank" rel="noopener noreferrer">Vue2 Datepicker<ExternalLinkIcon/></a></p>
 </div></template>
 

@@ -44,9 +44,7 @@
         ]"
         ref="vs-multiselect-dropdown"
       >
-        <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">
-          -
-        </li>
+        <li class="vs-multiselect__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption">-</li>
         <li class="vs-multiselect__menu-item vs-multiselect__input-wrapper" v-show="isSearch" role="menuitem">
           <input
             ref="vs-multiselect-box"
@@ -108,7 +106,7 @@
         type: Array,
         required: false,
       },
-      value: {},
+      modelValue: {},
       // Array or array of object
       // 1) [1,2,3]
       // 2) [{label: 'Jack', value: '1'}, {label: 'Bill', value: '2'}]
@@ -186,7 +184,7 @@
         }
       },
 
-      value(value) {
+      modelValue(value) {
         this.selectedArrayObject = value;
       },
 
@@ -233,9 +231,9 @@
             );
             return;
           }
-          if (this.value) {
+          if (this.modelValue) {
             this.selectedArrayObject = this.options.filter(
-              ({ value: id1 }) => this.value && this.value.some(id2 => id2.value === id1),
+              ({ value: id1 }) => this.modelValue && this.modelValue.some(id2 => id2.value === id1),
             );
           }
         } else {
@@ -244,8 +242,8 @@
             this.selectedArrayObject = this.preselected;
             return;
           }
-          if (this.value) {
-            this.selectedArrayObject = this.value;
+          if (this.modelValue) {
+            this.selectedArrayObject = this.modelValue;
           }
         }
       },
@@ -278,7 +276,7 @@
             this.selectedArrayObject = this.selectedArrayObject.filter(i => i !== option);
           }
         }
-        this.$emit('input', this.selectedArrayObject);
+        this.$emit('update:modelValue', this.selectedArrayObject);
         this.$emit('change', this.selectedArrayObject);
         this.searchTerm = '';
         this.inputValue = this.selected;

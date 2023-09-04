@@ -4,7 +4,6 @@
       <li
         :class="[
           { 'vs-pagination--disabled': firstPageSelected() },
-          ,
           { 'vs-pagination--no-cursor': !hidePrevNext && firstPageSelected() },
         ]"
       >
@@ -34,18 +33,19 @@
 
       <template v-for="page in renderPages">
         <template v-if="page.isGap">
-          <li class="vs-pagination--gap" :key="page.key"><a>...</a></li>
+          <li class="vs-pagination--gap" :key="page.key + 'gap'"><a>...</a></li>
         </template>
         <template v-else>
-          <li :key="page.key" :class="{ 'vs-pagination--active': page.current }">
+          <li :key="page.key + 'count'" :class="{ 'vs-pagination--active': page.current }">
             <a
               @click="setPage(page.value)"
               @keyup.enter="setPage(page.value)"
               tabindex="0"
               :aria-current="page.current ? 'true' : 'false'"
               :aria-label="page.current ? `Current page, Page ${page.value}` : `Goto Page ${page.value}`"
-              >{{ page.value }}</a
             >
+              {{ page.value }}
+            </a>
           </li>
         </template>
       </template>

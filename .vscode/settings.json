@@ -26,7 +26,6 @@
   "emmet.showExpandedAbbreviation": "always",
   "emmet.includeLanguages": {
     "javascript": "html",
-    "vue-html": "html",
-    "vue": "html, jade"
+    "vue-html": "html"
   }
 }

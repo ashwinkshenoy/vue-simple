@@ -2,7 +2,7 @@
   <span :class="['vs-tag', classList]" :style="isCssVars">
     <span><slot></slot></span>
     <slot name="close" v-if="isClose">
-      <button class="vs-tag__button" @click="$emit('click', true)">
+      <button class="vs-tag__button" @click.stop="$emit('click', true)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
