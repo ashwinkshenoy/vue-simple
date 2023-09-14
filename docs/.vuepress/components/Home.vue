@@ -8,26 +8,10 @@
         🌈 A Simple collection of Tiny Vue Packages.<br />
         ⚡️ Perfect for all your daily coding scenarios.
       </p>
-      <p>
-        <img src="https://forthebadge.com/images/badges/made-with-vue.svg" alt="made-with-vue" />
-        <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="made-with-javascript" />
-        <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="built-with-love" />
-        <img src="https://forthebadge.com/images/badges/built-with-swag.svg" alt="built-with-swag" />
-        <img src="https://forthebadge.com/images/badges/check-it-out.svg" alt="check-it-out" />
-        <img
-          src="https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg"
-          alt="60-percent-of-the-time-works-every-time"
-        />
-        <img src="https://forthebadge.com/images/badges/gluten-free.svg" alt="gluten-free" />
-        <img src="https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg" alt="ctrl-c-ctrl-v" />
-        <img src="https://forthebadge.com/images/badges/open-source.svg" alt="open-source" />
-        <img src="https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg" alt="you-didnt-ask-for-this" />
-        <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" alt="powered-by-coffee" />
-      </p>
       <p class="small">
-        Vue Simple provides consistent styling and behavior for your daily coding/prototyping scenarios. Vue components
-        are maintained following a multi-package approach where components are packaged and published individually, but
-        combined under this single repository.
+        Vue Simple ensures that your coding and prototyping experiences are consistent in both style and functionality.
+        We manage Vue components using a multi-package approach, where each component is packaged and released
+        separately, but they all come together in a single repository for easy use.
       </p>
     </div>
 
@@ -35,8 +19,8 @@
     <h2>Support 🐣</h2>
     <div class="home-page__description">
       <p class="small">
-        Creating quality code packages/ guidelines takes a lot of time. Hence would recommend everyone to help in
-        contributing. Cheers!! 🍻
+        The development of high-quality code packages and guidelines is a time-intensive endeavor. Therefore, I strongly
+        encourage everyone to participate and contribute to this effort. Cheers to collaboration and progress! 🍻
       </p>
     </div>
 
