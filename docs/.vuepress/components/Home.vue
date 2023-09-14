@@ -9,7 +9,9 @@
         ⚡️ Perfect for all your daily coding scenarios.
       </p>
       <p class="small">
-        Vue Simple ensures that your coding and prototyping experiences are consistent in both style and functionality. We manage Vue components using a multi-package approach, where each component is packaged and released separately, but they all come together in a single repository for easy use.
+        Vue Simple ensures that your coding and prototyping experiences are consistent in both style and functionality.
+        We manage Vue components using a multi-package approach, where each component is packaged and released
+        separately, but they all come together in a single repository for easy use.
       </p>
     </div>
 
@@ -17,7 +19,8 @@
     <h2>Support 🐣</h2>
     <div class="home-page__description">
       <p class="small">
-        The development of high-quality code packages and guidelines is a time-intensive endeavor. Therefore, I strongly encourage everyone to participate and contribute to this effort. Cheers to collaboration and progress! 🍻
+        The development of high-quality code packages and guidelines is a time-intensive endeavor. Therefore, I strongly
+        encourage everyone to participate and contribute to this effort. Cheers to collaboration and progress! 🍻
       </p>
     </div>
 

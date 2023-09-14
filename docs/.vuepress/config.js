@@ -52,6 +52,7 @@ module.exports = {
   themeConfig: {
     logo: '/logos/vue-simple.svg',
     docsDir: 'docs',
+    repo: '',
     lastUpdated: 'Last Updated',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
@@ -67,7 +68,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Buy Me A Coffee', link: 'https://www.buymeacoffee.com/ashwinshenoy?utm_source=vuesimple' },
-      { text: 'Github', link: 'https://github.com/ashwinkshenoy/vue-simple' },
+      { text: 'GitHub', link: 'https://github.com/ashwinkshenoy/vue-simple' },
     ],
     sidebar: [
       {
