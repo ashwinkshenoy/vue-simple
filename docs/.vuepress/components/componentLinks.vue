@@ -1,13 +1,5 @@
 <template>
   <div class="component-grid">
-    <div class="component-badge">
-      <a :href="`https://www.npmjs.com/package/${packageName}`">
-        <img :src="`https://img.shields.io/npm/v/${packageName}.svg?style=flat-square`" />
-      </a>
-      <a :href="`https://www.npmjs.com/package/${packageName}`">
-        <img :src="`https://img.shields.io/npm/dt/${packageName}.svg?style=flat-square`" />
-      </a>
-    </div>
     <div class="component-links">
       <a :href="codesandbox" target="_blank" rel="noreferrer noopener" v-if="codesandbox">
         <img src="/logos/codesandbox.png" alt="codesandbox" />
@@ -18,6 +10,17 @@
         <img src="/logos/github.png" alt="github" />
         <span>GitHub</span>
         <img src="/logos/link.png" alt="link" />
+      </a>
+    </div>
+    <div class="component-badge">
+      <a :href="`https://www.npmjs.com/package/${packageName}`">
+        <img :src="`https://img.shields.io/npm/v/${packageName}.svg?style=flat-square`" />
+      </a>
+      <a :href="`https://www.npmjs.com/package/${packageName}`">
+        <img :src="`https://img.shields.io/npm/dt/${packageName}.svg?style=flat-square`" />
+      </a>
+      <a :href="`https://www.npmjs.com/package/${packageName}`">
+        <img :src="`https://data.jsdelivr.com/v1/package/npm/${packageName}/badge`" />
       </a>
     </div>
   </div>
@@ -53,6 +56,7 @@
   .component-badge {
     position: relative;
     z-index: 1;
+    text-align: right;
 
     a {
       margin-right: 10px;
@@ -63,7 +67,7 @@
   }
 
   .component-links {
-    justify-self: flex-end;
+    justify-self: flex-start;
     display: block;
     z-index: 1;
     position: relative;

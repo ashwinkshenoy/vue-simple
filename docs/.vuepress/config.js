@@ -82,17 +82,17 @@ module.exports = {
     sidebar: [
       {
         text: 'Components',
-        collapsible: true,
+        collapsible: false,
         children: getPages('./docs/components/'),
       },
       {
         text: 'Grid',
-        collapsible: true,
+        collapsible: false,
         children: getPages('./docs/grid/'),
       },
       {
         text: 'Utilities',
-        collapsible: true,
+        collapsible: false,
         children: getPages('./docs/utilities/'),
       },
     ],
