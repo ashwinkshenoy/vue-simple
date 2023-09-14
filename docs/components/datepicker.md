@@ -1,30 +1,16 @@
-# Vue Simple Datepicker
+---
+title: Datepicker
+---
 
-#### 🗃 A simple vue detepicker. Perfect for all your datepicker scenarios.
+<masthead title="Datepicker" description="A light weight vue datepicker plugin.">
+  <component-links
+    codesandbox="https://codesandbox.io/s/vs-datepicker-4vcnu"
+    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-datepicker"
+    packageName="@vuesimple/vs-datepicker">
+  </component-links>
+</masthead>
 
-A light weight vue datepicker plugin.
-
-[![npm](https://img.shields.io/npm/v/@vuesimple/vs-datepicker.svg)](https://www.npmjs.com/package/@vuesimple/vs-datepicker)
-[![npm](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)](https://img.shields.io/npm/dt/@vuesimple/vs-datepicker.svg)
-<br />
-
-![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)
-![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)
-![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)
-![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
-
-<br />
-
-### 📺 Live Demo
-
-Code Sandbox Demo: [Link](https://4vcnu.csb.app/)
-Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
-
-<br />
-
-### 🛠 Install
+## Install
 
 ```bash
 npm i @vuesimple/vs-datepicker
@@ -36,7 +22,7 @@ yarn add @vuesimple/vs-datepicker
 
 <br />
 
-### 🚀 Usage
+## Usage
 
 ```html
 <template>
@@ -62,7 +48,7 @@ yarn add @vuesimple/vs-datepicker
 
 <br />
 
-### 🌎 CDN
+## CDN
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
@@ -82,11 +68,7 @@ yarn add @vuesimple/vs-datepicker
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
+## Nuxt.js
 
 After installation,
 
@@ -132,7 +114,7 @@ After installation,
 
 <br />
 
-### ⚙ Props
+## Props
 
 | Name          | Type                                 | Default      | Description                                  |
 | ------------- | ------------------------------------ | ------------ | -------------------------------------------- |
@@ -180,7 +162,7 @@ Example for `maxdate`
 
 <br />
 
-### 🔥 Events
+## Events
 
 | Name    | Description                            |
 | ------- | -------------------------------------- |
@@ -191,7 +173,7 @@ Example for `maxdate`
 
 <br />
 
-### Token
+## Token
 
 | Unit                       | Token | Output                                 |
 | -------------------------- | ----- | -------------------------------------- |
@@ -230,7 +212,7 @@ Example for `maxdate`
 
 <br />
 
-### Value Type
+## Value Type
 
 | Value             | Description                                        |
 | ----------------- | -------------------------------------------------- |
@@ -241,7 +223,7 @@ Example for `maxdate`
 
 <br />
 
-### Full lang config
+## Full lang config
 
 ```javascript
 {
