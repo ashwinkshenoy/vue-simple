@@ -51,7 +51,6 @@ module.exports = {
   },
   themeConfig: {
     logo: '/logos/vue-simple.svg',
-    repo: 'https://github.com/ashwinkshenoy/vue-simple',
     docsDir: 'docs',
     lastUpdated: 'Last Updated',
     editLinks: true,
@@ -65,20 +64,25 @@ module.exports = {
       },
     },
     searchPlaceholder: 'Search...',
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Buy Me A Coffee', link: 'https://www.buymeacoffee.com/ashwinshenoy?utm_source=vuesimple' },
+      { text: 'Github', link: 'https://github.com/ashwinkshenoy/vue-simple' },
+    ],
     sidebar: [
       {
         title: 'Components',
-        collapsable: true,
+        collapsable: false,
         children: getPages('./docs/components/'),
       },
       {
         title: 'Grid',
-        collapsable: true,
+        collapsable: false,
         children: getPages('./docs/grid/'),
       },
       {
         title: 'Utilities',
-        collapsable: true,
+        collapsable: false,
         children: getPages('./docs/utilities/'),
       },
     ],
