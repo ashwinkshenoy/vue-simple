@@ -57,6 +57,7 @@
     position: relative;
     z-index: 1;
     text-align: right;
+    display: flex;
 
     a {
       margin-right: 10px;

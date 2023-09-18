@@ -5,7 +5,7 @@
       <span class="vs-datepicker--required" v-if="required"> *</span>
     </label>
     <date-picker
-      v-model="selectedDate"
+      v-model:value="selectedDate"
       :type="type"
       :input-class="classes"
       :value-type="valueType"
@@ -17,19 +17,14 @@
       :range="range"
       :placeholder="placeholder"
       :lang="lang"
-      prefix-class="vs"
       v-bind="$attrs"
-      v-on="$listeners"
     >
-      <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
-        <slot :name="name" v-bind="slotData" />
-      </template>
     </date-picker>
   </div>
 </template>
 
 <script>
-  import DatePicker from 'vue2-datepicker';
+  import DatePicker from 'vue-datepicker-next';
 
   export default {
     name: 'VsDatepicker',
@@ -65,7 +60,7 @@
         type: String,
         default: 'Date',
       },
-      value: {},
+      modelValue: {},
       max: {
         type: String,
         default: '',
@@ -102,6 +97,10 @@
       },
     },
 
+    provide: {
+      datepicker_prefixClass: 'vs',
+    },
+
     computed: {
       /**
        * Classes added to datpicker
@@ -116,10 +115,10 @@
        */
       selectedDate: {
         get() {
-          return this.value;
+          return this.modelValue;
         },
         set(value) {
-          this.$emit('input', value);
+          this.$emit('update:modelValue', value);
         },
       },
     },
@@ -147,11 +146,10 @@
 <style lang="scss">
   $el: '.vs-datepicker';
 
-  $namespace: 'vs';
+  $namespace: 'mx';
   $default-color: #555;
   $primary-color: #1f73b7;
-
-  @import 'vue2-datepicker/scss/index.scss';
+  @import 'vue-datepicker-next/index.css';
 
   #{$el} {
     --primary-color: #1f73b7;
@@ -163,7 +161,7 @@
       color: #2f3941;
       font-size: 14px;
       font-weight: 600;
-      display: inline-block;
+      display: block;
       margin-bottom: 8px;
     }
 
@@ -234,7 +232,7 @@
     }
   }
 
-  .vs-datepicker-main {
+  .#{$namespace}-datepicker-main {
     --vs-datepicker-primary-color: #1f73b7;
     --vs-datepicker-grey: #c2c8cc;
     --vs-datepicker-white: #ffffff;
@@ -249,25 +247,26 @@
     font-kerning: normal;
     font-family: var(--vs-datepicker-font-family);
 
-    .vs-calendar {
+    .#{$namespace}-calendar {
       width: 275px;
       padding: 15px 15px;
     }
 
-    .vs-calendar-header {
+    .#{$namespace}-calendar-header {
       height: 40px;
       line-height: 30px;
     }
 
-    .vs-calendar-header-label {
+    .#{$namespace}-calendar-header-label {
       line-height: 10px;
     }
 
-    .vs-calendar-content {
+    .#{$namespace}-calendar-content {
       .cell {
         color: var(--vs-datepicker-primary-color);
         &.active {
           color: var(--vs-datepicker-white);
+          background-color: var(--vs-datepicker-primary-color);
         }
         &.disabled,
         &.not-current-month {
@@ -279,18 +278,18 @@
           background-color: rgba(31, 115, 183, 0.08);
         }
       }
-      .vs-table {
+      .#{$namespace}-table {
         th {
           font-size: 14px;
           font-weight: 600;
         }
-        &.vs-table-date td,
-        &.vs-table-date th {
+        &.#{$namespace}-table-date td,
+        &.#{$namespace}-table-date th {
           font-size: 13px;
         }
       }
     }
-    .vs-btn {
+    .#{$namespace}-btn {
       font-feature-settings: 'kern', 'kern';
       -webkit-font-kerning: normal;
       font-kerning: normal;

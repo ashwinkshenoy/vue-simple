@@ -1,6 +1,6 @@
 ---
 title: Accordion
-actionLink: /accordion/
+actionLink: /components/accordion/
 ---
 
 <masthead title="Accordion" description="A simple vue accordion. Perfect for all your accordion, faq's scenarios.">

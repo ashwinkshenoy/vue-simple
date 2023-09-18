@@ -1,6 +1,6 @@
 {
   "name": "vuesimple",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap",
@@ -12,21 +12,18 @@
     "build": "vite build",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "test": "vue-cli-service test:unit",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.3.4",
+    "vue-datepicker-next": "^1.0.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.6.1",
+    "@vitejs/plugin-vue": "^3.0.1",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
-    "@vuepress/plugin-back-to-top": "^2.0.0-beta.61",
-    "@vuepress/plugin-docsearch": "^2.0.0-beta.61",
-    "@vuepress/plugin-pwa": "^2.0.0-beta.61",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.61",
-    "add": "^2.0.6",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.0",
     "eslint": "^8.1.0",
@@ -34,10 +31,10 @@
     "lerna": "^4.0.0",
     "sass": "^1.32.8",
     "style-loader": "^2.0.0",
-    "vite": "^2.5.4",
+    "vite": "^3.0.5",
     "vite-plugin-vue2": "^1.9.0",
     "vue-server-renderer": "2.6.12",
-    "vuepress": "^2.0.0-beta.61"
+    "vitepress": "^1.0.0-rc.14"
   },
   "eslintConfig": {
     "root": true,

@@ -26,4 +26,5 @@ pnpm-debug.log*
 .npmrc
 
 *.cache/
+*cache/
 *.temp/

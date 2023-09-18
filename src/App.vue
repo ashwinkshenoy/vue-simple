@@ -5,7 +5,7 @@
     </div>
     <br /><br />
 
-    <!-- <demo-datepicker /> -->
+    <demo-datepicker></demo-datepicker>
 
     <br /><br />
     <hr />
@@ -159,7 +159,7 @@
 <script>
   import VsAlert from '../packages/vs-alert/src/vs-alert.vue';
   import DemoModal from './DemoComponents/Modal.vue';
-  // import DemoDatepicker from './DemoComponents/Datepicker.vue';
+  import DemoDatepicker from './DemoComponents/Datepicker.vue';
   import DemoSelect from './DemoComponents/Select.vue';
   import DemoTag from './DemoComponents/Tag.vue';
   import DemoButton from './DemoComponents/Button.vue';
@@ -173,7 +173,7 @@
     components: {
       VsAlert,
       DemoModal,
-      // DemoDatepicker,
+      DemoDatepicker,
       DemoSelect,
       DemoTag,
       DemoButton,
