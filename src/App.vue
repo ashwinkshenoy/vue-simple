@@ -145,7 +145,7 @@
     <br /><br />
     <strong>Toast</strong>
     <br /><br />
-    <!-- <demo-toast></demo-toast> -->
+    <demo-toast></demo-toast>
 
     <br /><br />
     <hr />
@@ -165,7 +165,7 @@
   import DemoButton from './DemoComponents/Button.vue';
   import DemoPagination from './DemoComponents/Pagination.vue';
   import DemoLoader from './DemoComponents/Loader.vue';
-  // import DemoToast from './DemoComponents/Toast.vue';
+  import DemoToast from './DemoComponents/Toast.vue';
   import DemoAccordion from './DemoComponents/Accordion.vue';
 
   export default {
@@ -179,7 +179,7 @@
       DemoButton,
       DemoPagination,
       DemoLoader,
-      // DemoToast,
+      DemoToast,
       DemoAccordion,
     },
 

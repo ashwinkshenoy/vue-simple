@@ -78,7 +78,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--pepper-gray);
+      color: var(--color-pepper-grey) !important;
       background: var(--white);
       border: 1px solid var(--color-dark-line-grey);
       border-radius: 3px;

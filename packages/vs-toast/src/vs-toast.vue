@@ -8,8 +8,14 @@
       @mouseleave="mouseHover(false)"
     >
       <slot name="custom" :close="close">
-        <vs-alert :title="title" :variant="variant" :show-close="showClose" @close="close" :toast="type === 'toast'">
-          <slot>{{ message }}</slot>
+        <vs-alert
+          :title="_title"
+          :variant="_variant"
+          :show-close="_showClose"
+          @close="close"
+          :toast="_type === 'toast'"
+        >
+          <slot>{{ _message }}</slot>
         </vs-alert>
       </slot>
     </div>
@@ -98,6 +104,7 @@
         timerId: null,
         isMouseHovered: false,
         isTimedOut: false,
+        _position: 'top-center',
       };
     },
 
@@ -107,7 +114,7 @@
        * @returns {String} class
        */
       classList() {
-        return [`vs-toast--${this.position}`];
+        return [`vs-toast--${this._position}`];
       },
 
       /**
@@ -115,10 +122,10 @@
        * @returns {String} class
        */
       toggleTransition() {
-        const position = this.position.split('-')[0];
+        const position = this._position?.split('-')?.[0] || '';
         // If custom animation
-        if (this.animation) {
-          return `vs-toast--transition-${this.animation}`;
+        if (this._animation) {
+          return `vs-toast--transition-${this._animation}`;
         }
         if (position === 'top') {
           return 'vs-toast--transition-slide-down';
@@ -140,7 +147,7 @@
             return;
           }
           options = { ...this.$props, ...options };
-          Object.keys(options).forEach(field => (this[field] = options[field]));
+          Object.keys(options).forEach(field => (this[`_${field}`] = options[field] || ''));
         }
 
         if (this.timerId) {
@@ -148,13 +155,13 @@
         }
         this.isOpen = true;
         this.isTimedOut = false;
-        if (!this.isSticky) {
+        if (!this._isSticky) {
           this.timerId = setTimeout(async () => {
             if (!this.isMouseHovered) {
               await this.close();
             }
             this.isTimedOut = true;
-          }, this.timeout);
+          }, this._timeout);
         }
       },
 
@@ -262,13 +269,13 @@
       transition: 0.3s all ease-in-out;
     }
 
-    &--transition-slide-down-enter-to,
-    &--transition-slide-down-leave {
+    &--transition-slide-down-enter-from,
+    &--transition-slide-down-leave-to {
       opacity: 1;
       transform: translateY(0px);
     }
 
-    &--transition-slide-down-enter,
+    &--transition-slide-down-enter-from,
     &--transition-slide-down-leave-to {
       opacity: 0;
       transform: translateY(-30px);
@@ -280,13 +287,13 @@
       transition: 0.3s all ease-in-out;
     }
 
-    &--transition-slide-up-enter-to,
-    &--transition-slide-up-leave {
+    &--transition-slide-up-enter-from,
+    &--transition-slide-up-leave-to {
       opacity: 1;
       transform: translateY(0px);
     }
 
-    &--transition-slide-up-enter,
+    &--transition-slide-up-enter-from,
     &--transition-slide-up-leave-to {
       opacity: 0;
       transform: translateY(30px);

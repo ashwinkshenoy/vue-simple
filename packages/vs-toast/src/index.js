@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { createApp, ref, h } from 'vue';
 import VsToast from './vs-toast.vue';
 
 const variant = ['success', 'warning', 'error', 'info', 'secondary'];
@@ -17,9 +17,16 @@ const defaultOptions = {
 let toastCmp = null;
 
 function createToastCmp() {
-  const cmp = new Vue(VsToast);
-  document.body.appendChild(cmp.$mount().$el);
-  return cmp;
+  const app = createApp({
+    render() {
+      return h(VsToast, { ref: 'toast' });
+    },
+  });
+  const toastElement = document.createElement('div');
+  document.body.appendChild(toastElement);
+  const vm = app.mount(toastElement);
+
+  return vm;
 }
 
 function getToastCmp() {
@@ -30,11 +37,11 @@ function getToastCmp() {
 }
 
 function show(options = {}) {
-  getToastCmp().open({ ...defaultOptions, ...options });
+  getToastCmp().$refs.toast.open({ ...defaultOptions, ...options });
 }
 
 function close() {
-  getToastCmp().close();
+  getToastCmp().$refs.toast.close();
 }
 
 function createShorthands() {

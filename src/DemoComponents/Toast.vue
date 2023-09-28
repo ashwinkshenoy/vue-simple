@@ -35,7 +35,6 @@
           title: 'Success Title',
           message: 'Toast message',
           variant: 'success',
-          isSticky: true,
           position: 'top-left',
         });
       },
@@ -51,10 +50,11 @@
       toastWarning() {
         VsToast.show({
           title: 'Warning Title',
-          message: 'Toast message',
+          message: 'Toast message. Sticky Toast',
           variant: 'warning',
           type: 'alert',
           position: 'top-right',
+          isSticky: true,
         });
       },
 
