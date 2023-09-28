@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-modal",
-  "version": "1.4.15",
+  "version": "1.4.17",
   "description": "A simple vue modal. Perfect for all your modal/ dialogs scenarios.",
   "main": "dist/vs-modal.umd.js",
   "module": "dist/vs-modal.esm.js",
