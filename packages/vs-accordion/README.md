@@ -1,6 +1,6 @@
-# Vue Accordion
+# Vue Simple Accordion
 
-#### 🗃 A simple vue accordion. Perfect for all your accordion, faq's scenarios.
+🗃 A simple vue accordion. Perfect for all your accordion, faq's scenarios.
 
 A light weight vue plugin built groundup.
 
