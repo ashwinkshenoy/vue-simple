@@ -1,4 +1,4 @@
-# Vue Simple Tag
+# Vue Accordion
 
 #### 🗃 A simple vue accordion. Perfect for all your accordion, faq's scenarios.
 
