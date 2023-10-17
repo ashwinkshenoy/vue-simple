@@ -16,18 +16,12 @@ title: Modal
 npm i @vuesimple/vs-modal
 ```
 
-```bash
-yarn add @vuesimple/vs-modal
-```
-
 ## Usage
 
 ```html
 <template>
   <button size="sm" @click="openModal('modal1')">Basic Modal</button>
-  <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-    Hello Peeps from vs-modal!!
-  </vs-modal>
+  <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from vs-modal!! </vs-modal>
 
   <button size="sm" @click="openModal('backdrop-modal')">Basic Modal (with blur backdrop)</button>
   <vs-modal ref="backdrop-modal" backdropBlur title="Funny, Modal Works 🥳">
@@ -68,12 +62,15 @@ Replace `<version>` with a version number in the above url.
 
 :::
 
+```javascript
+// Main/Entry file
+app.use(VsModal);
+```
+
 ```html
 <template>
   <button size="sm" @click="openModal('modal1')">Basic Modal</button>
-  <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-    Hello Peeps from vs-modal!!
-  </vs-modal>
+  <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from vs-modal!! </vs-modal>
 </template>
 
 <script>
@@ -123,9 +120,7 @@ After installation,
     <button size="sm" @click="openModal('modal1')">Basic Modal</button>
 
     <client-only>
-      <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-        Hello Peeps from V-Simple-Modal!!
-      </vs-modal>
+      <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from V-Simple-Modal!! </vs-modal>
     </client-only>
   </template>
 

@@ -16,10 +16,6 @@ title: Select
 npm i @vuesimple/vs-select
 ```
 
-```bash
-yarn add @vuesimple/vs-select
-```
-
 ## Usage
 
 ```html
@@ -63,6 +59,11 @@ yarn add @vuesimple/vs-select
 Replace `<version>` with a version number in the above url.
 
 :::
+
+```javascript
+// Main/Entry file
+app.use(VsSelect);
+```
 
 ```html
 <template>

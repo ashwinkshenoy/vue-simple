@@ -31,10 +31,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-modal-n2wwm)
 npm i @vuesimple/vs-modal
 ```
 
-```bash
-yarn add @vuesimple/vs-modal
-```
-
 <br />
 
 ### 🚀 Usage
@@ -42,9 +38,7 @@ yarn add @vuesimple/vs-modal
 ```html
 <template>
   <button size="sm" @click="openModal('modal1')">Basic Modal</button>
-  <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-    Hello Peeps from vs-modal!!
-  </vs-modal>
+  <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from vs-modal!! </vs-modal>
 
   <button size="sm" @click="openModal('backdrop-modal')">Basic Modal (with blur backdrop)</button>
   <vs-modal ref="backdrop-modal" backdropBlur title="Funny, Modal Works 🥳">
@@ -81,12 +75,15 @@ yarn add @vuesimple/vs-modal
 <script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js"></script>
 ```
 
+```javascript
+// Main/Entry file
+app.use(VsModal);
+```
+
 ```html
 <template>
   <button size="sm" @click="openModal('modal1')">Basic Modal</button>
-  <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-    Hello Peeps from vs-modal!!
-  </vs-modal>
+  <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from vs-modal!! </vs-modal>
 </template>
 
 <script>
@@ -140,9 +137,7 @@ After installation,
     <button size="sm" @click="openModal('modal1')">Basic Modal</button>
 
     <client-only>
-      <vs-modal ref="modal1" title="Funny, Modal Works 🥳">
-        Hello Peeps from V-Simple-Modal!!
-      </vs-modal>
+      <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from V-Simple-Modal!! </vs-modal>
     </client-only>
   </template>
 

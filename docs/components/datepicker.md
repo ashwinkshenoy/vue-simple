@@ -16,10 +16,6 @@ title: Datepicker
 npm i @vuesimple/vs-datepicker
 ```
 
-```bash
-yarn add @vuesimple/vs-datepicker
-```
-
 <br />
 
 ## Usage
@@ -52,6 +48,17 @@ yarn add @vuesimple/vs-datepicker
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
+```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
+
+```javascript
+// Main/Entry file
+app.use(VsDatepicker);
 ```
 
 ```html

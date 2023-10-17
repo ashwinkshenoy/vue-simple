@@ -30,10 +30,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
 npm i @vuesimple/vs-datepicker
 ```
 
-```bash
-yarn add @vuesimple/vs-datepicker
-```
-
 <br />
 
 ### 🚀 Usage
@@ -66,6 +62,11 @@ yarn add @vuesimple/vs-datepicker
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/vs-datepicker.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsDatepicker);
 ```
 
 ```html
@@ -134,23 +135,23 @@ After installation,
 
 ### ⚙ Props
 
-| Name          | Type                                 | Default      | Description                                  |
-| ------------- | ------------------------------------ | ------------ | -------------------------------------------- |
-| type          | `date|datetime|year|month|time|week` | `date`       | Select the type of picker                    |
-| format        | [Token](#token)                      | `MM-DD-YYYY` | To set the date format. similar to moment.js |
-| value-type    | [Value-Type](#value-type)            | 'date'       | Data type of the binding value/v-model.      |
-| range         | Boolean                              | false        | If true, pick the range date                 |
-| label         | String                               | Date         | Label to datepicker                          |
-| isError       | Boolean                              | -            | Highlight input box with red if error        |
-| required      | Boolean                              | -            | show `*` with label                          |
-| disabled      | Boolean                              | -            | Disable datepicker                           |
-| disabled-date | Function                             | -            | Disable dates in datepicker                  |
-| id            | String                               | -            | Id added to datepicker component             |
-| placeholder   | String                               | -            | Placeholder to datepicker input box          |
-| lang          | Object                               | -            | Override the default locale                  |
-| editable      | Boolean                              | false        | Whether the input is editable                |
-| clearable     | Boolean                              | false        | If false, don't show the clear icon          |
-| is-compact    | Boolean                              | false        | Applies compact style to datepicker          |
+| Name          | Type                      | Default      | Description                                  |
+| ------------- | ------------------------- | ------------ | -------------------------------------------- | ----- | ---- | ----- | ------ | ------------------------- |
+| type          | `date                     | datetime     | year                                         | month | time | week` | `date` | Select the type of picker |
+| format        | [Token](#token)           | `MM-DD-YYYY` | To set the date format. similar to moment.js |
+| value-type    | [Value-Type](#value-type) | 'date'       | Data type of the binding value/v-model.      |
+| range         | Boolean                   | false        | If true, pick the range date                 |
+| label         | String                    | Date         | Label to datepicker                          |
+| isError       | Boolean                   | -            | Highlight input box with red if error        |
+| required      | Boolean                   | -            | show `*` with label                          |
+| disabled      | Boolean                   | -            | Disable datepicker                           |
+| disabled-date | Function                  | -            | Disable dates in datepicker                  |
+| id            | String                    | -            | Id added to datepicker component             |
+| placeholder   | String                    | -            | Placeholder to datepicker input box          |
+| lang          | Object                    | -            | Override the default locale                  |
+| editable      | Boolean                   | false        | Whether the input is editable                |
+| clearable     | Boolean                   | false        | If false, don't show the clear icon          |
+| is-compact    | Boolean                   | false        | Applies compact style to datepicker          |
 
 <br />
 

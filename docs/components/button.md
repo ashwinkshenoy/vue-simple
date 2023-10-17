@@ -16,10 +16,6 @@ title: Button
 npm i @vuesimple/vs-button
 ```
 
-```bash
-yarn add @vuesimple/vs-button
-```
-
 <br />
 
 ## Usage
@@ -54,6 +50,11 @@ yarn add @vuesimple/vs-button
 Replace `<version>` with a version number in the above url.
 
 :::
+
+```javascript
+// Main/Entry file
+app.use(VsButton);
+```
 
 ```html
 <template>

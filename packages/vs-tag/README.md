@@ -29,19 +29,13 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-tag-l7q3d)
 npm i @vuesimple/vs-tag
 ```
 
-```bash
-yarn add @vuesimple/vs-tag
-```
-
 <br />
 
 ### 🚀 Usage
 
 ```html
 <template>
-  <vs-tag variant="primary">
-    Primary
-  </vs-tag>
+  <vs-tag variant="primary"> Primary </vs-tag>
 </template>
 
 <script>
@@ -63,11 +57,14 @@ yarn add @vuesimple/vs-tag
 <script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
 ```
 
+```javascript
+// Main/Entry file
+app.use(VsTag);
+```
+
 ```html
 <template>
-  <vs-tag variant="primary">
-    Primary
-  </vs-tag>
+  <vs-tag variant="primary"> Primary </vs-tag>
 </template>
 ```
 
@@ -104,9 +101,7 @@ After installation,
 
   ```html
   <template>
-    <vs-tag variant="primary">
-      Primary
-    </vs-tag>
+    <vs-tag variant="primary"> Primary </vs-tag>
   </template>
   ```
 

@@ -16,10 +16,6 @@ title: Toast
 npm i @vuesimple/vs-toast
 ```
 
-```bash
-yarn add @vuesimple/vs-toast
-```
-
 <br />
 
 ## Usage

@@ -17,10 +17,6 @@ actionLink: /components/accordion/
 npm i @vuesimple/vs-accordion
 ```
 
-```bash
-yarn add @vuesimple/vs-accordion
-```
-
 <br />
 
 ## Usage
@@ -62,6 +58,17 @@ yarn add @vuesimple/vs-accordion
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-accordion@<version>/dist/vs-accordion.min.js"></script>
+```
+
+::: tip
+
+Replace `<version>` with a version number in the above url.
+
+:::
+
+```javascript
+// Main/Entry file
+app.use(VsAccordion);
 ```
 
 ```html

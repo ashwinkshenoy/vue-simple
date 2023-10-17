@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-toast-hti14)
 npm i @vuesimple/vs-toast
 ```
 
-```bash
-yarn add @vuesimple/vs-toast
-```
-
 <br />
 
 ### 🚀 Usage
@@ -61,6 +57,11 @@ yarn add @vuesimple/vs-toast
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-toast@<version>/dist/vs-toast.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsToast);
 ```
 
 ```html

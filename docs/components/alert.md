@@ -17,17 +17,11 @@ actionLink: /alert/
 npm i @vuesimple/vs-alert
 ```
 
-```bash
-yarn add @vuesimple/vs-alert
-```
-
 ## Usage
 
 ```html
 <template>
-  <vs-alert variant="success">
-    Success
-  </vs-alert>
+  <vs-alert variant="success"> Success </vs-alert>
 </template>
 
 <script>
@@ -53,11 +47,14 @@ Replace `<version>` with a version number in the above url.
 
 :::
 
+```javascript
+// Main/Entry file
+app.use(VsAlert);
+```
+
 ```html
 <template>
-  <vs-alert variant="success">
-    Success
-  </vs-alert>
+  <vs-alert variant="success"> Success </vs-alert>
 </template>
 ```
 
@@ -90,9 +87,7 @@ After installation,
 
   ```html
   <template>
-    <vs-alert variant="success">
-      Success
-    </vs-alert>
+    <vs-alert variant="success"> Success </vs-alert>
   </template>
   ```
 

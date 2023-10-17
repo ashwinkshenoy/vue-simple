@@ -16,10 +16,6 @@ title: Pagination
 npm i @vuesimple/vs-pagination
 ```
 
-```bash
-yarn add @vuesimple/vs-pagination
-```
-
 <br />
 
 ## Usage
@@ -53,6 +49,11 @@ yarn add @vuesimple/vs-pagination
 Replace `<version>` with a version number in the above url.
 
 :::
+
+```javascript
+// Main/Entry file
+app.use(VsPagination);
+```
 
 ```html
 <template>

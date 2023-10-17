@@ -28,7 +28,8 @@
     <h2>Licence 📜</h2>
     <div class="home-page__description">
       <p class="small">
-        &copy; Copyright 2018 -
+        &copy; Copyright 2018 - Present
+        <br />
         <a
           href="https://github.com/ashwinkshenoy/vue-simple/blob/master/LICENSE"
           target="_blank"

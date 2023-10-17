@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-pagination-vlsrl)
 npm i @vuesimple/vs-pagination
 ```
 
-```bash
-yarn add @vuesimple/vs-pagination
-```
-
 <br />
 
 ### 🚀 Usage
@@ -59,6 +55,11 @@ yarn add @vuesimple/vs-pagination
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsPagination);
 ```
 
 ```html

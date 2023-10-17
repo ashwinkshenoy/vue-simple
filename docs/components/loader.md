@@ -16,10 +16,6 @@ title: Loader
 npm i @vuesimple/vs-loader
 ```
 
-```bash
-yarn add @vuesimple/vs-loader
-```
-
 <br />
 
 ## Usage
@@ -53,6 +49,11 @@ yarn add @vuesimple/vs-loader
 Replace `<version>` with a version number in the above url.
 
 :::
+
+```javascript
+// Main/Entry file
+app.use(VsLoader);
+```
 
 ```html
 <template>

@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-loader-1ue35)
 npm i @vuesimple/vs-loader
 ```
 
-```bash
-yarn add @vuesimple/vs-loader
-```
-
 <br />
 
 ### 🚀 Usage
@@ -59,6 +55,11 @@ yarn add @vuesimple/vs-loader
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-loader/dist/vs-loader.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsLoader);
 ```
 
 ```html

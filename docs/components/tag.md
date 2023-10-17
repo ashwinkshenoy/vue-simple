@@ -16,19 +16,13 @@ title: Tag
 npm i @vuesimple/vs-tag
 ```
 
-```bash
-yarn add @vuesimple/vs-tag
-```
-
 <br />
 
 ## Usage
 
 ```html
 <template>
-  <vs-tag variant="primary">
-    Primary
-  </vs-tag>
+  <vs-tag variant="primary"> Primary </vs-tag>
 </template>
 
 <script>
@@ -56,11 +50,14 @@ Replace `<version>` with a version number in the above url.
 
 :::
 
+```javascript
+// Main/Entry file
+app.use(VsTag);
+```
+
 ```html
 <template>
-  <vs-tag variant="primary">
-    Primary
-  </vs-tag>
+  <vs-tag variant="primary"> Primary </vs-tag>
 </template>
 ```
 
@@ -93,9 +90,7 @@ After installation,
 
   ```html
   <template>
-    <vs-tag variant="primary">
-      Primary
-    </vs-tag>
+    <vs-tag variant="primary"> Primary </vs-tag>
   </template>
   ```
 

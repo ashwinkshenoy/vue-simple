@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-select-4ek10)
 npm i @vuesimple/vs-select
 ```
 
-```bash
-yarn add @vuesimple/vs-select
-```
-
 <br />
 
 ### 🚀 Usage
@@ -73,6 +69,11 @@ yarn add @vuesimple/vs-select
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-select@<version>/dist/vs-select.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsSelect);
 ```
 
 ```html

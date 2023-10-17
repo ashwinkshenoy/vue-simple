@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-button-w8x1m)
 npm i @vuesimple/vs-button
 ```
 
-```bash
-yarn add @vuesimple/vs-button
-```
-
 <br />
 
 ### 🚀 Usage
@@ -60,6 +56,11 @@ yarn add @vuesimple/vs-button
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-button@<version>/dist/vs-button.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsButton);
 ```
 
 ```html

@@ -29,10 +29,6 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-accordion-9shik?file=/src/App.v
 npm i @vuesimple/vs-accordion
 ```
 
-```bash
-yarn add @vuesimple/vs-accordion
-```
-
 <br />
 
 ### 🚀 Usage
@@ -74,6 +70,11 @@ yarn add @vuesimple/vs-accordion
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-accordion@<version>/dist/vs-accordion.min.js"></script>
+```
+
+```javascript
+// Main/Entry file
+app.use(VsAccordion);
 ```
 
 ```html

@@ -31,19 +31,13 @@ Code Sandbox: [Link](https://codesandbox.io/s/vs-alert-yhjce)
 npm i @vuesimple/vs-alert
 ```
 
-```bash
-yarn add @vuesimple/vs-alert
-```
-
 <br />
 
 ### 🚀 Usage
 
 ```html
 <template>
-  <vs-alert variant="success">
-    Success
-  </vs-alert>
+  <vs-alert variant="success"> Success </vs-alert>
 </template>
 
 <script>
@@ -65,11 +59,14 @@ yarn add @vuesimple/vs-alert
 <script src="https://unpkg.com/@vuesimple/vs-alert@<version>/dist/vs-alert.min.js"></script>
 ```
 
+```javascript
+// Main/Entry file
+app.use(VsAlert);
+```
+
 ```html
 <template>
-  <vs-alert variant="success">
-    Success
-  </vs-alert>
+  <vs-alert variant="success"> Success </vs-alert>
 </template>
 ```
 
@@ -106,9 +103,7 @@ After installation,
 
   ```html
   <template>
-    <vs-alert variant="success">
-      Success
-    </vs-alert>
+    <vs-alert variant="success"> Success </vs-alert>
   </template>
   ```
 
