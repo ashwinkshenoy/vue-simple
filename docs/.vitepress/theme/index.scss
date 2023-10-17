@@ -101,3 +101,21 @@ h3::after {
     }
   }
 }
+
+// Sidebar
+.VPSidebarItem {
+  position: relative;
+  .items {
+    margin-left: 12px;
+  }
+  .is-active.has-active:before {
+    content: '';
+    background: var(--green);
+    height: 80%;
+    width: 3px;
+    position: absolute;
+    left: -10px;
+    top: 3px;
+    border-radius: 50px;
+  }
+}
