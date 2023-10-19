@@ -18,8 +18,6 @@
 
 Vue Simple provides consistent styling and behavior for your daily coding/prototyping scenarios. Vue components are maintained following a multi-package approach where components are packaged and published individually, but combined under this single repository.
 
-For Vue-Simple:Vue2 Docs, [Click here](https://github.com/ashwinkshenoy/vue-simple/tree/master)
-
 <br>
 
 ## Installation
