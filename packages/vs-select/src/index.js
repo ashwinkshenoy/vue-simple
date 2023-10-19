@@ -8,4 +8,4 @@ const plugin = {
   },
 };
 
-export default plugin;
+export { VsSelect, VsMultiselect, plugin };

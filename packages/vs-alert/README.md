@@ -61,7 +61,7 @@ npm i @vuesimple/vs-alert
 
 ```javascript
 // Main/Entry file
-app.use(VsAlert);
+app.use(VsAlert.plugin);
 ```
 
 ```html

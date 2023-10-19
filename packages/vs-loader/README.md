@@ -59,7 +59,7 @@ npm i @vuesimple/vs-loader
 
 ```javascript
 // Main/Entry file
-app.use(VsLoader);
+app.use(VsLoader.plugin);
 ```
 
 ```html

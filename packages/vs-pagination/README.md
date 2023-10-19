@@ -59,7 +59,7 @@ npm i @vuesimple/vs-pagination
 
 ```javascript
 // Main/Entry file
-app.use(VsPagination);
+app.use(VsPagination.plugin);
 ```
 
 ```html

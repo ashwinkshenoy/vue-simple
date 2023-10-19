@@ -74,7 +74,7 @@ npm i @vuesimple/vs-accordion
 
 ```javascript
 // Main/Entry file
-app.use(VsAccordion);
+app.use(VsAccordion.plugin);
 ```
 
 ```html

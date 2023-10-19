@@ -66,7 +66,7 @@ npm i @vuesimple/vs-datepicker
 
 ```javascript
 // Main/Entry file
-app.use(VsDatepicker);
+app.use(VsDatepicker.plugin);
 ```
 
 ```html

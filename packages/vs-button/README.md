@@ -60,7 +60,7 @@ npm i @vuesimple/vs-button
 
 ```javascript
 // Main/Entry file
-app.use(VsButton);
+app.use(VsButton.plugin);
 ```
 
 ```html

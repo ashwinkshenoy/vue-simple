@@ -77,7 +77,7 @@ npm i @vuesimple/vs-modal
 
 ```javascript
 // Main/Entry file
-app.use(VsModal);
+app.use(VsModal.plugin);
 ```
 
 ```html

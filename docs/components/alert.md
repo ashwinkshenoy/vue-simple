@@ -49,7 +49,7 @@ Replace `<version>` with a version number in the above url.
 
 ```javascript
 // Main/Entry file
-app.use(VsAlert);
+app.use(VsAlert.plugin);
 ```
 
 ```html

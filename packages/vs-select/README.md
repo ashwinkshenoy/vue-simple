@@ -73,7 +73,7 @@ npm i @vuesimple/vs-select
 
 ```javascript
 // Main/Entry file
-app.use(VsSelect);
+app.use(VsSelect.plugin);
 ```
 
 ```html

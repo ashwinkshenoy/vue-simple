@@ -64,7 +64,7 @@ Replace `<version>` with a version number in the above url.
 
 ```javascript
 // Main/Entry file
-app.use(VsModal);
+app.use(VsModal.plugin);
 ```
 
 ```html

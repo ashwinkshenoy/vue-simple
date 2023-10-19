@@ -59,7 +59,7 @@ npm i @vuesimple/vs-tag
 
 ```javascript
 // Main/Entry file
-app.use(VsTag);
+app.use(VsTag.plugin);
 ```
 
 ```html

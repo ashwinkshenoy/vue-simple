@@ -62,7 +62,7 @@ Replace `<version>` with a version number in the above url.
 
 ```javascript
 // Main/Entry file
-app.use(VsSelect);
+app.use(VsSelect.plugin);
 ```
 
 ```html

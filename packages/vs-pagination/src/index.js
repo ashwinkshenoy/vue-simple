@@ -6,4 +6,5 @@ const plugin = {
   },
 };
 
-export default plugin;
+export default VsPagination;
+export { plugin };

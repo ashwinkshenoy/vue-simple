@@ -59,11 +59,6 @@ npm i @vuesimple/vs-toast
 <script src="https://unpkg.com/@vuesimple/vs-toast@<version>/dist/vs-toast.min.js"></script>
 ```
 
-```javascript
-// Main/Entry file
-app.use(VsToast);
-```
-
 ```html
 <script>
   export default {
