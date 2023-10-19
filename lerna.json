@@ -1,7 +1,11 @@
 {
-  "version": "1.4.18",
-  "packages": ["packages/*"],
-  "ignoreChanges": ["**/*.md"],
+  "version": "3.0.0",
+  "packages": [
+    "packages/*"
+  ],
+  "ignoreChanges": [
+    "**/*.md"
+  ],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/"
