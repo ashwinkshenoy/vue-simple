@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-modal",
   "version": "3.0.1",
   "description": "A simple vue modal. Perfect for all your modal/ dialogs scenarios.",
-  "main": "dist/vs-modal.umd.js",
-  "module": "dist/vs-modal.esm.js",
-  "unpkg": "dist/vs-modal.min.js",
-  "browser": {
-    "./sfc": "src/vs-modal.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-loader",
   "version": "3.0.1",
   "description": "A simple vue loader. Perfect for all your loader scenarios.",
-  "main": "dist/vs-loader.umd.js",
-  "module": "dist/vs-loader.esm.js",
-  "unpkg": "dist/vs-loader.min.js",
-  "browser": {
-    "./sfc": "src/vs-loader.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

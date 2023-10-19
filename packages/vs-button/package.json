@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-button",
   "version": "3.0.1",
   "description": "A simple vue button. Perfect for all your button scenarios.",
-  "main": "dist/vs-button.umd.js",
-  "module": "dist/vs-button.esm.js",
-  "unpkg": "dist/vs-button.min.js",
-  "browser": {
-    "./sfc": "src/vs-button.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

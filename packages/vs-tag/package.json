@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-tag",
   "version": "3.0.1",
   "description": "A simple vue tag. Perfect for all your tag scenarios.",
-  "main": "dist/vs-tag.umd.js",
-  "module": "dist/vs-tag.esm.js",
-  "unpkg": "dist/vs-tag.min.js",
-  "browser": {
-    "./sfc": "src/vs-tag.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

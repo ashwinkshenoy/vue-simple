@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-datepicker",
   "version": "3.0.1",
   "description": "A simple vue datepicker. Perfect for all your datepicker scenarios.",
-  "main": "dist/vs-datepicker.umd.js",
-  "module": "dist/vs-datepicker.esm.js",
-  "unpkg": "dist/vs-datepicker.min.js",
-  "browser": {
-    "./sfc": "src/vs-datepicker.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

@@ -2,12 +2,10 @@
   "name": "@vuesimple/vs-alert",
   "version": "3.0.1",
   "description": "A simple vue alert. Perfect for all your alert scenarios.",
-  "main": "dist/vs-alert.umd.js",
-  "module": "dist/vs-alert.esm.js",
-  "unpkg": "dist/vs-alert.min.js",
-  "browser": {
-    "./sfc": "src/vs-alert.vue"
-  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdeliver": "dist/index.min.js",
   "scripts": {
     "build": "rm -rfv dist && vite build --config build/vite.config.js"
   },

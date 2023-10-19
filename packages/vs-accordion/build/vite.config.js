@@ -12,10 +12,10 @@ export default {
       name: 'VsAccordion',
       fileName: format => {
         if (format === 'es') {
-          return 'index.js';
+          return 'index.esm.js';
         }
         if (format === 'umd') {
-          return 'index.umd.min.js';
+          return 'index.umd.js';
         }
         return 'index.min.js';
       },
