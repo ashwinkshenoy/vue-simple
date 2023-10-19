@@ -7,7 +7,6 @@
   "prettier.trailingComma": "all",
   "prettier.bracketSpacing": true,
   "prettier.enable": true,
-  "prettier.jsxBracketSameLine": true,
   "prettier.tabWidth": 2,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
@@ -25,7 +24,6 @@
   "emmet.showAbbreviationSuggestions": true,
   "emmet.showExpandedAbbreviation": "always",
   "emmet.includeLanguages": {
-    "javascript": "html",
-    "vue-html": "html"
+    "javascript": "html"
   }
 }
