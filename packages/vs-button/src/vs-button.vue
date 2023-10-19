@@ -8,7 +8,6 @@
     :type="isLink ? 'button' : false"
     :disabled="disabled || isLoading"
     :class="['vs-button', classList]"
-    @click="emitClick"
   >
     <vs-loader :size="loaderSize" :color="loaderColor" v-if="isLoading"></vs-loader>
     <slot v-else></slot>

@@ -15,7 +15,7 @@ export default {
           return 'index.js';
         }
         if (format === 'umd') {
-          return 'index.umd.js';
+          return 'index.umd.min.js';
         }
         return 'index.min.js';
       },
