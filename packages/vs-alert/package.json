@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-alert",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A simple vue alert. Perfect for all your alert scenarios.",
   "main": "dist/vs-alert.umd.js",
   "module": "dist/vs-alert.esm.js",
