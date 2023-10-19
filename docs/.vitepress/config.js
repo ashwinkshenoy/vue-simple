@@ -4,7 +4,7 @@ export default {
   description: 'Simplifying dev experience.',
 
   lastUpdated: true,
-  cleanUrls: true,
+  cleanUrls: false,
   appearance: false,
 
   head: [
