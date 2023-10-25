@@ -63,7 +63,7 @@ Cheers!! 🍻
 
 ## License
 
-Copyright 2021.
+Copyright 2018 - Present.
 
 Licensed under the [`MIT License`](LICENSE).
 
