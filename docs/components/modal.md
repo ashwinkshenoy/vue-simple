@@ -53,7 +53,7 @@ npm i @vuesimple/vs-modal
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/vs-modal.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-modal@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

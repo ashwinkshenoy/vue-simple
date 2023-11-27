@@ -57,7 +57,7 @@ npm i @vuesimple/vs-accordion
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-accordion@<version>/dist/vs-accordion.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-accordion@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

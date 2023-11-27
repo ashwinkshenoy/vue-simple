@@ -43,7 +43,7 @@ npm i @vuesimple/vs-toast
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-toast@<version>/dist/vs-toast.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-toast@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

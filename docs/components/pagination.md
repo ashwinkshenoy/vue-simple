@@ -41,7 +41,7 @@ npm i @vuesimple/vs-pagination
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/vs-pagination.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-pagination@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

@@ -41,7 +41,7 @@ npm i @vuesimple/vs-tag
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/vs-tag.min.js"></script>
+<script src="https://unpkg.com/@vuesimple/vs-tag@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip
