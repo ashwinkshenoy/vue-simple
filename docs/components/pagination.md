@@ -127,7 +127,7 @@ After installation,
 
 ## Slots
 
-You can define own arrow icon markup via slots:
+You can define own arrow icon markup via "#slot-name:
 
 | Name      | Description     |
 | --------- | --------------- |

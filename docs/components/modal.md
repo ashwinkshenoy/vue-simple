@@ -174,7 +174,7 @@ After installation,
 
 ## Slots
 
-You can define own item markup via slots:
+You can define own item markup via #slot-name:
 
 | Name      | Description                                      |
 | --------- | ------------------------------------------------ |

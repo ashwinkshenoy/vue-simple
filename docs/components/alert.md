@@ -119,7 +119,7 @@ After installation,
 
 ## Slots
 
-You can define own item markup via slots:
+You can define own item markup via #slot-name:
 
 | Name      | Description                                   |
 | --------- | --------------------------------------------- |
@@ -131,7 +131,7 @@ You can define own item markup via slots:
 
 ```html
 <vs-alert variant="success">
-  <template v-slot:title>Success Heading</template>
+  <template #title>Success Heading</template>
   Success Message
 </vs-alert>
 ```

@@ -26,7 +26,7 @@ npm i @vuesimple/vs-accordion
   <vs-accordion :is-box="true" is-compact>
     <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
       <!-- This slot will handle the title of the accordion and is the part you click on -->
-      <template slot="accordion-trigger">
+      <template #accordion-trigger>
         <h4>Item {{ n }}</h4>
       </template>
 
@@ -76,7 +76,7 @@ app.use(VsAccordion.plugin);
   <vs-accordion :is-box="true" is-compact>
     <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
       <!-- This slot will handle the title of the accordion and is the part you click on -->
-      <template slot="accordion-trigger">
+      <template #accordion-trigger>
         <h4>Item {{ n }}</h4>
       </template>
 
@@ -125,7 +125,7 @@ After installation,
     <vs-accordion :is-box="true" is-compact>
       <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
         <!-- This slot will handle the title of the accordion and is the part you click on -->
-        <template slot="accordion-trigger">
+        <template #accordion-trigger>
           <h4>Item {{ n }}</h4>
         </template>
 
