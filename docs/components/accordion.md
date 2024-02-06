@@ -189,7 +189,7 @@ You can define own item markup via slots:
 
 ### VsAccordionItem
 
-You can define own item markup via slots:
+You can define own item markup via #slot-name:
 
 | Name              | Description                                              |
 | ----------------- | -------------------------------------------------------- |
