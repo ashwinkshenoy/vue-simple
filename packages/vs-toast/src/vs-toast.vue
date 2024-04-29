@@ -11,7 +11,7 @@
         <vs-alert
           :title="_title"
           :variant="_variant"
-          :show-close="_showClose"
+          :showClose="!!_showClose"
           @close="close"
           :toast="_type === 'toast'"
         >

@@ -36,6 +36,7 @@
           message: 'Toast message',
           variant: 'success',
           position: 'top-left',
+          showClose: false,
         });
       },
 
@@ -55,6 +56,7 @@
           type: 'alert',
           position: 'top-right',
           isSticky: true,
+          showClose: false,
         });
       },
 
