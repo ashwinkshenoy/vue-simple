@@ -157,6 +157,7 @@ You can also pass `disable: true` in array of objects to disable particular item
 | ------- | -------------------------------------------------------------------------- |
 | v-model | Emitted when the item is selected.                                         |
 | @change | Emitted when the item is selected. <br />(arg1: value, arg2: object/value) |
+| @open   | Emitted when the dropdown is open.                                         |
 
 ::: tip
 

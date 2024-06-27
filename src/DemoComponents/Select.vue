@@ -5,7 +5,13 @@
     <br /><br />
     <div class="grid">
       <div>
-        <vs-select label="No Search" :options="options1" v-model="form.select1" @change="log"></vs-select>
+        <vs-select
+          label="No Search"
+          :options="options1"
+          v-model="form.select1"
+          @change="log"
+          @open="log('open')"
+        ></vs-select>
         <small>v-model: {{ form.select1 }}</small>
       </div>
       <div>
@@ -88,7 +94,13 @@
 
     <div class="grid">
       <div>
-        <vs-multiselect label="No Search (Array)" :options="options1" v-model="form.select8" required></vs-multiselect>
+        <vs-multiselect
+          label="No Search (Array)"
+          :options="options1"
+          v-model="form.select8"
+          required
+          @open="log('open')"
+        ></vs-multiselect>
         <small>v-model: {{ form.select8 }}</small>
       </div>
       <div>

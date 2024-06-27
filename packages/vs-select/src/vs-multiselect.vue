@@ -312,6 +312,7 @@
       },
 
       setSelectEnv() {
+        this.$emit('open');
         this.handleScroll();
         if (!this.isMenuHidden) {
           this.isMenuHidden = true;
