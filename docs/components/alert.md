@@ -5,11 +5,21 @@ actionLink: /alert/
 
 <masthead title="Alert" description="Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-alert-yhjce"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-alert"
     packageName="@vuesimple/vs-alert">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import Alert from '../../src/DemoComponents/Alert.vue';
+  import Button from '../../src/DemoComponents/Button.vue';
+</script>
+
+<alert class="demo"></alert>
+
+<br />
 
 ## Install
 

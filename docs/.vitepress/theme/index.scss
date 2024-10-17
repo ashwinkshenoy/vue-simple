@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700&:display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900&:display=swap');
 
 :root {
   --white: #ffffff;
@@ -67,8 +67,12 @@ table {
   margin-top: 30px;
 }
 
-h2,
-h3 {
+.vp-doc p {
+  line-height: 35px;
+}
+
+h2:has(:not(.demo)),
+h3:has(:not(.demo)) {
   position: relative;
   border-bottom: 0;
   display: table;
@@ -118,4 +122,64 @@ h3::after {
     top: 3px;
     border-radius: 50px;
   }
+}
+
+.demo {
+  &.box,
+  .box {
+    border: 1px solid rgb(216, 220, 222);
+    border-radius: 4px;
+    padding: 20px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .vs-pagination > li {
+    margin-top: 0px;
+  }
+
+  .mr-10 {
+    margin-right: 10px;
+  }
+}
+
+.btn {
+  background-color: #f55335;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 15px;
+  display: inline-block;
+  width: auto;
+  min-width: 124px;
+  margin: 0 5px 5px 0;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  margin-top: 10px;
 }

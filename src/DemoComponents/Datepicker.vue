@@ -1,8 +1,6 @@
 <template>
   <div>
-    <strong>Datepicker</strong>
-    <br /><br />
-    <div class="grid">
+    <div class="date-grid box">
       <div>
         <vs-datepicker
           label="Date"
@@ -189,6 +187,7 @@
       log(e) {
         console.log(e);
       },
+
       disableWeekends(date) {
         const day = new Date(date).getDay();
         return day === 0 || day === 6;
@@ -196,3 +195,12 @@
     },
   };
 </script>
+
+<style>
+  .date-grid {
+    display: flex;
+    grid-gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+</style>

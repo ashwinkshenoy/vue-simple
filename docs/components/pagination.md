@@ -4,11 +4,20 @@ title: Pagination
 
 <masthead title="Pagination" description="A simple pagination component">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-pagination-vlsrl"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination"
     packageName="@vuesimple/vs-pagination">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import Pagination from '../../src/DemoComponents/Pagination.vue';
+</script>
+
+<pagination class="demo"></pagination>
+
+<br />
 
 ## Install
 

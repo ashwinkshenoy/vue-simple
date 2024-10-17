@@ -22,6 +22,8 @@ The **size** controls the increment of the property font-size:
 
 These classes can be applied for font-weights
 
+- `u-light`
 - `u-regular`
+- `u-medium`
 - `u-semibold`
 - `u-bold`

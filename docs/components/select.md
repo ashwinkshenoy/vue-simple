@@ -4,11 +4,20 @@ title: Select
 
 <masthead title="Select" description="A simple vue select. Perfect for all your select / dropdown scenarios.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-select-4ek10"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-select"
     packageName="@vuesimple/vs-select">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import SelectComponent from '../../src/DemoComponents/Select.vue';
+</script>
+
+<select-component class="demo"></select-component>
+
+<br />
 
 ## Install
 

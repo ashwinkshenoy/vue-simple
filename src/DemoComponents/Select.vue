@@ -1,98 +1,94 @@
 <template>
   <div>
-    <br /><br />
-    <strong>Select</strong>
-    <br /><br />
-    <div class="grid">
-      <div>
-        <vs-select
-          label="No Search"
-          :options="options1"
-          v-model="form.select1"
-          @change="log"
-          @open="log('open')"
-        ></vs-select>
-        <small>v-model: {{ form.select1 }}</small>
-      </div>
-      <div>
-        <vs-select label="Search" :options="options1" is-search v-model="form.select2"></vs-select>
-        <small>v-model: {{ form.select2 }}</small>
-      </div>
-      <div>
-        <vs-select label="No Search (Object)" :options="options2" v-model="form.select3" @change="log"></vs-select>
-        <small>v-model: {{ form.select3 }}</small>
-      </div>
-      <div>
-        <vs-select
-          label="Search (Object)"
-          :options="options2"
-          is-search
-          v-model="form.select4"
-          emptyItemsText="Not Found"
-        ></vs-select>
-        <small>v-model: {{ form.select4 }}</small>
-      </div>
-      <div>
-        <vs-select label="Disabled" :options="options2" is-search disabled v-model="form.select5"></vs-select>
-        <small>v-model: {{ form.select5 }}</small>
-      </div>
-      <div>
-        <vs-select label="Search (Customizable)" :options="options1" is-search v-model="form.select6">
-          <template v-slot:options="{ options, selected, onSelectedItem }">
-            <li
-              v-for="(option, index) in options"
-              :key="'selected-' + index"
-              class="menu-item"
-              :class="[{ 'menu-item--is-checked': selected === option }]"
-              @click="onSelectedItem(option, index)"
-            >
-              <span>{{ option }}</span>
-            </li>
-          </template>
-        </vs-select>
-        <small>v-model: {{ form.select6 }}</small>
-      </div>
-      <div>
-        <vs-select
-          label="Preselected & v-model"
-          :options="options2"
-          is-search
-          :preselected="preselected"
-          v-model="form.select7"
-        ></vs-select>
-        <small>v-model: {{ form.select7 }}</small>
-        <br />
-        <small>Preselected given priority</small>
-      </div>
-      <div>
-        <vs-select label="Compact" :options="options1" v-model="form.select1" is-compact></vs-select>
-        <small>v-model: {{ form.select1 }}</small>
-      </div>
-      <div>
-        <vs-select label="Menu (Object)" :options="menu" @change="log" is-menu is-search></vs-select>
-      </div>
-      <div>
-        <vs-select
-          label="Boolean (Object)"
-          :options="booleanOptions"
-          v-model="form.boolSelect"
-          @change="log"
-        ></vs-select>
-        <small>v-model: {{ form.boolSelect }}</small>
-      </div>
-      <div>
-        <vs-select label="Error" :options="options1" v-model="form.select1" required is-error></vs-select>
-        <small>v-model: {{ form.select1 }}</small>
+    <h3>Select</h3>
+    <div class="box">
+      <div class="select-grid">
+        <div>
+          <vs-select
+            label="No Search"
+            :options="options1"
+            v-model="form.select1"
+            @change="log"
+            @open="log('open')"
+          ></vs-select>
+          <small>v-model: {{ form.select1 }}</small>
+        </div>
+        <div>
+          <vs-select label="Search" :options="options1" is-search v-model="form.select2"></vs-select>
+          <small>v-model: {{ form.select2 }}</small>
+        </div>
+        <div>
+          <vs-select label="No Search (Object)" :options="options2" v-model="form.select3" @change="log"></vs-select>
+          <small>v-model: {{ form.select3 }}</small>
+        </div>
+        <div>
+          <vs-select
+            label="Search (Object)"
+            :options="options2"
+            is-search
+            v-model="form.select4"
+            emptyItemsText="Not Found"
+          ></vs-select>
+          <small>v-model: {{ form.select4 }}</small>
+        </div>
+        <div>
+          <vs-select label="Disabled" :options="options2" is-search disabled v-model="form.select5"></vs-select>
+          <small>v-model: {{ form.select5 }}</small>
+        </div>
+        <div>
+          <vs-select label="Search (Customizable)" :options="options1" is-search v-model="form.select6">
+            <template v-slot:options="{ options, selected, onSelectedItem }">
+              <li
+                v-for="(option, index) in options"
+                :key="'selected-' + index"
+                class="menu-item"
+                :class="[{ 'menu-item--is-checked': selected === option }]"
+                @click="onSelectedItem(option, index)"
+              >
+                <span>{{ option }}</span>
+              </li>
+            </template>
+          </vs-select>
+          <small>v-model: {{ form.select6 }}</small>
+        </div>
+        <div>
+          <vs-select
+            label="Preselected & v-model"
+            :options="options2"
+            is-search
+            :preselected="preselected"
+            v-model="form.select7"
+          ></vs-select>
+          <small>v-model: {{ form.select7 }}</small>
+          <br />
+          <small>Preselected given priority</small>
+        </div>
+        <div>
+          <vs-select label="Compact" :options="options1" v-model="form.select1" is-compact></vs-select>
+          <small>v-model: {{ form.select1 }}</small>
+        </div>
+        <div>
+          <vs-select label="Menu (Object)" :options="menu" @change="log" is-menu is-search></vs-select>
+        </div>
+        <div>
+          <vs-select
+            label="Boolean (Object)"
+            :options="booleanOptions"
+            v-model="form.boolSelect"
+            @change="log"
+          ></vs-select>
+          <small>v-model: {{ form.boolSelect }}</small>
+        </div>
+        <div>
+          <vs-select label="Error" :options="options1" v-model="form.select1" required is-error></vs-select>
+          <small>v-model: {{ form.select1 }}</small>
+        </div>
       </div>
     </div>
 
-    <br /><br />
-    <hr />
-    <br /><br />
-    <strong>Multi-Select</strong>
-    <br /><br />
+    <h3>Multi-Select</h3>
 
-    <div class="grid">
+    <div class="select-grid box">
       <div>
         <vs-multiselect
           label="No Search (Array)"
@@ -203,6 +199,11 @@
 </script>
 
 <style lang="scss">
+  .select-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
   .menu-item {
     padding: 10px 15px;
     position: relative;

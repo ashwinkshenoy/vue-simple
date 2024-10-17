@@ -4,11 +4,20 @@ title: Tag
 
 <masthead title="Tag" description="A simple vue tag.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-tag-l7q3d"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-tag"
     packageName="@vuesimple/vs-tag">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import TagComponent from '../../src/DemoComponents/Tag.vue';
+</script>
+
+<tag-component class="demo"></tag-component>
+
+<br />
 
 ## Install
 

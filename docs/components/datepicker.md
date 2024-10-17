@@ -4,11 +4,23 @@ title: Datepicker
 
 <masthead title="Datepicker" description="A light weight vue datepicker plugin.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-datepicker-4vcnu"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-datepicker"
     packageName="@vuesimple/vs-datepicker">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+import { defineClientComponent } from 'vitepress'
+
+const ClientComp = defineClientComponent(() => {
+  return import('../../src/DemoComponents/Datepicker.vue')
+})
+</script>
+
+<ClientComp />
+<br />
 
 ## Install
 

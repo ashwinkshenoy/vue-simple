@@ -4,11 +4,20 @@ title: Button
 
 <masthead title="Button" description="A simple set of buttons">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-button-w8x1m"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-button"
     packageName="@vuesimple/vs-button">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import VsButton from '../../src/DemoComponents/Button.vue';
+</script>
+
+<vs-button class="demo"></vs-button>
+
+<br />
 
 ## Install
 

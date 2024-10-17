@@ -5,11 +5,21 @@ actionLink: /components/accordion/
 
 <masthead title="Accordion" description="A simple vue accordion. Perfect for all your accordion, faq's scenarios.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-accordion-9shik?file=/src/App.vue"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-accordion"
     packageName="@vuesimple/vs-accordion">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import Accordion from '../../src/DemoComponents/Accordion.vue';
+  import Button from '../../src/DemoComponents/Button.vue';
+</script>
+
+<accordion class="demo"></accordion>
+
+<br />
 
 ## Install
 

@@ -4,11 +4,20 @@ title: Loader
 
 <masthead title="Loader" description="A simple vue loader. Perfect for all your loader scenarios.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-loader-1ue35"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-loader"
     packageName="@vuesimple/vs-loader">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import Loader from '../../src/DemoComponents/Loader.vue';
+</script>
+
+<loader class="demo"></loader>
+
+<br />
 
 ## Install
 

@@ -211,7 +211,7 @@
     padding: 0 20px;
   }
 
-  .grid {
+  .select-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;

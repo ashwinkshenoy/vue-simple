@@ -323,7 +323,7 @@
 
     &:not(.has-footer) {
       #{$el}__body {
-        padding: $c-space-inset-l + 5 $c-space-inset-xl;
+        padding: 0 $c-space-inset-xl $c-space-inset-l + 4 $c-space-inset-xl;
       }
     }
 

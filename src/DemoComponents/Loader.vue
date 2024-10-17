@@ -1,14 +1,19 @@
 <template>
   <div>
-    <small>Pulse</small>
-    <vs-loader :size="10"></vs-loader>
-    <br />
+    <h3>Pulse</h3>
+    <div class="box">
+      <vs-loader :size="10"></vs-loader>
+    </div>
 
-    <small>Dots</small>
-    <vs-loader variant="dots" :size="10" color="brown"></vs-loader>
+    <h3>Dots</h3>
+    <div class="box">
+      <vs-loader variant="dots" :size="10" color="brown"></vs-loader>
+    </div>
 
-    <small>Inline</small>
-    <vs-loader variant="inline" :size="10" color="green"></vs-loader>
+    <h3>Inline</h3>
+    <div class="box">
+      <vs-loader variant="inline" :size="10" color="green"></vs-loader>
+    </div>
   </div>
 </template>
 

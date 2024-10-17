@@ -4,11 +4,20 @@ title: Modal
 
 <masthead title="Modal" description="A light weight & flexible dialog prompts, with importance to accessibility.">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-modal-n2wwm"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-modal"
     packageName="@vuesimple/vs-modal">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import ModalComponent from '../../src/DemoComponents/Modal.vue';
+</script>
+
+<modal-component class="demo"></modal-component>
+
+<br />
 
 ## Install
 

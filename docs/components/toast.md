@@ -4,11 +4,20 @@ title: Toast
 
 <masthead title="Toast" description="A simple set of toast">
   <component-links
-    codesandbox="https://codesandbox.io/s/vs-toast-hti14"
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-toast"
     packageName="@vuesimple/vs-toast">
   </component-links>
 </masthead>
+
+## Demo
+
+<script setup>
+  import ToastComponent from '../../src/DemoComponents/Toast.vue';
+</script>
+
+<toast-component class="demo"></toast-component>
+
+<br />
 
 ## Install
 

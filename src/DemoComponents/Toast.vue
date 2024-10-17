@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="box">
     <!-- Triggers -->
-    <vs-button variant="success" size="small" fill @click="toastSuccess">Success</vs-button>
-    <vs-button variant="danger" size="small" fill @click="toastError">Error</vs-button>
-    <vs-button variant="warning" size="small" fill @click="toastWarning">Warning</vs-button>
+    <vs-button variant="success" size="small" fill @click="toastSuccess" class="mr-10">Success</vs-button>
+    <vs-button variant="danger" size="small" fill @click="toastError" class="mr-10">Error</vs-button>
+    <vs-button variant="warning" size="small" fill @click="toastWarning" class="mr-10">Warning</vs-button>
     <br /><br />
     <vs-button variant="secondary" size="small" @click="hide">Hide</vs-button>
   </div>

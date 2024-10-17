@@ -32,7 +32,7 @@
 
   .component-masthead {
     position: relative;
-    padding: 20px 0 0;
+    padding: 0 0 20px 0;
     margin-top: 0 !important;
 
     @media (min-width: $tablet) {
@@ -44,6 +44,7 @@
 
       h1 {
         margin-bottom: 5px;
+        font-weight: 900;
       }
 
       p {

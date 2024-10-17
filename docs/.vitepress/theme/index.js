@@ -7,7 +7,7 @@ import './index.scss';
 
 export default {
   extends: DefaultTheme,
-  enhanceApp(ctx) {
+  async enhanceApp(ctx) {
     // register your custom global components
     ctx.app.component('Masthead', Masthead);
     ctx.app.component('ComponentLinks', ComponentLinks);
