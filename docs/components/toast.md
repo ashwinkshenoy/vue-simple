@@ -2,7 +2,7 @@
 title: Toast
 ---
 
-<masthead title="Toast" description="A simple set of toast">
+<masthead title="Toast" description="A simple set of toast notifications">
   <component-links
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-toast"
     packageName="@vuesimple/vs-toast">
@@ -52,7 +52,7 @@ npm i @vuesimple/vs-toast
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-toast@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-toast@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

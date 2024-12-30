@@ -55,6 +55,7 @@ export default {
         items: [
           { text: 'Accordion', link: '/components/accordion' },
           { text: 'Alert', link: '/components/alert' },
+          { text: 'Autocomplete', link: '/components/autocomplete' },
           { text: 'Button', link: '/components/button' },
           { text: 'Datepicker', link: '/components/datepicker' },
           { text: 'Loader', link: '/components/loader' },

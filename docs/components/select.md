@@ -60,7 +60,7 @@ npm i @vuesimple/vs-select
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-select@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-select@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

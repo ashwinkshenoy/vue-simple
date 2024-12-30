@@ -59,7 +59,7 @@ npm i @vuesimple/vs-datepicker
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-datepicker@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-datepicker@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

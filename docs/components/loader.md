@@ -50,7 +50,7 @@ npm i @vuesimple/vs-loader
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-loader@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-loader@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

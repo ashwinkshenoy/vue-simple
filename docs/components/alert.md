@@ -48,7 +48,7 @@ npm i @vuesimple/vs-alert
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-alert@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-alert@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip

@@ -51,7 +51,7 @@ npm i @vuesimple/vs-button
 ## CDN
 
 ```html
-<script src="https://unpkg.com/@vuesimple/vs-button@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-button@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip
