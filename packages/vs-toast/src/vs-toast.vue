@@ -218,7 +218,6 @@
     position: fixed;
     width: 350px;
     max-width: 350px;
-    background-color: #ffffff;
     z-index: 9999;
     font-family: inherit;
     text-align: left;

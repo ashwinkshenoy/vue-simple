@@ -297,7 +297,7 @@
     }
 
     &--toast {
-      background-color: transparent;
+      background-color: #ffffff;
       border: solid 1px #d8dcde;
       color: #2f3941;
       box-shadow: rgb(23 73 77 / 15%) 0px 20px 28px 0px;

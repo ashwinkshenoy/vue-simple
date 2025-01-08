@@ -54,7 +54,7 @@ npm i vs-autocomplete
 ## CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@{{version}}/dist/vs-autocomplete.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@<version>/dist/vs-autocomplete.umd.min.js"></script>
 ```
 
 ::: tip

@@ -38,11 +38,7 @@
     </div>
 
     <div class="vs-select__menu-wrapper" v-if="!disabled">
-      <ul
-        :class="['vs-select__menu', { 'vs-select__menu--top': isMenuTop }]"
-        :aria-hidden="!disabled ? isMenuHidden : true"
-        ref="vs-select-dropdown"
-      >
+      <ul :class="['vs-select__menu', { 'vs-select__menu--top': isMenuTop }]" ref="vs-select-dropdown">
         <li class="vs-select__menu-item" @click="onSelectedItem(-1)" v-if="hasEmptyOption" role="menuitem">-</li>
         <li
           v-for="(option, index) in selectOptions"

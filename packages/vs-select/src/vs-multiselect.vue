@@ -36,7 +36,6 @@
 
     <div class="vs-multiselect__menu-wrapper" v-if="!disabled">
       <ul
-        :aria-hidden="!disabled ? isMenuHidden : true"
         :class="[
           'vs-multiselect__menu',
           { 'vs-multiselect__menu--top': isMenuTop },
