@@ -40,6 +40,7 @@
           'vs-multiselect__menu',
           { 'vs-multiselect__menu--top': isMenuTop },
           { 'vs-multiselect__no-search': !isSearch },
+          { 'vs-multiselect--menu-hidden': isMenuHidden },
         ]"
         ref="vs-multiselect-dropdown"
       >
@@ -579,7 +580,7 @@
       opacity: 1;
     }
 
-    #{$el}__menu[aria-hidden='true'] {
+    #{$el}__menu#{$el}--menu-hidden {
       display: inline-block;
       transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;
       visibility: hidden;
