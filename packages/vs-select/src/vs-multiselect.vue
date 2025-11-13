@@ -374,11 +374,11 @@
     --vs-select-placeholder: #959595;
     --vs-select-label: #2f3941;
     --vs-select-border-radius: 4px;
-    --vs-select-disabled-bg: rgba(255, 255, 255, 0.08);
-    --vs-select-disabled-border: #39434b;
+    --vs-select-disabled-bg: #f8f9f9;
+    --vs-select-disabled-border: #e9ebed;
     --vs-select-disabled-color: #5c6970;
-    --vs-select-menu-bg: #1c2227;
-    --vs-select-menu-border: #39434b;
+    --vs-select-menu-bg: #ffffff;
+    --vs-select-menu-border: #d8dcde;
 
     width: 100%;
     position: relative;
