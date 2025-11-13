@@ -19,7 +19,7 @@ A light weight vue plugin built groundup.
 
 ### 📺 Live Demo
 
-Code Sandbox: [Link](https://codesandbox.io/s/vs-button-w8x1m)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <br />
 

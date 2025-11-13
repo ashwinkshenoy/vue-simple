@@ -1,8 +1,19 @@
 <template>
   <div class="app">
-    <div class="text-center">
-      <img src="/vue-simple.svg" alt="vue-simple" />
+    <div class="row">
+      <div class="col">
+        <img src="/vue-simple.svg" alt="vue-simple" />
+      </div>
+      <div class="col">
+        <!-- Toggle light/dark mode -->
+        <label class="vs-switch vs-switch--primary vs-switch--large">
+          <input type="checkbox" v-model="darkMode" @change="changeTheme" />
+          <span class="vs-switch--check"> Dark Mode </span>
+          <span class="vs-switch--thumb"></span>
+        </label>
+      </div>
     </div>
+
     <br /><br />
 
     <demo-datepicker></demo-datepicker>
@@ -153,6 +164,13 @@
     <strong>Accordion</strong>
     <br /><br />
     <demo-accordion></demo-accordion>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+    <strong>Menu</strong>
+    <br /><br />
+    <demo-menu></demo-menu>
   </div>
 </template>
 
@@ -167,6 +185,7 @@
   import DemoLoader from './DemoComponents/Loader.vue';
   import DemoToast from './DemoComponents/Toast.vue';
   import DemoAccordion from './DemoComponents/Accordion.vue';
+  import DemoMenu from './DemoComponents/Menu.vue';
 
   export default {
     name: 'App',
@@ -181,6 +200,7 @@
       DemoLoader,
       DemoToast,
       DemoAccordion,
+      DemoMenu,
     },
 
     data() {
@@ -191,11 +211,30 @@
       log(a) {
         console.log(a);
       },
+
+      /**
+       * Toggle light/dark mode
+       */
+      changeTheme() {
+        if (this.darkMode) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      },
     },
   };
 </script>
 
 <style lang="scss">
+  html[data-theme='dark'] {
+    background: #151a1e;
+    color: #e0e0e0;
+
+    body {
+      color: #e0e0e0;
+    }
+  }
   body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     color: #2c3e50;
@@ -228,5 +267,11 @@
 
   .mr-10 {
     margin-right: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>

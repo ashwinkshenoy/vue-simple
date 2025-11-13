@@ -242,4 +242,47 @@
       }
     }
   }
+
+  /* 🌙 Dark mode support */
+  html[data-theme='dark'],
+  html.dark {
+    #{$el} {
+      $color-primary: #1f73b7;
+      $color-secondary: #6c757d;
+      $color-light: #f8f9fa;
+      $color-success: #28a745;
+      $color-danger: #cc3340;
+      $color-warning: #ffb057;
+      $color-disabled-bg: #ffffff14;
+      $color-disabled-text: #5c6970;
+
+      $theme: (primary $color-primary #ffffff), (success $color-success #ffffff), (danger $color-danger #ffffff),
+        (warning $color-warning #703815), (secondary $color-secondary #ffffff), (light $color-light #212529);
+
+      @each $button in $theme {
+        &#{$el}__#{nth($button, 1)} {
+          &:hover {
+            @if nth($button, 1) == warning {
+              background: darken(nth($button, 2), 55%);
+            } @else if nth($button, 1) == danger {
+              background: darken(nth($button, 2), 45%);
+            } @else if nth($button, 1) == secondary {
+              background: darken(nth($button, 2), 50%);
+            } @else {
+              background: darken(nth($button, 2), 30%);
+            }
+            border-color: lighten(nth($button, 2), 10%);
+            color: lighten(nth($button, 2), 10%);
+          }
+        }
+        &:disabled,
+        &#{$el}--loading {
+          background: $color-disabled-bg;
+          border-color: transparent;
+          color: $color-disabled-text;
+          cursor: no-drop;
+        }
+      }
+    }
+  }
 </style>

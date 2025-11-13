@@ -277,11 +277,19 @@
 <style lang="scss">
   $el: '.vs-pagination';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-pagination-bg-color: rgba(102, 160, 205, 0.16);
+    --vs-pagination-color: #d8dcde;
+    --vs-pagination-active-color: #ffffff;
+    --vs-pagination-disabled-color: #525252;
+  }
+
   #{$el} {
-    --page-bg-color: #f0f5fb;
-    --page-color: #68737d;
-    --page-active-color: #2f3941;
-    --page-disabled-color: #d8d8d8;
+    --vs-pagination-bg-color: #f0f5fb;
+    --vs-pagination-color: #68737d;
+    --vs-pagination-active-color: #2f3941;
+    --vs-pagination-disabled-color: #d8d8d8;
     padding: 10px 0;
     display: flex;
     align-items: center;
@@ -306,14 +314,14 @@
         cursor: pointer;
         text-decoration: none;
         border-radius: 4px;
-        color: var(--page-color);
+        color: var(--vs-pagination-color);
         font-size: 14px;
         margin-left: 2px;
         margin-right: 2px;
         user-select: none;
         &:hover {
-          background-color: var(--page-bg-color);
-          color: var(--page-active-color);
+          background-color: var(--vs-pagination-bg-color);
+          color: var(--vs-pagination-active-color);
         }
         &:focus-visible {
           box-shadow: 0 0 0 2px rgb(31 115 183 / 35%);
@@ -322,15 +330,15 @@
       }
 
       &#{$el}--active a {
-        color: var(--page-active-color);
-        background-color: var(--page-bg-color);
+        color: var(--vs-pagination-active-color);
+        background-color: var(--vs-pagination-bg-color);
         font-weight: 600;
         position: relative;
         z-index: 1;
       }
 
       &#{$el}--disabled > a {
-        color: var(--page-disabled-color) !important;
+        color: var(--vs-pagination-disabled-color) !important;
         user-select: none;
         cursor: default;
         &:hover {
@@ -344,7 +352,7 @@
 
       &#{$el}--gap a {
         cursor: default;
-        color: var(--page-color);
+        color: var(--vs-pagination-color);
         &:hover {
           background: transparent;
         }

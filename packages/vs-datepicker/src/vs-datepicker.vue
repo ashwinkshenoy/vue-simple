@@ -151,14 +151,35 @@
   $primary-color: #1f73b7;
   @import 'vue-datepicker-next/index.css';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-datepicker-bg: #1e1e1e;
+    --vs-datepicker-border: #5c6970;
+    --vs-datepicker-border-hover: #4ea8f5;
+    --vs-datepicker-hover: #333333;
+    --vs-datepicker-error: #ff6b72;
+    --vs-datepicker-icon: #5c6970;
+    --vs-datepicker-input: #ffffff;
+    --vs-datepicker-label: #ffffff;
+  }
+
   #{$el} {
     --primary-color: #1f73b7;
+    --vs-datepicker-bg: #ffffff;
+    --vs-datepicker-border: #d8dcde;
+    --vs-datepicker-border-hover: #4ea8f5;
+    --vs-datepicker-hover: #333333;
+    --vs-datepicker-error: #ff6b72;
+    --vs-datepicker-icon: rgb(0 0 0 / 50%);
+    --vs-datepicker-input: #333;
+    --vs-datepicker-label: #333;
+
     position: relative;
     width: 100%;
 
     &__label {
       line-height: 1.42857;
-      color: #2f3941;
+      color: var(--vs-datepicker-label);
       font-size: 14px;
       font-weight: 600;
       display: block;
@@ -166,7 +187,7 @@
     }
 
     &__input {
-      border: 1px solid #d8dcde;
+      border: 1px solid var(--vs-datepicker-border);
       border-radius: 4px;
       width: 100%;
       box-sizing: border-box;
@@ -176,8 +197,8 @@
       min-height: 40px;
       line-height: 1.28571;
       font-size: 14px;
-      background-color: #ffffff;
-      color: rgb(47, 57, 65);
+      background-color: var(--vs-datepicker-bg);
+      color: var(--vs-datepicker-input);
       transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s,
         background-color 0.25s ease-in-out 0s, color 0.25s ease-in-out 0s;
       outline: none;
@@ -207,6 +228,10 @@
       }
     }
 
+    .mx-icon-calendar {
+      color: var(--vs-datepicker-icon);
+    }
+
     &--required {
       color: #cc3340;
     }
@@ -232,6 +257,19 @@
     }
   }
 
+  [data-theme='dark'] .#{$namespace}-datepicker-main,
+  .dark .#{$namespace}-datepicker-main {
+    --vs-datepicker-bg: #1e1e1e;
+    --vs-datepicker-border: #5c6970;
+    --vs-datepicker-border-hover: #4ea8f5;
+    --vs-datepicker-hover: #333333;
+    --vs-datepicker-error: #ff6b72;
+    --vs-datepicker-icon: #5c6970;
+    --vs-datepicker-menu-bg: #1c2227;
+    --vs-datepicker-menu-border: #39434b;
+    --vs-datepicker-border-radius: 4px;
+  }
+
   .#{$namespace}-datepicker-main {
     --vs-datepicker-primary-color: #1f73b7;
     --vs-datepicker-grey: #c2c8cc;
@@ -240,12 +278,26 @@
     --vs-datepicker-range-color: rgba(31, 115, 183, 0.08);
     --vs-datepicker-font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu,
       Cantarell, Helvetica Neue, Arial, sans-serif;
+    --vs-datepicker-bg: #ffffff;
+    --vs-datepicker-border: #d8dcde;
+    --vs-datepicker-menu-bg: #ffffff;
+    --vs-datepicker-menu-border: #d8dcde;
+    --vs-datepicker-border-radius: 4px;
 
-    color: var(--vs-datepicker-black);
+    color: var(--vs-datepicker-input);
     font-feature-settings: 'kern', 'kern';
     -webkit-font-kerning: normal;
     font-kerning: normal;
     font-family: var(--vs-datepicker-font-family);
+    background-color: var(--vs-datepicker-menu-bg);
+    border-color: var(--vs-datepicker-border);
+    border-radius: var(--vs-datepicker-border-radius);
+    color: var(--vs-datepicker-input);
+
+    .#{$namespace}-time {
+      background-color: var(--vs-datepicker-menu-bg);
+      border-radius: var(--vs-datepicker-border-radius);
+    }
 
     .#{$namespace}-calendar {
       width: 275px;
@@ -259,6 +311,10 @@
 
     .#{$namespace}-calendar-header-label {
       line-height: 10px;
+    }
+
+    .#{$namespace}-datepicker-sidebar + .#{$namespace}-datepicker-content {
+      border-left: 1px solid var(--vs-datepicker-menu-border);
     }
 
     .#{$namespace}-calendar-content {
@@ -294,7 +350,7 @@
       -webkit-font-kerning: normal;
       font-kerning: normal;
       font-family: var(--vs-datepicker-font-family);
-      color: var(--vs-datepicker-black);
+      color: var(--vs-datepicker-input);
       font-size: 14px;
       font-weight: 600;
       height: 30px;

@@ -1,0 +1,48 @@
+{
+  "name": "@vuesimple/vs-menu",
+  "version": "3.0.0",
+  "description": "A simple Vue Menu. Perfect for all your menu scenarios.",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "scripts": {
+    "build": "rm -rfv dist && vite build --config build/vite.config.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "sass": "^1.54.4",
+    "vite": "^3.0.5",
+    "vite-plugin-style-inject": "0.0.1",
+    "vue": "^3.2.37"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "menu",
+    "notification",
+    "front-end",
+    "popup",
+    "web",
+    "vue-js",
+    "dropdown",
+    "vue-js-menu",
+    "vue-menu",
+    "vs-menu"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple",
+  "gitHead": "6c190d53a3fb13b81c31ee7943f74c88503276ab"
+}

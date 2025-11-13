@@ -129,6 +129,11 @@
 <style lang="scss">
   $el: '.vs-accordion';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-accordion-border-color: #39434b;
+  }
+
   #{$el} {
     --vs-accordion-border-color: #d8dcde;
     --vs-accordion-border-radius: 4px;

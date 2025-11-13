@@ -302,9 +302,19 @@
   $z-index-modal-overlay: 800;
   $el: '.vs-modal';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-modal-border: #39434b;
+    --vs-modal-bg: #1c2227;
+    --vs-modal-mask-bg: rgba(10, 13, 14, 0.8);
+  }
+
   #{$el} {
     font-size: $text-body-m1;
-
+    --vs-modal-border-radius: 4px;
+    --vs-modal-border: #d8dcde;
+    --vs-modal-bg: #ffffff;
+    --vs-modal-mask-bg: rgba($color-black, 0.5);
     &.is-aligned-top {
       #{$el}__wrapper {
         vertical-align: initial;
@@ -368,9 +378,10 @@
       padding: 0;
       overflow: hidden;
       transition: all $modal-transition-duration ease;
-      border-radius: 3px;
+      border-radius: var(--vs-modal-border-radius);
       outline: none;
-      background-color: $color-white;
+      background-color: var(--vs-modal-bg);
+      border: solid 1px var(--vs-modal-border);
       box-shadow: 0 2px 8px rgba($color-black, 0.33);
       text-align: initial;
     }

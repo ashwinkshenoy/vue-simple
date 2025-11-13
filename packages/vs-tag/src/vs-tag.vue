@@ -84,6 +84,15 @@
 <style lang="scss">
   $el: '.vs-tag';
 
+  // Dark mode styles are handled globally
+  [data-theme='dark'],
+  .dark {
+    #{$el} {
+      --vs-tag-bg-color: #39434b;
+      --vs-tag-text-color: #d8dcde;
+    }
+  }
+
   #{$el} {
     --vs-tag-bg-color: #e9ebed;
     --vs-tag-text-color: #49545c;

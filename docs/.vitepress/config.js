@@ -59,6 +59,7 @@ export default {
           { text: 'Button', link: '/components/button' },
           { text: 'Datepicker', link: '/components/datepicker' },
           { text: 'Loader', link: '/components/loader' },
+          { text: 'Menu', link: '/components/menu' },
           { text: 'Modal', link: '/components/modal' },
           { text: 'Pagination', link: '/components/pagination' },
           { text: 'Select', link: '/components/select' },

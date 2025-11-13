@@ -21,7 +21,7 @@
       tabindex="0"
       :aria-expanded="!isMenuHidden"
     >
-      <span>
+      <span :class="{ 'vs-multiselect__placeholder': !selectedItems }">
         {{ selectedItems ? selectedItems : placeholder }}
       </span>
       <div class="vs-multiselect__icon">
@@ -343,6 +343,26 @@
 <style lang="scss">
   $el: '.vs-multiselect';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-select-color: #4ea8f5;
+    --vs-select-bg: #1e1e1e;
+    --vs-select-border: #5c6970;
+    --vs-select-border-hover: #4ea8f5;
+    --vs-select-hover: #333333;
+    --vs-select-error: #ff6b72;
+    --vs-select-icon: #5c6970;
+    --vs-select-input: #ffffff;
+    --vs-select-placeholder: #959595;
+    --vs-select-label: #ffffff;
+    --vs-select-border-radius: 4px;
+    --vs-select-disabled-bg: rgba(255, 255, 255, 0.08);
+    --vs-select-disabled-border: #39434b;
+    --vs-select-disabled-color: #5c6970;
+    --vs-select-menu-bg: #1c2227;
+    --vs-select-menu-border: #39434b;
+  }
+
   #{$el} {
     --vs-select-bg: #ffffff;
     --vs-select-border: #d8dcde;
@@ -350,7 +370,16 @@
     --vs-select-hover: #edf7ff;
     --vs-select-error: #cc3340;
     --vs-select-icon: #68737d;
+    --vs-select-input: #2f3941;
+    --vs-select-placeholder: #959595;
+    --vs-select-label: #2f3941;
     --vs-select-border-radius: 4px;
+    --vs-select-disabled-bg: rgba(255, 255, 255, 0.08);
+    --vs-select-disabled-border: #39434b;
+    --vs-select-disabled-color: #5c6970;
+    --vs-select-menu-bg: #1c2227;
+    --vs-select-menu-border: #39434b;
+
     width: 100%;
     position: relative;
 
@@ -366,7 +395,7 @@
 
     &__label {
       line-height: 1.42857;
-      color: #2f3941;
+      color: var(--vs-select-label);
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 8px;
@@ -407,6 +436,10 @@
       background: transparent;
     }
 
+    &__placeholder {
+      color: var(--vs-select-placeholder);
+    }
+
     &__select-wrapper {
       display: grid;
       align-items: center;
@@ -427,7 +460,7 @@
       box-sizing: border-box;
       vertical-align: middle;
       line-height: 1.28571;
-      color: #2f3941;
+      color: var(--vs-select-input);
       font-family: inherit;
       font-size: 14px;
 
@@ -462,13 +495,13 @@
       }
 
       &#{$el}--disabled {
-        background: #f8f9f9;
+        background: var(--vs-select-disabled-bg);
         color: #c2c8cc;
         cursor: no-drop;
-        border-color: #e9ebed;
+        border-color: var(--vs-select-disabled-border);
         user-select: none;
         &:hover {
-          border-color: #e9ebed;
+          border-color: var(--vs-select-disabled-border);
         }
         #{$el}__input,
         #{$el}__icon {
@@ -493,10 +526,10 @@
       position: absolute;
       margin: 0;
       box-sizing: border-box;
-      border: 1px solid #d8dcde;
+      border: 1px solid var(--vs-select-menu-border);
       border-radius: var(--vs-select-border-radius);
       box-shadow: 0 10px 20px 0 rgb(4 68 77 / 15%);
-      background-color: #fff;
+      background-color: var(--vs-select-menu-bg);
       cursor: default;
       padding: 0;
       min-width: 180px;

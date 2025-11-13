@@ -16,7 +16,11 @@
     >
       <input
         ref="vs-select-box"
-        :class="['vs-select__input', { 'vs-select--cursor-pointer': isMenuHidden }]"
+        :class="[
+          'vs-select__input',
+          { 'vs-select--cursor-pointer': isMenuHidden },
+          inputValue === placeholder ? 'vs-select__input--placeholder' : '',
+        ]"
         :disabled="disabled"
         @click="!disabled ? setSelectEnv() : null"
         @keydown.space.prevent="!disabled ? setSelectEnv() : null"
@@ -250,12 +254,10 @@
         if (this.isObject) {
           this.selectedObject = this.options.filter(i => i.value === option.value)[0];
           this.selected = this.selectedObject.label;
-          // this.inputValue = this.selected;
           this.$emit('update:modelValue', this.selectedObject.value);
           this.$emit('change', this.selectedObject.value, this.selectedObject);
         } else {
           this.selected = this.options.filter(i => i === option)[0];
-          // this.inputValue = this.selected;
           this.$emit('update:modelValue', this.selected);
           this.$emit('change', this.options.indexOf(this.selected), this.selected);
         }
@@ -317,6 +319,26 @@
 <style lang="scss">
   $el: '.vs-select';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-select-color: #4ea8f5;
+    --vs-select-bg: #1e1e1e;
+    --vs-select-border: #5c6970;
+    --vs-select-border-hover: #4ea8f5;
+    --vs-select-hover: #333333;
+    --vs-select-error: #ff6b72;
+    --vs-select-icon: #5c6970;
+    --vs-select-input: #ffffff;
+    --vs-select-placeholder: #959595;
+    --vs-select-label: #ffffff;
+    --vs-select-border-radius: 4px;
+    --vs-select-disabled-bg: rgba(255, 255, 255, 0.08);
+    --vs-select-disabled-border: #39434b;
+    --vs-select-disabled-color: #5c6970;
+    --vs-select-menu-bg: #1c2227;
+    --vs-select-menu-border: #39434b;
+  }
+
   #{$el} {
     --vs-select-color: #1f73b7;
     --vs-select-bg: #ffffff;
@@ -325,7 +347,16 @@
     --vs-select-hover: #edf7ff;
     --vs-select-error: #cc3340;
     --vs-select-icon: #68737d;
+    --vs-select-input: #2f3941;
+    --vs-select-placeholder: #959595;
+    --vs-select-label: #2f3941;
     --vs-select-border-radius: 4px;
+    --vs-select-disabled-bg: #f8f9f9;
+    --vs-select-disabled-border: #e9ebed;
+    --vs-select-disabled-color: #808080;
+    --vs-select-menu-bg: #ffffff;
+    --vs-select-menu-border: #d8dcde;
+
     width: 100%;
     position: relative;
 
@@ -342,7 +373,7 @@
 
     &__label {
       line-height: 1.42857;
-      color: #2f3941;
+      color: var(--vs-select-label);
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 8px;
@@ -403,7 +434,7 @@
         right: 0;
         cursor: pointer;
         color: var(--vs-select-icon);
-        background: white;
+        background: transparent;
         display: flex;
         align-items: center;
         padding: 0 12px;
@@ -434,25 +465,30 @@
       }
 
       &#{$el}--disabled {
-        background: #f8f9f9;
+        background: var(--vs-select-disabled-bg);
         cursor: no-drop;
-        border-color: #e9ebed;
+        border-color: var(--vs-select-disabled-border);
         user-select: none;
         &:hover {
-          border-color: #e9ebed;
+          border-color: var(--vs-select-disabled-border);
         }
-        #{$el}__input,
+        #{$el}__input {
+          cursor: no-drop;
+          user-select: none;
+          color: var(--vs-select-disabled-color);
+          background: transparent;
+        }
         #{$el}__icon {
           cursor: no-drop;
           user-select: none;
-          color: #c2c8cc;
+          color: var(--vs-select-disabled-border);
           background: transparent;
         }
       }
     }
 
     &__input {
-      color: #2f3941;
+      color: var(--vs-select-input);
       width: 100%;
       border: none !important;
       padding: 10px 37px 10px 15px;
@@ -467,6 +503,10 @@
         cursor: pointer;
         user-select: none;
       }
+
+      &--placeholder {
+        color: var(--vs-select-placeholder);
+      }
     }
 
     &__menu {
@@ -477,10 +517,10 @@
       position: absolute;
       margin: 0;
       box-sizing: border-box;
-      border: 1px solid #d8dcde;
+      border: 1px solid var(--vs-select-menu-border);
       border-radius: var(--vs-select-border-radius);
       box-shadow: 0 10px 20px 0 rgb(4 68 77 / 15%);
-      background-color: #fff;
+      background-color: var(--vs-select-menu-bg);
       cursor: default;
       padding: 0;
       min-width: 120px;

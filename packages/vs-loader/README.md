@@ -19,7 +19,7 @@ A light weight vue plugin built groundup.
 
 ### 📺 Live Demo
 
-Code Sandbox: [Link](https://codesandbox.io/s/vs-loader-1ue35)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <br />
 

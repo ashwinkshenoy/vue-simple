@@ -19,7 +19,7 @@ A light weight vue plugin built with accessibility in mind.
 
 ### 📺 Live Demo
 
-Code Sandbox: [Link](https://codesandbox.io/s/vs-pagination-vlsrl)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <br />
 

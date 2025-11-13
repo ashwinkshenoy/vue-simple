@@ -19,8 +19,7 @@ A light weight vue datepicker plugin.
 
 ### 📺 Live Demo
 
-Code Sandbox Demo: [Link](https://4vcnu.csb.app/)
-Code Sandbox: [Link](https://codesandbox.io/s/vs-datepicker-4vcnu)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <br />
 

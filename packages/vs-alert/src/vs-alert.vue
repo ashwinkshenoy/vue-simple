@@ -157,6 +157,34 @@
 <style lang="scss">
   $el: '.vs-alert';
 
+  [data-theme='dark'] #{$el},
+  .dark #{$el} {
+    --vs-alert-success-bc: #0b3b29;
+    --vs-alert-success-bg: #0c261c;
+    --vs-alert-success-color: #94c1b0;
+    --vs-alert-success-icon: #94c1b0;
+
+    --vs-alert-warning-bc: #5c3b24;
+    --vs-alert-warning-bg: #3b2615;
+    --vs-alert-warning-color: #ffb366;
+    --vs-alert-warning-icon: #ff9f1a;
+
+    --vs-alert-error-bc: #5a2328;
+    --vs-alert-error-bg: #3a151a;
+    --vs-alert-error-color: #ff8088;
+    --vs-alert-error-icon: #ff4d57;
+
+    --vs-alert-info-bc: #25455e;
+    --vs-alert-info-bg: #17303f;
+    --vs-alert-info-color: #66b0ff;
+    --vs-alert-info-icon: #3399ff;
+
+    --vs-alert-secondary-bc: #39434b;
+    --vs-alert-secondary-bg: #1c2227;
+    --vs-alert-secondary-color: #919ca5;
+    --vs-alert-secondary-icon: #919ca5;
+  }
+
   #{$el} {
     --vs-alert-success-bc: #aecfc2;
     --vs-alert-success-bg: #edf8f4;
@@ -296,10 +324,8 @@
       }
     }
 
+    // Toast specific styles
     &--toast {
-      background-color: #ffffff;
-      border: solid 1px #d8dcde;
-      color: #2f3941;
       box-shadow: rgb(23 73 77 / 15%) 0px 20px 28px 0px;
       padding: 15px 40px;
       #{$el}__heading {
@@ -324,6 +350,15 @@
         color: #68737d;
         top: 10px;
       }
+    }
+  }
+
+  html:not([data-theme='dark']):not(.dark) #{$el} {
+    // Light theme styles are defined here
+    &--toast {
+      background-color: #ffffff;
+      border: solid 1px #d8dcde;
+      color: #2f3941;
     }
   }
 </style>

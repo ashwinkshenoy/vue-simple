@@ -19,9 +19,7 @@ A light weight vue plugin built groundup, with importance to accessibility.
 
 ### 📺 Live Demo
 
-Code Sandbox Demo: [Link](https://n2wwm.csb.app/)
-<br />
-Code Sandbox: [Link](https://codesandbox.io/s/vs-modal-n2wwm)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <br />
 

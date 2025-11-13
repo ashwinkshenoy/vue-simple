@@ -19,7 +19,7 @@ A light weight vue plugin built groundup.
 
 ### 📺 Live Demo
 
-Code Sandbox: [Link](https://codesandbox.io/s/vs-alert-yhjce)
+Demo: [Link](https://vuesimple.netlify.app)
 
 <img src="https://raw.githubusercontent.com/ashwinkshenoy/vue-simple/master/packages/vs-alert/demo_image/image.png" width="600">
 
