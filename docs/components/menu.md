@@ -173,16 +173,17 @@ After installation,
 
 ## Props
 
-| Name      | Type             | Default  | Description                                                                                               |
-| --------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------- |
-| items     | Array of Objects | -        | Available: `{label: "Item 1", key: "item_1" disabled: true}`.                                             |
-| variant   | String           | -        | Type of button to be shown. (`default`, `primary`, `secondary`, `warning`, `danger`, `success`, `light`). |
-| v-model   | Array of Objects | -        | Returns the selected item.                                                                                |
-| alignment | String           | `left`   | Left align the menu. Available: `left` & `right`.                                                         |
-| size      | String           | `medium` | Size of Menu button. Available: `small`, `medium` & `large`.                                              |
-| fill      | Boolean          | `false`  | Fill the Menu button.                                                                                     |
-| isRound   | Boolean          | `false`  | Make the Menu button round.                                                                               |
-| disabled  | Boolean          | `false`  | To disable the Menu button.                                                                               |
+| Name       | Type             | Default  | Description                                                                                               |
+| ---------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| items      | Array of Objects | -        | Available: `{label: "Item 1", key: "item_1" disabled: true}`.                                             |
+| variant    | String           | -        | Type of button to be shown. (`default`, `primary`, `secondary`, `warning`, `danger`, `success`, `light`). |
+| v-model    | Array of Objects | -        | Returns the selected item.                                                                                |
+| alignment  | String           | `left`   | Left align the menu. Available: `left` & `right`.                                                         |
+| size       | String           | `medium` | Size of Menu button. Available: `small`, `medium` & `large`.                                              |
+| fill       | Boolean          | `false`  | Fill the Menu button.                                                                                     |
+| isRound    | Boolean          | `false`  | Make the Menu button round.                                                                               |
+| disabled   | Boolean          | `false`  | To disable the Menu button.                                                                               |
+| hide-arrow | Boolean          | `false`  | To hide arrow in menu.                                                                                    |
 
 ## Events
 
