@@ -63,6 +63,7 @@ export default {
           { text: 'Modal', link: '/components/modal' },
           { text: 'Pagination', link: '/components/pagination' },
           { text: 'Select', link: '/components/select' },
+          { text: 'Switch', link: '/components/switch' },
           { text: 'Tag', link: '/components/tag' },
           { text: 'Toast', link: '/components/toast' },
         ],

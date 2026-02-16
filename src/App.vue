@@ -113,38 +113,44 @@
         <demo-tag></demo-tag>
       </section>
 
-      <!-- Buttons Section -->
+      <!-- Switch Section -->
       <section :id="components[5].id" class="component-section">
+        <h2>Switch</h2>
+        <demo-switch></demo-switch>
+      </section>
+
+      <!-- Buttons Section -->
+      <section :id="components[6].id" class="component-section">
         <h2>Buttons</h2>
         <demo-button></demo-button>
       </section>
 
       <!-- Pagination Section -->
-      <section :id="components[6].id" class="component-section">
+      <section :id="components[7].id" class="component-section">
         <h2>Pagination</h2>
         <demo-pagination></demo-pagination>
       </section>
 
       <!-- Loader Section -->
-      <section :id="components[7].id" class="component-section">
+      <section :id="components[8].id" class="component-section">
         <h2>Loaders</h2>
         <demo-loader></demo-loader>
       </section>
 
       <!-- Toast Section -->
-      <section :id="components[8].id" class="component-section">
+      <section :id="components[9].id" class="component-section">
         <h2>Toasts</h2>
         <demo-toast></demo-toast>
       </section>
 
       <!-- Accordion Section -->
-      <section :id="components[9].id" class="component-section">
+      <section :id="components[10].id" class="component-section">
         <h2>Accordions</h2>
         <demo-accordion></demo-accordion>
       </section>
 
       <!-- Menu Section -->
-      <section :id="components[10].id" class="component-section">
+      <section :id="components[11].id" class="component-section">
         <h2>Menu</h2>
         <demo-menu></demo-menu>
       </section>
@@ -164,6 +170,7 @@
   import DemoToast from './DemoComponents/Toast.vue';
   import DemoAccordion from './DemoComponents/Accordion.vue';
   import DemoMenu from './DemoComponents/Menu.vue';
+  import DemoSwitch from './DemoComponents/Switch.vue';
 
   export default {
     name: 'App',
@@ -179,6 +186,7 @@
       DemoToast,
       DemoAccordion,
       DemoMenu,
+      DemoSwitch,
     },
 
     data() {
@@ -191,6 +199,7 @@
           { id: 'alert', name: 'Alert' },
           { id: 'modal', name: 'Modal' },
           { id: 'tag', name: 'Tag' },
+          { id: 'switch', name: 'Switch' },
           { id: 'button', name: 'Button' },
           { id: 'pagination', name: 'Pagination' },
           { id: 'loader', name: 'Loader' },
