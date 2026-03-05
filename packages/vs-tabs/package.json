@@ -1,0 +1,46 @@
+{
+  "name": "@vuesimple/vs-tabs",
+  "version": "3.1.3",
+  "description": "A simple vue tabs component to organize related content.",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "scripts": {
+    "build": "rm -rfv dist && vite build --config build/vite.config.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "sass": "^1.54.4",
+    "vite": "^3.0.5",
+    "vite-plugin-style-inject": "0.0.1",
+    "vue": "^3.2.37"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "tabs",
+    "navigation",
+    "panel",
+    "front-end",
+    "web",
+    "vue-js",
+    "vue-tabs",
+    "vs-tabs"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple",
+  "gitHead": "dbda7c423a550ef9aa42b3f82f92bb38d76a6948"
+}
