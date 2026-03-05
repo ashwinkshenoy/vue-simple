@@ -1,20 +1,20 @@
 <template>
-  <div :class="['vs-tabs', classList]">
+  <div :class="['vs-tab', classList]">
     <div
-      class="vs-tabs__list"
+      class="vs-tab__list"
       role="tablist"
       :aria-label="ariaLabel"
       :aria-orientation="isVerticalLayout ? 'vertical' : 'horizontal'"
     >
       <button
-        v-for="(tab, index) in normalizedTabs"
+        v-for="(tab, index) in normalizedTab"
         :key="tab.item"
         :id="`${uid}-tab-${index}`"
         :ref="el => setTabRef(el, index)"
-        class="vs-tabs__tab"
+        class="vs-tab__tab"
         :class="{
-          'vs-tabs__tab--active': isSelected(tab),
-          'vs-tabs__tab--disabled': isDisabled(tab),
+          'vs-tab__tab--active': isSelected(tab),
+          'vs-tab__tab--disabled': isDisabled(tab),
         }"
         role="tab"
         type="button"
@@ -32,13 +32,13 @@
       </button>
     </div>
 
-    <div class="vs-tabs__panels">
+    <div class="vs-tab__panels">
       <div
-        v-for="(tab, index) in normalizedTabs"
+        v-for="(tab, index) in normalizedTab"
         v-show="isSelected(tab)"
         :id="`${uid}-panel-${index}`"
         :key="`panel-${tab.item}`"
-        class="vs-tabs__panel"
+        class="vs-tab__panel"
         role="tabpanel"
         :aria-labelledby="`${uid}-tab-${index}`"
       >
@@ -50,7 +50,7 @@
 
 <script>
   export default {
-    name: 'VsTabs',
+    name: 'VsTab',
 
     props: {
       modelValue: {
@@ -72,7 +72,7 @@
       },
       ariaLabel: {
         type: String,
-        default: 'Tabs',
+        default: 'Tab',
       },
       disabledItems: {
         type: Array,
@@ -85,31 +85,31 @@
     data() {
       return {
         tabRefs: [],
-        uid: `vs-tabs-${Math.random().toString(36).slice(2, 10)}`,
+        uid: `vs-tab-${Math.random().toString(36).slice(2, 10)}`,
       };
     },
 
     computed: {
       /**
-       * Checks if the tabs are in a vertical layout.
+       * Checks if the tab are in a vertical layout.
        */
       isVerticalLayout() {
         return this.isVertical || this.orientation === 'vertical';
       },
 
       /**
-       * Builds the class list for the tabs.
+       * Builds the class list for the tab.
        */
       classList() {
         return {
-          'vs-tabs--vertical': this.isVerticalLayout,
+          'vs-tab--vertical': this.isVerticalLayout,
         };
       },
 
       /**
-       * Normalizes the tabs by building a list of unique keys from the slots.
+       * Normalizes the tab by building a list of unique keys from the slots.
        */
-      normalizedTabs() {
+      normalizedTab() {
         const slots = this.$slots || {};
         const slotNames = Object.keys(slots);
         const panelKeys = slotNames.filter(name => name.startsWith('panel-')).map(name => name.slice(6));
@@ -128,14 +128,14 @@
        * Finds the first enabled tab.
        */
       firstEnabledTab() {
-        return this.normalizedTabs.find(tab => !tab.disabled) || null;
+        return this.normalizedTab.find(tab => !tab.disabled) || null;
       },
 
       /**
        * Returns the current selected tab.
        */
       currentSelected() {
-        const matchedTab = this.normalizedTabs.find(tab => tab.item === this.modelValue);
+        const matchedTab = this.normalizedTab.find(tab => tab.item === this.modelValue);
         return matchedTab ? matchedTab.item : this.firstEnabledTab?.item;
       },
     },
@@ -282,12 +282,12 @@
       },
 
       /**
-       * Implements WAI-ARIA tablist keyboard behavior and skips disabled tabs.
+       * Implements WAI-ARIA tablist keyboard behavior and skips disabled tab.
        * @param {KeyboardEvent} event - The keyboard event.
        * @param {Number} currentIndex - The current index of the tab.
        */
       onTabKeydown(event, currentIndex) {
-        const enabledTabIndexes = this.normalizedTabs
+        const enabledTabIndexes = this.normalizedTab
           .map((tab, index) => (this.isDisabled(tab) ? null : index))
           .filter(index => index !== null);
 
@@ -316,13 +316,13 @@
         if (nextIndex === null) {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            this.selectTab(this.normalizedTabs[currentIndex]);
+            this.selectTab(this.normalizedTab[currentIndex]);
           }
           return;
         }
 
         event.preventDefault();
-        const tab = this.normalizedTabs[nextIndex];
+        const tab = this.normalizedTab[nextIndex];
         this.focusTab(nextIndex);
         if (this.activation === 'auto') {
           this.selectTab(tab);
@@ -333,31 +333,31 @@
 </script>
 
 <style lang="scss">
-  $el: '.vs-tabs';
+  $el: '.vs-tab';
 
   [data-theme='dark'],
   .dark {
     #{$el} {
-      --vs-tabs-tab-color: #b8c2cc;
-      --vs-tabs-tab-color-active: #ffffff;
-      --vs-tabs-tab-text-hover: #2694d6;
-      --vs-tabs-tab-text-active: #2694d6;
-      --vs-tabs-border-color: #31404d;
+      --vs-tab-tab-color: #b8c2cc;
+      --vs-tab-tab-color-active: #ffffff;
+      --vs-tab-tab-text-hover: #2694d6;
+      --vs-tab-tab-text-active: #2694d6;
+      --vs-tab-border-color: #31404d;
     }
   }
 
   #{$el} {
-    --vs-tabs-tab-color: #49545c;
-    --vs-tabs-tab-color-active: #0d2538;
-    --vs-tabs-tab-text-hover: #1f73b7;
-    --vs-tabs-tab-text-active: #1f73b7;
-    --vs-tabs-border-color: #d8e1e8;
+    --vs-tab-tab-color: #49545c;
+    --vs-tab-tab-color-active: #0d2538;
+    --vs-tab-tab-text-hover: #1f73b7;
+    --vs-tab-tab-text-active: #1f73b7;
+    --vs-tab-border-color: #d8e1e8;
 
     width: 100%;
 
     &__list {
       display: flex;
-      border-bottom: 1px solid var(--vs-tabs-border-color);
+      border-bottom: 1px solid var(--vs-tab-border-color);
     }
 
     &__tab {
@@ -365,7 +365,7 @@
       border-inline: none;
       border-top: none;
       background: transparent;
-      color: var(--vs-tabs-tab-color);
+      color: var(--vs-tab-tab-color);
       padding: 10px 28px 6px;
       font-size: 14px;
       font-weight: 500;
@@ -373,7 +373,7 @@
       transition: 0.15s ease;
 
       &:hover {
-        color: var(--vs-tabs-tab-text-hover);
+        color: var(--vs-tab-tab-text-hover);
       }
 
       &:focus-visible {
@@ -384,8 +384,8 @@
       }
 
       &--active {
-        color: var(--vs-tabs-tab-text-active);
-        border-bottom: 3px solid var(--vs-tabs-tab-text-active);
+        color: var(--vs-tab-tab-text-active);
+        border-bottom: 3px solid var(--vs-tab-tab-text-active);
       }
 
       &--disabled,
@@ -411,14 +411,14 @@
       grid-template-columns: 200px 1fr;
       gap: 14px;
 
-      .vs-tabs__list {
+      .vs-tab__list {
         flex-direction: column;
         border-bottom: 0;
         padding-bottom: 0;
         padding-right: 10px;
       }
 
-      .vs-tabs__tab {
+      .vs-tab__tab {
         border-left: 3px solid transparent;
         border-bottom: none;
         margin-bottom: 15px;
@@ -426,11 +426,11 @@
         padding: 4px 8px;
 
         &--active {
-          border-left: 3px solid var(--vs-tabs-tab-text-active);
+          border-left: 3px solid var(--vs-tab-tab-text-active);
         }
       }
 
-      .vs-tabs__panels {
+      .vs-tab__panels {
         margin-top: 0;
       }
     }

@@ -11,7 +11,7 @@ export default defineConfig({
     {
       file: 'dist/index.umd.js',
       format: 'umd',
-      name: 'VsTabs',
+      name: 'VsTab',
       globals: {
         vue: 'Vue',
       },
@@ -19,7 +19,7 @@ export default defineConfig({
     {
       file: 'dist/index.min.js',
       format: 'iife',
-      name: 'VsTabs',
+      name: 'VsTab',
       globals: {
         vue: 'Vue',
       },

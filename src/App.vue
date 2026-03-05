@@ -158,7 +158,7 @@
       <!-- Tabs Section -->
       <section :id="components[12].id" class="component-section">
         <h2>Tabs</h2>
-        <demo-tabs></demo-tabs>
+        <demo-tab></demo-tab>
       </section>
     </main>
   </div>
@@ -177,7 +177,7 @@
   import DemoAccordion from './DemoComponents/Accordion.vue';
   import DemoMenu from './DemoComponents/Menu.vue';
   import DemoSwitch from './DemoComponents/Switch.vue';
-  import DemoTabs from './DemoComponents/Tabs.vue';
+  import DemoTab from './DemoComponents/Tab.vue';
 
   export default {
     name: 'App',
@@ -194,7 +194,7 @@
       DemoAccordion,
       DemoMenu,
       DemoSwitch,
-      DemoTabs,
+      DemoTab,
     },
 
     data() {
@@ -214,7 +214,7 @@
           { id: 'toast', name: 'Toast' },
           { id: 'accordion', name: 'Accordion' },
           { id: 'menu', name: 'Menu' },
-          { id: 'tabs', name: 'Tabs' },
+          { id: 'tab', name: 'Tab' },
         ],
       };
     },

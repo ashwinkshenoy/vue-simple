@@ -1,8 +1,8 @@
 <template>
   <div>
     <h3>Slot Based</h3>
-    <div class="box-tabs">
-      <vs-tabs v-model="slotOnlySelected">
+    <div class="box-tab">
+      <vs-tab v-model="slotOnlySelected">
         <template #tab-overview>Overview</template>
         <template #tab-usage>Usage</template>
         <template #tab-activity>Activity</template>
@@ -16,14 +16,14 @@
         <template #panel-activity>
           <p>Great DX when panel content is mostly custom markup.</p>
         </template>
-      </vs-tabs>
+      </vs-tab>
     </div>
 
     <br />
 
     <h3>Disabled Tabs</h3>
-    <div class="box-tabs">
-      <vs-tabs v-model="disabledSelected" :disabled-items="['usage', 'activity']">
+    <div class="box-tab">
+      <vs-tab v-model="disabledSelected" :disabled-items="['usage']">
         <template #tab-overview>Overview</template>
         <template #tab-usage>Usage</template>
         <template #tab-activity>Activity</template>
@@ -37,14 +37,14 @@
         <template #panel-activity>
           <p>Great DX when panel content is mostly custom markup.</p>
         </template>
-      </vs-tabs>
+      </vs-tab>
     </div>
 
     <br />
 
     <h3>Vertical Slot Based</h3>
-    <div class="box-tabs">
-      <vs-tabs v-model="verticalSelected" orientation="vertical">
+    <div class="box-tab">
+      <vs-tab v-model="verticalSelected" orientation="vertical">
         <template #tab-basics>Basics</template>
         <template #tab-api>API</template>
         <template #tab-examples>Examples</template>
@@ -58,14 +58,14 @@
         <template #panel-examples>
           <p>Vertical tabs are useful for dense content layouts.</p>
         </template>
-      </vs-tabs>
+      </vs-tab>
     </div>
 
     <br />
 
     <h3>With Custom Tab Markup</h3>
-    <div class="box-tabs">
-      <vs-tabs v-model="slotSelected">
+    <div class="box-tab">
+      <vs-tab v-model="slotSelected">
         <template #tab-messages="{ isSelected }">
           <span class="slot-tab" :class="{ 'slot-tab--active': isSelected }">
             <span>Messages</span>
@@ -88,19 +88,19 @@
         <template #panel-archived>
           <p>Archive keeps historical activity and closed threads.</p>
         </template>
-      </vs-tabs>
+      </vs-tab>
     </div>
   </div>
 </template>
 
 <script>
-  import VsTabs from '../../packages/vs-tabs/src/vs-tabs.vue';
+  import VsTab from '../../packages/vs-tab/src/vs-tab.vue';
 
   export default {
     name: 'TabsDemo',
 
     components: {
-      VsTabs,
+      VsTab,
     },
 
     data() {
@@ -115,7 +115,7 @@
 </script>
 
 <style>
-  .box-tabs {
+  .box-tab {
     margin-bottom: 18px;
     max-width: 760px;
   }

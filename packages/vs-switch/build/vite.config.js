@@ -1,11 +1,11 @@
 import vue from '@vitejs/plugin-vue';
-import VitePluginStyleInject from 'vite-plugin-style-inject';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default {
-  plugins: [vue(), VitePluginStyleInject()],
+  plugins: [vue(), cssInjectedByJsPlugin()],
   build: {
     // separate css file or not
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     lib: {
       entry: './src/index.js',
       formats: ['es', 'umd', 'iife'],

@@ -1,28 +1,28 @@
 ---
-title: Tabs
+title: Tab
 ---
 
-<masthead title="Tabs" description="A simple vue tabs component.">
+<masthead title="Tab" description="A simple vue tab component.">
   <component-links
-    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-tabs"
-    packageName="@vuesimple/vs-tabs">
+    github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-tab"
+    packageName="@vuesimple/vs-tab">
   </component-links>
 </masthead>
 
 ## Demo
 
 <script setup>
-  import TabsComponent from '../../src/DemoComponents/Tabs.vue';
+  import TabComponent from '../../src/DemoComponents/Tab.vue';
 </script>
 
-<tabs-component class="demo"></tabs-component>
+<tab-component class="demo"></tab-component>
 
 <br />
 
 ## Install
 
 ```bash
-npm i @vuesimple/vs-tabs
+npm i @vuesimple/vs-tab
 ```
 
 <br />
@@ -31,7 +31,7 @@ npm i @vuesimple/vs-tabs
 
 ```html
 <template>
-  <vs-tabs v-model="selectedTab" :disabled-items="['usage']">
+  <vs-tab v-model="selectedTab" :disabled-items="['usage']">
     <template #tab-overview>Overview</template>
     <template #tab-usage>Usage</template>
     <template #tab-activity>Activity</template>
@@ -45,15 +45,15 @@ npm i @vuesimple/vs-tabs
     <template #panel-activity>
       <p>Great DX when panel content is mostly custom markup.</p>
     </template>
-  </vs-tabs>
+  </vs-tab>
 </template>
 
 <script>
-  import VsTabs from '@vuesimple/vs-tabs';
+  import VsTab from '@vuesimple/vs-tab';
 
   export default {
     components: {
-      VsTabs,
+      VsTab,
     },
     data() {
       return {
@@ -69,7 +69,7 @@ npm i @vuesimple/vs-tabs
 ## CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-tabs@<version>/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-tab@<version>/dist/index.min.js"></script>
 ```
 
 ::: tip
@@ -80,7 +80,7 @@ Replace `<version>` with a version number in the above url.
 
 ```javascript
 // Main/Entry file
-app.use(VsTabs.plugin);
+app.use(VsTab.plugin);
 ```
 
 <br />
@@ -93,7 +93,7 @@ app.use(VsTabs.plugin);
 | is-vertical    | Boolean              | `false`      | Stacks tabs vertically                        |
 | orientation    | String               | `horizontal` | Orientation mode (`horizontal`, `vertical`)   |
 | activation     | String               | `auto`       | Keyboard behavior (`auto` or `manual`)        |
-| aria-label     | String               | `Tabs`       | Accessible label for tablist                  |
+| aria-label     | String               | `Tab`        | Accessible label for tablist                  |
 | disabled-items | Array                | `[]`         | Tab ids that should be disabled (`['usage']`) |
 
 <br />
@@ -114,4 +114,4 @@ app.use(VsTabs.plugin);
 | `tab-<item>`   | Named tab slot for a specific tab (`tab-overview`)       |
 | `panel-<item>` | Named panel slot for a specific panel (`panel-overview`) |
 
-`VsTabs` is slot-based only and derives tab ids from `tab-*` / `panel-*` slot names.
+`VsTab` is slot-based only and derives tab ids from `tab-*` / `panel-*` slot names.

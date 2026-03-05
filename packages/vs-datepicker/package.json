@@ -13,10 +13,9 @@
     "vue-datepicker-next": "^1.0.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.54.4",
-    "vite": "^3.0.5",
-    "vite-plugin-style-inject": "0.0.1",
+    "vite": "^4.4.5",
     "vue": "^3.3.4"
   },
   "private": false,
