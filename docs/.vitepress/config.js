@@ -64,6 +64,7 @@ export default {
           { text: 'Pagination', link: '/components/pagination' },
           { text: 'Select', link: '/components/select' },
           { text: 'Switch', link: '/components/switch' },
+          { text: 'Tabs', link: '/components/tabs' },
           { text: 'Tag', link: '/components/tag' },
           { text: 'Toast', link: '/components/toast' },
         ],
