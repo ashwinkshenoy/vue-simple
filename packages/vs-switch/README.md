@@ -78,46 +78,6 @@ app.use(VsSwitch.plugin);
   <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
 </h3>
 
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-switch.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsSwitch from '@vuesimple/vs-switch';
-
-  Vue.component('vs-switch', VsSwitch);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-switch', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-switch v-model="isEnabled" />
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsSwitch from '@vuesimple/vs-switch'`
-  & add in `component:{VsSwitch}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name           | Type    | Default   | Description                                                 |
