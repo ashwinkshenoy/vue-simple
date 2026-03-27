@@ -78,7 +78,6 @@
           `vs-switch__size-${this.size}`,
           `vs-switch__variant-${this.variant}`,
           `vs-switch__color-${this.color}`,
-          `vs-switch__radius-${this.radius}`,
           {
             'vs-switch--checked': this.isChecked,
             'vs-switch--disabled': this.disabled,
@@ -153,7 +152,9 @@
 
     &:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--vs-switch-bg-checked);
+      box-shadow:
+        0 0 0 2px #ffffff,
+        0 0 0 4px var(--vs-switch-bg-checked);
     }
 
     &:disabled {
