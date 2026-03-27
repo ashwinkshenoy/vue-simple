@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-switch",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "A simple vue switch component. Toggle switch alternative to the checkbox.",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
