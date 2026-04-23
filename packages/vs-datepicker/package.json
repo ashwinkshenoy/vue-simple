@@ -24,7 +24,8 @@
     "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "keywords": [
     "vue",

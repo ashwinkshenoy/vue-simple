@@ -67,6 +67,7 @@ export default {
           { text: 'Tab', link: '/components/tab' },
           { text: 'Tag', link: '/components/tag' },
           { text: 'Toast', link: '/components/toast' },
+          { text: 'Tooltip', link: '/components/tooltip' },
         ],
       },
       {

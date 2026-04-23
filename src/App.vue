@@ -160,6 +160,12 @@
         <h2>Tabs</h2>
         <demo-tab></demo-tab>
       </section>
+
+      <!-- Tooltip Section -->
+      <section :id="components[13].id" class="component-section">
+        <h2>Tooltips</h2>
+        <demo-tooltip></demo-tooltip>
+      </section>
     </main>
   </div>
 </template>
@@ -178,6 +184,7 @@
   import DemoMenu from './DemoComponents/Menu.vue';
   import DemoSwitch from './DemoComponents/Switch.vue';
   import DemoTab from './DemoComponents/Tab.vue';
+  import DemoTooltip from './DemoComponents/Tooltip.vue';
 
   export default {
     name: 'App',
@@ -195,6 +202,7 @@
       DemoMenu,
       DemoSwitch,
       DemoTab,
+      DemoTooltip,
     },
 
     data() {
@@ -215,6 +223,7 @@
           { id: 'accordion', name: 'Accordion' },
           { id: 'menu', name: 'Menu' },
           { id: 'tab', name: 'Tab' },
+          { id: 'tooltip', name: 'Tooltip' },
         ],
       };
     },
