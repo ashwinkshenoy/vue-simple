@@ -1,0 +1,45 @@
+{
+  "name": "@vuesimple/vs-input",
+  "version": "3.1.0",
+  "description": "A simple vue input component. Supports text, email, password, number, search and more with label, hint, validation states and prefix/suffix slots.",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "scripts": {
+    "build": "rm -rfv dist && vite build --config build/vite.config.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.54.4",
+    "vite": "^4.4.5",
+    "vue": "^3.2.37"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "input",
+    "text-input",
+    "form",
+    "front-end",
+    "web",
+    "vue-js",
+    "vue-input",
+    "vs-input"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple#readme"
+}

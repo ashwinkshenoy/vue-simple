@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="demo">
     <h3>Sizes</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch v-model="sizeSmall" size="small" @change="logChange" />
         <span>Small</span>
@@ -17,7 +17,7 @@
     </div>
 
     <h3>Variants</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch v-model="variantClassic" variant="classic" />
         <span>Classic</span>
@@ -33,7 +33,7 @@
     </div>
 
     <h3>Colors</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch v-model="colorPrimary" color="primary" />
         <span>Primary</span>
@@ -61,7 +61,7 @@
     </div>
 
     <h3>High Contrast</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch v-model="highContrastIndigo" color="indigo" highContrast />
         <span>Indigo (High Contrast)</span>
@@ -77,7 +77,7 @@
     </div>
 
     <h3>Disabled</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch disabled />
         <span>Disabled (Off)</span>
@@ -89,7 +89,7 @@
     </div>
 
     <h3>Custom Color</h3>
-    <div class="box-switch">
+    <div class="box-switch box">
       <label class="demo-label">
         <vs-switch v-model="customColor1" checkedBgColor="#1dbdbc" />
         <span>Teal</span>
@@ -164,7 +164,6 @@
     align-items: center;
     gap: 8px;
     margin-right: 20px;
-    margin-bottom: 12px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;

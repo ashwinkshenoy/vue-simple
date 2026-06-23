@@ -8,9 +8,10 @@ module.exports = function (path) {
   for (var i in files) {
     var filename = files[i].split('.').slice(0, -1).join('.');
     if (filename.toLowerCase() !== 'readme') {
-      list.push(`/${directory}/${filename}`);
-    } else {
-      list.push(`/${directory}/`);
+      list.push({
+        text: filename.charAt(0).toUpperCase() + filename.slice(1),
+        link: `/${directory}/${filename}`,
+      });
     }
   }
 

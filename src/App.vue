@@ -166,6 +166,12 @@
         <h2>Tooltips</h2>
         <demo-tooltip></demo-tooltip>
       </section>
+
+      <!-- Input Section -->
+      <section :id="components[14].id" class="component-section">
+        <h2>Input</h2>
+        <demo-input></demo-input>
+      </section>
     </main>
   </div>
 </template>
@@ -185,6 +191,7 @@
   import DemoSwitch from './DemoComponents/Switch.vue';
   import DemoTab from './DemoComponents/Tab.vue';
   import DemoTooltip from './DemoComponents/Tooltip.vue';
+  import DemoInput from './DemoComponents/Input.vue';
 
   export default {
     name: 'App',
@@ -203,6 +210,7 @@
       DemoSwitch,
       DemoTab,
       DemoTooltip,
+      DemoInput,
     },
 
     data() {
@@ -224,6 +232,7 @@
           { id: 'menu', name: 'Menu' },
           { id: 'tab', name: 'Tab' },
           { id: 'tooltip', name: 'Tooltip' },
+          { id: 'input', name: 'Input' },
         ],
       };
     },
@@ -477,10 +486,6 @@
     overflow-y: auto;
   }
 
-  .box {
-    margin-bottom: 10px;
-  }
-
   .main-header {
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
@@ -666,5 +671,13 @@
 
   .vs-alert {
     margin-bottom: 16px;
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 10px;
   }
 </style>

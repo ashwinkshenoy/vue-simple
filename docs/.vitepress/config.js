@@ -1,3 +1,16 @@
+const getPages = require('./utilities');
+const path = require('path');
+const fs = require('fs');
+
+function getPackageVersion(pkgName) {
+  try {
+    const pkgPath = path.resolve(__dirname, `../../packages/${pkgName}/package.json`);
+    return JSON.parse(fs.readFileSync(pkgPath, 'utf-8')).version;
+  } catch {
+    return 'latest';
+  }
+}
+
 export default {
   // site-level options
   title: 'VueSimple',
@@ -29,6 +42,23 @@ export default {
     ],
   ],
 
+  vite: {
+    plugins: [
+      {
+        name: 'replace-version',
+        enforce: 'pre',
+        transform(code, id) {
+          if (!id.endsWith('.md')) return;
+          // Extract package name from @vuesimple/pkg-name references in the file
+          return code.replace(/<version>/g, () => {
+            const match = code.match(/@vuesimple\/(vs-[a-z-]+)/);
+            return match ? getPackageVersion(match[1]) : 'latest';
+          });
+        },
+      },
+    ],
+  },
+
   themeConfig: {
     // theme-level options
     logo: { src: '/logos/favicon.png', width: 25, height: 25 },
@@ -52,23 +82,7 @@ export default {
       {
         text: 'Components',
         collapsible: false,
-        items: [
-          { text: 'Accordion', link: '/components/accordion' },
-          { text: 'Alert', link: '/components/alert' },
-          { text: 'Autocomplete', link: '/components/autocomplete' },
-          { text: 'Button', link: '/components/button' },
-          { text: 'Datepicker', link: '/components/datepicker' },
-          { text: 'Loader', link: '/components/loader' },
-          { text: 'Menu', link: '/components/menu' },
-          { text: 'Modal', link: '/components/modal' },
-          { text: 'Pagination', link: '/components/pagination' },
-          { text: 'Select', link: '/components/select' },
-          { text: 'Switch', link: '/components/switch' },
-          { text: 'Tab', link: '/components/tab' },
-          { text: 'Tag', link: '/components/tag' },
-          { text: 'Toast', link: '/components/toast' },
-          { text: 'Tooltip', link: '/components/tooltip' },
-        ],
+        items: getPages('./docs/components/'),
       },
       {
         text: 'Grid',
@@ -78,16 +92,7 @@ export default {
       {
         text: 'Utilities',
         collapsible: false,
-        items: [
-          { text: 'Introduction', link: '/utilities/introduction' },
-          { text: 'Border', link: '/utilities/border' },
-          { text: 'Colors', link: '/utilities/colors' },
-          { text: 'Display', link: '/utilities/display' },
-          { text: 'Position', link: '/utilities/position' },
-          { text: 'Spacing', link: '/utilities/spacing' },
-          { text: 'Typography', link: '/utilities/typography' },
-          { text: 'Width', link: '/utilities/width' },
-        ],
+        items: getPages('./docs/utilities/'),
       },
     ],
   },

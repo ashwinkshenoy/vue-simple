@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="demo">
     <div class="date-grid box">
       <div>
         <vs-datepicker

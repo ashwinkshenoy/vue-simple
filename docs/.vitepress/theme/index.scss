@@ -181,7 +181,9 @@ h3::after {
   margin: 0 5px 5px 0;
   vertical-align: middle;
   overflow: hidden;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
