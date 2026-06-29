@@ -54,12 +54,6 @@ npm i @vuesimple/vs-button
 <script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-button@<version>/dist/index.min.js"></script>
 ```
 
-::: tip
-
-Replace `<version>` with a version number in the above url.
-
-:::
-
 ```javascript
 // Main/Entry file
 app.use(VsButton.plugin);

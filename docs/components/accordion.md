@@ -70,12 +70,6 @@ npm i @vuesimple/vs-accordion
 <script src="https://cdn.jsdelivr.net/npm/@vuesimple/vs-accordion@<version>/dist/index.min.js"></script>
 ```
 
-::: tip
-
-Replace `<version>` with a version number in the above url.
-
-:::
-
 ```javascript
 // Main/Entry file
 app.use(VsAccordion.plugin);

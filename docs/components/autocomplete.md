@@ -57,12 +57,6 @@ npm i vs-autocomplete
 <script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@<version>/dist/vs-autocomplete.umd.min.js"></script>
 ```
 
-::: tip
-
-Replace `<version>` with a version number or 'latest' for latest release in the above url.
-
-:::
-
 ```javascript
 // Main/Entry file
 app.component('vs-autocomplete', VsAutocomplete);
