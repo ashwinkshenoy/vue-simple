@@ -133,6 +133,62 @@ After installation,
 
 <br />
 
+### 🎨 CSS Variables
+
+Button variants can now be themed with CSS custom properties.
+
+Example:
+
+```css
+.my-brand-theme .vs-button {
+  --vs-button-primary-color: #0b5ed7;
+  --vs-button-primary-border: #0b5ed7;
+  --vs-button-primary-hover-bg: #dbeafe;
+  --vs-button-primary-fill-bg: #0b5ed7;
+  --vs-button-primary-fill-hover-bg: #084298;
+
+  --vs-button-secondary-color: #495057;
+  --vs-button-secondary-border: #495057;
+  --vs-button-secondary-fill-bg: #495057;
+
+  --vs-button-disabled-bg: #eceff3;
+  --vs-button-disabled-color: #9aa4ad;
+}
+```
+
+Available variants: `primary`, `secondary`, `success`, `warning`, `danger`, `light`.
+
+Each variant supports these tokens:
+
+- `--vs-button-<variant>-color`
+- `--vs-button-<variant>-bg`
+- `--vs-button-<variant>-border`
+- `--vs-button-<variant>-hover-color`
+- `--vs-button-<variant>-hover-bg`
+- `--vs-button-<variant>-hover-border`
+- `--vs-button-<variant>-active-color`
+- `--vs-button-<variant>-active-bg`
+- `--vs-button-<variant>-active-border`
+- `--vs-button-<variant>-focus-border`
+- `--vs-button-<variant>-focus-shadow`
+- `--vs-button-<variant>-fill-color`
+- `--vs-button-<variant>-fill-bg`
+- `--vs-button-<variant>-fill-border`
+- `--vs-button-<variant>-fill-hover-bg`
+- `--vs-button-<variant>-fill-hover-border`
+- `--vs-button-<variant>-fill-active-bg`
+- `--vs-button-<variant>-fill-active-border`
+- `--vs-button-<variant>-fill-focus-border`
+- `--vs-button-<variant>-fill-focus-shadow`
+
+Global disabled state tokens:
+
+- `--vs-button-disabled-bg`
+- `--vs-button-disabled-border`
+- `--vs-button-disabled-color`
+
+<br />
+
 ### 🔥 Events
 
 | Name  | Description                      |

@@ -96,16 +96,60 @@
 
 <style lang="scss">
   $el: '.vs-button';
+  $color-primary: #1f73b7;
+  $color-secondary: #6c757d;
+  $color-light: #f8f9fa;
+  $color-success: #28a745;
+  $color-danger: #cc3340;
+  $color-warning: #ffb057;
+  $color-disabled-bg: #e9ebed;
+  $color-disabled-text: #c2c8cc;
+
+  $theme:
+    (primary $color-primary #ffffff), (success $color-success #ffffff), (danger $color-danger #ffffff),
+    (warning $color-warning #703815), (secondary $color-secondary #ffffff), (light $color-light #212529);
 
   #{$el} {
-    $color-primary: #1f73b7;
-    $color-secondary: #6c757d;
-    $color-light: #f8f9fa;
-    $color-success: #28a745;
-    $color-danger: #cc3340;
-    $color-warning: #ffb057;
-    $color-disabled-bg: #e9ebed;
-    $color-disabled-text: #c2c8cc;
+    --vs-button-disabled-bg: #{$color-disabled-bg};
+    --vs-button-disabled-border: transparent;
+    --vs-button-disabled-color: #{$color-disabled-text};
+
+    @each $button in $theme {
+      --vs-button-#{nth($button, 1)}-color: #{nth($button, 2)};
+      --vs-button-#{nth($button, 1)}-bg: transparent;
+      --vs-button-#{nth($button, 1)}-border: #{nth($button, 2)};
+
+      --vs-button-#{nth($button, 1)}-hover-color: #{darken(nth($button, 2), 10%)};
+      --vs-button-#{nth($button, 1)}-hover-border: #{darken(nth($button, 2), 10%)};
+
+      @if nth($button, 1) == warning {
+        --vs-button-#{nth($button, 1)}-hover-bg: #{lighten(nth($button, 2), 30%)};
+      } @else if nth($button, 1) == danger {
+        --vs-button-#{nth($button, 1)}-hover-bg: #{lighten(nth($button, 2), 45%)};
+      } @else if nth($button, 1) == secondary {
+        --vs-button-#{nth($button, 1)}-hover-bg: #{lighten(nth($button, 2), 50%)};
+      } @else {
+        --vs-button-#{nth($button, 1)}-hover-bg: #{lighten(nth($button, 2), 55%)};
+      }
+
+      --vs-button-#{nth($button, 1)}-active-color: #{darken(nth($button, 2), 20%)};
+      --vs-button-#{nth($button, 1)}-active-border: #{darken(nth($button, 2), 20%)};
+      --vs-button-#{nth($button, 1)}-active-bg: #{lighten(nth($button, 2), 50%)};
+
+      --vs-button-#{nth($button, 1)}-focus-border: #{darken(nth($button, 2), 10%)};
+      --vs-button-#{nth($button, 1)}-focus-shadow: 0 0 0 0.2rem #{lighten(nth($button, 2), 30%)};
+
+      --vs-button-#{nth($button, 1)}-fill-bg: #{nth($button, 2)};
+      --vs-button-#{nth($button, 1)}-fill-border: #{nth($button, 2)};
+      --vs-button-#{nth($button, 1)}-fill-color: #{nth($button, 3)};
+
+      --vs-button-#{nth($button, 1)}-fill-hover-bg: #{darken(nth($button, 2), 10%)};
+      --vs-button-#{nth($button, 1)}-fill-hover-border: #{darken(nth($button, 2), 10%)};
+      --vs-button-#{nth($button, 1)}-fill-active-bg: #{darken(nth($button, 2), 15%)};
+      --vs-button-#{nth($button, 1)}-fill-active-border: #{darken(nth($button, 2), 20%)};
+      --vs-button-#{nth($button, 1)}-fill-focus-border: #{darken(nth($button, 2), 10%)};
+      --vs-button-#{nth($button, 1)}-fill-focus-shadow: 0 0 0 0.2rem #{lighten(nth($button, 2), 30%)};
+    }
 
     border-radius: 4px;
     font-weight: 400;
@@ -117,7 +161,10 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s, background-color 0.25s ease-in-out 0s,
+    transition:
+      border-color 0.25s ease-in-out 0s,
+      box-shadow 0.1s ease-in-out 0s,
+      background-color 0.25s ease-in-out 0s,
       color 0.25s ease-in-out 0s;
     margin: 0px;
     cursor: pointer;
@@ -154,79 +201,68 @@
       border-radius: 50px;
     }
 
-    $theme: (primary $color-primary #ffffff), (success $color-success #ffffff), (danger $color-danger #ffffff),
-      (warning $color-warning #703815), (secondary $color-secondary #ffffff), (light $color-light #212529);
-
     @each $button in $theme {
       &#{$el}__#{nth($button, 1)},
       &#{$el}__#{nth($button, 1)}:hover,
       &#{$el}__#{nth($button, 1)}:focus {
-        background: transparent;
-        color: #{nth($button, 2)};
-        border: solid 1px #{nth($button, 2)};
+        background: var(--vs-button-#{nth($button, 1)}-bg);
+        color: var(--vs-button-#{nth($button, 1)}-color);
+        border: solid 1px var(--vs-button-#{nth($button, 1)}-border);
 
         &:hover {
-          border-color: darken(nth($button, 2), 10%);
-          @if nth($button, 1) == warning {
-            background: lighten(nth($button, 2), 30%);
-          } @else if nth($button, 1) == danger {
-            background: lighten(nth($button, 2), 45%);
-          } @else if nth($button, 1) == secondary {
-            background: lighten(nth($button, 2), 50%);
-          } @else {
-            background: lighten(nth($button, 2), 55%);
-          }
-          color: darken(nth($button, 2), 10%);
+          border-color: var(--vs-button-#{nth($button, 1)}-hover-border);
+          background: var(--vs-button-#{nth($button, 1)}-hover-bg);
+          color: var(--vs-button-#{nth($button, 1)}-hover-color);
         }
 
         &:active {
-          border-color: darken(nth($button, 2), 20%);
-          background: lighten(nth($button, 2), 50%);
-          color: darken(nth($button, 2), 20%);
+          border-color: var(--vs-button-#{nth($button, 1)}-active-border);
+          background: var(--vs-button-#{nth($button, 1)}-active-bg);
+          color: var(--vs-button-#{nth($button, 1)}-active-color);
         }
 
         &:focus-visible {
-          border-color: darken(nth($button, 2), 10%);
-          box-shadow: 0 0 0 0.2rem lighten(nth($button, 2), 30%);
+          border-color: var(--vs-button-#{nth($button, 1)}-focus-border);
+          box-shadow: var(--vs-button-#{nth($button, 1)}-focus-shadow);
           outline: 0;
         }
 
         &:disabled,
         &#{$el}--loading {
-          background: $color-disabled-bg;
-          border-color: transparent;
-          color: $color-disabled-text;
+          background: var(--vs-button-disabled-bg);
+          border-color: var(--vs-button-disabled-border);
+          color: var(--vs-button-disabled-color);
           cursor: no-drop;
         }
       }
 
       &#{$el}__#{nth($button, 1)}-fill,
       &#{$el}__#{nth($button, 1)}-fill:focus {
-        background: #{nth($button, 2)};
-        color: #{nth($button, 3)};
-        border: solid 1px #{nth($button, 2)};
+        background: var(--vs-button-#{nth($button, 1)}-fill-bg);
+        color: var(--vs-button-#{nth($button, 1)}-fill-color);
+        border: solid 1px var(--vs-button-#{nth($button, 1)}-fill-border);
 
         &:hover {
-          border-color: darken(nth($button, 2), 10%);
-          background: darken(nth($button, 2), 10%);
+          border-color: var(--vs-button-#{nth($button, 1)}-fill-hover-border);
+          background: var(--vs-button-#{nth($button, 1)}-fill-hover-bg);
         }
 
         &:active {
-          border-color: darken(nth($button, 2), 20%);
-          background: darken(nth($button, 2), 15%);
+          border-color: var(--vs-button-#{nth($button, 1)}-fill-active-border);
+          background: var(--vs-button-#{nth($button, 1)}-fill-active-bg);
         }
 
         &:focus-visible {
-          border-color: darken(nth($button, 2), 10%);
-          box-shadow: 0 0 0 0.2rem lighten(nth($button, 2), 30%);
+          border-color: var(--vs-button-#{nth($button, 1)}-fill-focus-border);
+          box-shadow: var(--vs-button-#{nth($button, 1)}-fill-focus-shadow);
           outline: 0;
         }
 
         &:disabled,
         &#{$el}--loading {
-          background: $color-disabled-bg;
-          border-color: transparent;
-          color: $color-disabled-text;
+          background: var(--vs-button-disabled-bg);
+          border-color: var(--vs-button-disabled-border);
+          color: var(--vs-button-disabled-color);
           cursor: no-drop;
         }
       }
@@ -234,7 +270,7 @@
 
     &#{$el}__link {
       background: transparent;
-      color: $color-primary;
+      color: var(--vs-button-primary-color);
       border: none;
       padding: 0;
       &:hover {
@@ -247,41 +283,22 @@
   html[data-theme='dark'],
   html.dark {
     #{$el} {
-      $color-primary: #1f73b7;
-      $color-secondary: #6c757d;
-      $color-light: #f8f9fa;
-      $color-success: #28a745;
-      $color-danger: #cc3340;
-      $color-warning: #ffb057;
-      $color-disabled-bg: #ffffff14;
-      $color-disabled-text: #5c6970;
-
-      $theme: (primary $color-primary #ffffff), (success $color-success #ffffff), (danger $color-danger #ffffff),
-        (warning $color-warning #703815), (secondary $color-secondary #ffffff), (light $color-light #212529);
+      --vs-button-disabled-bg: #ffffff14;
+      --vs-button-disabled-border: transparent;
+      --vs-button-disabled-color: #5c6970;
 
       @each $button in $theme {
-        &#{$el}__#{nth($button, 1)} {
-          &:hover {
-            @if nth($button, 1) == warning {
-              background: darken(nth($button, 2), 55%);
-            } @else if nth($button, 1) == danger {
-              background: darken(nth($button, 2), 45%);
-            } @else if nth($button, 1) == secondary {
-              background: darken(nth($button, 2), 50%);
-            } @else {
-              background: darken(nth($button, 2), 30%);
-            }
-            border-color: lighten(nth($button, 2), 10%);
-            color: lighten(nth($button, 2), 10%);
-          }
+        @if nth($button, 1) == warning {
+          --vs-button-#{nth($button, 1)}-hover-bg: #{darken(nth($button, 2), 55%)};
+        } @else if nth($button, 1) == danger {
+          --vs-button-#{nth($button, 1)}-hover-bg: #{darken(nth($button, 2), 45%)};
+        } @else if nth($button, 1) == secondary {
+          --vs-button-#{nth($button, 1)}-hover-bg: #{darken(nth($button, 2), 50%)};
+        } @else {
+          --vs-button-#{nth($button, 1)}-hover-bg: #{darken(nth($button, 2), 30%)};
         }
-        &:disabled,
-        &#{$el}--loading {
-          background: $color-disabled-bg;
-          border-color: transparent;
-          color: $color-disabled-text;
-          cursor: no-drop;
-        }
+        --vs-button-#{nth($button, 1)}-hover-border: #{lighten(nth($button, 2), 10%)};
+        --vs-button-#{nth($button, 1)}-hover-color: #{lighten(nth($button, 2), 10%)};
       }
     }
   }
