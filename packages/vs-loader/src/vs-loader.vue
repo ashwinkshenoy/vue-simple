@@ -6,6 +6,7 @@
   import Pulse from './vs-pulse.vue';
   import Dots from './vs-dots.vue';
   import Inline from './vs-inline.vue';
+  import Skeleton from './vs-skeleton.vue';
 
   export default {
     name: 'VsLoader',
@@ -14,6 +15,7 @@
       Pulse,
       Dots,
       Inline,
+      Skeleton,
     },
 
     props: {
@@ -32,6 +34,16 @@
       },
       center: {
         type: Boolean,
+      },
+      // Skeleton-specific
+      type: {
+        type: String,
+      },
+      count: {
+        type: [Number, String],
+      },
+      width: {
+        type: String,
       },
     },
   };
