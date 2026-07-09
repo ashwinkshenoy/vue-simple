@@ -70,50 +70,6 @@ app.use(VsTag.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-tag.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsTag from '@vuesimple/vs-tag';
-
-  Vue.component('vs-tag', VsTag);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-tag', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-tag variant="primary"> Primary </vs-tag>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsTag from '@vuesimple/vs-tag'`
-  & add in `component:{VsTag}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name       | Type    | Default  | Description                                                            |

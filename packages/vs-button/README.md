@@ -72,51 +72,6 @@ app.use(VsButton.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-button.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsButton from '@vuesimple/vs-button';
-
-  Vue.component('vs-button', VsButton);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-button', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-button>Default</vs-button>
-    <vs-button variant="primary" fill>Primary</vs-button>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsButton from '@vuesimple/vs-button'`
-  & add in `component:{VsButton}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name      | Type    | Default   | Description                                                                                              |

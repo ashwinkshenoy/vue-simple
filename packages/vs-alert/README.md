@@ -72,50 +72,6 @@ app.use(VsAlert.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-alert.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsAlert from '@vuesimple/vs-alert';
-
-  Vue.component('vs-alert', VsAlert);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-alert', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-alert variant="success"> Success </vs-alert>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsAlert from '@vuesimple/vs-alert'`
-  & add in `component:{VsAlert}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name      | Type    | Default | Description                                                           |

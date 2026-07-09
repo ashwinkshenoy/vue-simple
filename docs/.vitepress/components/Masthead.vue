@@ -44,7 +44,7 @@
 
       h1 {
         margin-bottom: 5px;
-        font-weight: 900;
+        font-weight: 800;
       }
 
       p {

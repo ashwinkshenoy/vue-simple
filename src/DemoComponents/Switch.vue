@@ -167,6 +167,7 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
+    margin-block: 10px;
   }
 
   .demo-label span {

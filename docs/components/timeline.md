@@ -80,7 +80,9 @@ app.use(VsTimeline.plugin);
 
 <br />
 
-## VsTimeline Props
+## Props
+
+### VsTimeline
 
 | Name   | Type   | Default | Options                           | Description                           |
 | ------ | ------ | ------- | --------------------------------- | ------------------------------------- |
@@ -88,13 +90,15 @@ app.use(VsTimeline.plugin);
 
 <br />
 
-## VsTimelineItem Props
+### VsTimelineItem
 
 `VsTimelineItem` has no props. All content is provided via slots.
 
 <br />
 
-## VsTimelineItem Slots
+## Slots
+
+### VsTimelineItem
 
 | Name       | Description                                                                                   |
 | ---------- | --------------------------------------------------------------------------------------------- |
@@ -104,7 +108,7 @@ app.use(VsTimeline.plugin);
 
 <br />
 
-## CSS Variables
+## Theming (CSS variables)
 
 | Variable                    | Default   | Description                         |
 | --------------------------- | --------- | ----------------------------------- |

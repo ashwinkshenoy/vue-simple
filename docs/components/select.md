@@ -75,43 +75,6 @@ app.use(VsSelect.plugin);
 </template>
 ```
 
-## Nuxt.js
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-select.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import { VsSelect, VsMultiselect } from '@vuesimple/vs-select';
-
-  Vue.component('vs-select', VsSelect);
-  Vue.component('vs-multiselect', VsMultiselect);
-  ```
-
-- Update `nuxt.config.js`
-
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-select', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-select :options="options1"></vs-select>
-    <vs-multiselect :options="options1"></vs-multiselect>
-  </template>
-  ```
-
 ## Props
 
 | Name           | Type    | Default             | Description                                                                                       |

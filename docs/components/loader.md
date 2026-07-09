@@ -66,46 +66,6 @@ app.use(VsLoader.plugin);
 
 <br />
 
-## Nuxt.js
-
-After installation,
-
-- Create a file `/plugins/vs-loader.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsLoader from '@vuesimple/vs-loader';
-
-  Vue.component('vs-loader', VsLoader);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-loader', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-loader variant="pulse"></vs-loader>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsLoader from '@vuesimple/vs-loader'`
-  & add in `component:{VsLoader}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ## Props
 
 | Name    | Type    | Default   | Description                                  |
@@ -115,7 +75,7 @@ After installation,
 | size    | Number  | `10`      | Loader size.                                 |
 | center  | Boolean | -         | Center aligns the loader wrt the parent div. |
 
-## Skeleton props (`variant="skeleton"`)
+<!-- ## Skeleton props (`variant="skeleton"`)
 
 | Name   | Type           | Default | Description                                                                                       |
 | ------ | -------------- | ------- | ------------------------------------------------------------------------------------------------- |
@@ -172,4 +132,4 @@ After installation,
 
 ```html
 <vs-loader variant="skeleton" type="line" :count="3" style="--vs-skeleton-shimmer: rgba(255,255,255,0.9)" />
-```
+``` -->

@@ -2,7 +2,7 @@
 title: Switch
 ---
 
-<masthead title="Tag" description="A simple vue tag.">
+<masthead title="Switch" description="A simple vue switch.">
   <component-links
     github="https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-switch"
     packageName="@vuesimple/vs-switch">
@@ -19,7 +19,7 @@ title: Switch
 
 <br />
 
-### 🛠 Install
+## Install
 
 ```bash
 npm i @vuesimple/vs-switch
@@ -27,7 +27,7 @@ npm i @vuesimple/vs-switch
 
 <br />
 
-### 🚀 Usage
+## Usage
 
 ```html
 <template>
@@ -52,7 +52,7 @@ npm i @vuesimple/vs-switch
 
 <br />
 
-### 🌎 CDN
+## CDN
 
 ```html
 <script src="https://unpkg.com/@vuesimple/vs-switch@<version>/dist/index.min.js"></script>
@@ -71,51 +71,7 @@ app.use(VsSwitch.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-switch.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsSwitch from '@vuesimple/vs-switch';
-
-  Vue.component('vs-switch', VsSwitch);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-switch', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-switch v-model="isEnabled" />
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsSwitch from '@vuesimple/vs-switch'`
-  & add in `component:{VsSwitch}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
-### ⚙ Props
+## Props
 
 | Name           | Type    | Default   | Description                                                 |
 | -------------- | ------- | --------- | ----------------------------------------------------------- |
@@ -131,7 +87,7 @@ After installation,
 
 <br />
 
-### 🔥 Events
+## Events
 
 | Name    | Description                                    |
 | ------- | ---------------------------------------------- |
@@ -140,13 +96,13 @@ After installation,
 
 <br />
 
-### 📎 Slots
+## Slots
 
 Currently, the switch component does not have slots. It renders as a simple toggle button.
 
 <br />
 
-### 🎨 Color Options
+## Color Options
 
 The switch supports various color themes when checked:
 
@@ -163,7 +119,7 @@ The switch supports various color themes when checked:
 
 <br />
 
-### 📝 Examples
+## Examples
 
 #### Basic Switch
 
@@ -225,7 +181,7 @@ The switch supports various color themes when checked:
 
 <br />
 
-### 🔔 Events Handling
+## Events Handling
 
 ```html
 <template>

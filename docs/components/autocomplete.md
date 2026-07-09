@@ -85,65 +85,6 @@ app.component('vs-autocomplete', VsAutocomplete);
 </template>
 ```
 
-## Nuxt.js
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-autocomplete.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsAutocomplete from 'vs-autocomplete';
-
-  Vue.component('vs-autocomplete', VsAutocomplete);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-autocomplete', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-autocomplete
-      label="Select option(s)"
-      :options="options"
-      :multiple="true"
-      placeholder="Search options"
-      :maxSelectableCount="4"
-      :searchInputText="searchInputText"
-      :searchOptionMatcher="optionMatcher"
-      :keepMenuOpenOnRender="false"
-      :compact="false"
-      noSearchResultsText="No results found"
-      labelHint="Select up to 4 options"
-      v-model="selectedOptions"
-      @open="onOpen"
-      @close="onClose"
-      :searchOnInput="searchOnInput"
-      :renderOption="renderOption"
-    />
-  </template>
-  ```
-
-::: tip
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsAutocomplete from 'vs-autocomplete'`
-  & add in `components:{VsAutocomplete}` and use it within component, without globally installing in plugin folder.
-
-:::
-
 ## Props
 
 | Name      | Type    | Default | Description                                                        |

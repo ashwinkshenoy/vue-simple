@@ -106,67 +106,6 @@ app.use(VsMenu.plugin);
 </script>
 ```
 
-### Nuxt.js
-
-After installation,
-
-- Create a file `/plugins/vs-menu.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsMenu from '@vuesimple/vs-menu';
-
-  Vue.component('vs-menu', VsMenu);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-menu', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-menu :items="items" v-model="selectedItem" @item-selected="onItemSelected">Menu</vs-menu>
-  </template>
-
-  <script>
-    export default {
-      data() {
-        return {
-          items: [
-            { label: 'Item 1', key: 'item_1' },
-            { label: 'Item 2', key: 'item_2' },
-            { label: 'Item 3', key: 'item_3' },
-            { label: 'Item 4', key: 'item_4', disabled: true },
-            { label: 'Item 5', key: 'item_5' },
-          ],
-          selectedItem: '',
-        };
-      },
-
-      methods: {
-        onItemSelected(item) {
-          console.info('Selected Item:', item);
-        },
-      },
-    };
-  </script>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsMenu from '@vuesimple/vs-menu'`
-  & add in `component:{VsMenu}` and use it within component, without globally installing in plugin folder.
-
 ### Props
 
 | Name      | Type             | Default  | Description                                                                                               |

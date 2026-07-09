@@ -82,56 +82,6 @@ app.use(VsDatepicker.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-datepicker.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsDatepicker from '@vuesimple/vs-datepicker';
-
-  Vue.component('vs-datepicker', VsDatepicker);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-datepicker', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-datepicker
-      label="Date"
-      id="deliveryDate"
-      v-model="form.date"
-      placeholder="DD-MM-YYYY"
-      format="DD-MM-YYYY"
-    ></vs-datepicker>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsDatepicker from '@vuesimple/vs-datepicker'`
-  & add in `component:{VsDatepicker}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name          | Type                      | Default      | Description                                  |

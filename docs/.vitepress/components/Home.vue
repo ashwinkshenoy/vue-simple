@@ -66,7 +66,8 @@
         margin-top: 0;
         &.small {
           font-size: 20px;
-          font-weight: 300;
+          font-weight: 400;
+          color: #6c6c6c;
         }
       }
     }

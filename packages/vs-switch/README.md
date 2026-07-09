@@ -74,10 +74,6 @@ app.use(VsSwitch.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
 ### ⚙ Props
 
 | Name           | Type    | Default   | Description                                                 |

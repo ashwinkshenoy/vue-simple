@@ -73,59 +73,7 @@ npm i @vuesimple/vs-toast
 
 <br />
 
-## Nuxt.js
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-toast.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsToast from '@vuesimple/vs-toast';
-
-  Vue.component('vs-toast', VsToast);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-toast', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-```html
-<script>
-  export default {
-    methods: {
-      showToast() {
-        VsToast.show({
-          title: 'Success Title',
-          message: 'Success message',
-          variant: 'success',
-        });
-      },
-    },
-  };
-</script>
-```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsToast from '@vuesimple/vs-toast'`
-  & add in `component:{VsToast}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
-## Options
+## Props
 
 | Name      | Type    | Default      | Description                                                                                                |
 | --------- | ------- | ------------ | ---------------------------------------------------------------------------------------------------------- |

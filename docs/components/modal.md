@@ -91,66 +91,6 @@ app.use(VsModal.plugin);
 </script>
 ```
 
-## Nuxt.js
-
-Nuxt Demo - Code Sandbox: [Link](https://codesandbox.io/s/vs-modal-nuxt-w35gj)
-
-After installation,
-
-- Create a file `/plugins/vs-modal.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsModal from '@vuesimple/vs-modal';
-
-  Vue.component('vs-modal', VsModal);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-modal', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <button size="sm" @click="openModal('modal1')">Basic Modal</button>
-
-    <client-only>
-      <vs-modal ref="modal1" title="Funny, Modal Works 🥳"> Hello Peeps from V-Simple-Modal!! </vs-modal>
-    </client-only>
-  </template>
-
-  <script>
-    export default {
-      methods: {
-        openModal(ref) {
-          this.$refs[ref].open();
-        },
-
-        closeModal(ref) {
-          this.$refs[ref].close();
-        },
-      },
-    };
-  </script>
-  ```
-
-::: tip
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import VsModal from '@vuesimple/vs-modal'`
-  & add in `component:{VsModal}` and use it within component, without globally installing in plugin folder.
-
-:::
-
 ## Props
 
 | Name              | Type    | Default                     | Description                                                                                                                                                                               |

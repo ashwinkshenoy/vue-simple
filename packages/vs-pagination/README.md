@@ -70,50 +70,6 @@ app.use(VsPagination.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-pagination.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import VsPagination from '@vuesimple/vs-pagination';
-
-  Vue.component('vs-pagination', VsPagination);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-pagination', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-pagination :total-pages="20" @change="changePage"></vs-pagination>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag if you are facing ssr issues.
-- You can also do
-  `import VsPagination from '@vuesimple/vs-pagination'`
-  & add in `component:{VsPagination}` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 | Name           | Type    | Default | Description                                                                              |

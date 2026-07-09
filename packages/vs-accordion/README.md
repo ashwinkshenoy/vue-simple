@@ -99,64 +99,6 @@ app.use(VsAccordion.plugin);
 
 <br />
 
-<h3> 
-  <img src="https://i.imgur.com/MWynQNa.png" width="20px"> Nuxt.js
-</h3>
-
-Nuxt Code Snippet
-
-After installation,
-
-- Create a file `/plugins/vs-accordion.js`
-
-  ```javascript
-  import Vue from 'vue';
-  import { VsAccordion, VsAccordionItem } from '@vuesimple/vs-accordion';
-
-  Vue.component('vs-accordion', VsTag);
-  ```
-
-- Update `nuxt.config.js`
-  ```javascript
-  module.exports = {
-    ...
-    plugins: [
-      { src: '~plugins/vs-accordion', mode: 'client' }
-      ...
-    ]
-  }
-  ```
-- In the page/ component
-
-  ```html
-  <template>
-    <vs-accordion :is-box="true" is-compact>
-      <vs-accordion-item v-for="(n, index) in [1, 2, 3]" :key="index">
-        <!-- This slot will handle the title of the accordion and is the part you click on -->
-        <template slot="accordion-trigger">
-          <h4>Item {{ n }}</h4>
-        </template>
-
-        <!-- Default content -->
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </div>
-      </vs-accordion-item>
-    </vs-accordion>
-  </template>
-  ```
-
-**Note**
-
-- For older Nuxt versions, use `<no-ssr>...</no-ssr>` tag.
-- You can also do
-  `import { VsAccordion, VsAccordionItem } from '@vuesimple/vs-accordion'`
-  & add in `component:{ VsAccordion, VsAccordionItem }` and use it within component, without globally installing in plugin folder.
-
-<br />
-
 ### ⚙ Props
 
 #### VsAccordion
