@@ -172,6 +172,12 @@
         <h2>Input</h2>
         <demo-input></demo-input>
       </section>
+
+      <!-- Timeline Section -->
+      <section :id="components[15].id" class="component-section">
+        <h2>Timeline</h2>
+        <demo-timeline></demo-timeline>
+      </section>
     </main>
   </div>
 </template>
@@ -192,6 +198,7 @@
   import DemoTab from './DemoComponents/Tab.vue';
   import DemoTooltip from './DemoComponents/Tooltip.vue';
   import DemoInput from './DemoComponents/Input.vue';
+  import DemoTimeline from './DemoComponents/Timeline.vue';
 
   export default {
     name: 'App',
@@ -211,6 +218,7 @@
       DemoTab,
       DemoTooltip,
       DemoInput,
+      DemoTimeline,
     },
 
     data() {
@@ -233,6 +241,7 @@
           { id: 'tab', name: 'Tab' },
           { id: 'tooltip', name: 'Tooltip' },
           { id: 'input', name: 'Input' },
+          { id: 'timeline', name: 'Timeline' },
         ],
       };
     },

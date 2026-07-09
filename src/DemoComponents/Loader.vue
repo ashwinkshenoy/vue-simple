@@ -15,7 +15,7 @@
       <vs-loader variant="inline" :size="10" color="green"></vs-loader>
     </div>
 
-    <h3>Skeleton - Line</h3>
+    <!-- <h3>Skeleton - Line</h3>
     <div class="box">
       <vs-loader variant="skeleton" type="line" :count="3"></vs-loader>
     </div>
@@ -43,7 +43,7 @@
         <vs-loader variant="skeleton" type="line" width="80%" size="14"></vs-loader>
         <vs-loader variant="skeleton" type="line" width="65%" size="14"></vs-loader>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
