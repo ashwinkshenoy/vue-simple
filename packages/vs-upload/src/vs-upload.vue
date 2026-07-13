@@ -411,6 +411,7 @@
     &__file-icon {
       flex-shrink: 0;
       color: var(--vs-upload-hint-color);
+      display: flex;
     }
 
     &__file-name {
