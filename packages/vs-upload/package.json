@@ -1,0 +1,41 @@
+{
+  "name": "@vuesimple/vs-upload",
+  "version": "3.1.6",
+  "description": "A simple vue file upload component with drag-and-drop support.",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "scripts": {
+    "build": "rm -rfv dist && vite build --config build/vite.config.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.54.4",
+    "vite": "^4.4.5",
+    "vue": "^3.2.37"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwinkshenoy/vue-simple.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "upload",
+    "file-upload",
+    "drag-drop",
+    "vs-upload",
+    "vue-upload"
+  ],
+  "author": "Ashwin Shenoy <ashwinkshenoy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwinkshenoy/vue-simple/issues"
+  },
+  "homepage": "https://github.com/ashwinkshenoy/vue-simple"
+}

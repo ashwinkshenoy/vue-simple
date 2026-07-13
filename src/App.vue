@@ -178,6 +178,12 @@
         <h2>Timeline</h2>
         <demo-timeline></demo-timeline>
       </section>
+
+      <!-- Upload Section -->
+      <section :id="components[16].id" class="component-section">
+        <h2>Upload</h2>
+        <demo-upload></demo-upload>
+      </section>
     </main>
   </div>
 </template>
@@ -199,6 +205,7 @@
   import DemoTooltip from './DemoComponents/Tooltip.vue';
   import DemoInput from './DemoComponents/Input.vue';
   import DemoTimeline from './DemoComponents/Timeline.vue';
+  import DemoUpload from './DemoComponents/Upload.vue';
 
   export default {
     name: 'App',
@@ -219,6 +226,7 @@
       DemoTooltip,
       DemoInput,
       DemoTimeline,
+      DemoUpload,
     },
 
     data() {
@@ -242,6 +250,7 @@
           { id: 'tooltip', name: 'Tooltip' },
           { id: 'input', name: 'Input' },
           { id: 'timeline', name: 'Timeline' },
+          { id: 'upload', name: 'Upload' },
         ],
       };
     },

@@ -147,7 +147,11 @@ h3::after {
   ul {
     list-style: none;
     padding-left: 0;
-    margin: 0;
+    margin-bottom: 0;
+
+    li {
+      margin-top: initial;
+    }
   }
 
   a {

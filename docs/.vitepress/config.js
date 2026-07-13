@@ -66,9 +66,13 @@ export default {
     search: {
       provider: 'algolia',
       options: {
-        appId: 'BH4D9OD16A',
-        apiKey: '6d990b86d8298fb9ab5f36102aecf449',
+        // appId: 'BH4D9OD16A',
+        // apiKey: '6d990b86d8298fb9ab5f36102aecf449',
+        // indexName: 'vuesimple',
+        container: '#docsearch',
+        appId: 'N00SKFI1B6',
         indexName: 'vuesimple',
+        apiKey: '90c910b6cd12631e750fb285b098de22',
       },
     },
 
