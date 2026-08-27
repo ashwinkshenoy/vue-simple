@@ -1,6 +1,6 @@
 {
   "name": "@vuesimple/vs-tooltip",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "description": "An accessible tooltip component for Vue 3.",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
@@ -13,8 +13,8 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.54.4",
     "vite": "^4.4.5",
-    "vue": "^3.2.37",
-    "vite-plugin-css-injected-by-js": "^4.0.1"
+    "vite-plugin-css-injected-by-js": "^4.0.1",
+    "vue": "^3.2.37"
   },
   "private": false,
   "repository": {
