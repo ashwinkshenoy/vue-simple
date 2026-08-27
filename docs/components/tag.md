@@ -68,15 +68,16 @@ app.use(VsTag.plugin);
 
 ## Props
 
-| Name     | Type    | Default  | Description                                                            |
-| -------- | ------- | -------- | ---------------------------------------------------------------------- |
-| variant  | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
-| size     | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
-| is-bold  | Boolean | `true`   | Bold text for tag.                                                     |
-| is-pill  | Boolean | `medium` | Applies pill styling                                                   |
-| is-round | Boolean | `medium` | Applies styles to round the tag                                        |
-| bg-color | String  | -        | Applies hex/rgb/text color to tags background color                    |
-| is-close | Boolean | `false`  | Show close button                                                      |
+| Name       | Type    | Default  | Description                                                            |
+| ---------- | ------- | -------- | ---------------------------------------------------------------------- |
+| variant    | String  | -        | Type of tag to be shown. (`primary`, `secondary`, `warning`, `danger`) |
+| size       | String  | `medium` | Size of tag. (`small`, `medium`, `large`)                              |
+| is-bold    | Boolean | `true`   | Bold text for tag.                                                     |
+| is-pill    | Boolean | `medium` | Applies pill styling                                                   |
+| is-round   | Boolean | `medium` | Applies styles to round the tag                                        |
+| bg-color   | String  | -        | Applies hex/rgb/text color to tags background color                    |
+| text-color | String  | -        | Applies hex/rgb/text color to tags text color                          |
+| is-close   | Boolean | `false`  | Show close button                                                      |
 
 <br />
 

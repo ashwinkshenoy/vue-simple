@@ -2,9 +2,9 @@ import vue from '@vitejs/plugin-vue';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default {
-  plugins: [vue(), cssInjectedByJsPlugin()],
+  plugins: [vue(), cssInjectedByJsPlugin({ styleId: 'vs-upload-styles' })],
   build: {
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     lib: {
       entry: './src/index.js',
       formats: ['es', 'umd', 'iife'],

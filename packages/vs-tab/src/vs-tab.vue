@@ -402,7 +402,7 @@
     }
 
     &__panel {
-      font-size: 14px;
+      font-size: inherit;
       line-height: 1.5;
     }
 
