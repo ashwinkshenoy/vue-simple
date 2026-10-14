@@ -23,7 +23,6 @@
         ]"
         :disabled="disabled"
         @click="!disabled ? setSelectEnv() : null"
-        @keydown.space.prevent="!disabled ? setSelectEnv() : null"
         @keyup.esc="!disabled ? (isMenuHidden = true) : null"
         v-model="inputValue"
         :readonly="isReadonly"
@@ -147,11 +146,11 @@
 
     computed: {
       selectOptions() {
-        return (
-          this.options.filter(
-            list => !this.searchTerm || new RegExp(this.searchTerm, 'i').test(this.isObject ? list.label : list),
-          ) || ''
-        );
+        const searchTerm = String(this.searchTerm).toLowerCase();
+        return this.options.filter(option => {
+          const label = this.isObject ? option.label : option;
+          return String(label).toLowerCase().includes(searchTerm);
+        });
       },
 
       isReadonly() {
@@ -412,7 +411,10 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out, background-color 0.25s ease-in-out,
+      transition:
+        border-color 0.25s ease-in-out,
+        box-shadow 0.1s ease-in-out,
+        background-color 0.25s ease-in-out,
         color 0.25s ease-in-out;
       outline: 0;
       border: 1px solid var(--vs-select-border);
@@ -602,7 +604,9 @@
 
     #{$el}__menu#{$el}--menu-hidden {
       display: inline-block;
-      transition: opacity 0.2s ease-in-out, visibility 0.2s linear 0s;
+      transition:
+        opacity 0.2s ease-in-out,
+        visibility 0.2s linear 0s;
       visibility: hidden;
       opacity: 0;
     }
