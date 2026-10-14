@@ -146,7 +146,7 @@
           { label: 'Hulk', value: 'Bruce Banner' },
           { label: 'Capt. America', value: 'Steve Rogers' },
           { label: 'Scarlet Witch', value: 'Wanda' },
-          { label: 'Star Lord', value: 'Peter Quill' },
+          { label: 'Star (Lord)', value: 'Peter Quill' },
           { label: 'Thor', value: 'thor', disabled: true },
         ],
         options3: ['group', 'sub_group', 'subject'],

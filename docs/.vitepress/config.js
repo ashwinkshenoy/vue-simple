@@ -78,11 +78,17 @@ export default {
 
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'A la carte', link: '/ala-carte' },
       { text: 'Buy Me A Coffee', link: 'https://www.buymeacoffee.com/ashwinshenoy?utm_source=vuesimple' },
       { text: 'GitHub', link: 'https://github.com/ashwinkshenoy/vue-simple' },
     ],
 
     sidebar: [
+      {
+        text: 'A la carte',
+        collapsible: false,
+        items: [{ text: 'CDN Builder', link: '/ala-carte' }],
+      },
       {
         text: 'Components',
         collapsible: false,
@@ -96,7 +102,10 @@ export default {
       {
         text: 'Utilities',
         collapsible: false,
-        items: getPages('./docs/utilities/'),
+        items: [
+          { text: 'Introduction', link: '/utilities/introduction' },
+          ...getPages('./docs/utilities/').filter(page => page.link !== '/utilities/introduction'),
+        ],
       },
     ],
   },
