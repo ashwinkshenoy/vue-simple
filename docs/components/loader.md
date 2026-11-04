@@ -68,14 +68,14 @@ app.use(VsLoader.plugin);
 
 ## Props
 
-| Name    | Type    | Default   | Description                                  |
-| ------- | ------- | --------- | -------------------------------------------- |
-| variant | String  | `pulse`   | Variants: `pulse`, `dots`, `inline`.         |
-| color   | String  | `#1f73b7` | Loader color.                                |
-| size    | Number  | `10`      | Loader size.                                 |
-| center  | Boolean | -         | Center aligns the loader wrt the parent div. |
+| Name    | Type    | Default   | Description                                      |
+| ------- | ------- | --------- | ------------------------------------------------ |
+| variant | String  | `pulse`   | Variants: `pulse`, `dots`, `inline`, `skeleton`. |
+| color   | String  | `#1f73b7` | Loader color.                                    |
+| size    | Number  | `10`      | Loader size.                                     |
+| center  | Boolean | -         | Center aligns the loader wrt the parent div.     |
 
-<!-- ## Skeleton props (`variant="skeleton"`)
+## Skeleton props (`variant="skeleton"`)
 
 | Name   | Type           | Default | Description                                                                                       |
 | ------ | -------------- | ------- | ------------------------------------------------------------------------------------------------- |
@@ -132,4 +132,4 @@ app.use(VsLoader.plugin);
 
 ```html
 <vs-loader variant="skeleton" type="line" :count="3" style="--vs-skeleton-shimmer: rgba(255,255,255,0.9)" />
-``` -->
+```
