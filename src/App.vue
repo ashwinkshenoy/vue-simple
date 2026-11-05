@@ -190,6 +190,12 @@
         <h2>Spotlight</h2>
         <demo-spotlight></demo-spotlight>
       </section>
+
+      <!-- Stepper Section -->
+      <section :id="components[18].id" class="component-section">
+        <h2>Stepper</h2>
+        <demo-stepper></demo-stepper>
+      </section>
     </main>
   </div>
 </template>
@@ -213,6 +219,7 @@
   import DemoTimeline from './DemoComponents/Timeline.vue';
   import DemoUpload from './DemoComponents/Upload.vue';
   import DemoSpotlight from './DemoComponents/Spotlight.vue';
+  import DemoStepper from './DemoComponents/Stepper.vue';
 
   export default {
     name: 'App',
@@ -235,6 +242,7 @@
       DemoTimeline,
       DemoUpload,
       DemoSpotlight,
+      DemoStepper,
     },
 
     data() {
@@ -260,6 +268,7 @@
           { id: 'timeline', name: 'Timeline' },
           { id: 'upload', name: 'Upload' },
           { id: 'spotlight', name: 'Spotlight' },
+          { id: 'stepper', name: 'Stepper' },
         ],
       };
     },
