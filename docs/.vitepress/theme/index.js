@@ -13,5 +13,15 @@ export default {
     ctx.app.component('ComponentLinks', ComponentLinks);
     ctx.app.component('ColorBox', ColorBox);
     ctx.app.component('ColorGrid', ColorGrid);
+
+    // Registered before DocSearch mounts, so this runs first. Stops Algolia's Cmd/Ctrl+K on the spotlight page only.
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', event => {
+        const isShortcut = (event.metaKey || event.ctrlKey) && String(event.key).toLowerCase() === 'k';
+        if (isShortcut && window.location.pathname.includes('/components/spotlight')) {
+          event.stopImmediatePropagation();
+        }
+      });
+    }
   },
 };

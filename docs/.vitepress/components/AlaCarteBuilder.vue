@@ -6,6 +6,7 @@
     { name: 'Accordion', package: 'vs-accordion', version: '3.1.8' },
     { name: 'Alert', package: 'vs-alert', version: '3.1.8' },
     { name: 'Button', package: 'vs-button', version: '3.1.8' },
+    { name: 'Spotlight', package: 'vs-spotlight', version: '3.1.8' },
     { name: 'Datepicker', package: 'vs-datepicker', version: '3.1.8' },
     { name: 'Input', package: 'vs-input', version: '3.1.8' },
     { name: 'Loader', package: 'vs-loader', version: '3.1.8' },

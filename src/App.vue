@@ -184,6 +184,12 @@
         <h2>Upload</h2>
         <demo-upload></demo-upload>
       </section>
+
+      <!-- Spotlight Section -->
+      <section :id="components[17].id" class="component-section">
+        <h2>Spotlight</h2>
+        <demo-spotlight></demo-spotlight>
+      </section>
     </main>
   </div>
 </template>
@@ -206,6 +212,7 @@
   import DemoInput from './DemoComponents/Input.vue';
   import DemoTimeline from './DemoComponents/Timeline.vue';
   import DemoUpload from './DemoComponents/Upload.vue';
+  import DemoSpotlight from './DemoComponents/Spotlight.vue';
 
   export default {
     name: 'App',
@@ -227,6 +234,7 @@
       DemoInput,
       DemoTimeline,
       DemoUpload,
+      DemoSpotlight,
     },
 
     data() {
@@ -251,6 +259,7 @@
           { id: 'input', name: 'Input' },
           { id: 'timeline', name: 'Timeline' },
           { id: 'upload', name: 'Upload' },
+          { id: 'spotlight', name: 'Spotlight' },
         ],
       };
     },
